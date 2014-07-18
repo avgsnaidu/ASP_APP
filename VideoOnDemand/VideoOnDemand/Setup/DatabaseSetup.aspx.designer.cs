@@ -22,6 +22,15 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.TextBox txtIPAddress;
         
         /// <summary>
+        /// rfvTxtIPAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTxtIPAddress;
+        
+        /// <summary>
         /// txtPort control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace VideoOnDemand.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPort;
+        
+        /// <summary>
+        /// rfvport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvport;
         
         /// <summary>
         /// txtDatabaseName control.
@@ -40,6 +58,15 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.TextBox txtDatabaseName;
         
         /// <summary>
+        /// rfvDatabaseName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDatabaseName;
+        
+        /// <summary>
         /// txtUserId control.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace VideoOnDemand.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUserId;
+        
+        /// <summary>
+        /// rfvUserId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserId;
         
         /// <summary>
         /// txtPassword control.
@@ -58,12 +94,30 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
+        /// rfvPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
+        
+        /// <summary>
         /// btnNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnNext;
+        protected global::System.Web.UI.WebControls.Button btnNext;
+        
+        /// <summary>
+        /// lblClickButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblClickButton;
     }
 }

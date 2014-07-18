@@ -7,16 +7,16 @@ using System.Web.UI.WebControls;
 
 namespace VideoOnDemand.Setup
 {
-    public partial class VODConfiguration : System.Web.UI.Page
+    public partial class ActiveDirectoryInfo : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void GoToSuperAdminInfo_Click(object sender, EventArgs e)
+        protected void GoToVODConfigurationPage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Setup/SuperAdminInfo.aspx");
+            Response.Redirect("~/Setup/VODConfiguration.aspx");
         }
     }
 }

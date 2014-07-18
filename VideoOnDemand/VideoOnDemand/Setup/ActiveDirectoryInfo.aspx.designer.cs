@@ -10,43 +10,43 @@
 namespace VideoOnDemand.Setup {
     
     
-    public partial class SuperAdminInfo {
+    public partial class ActiveDirectoryInfo {
         
         /// <summary>
-        /// txtUserName control.
+        /// txtADServerId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+        protected global::System.Web.UI.WebControls.TextBox txtADServerId;
         
         /// <summary>
-        /// txtPassword control.
+        /// txtADUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPassword;
+        protected global::System.Web.UI.WebControls.TextBox txtADUserName;
         
         /// <summary>
-        /// txtConfmPwd control.
+        /// txtADPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConfmPwd;
+        protected global::System.Web.UI.WebControls.TextBox txtADPassword;
         
         /// <summary>
-        /// txtMail control.
+        /// txtDomain control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMail;
+        protected global::System.Web.UI.WebControls.TextBox txtDomain;
         
         /// <summary>
         /// btnNext control.

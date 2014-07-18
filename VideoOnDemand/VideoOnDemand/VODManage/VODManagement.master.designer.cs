@@ -13,6 +13,15 @@ namespace VideoOnDemand.VODManage {
     public partial class VODManagement {
         
         /// <summary>
+        /// ulManageTop control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ulManageTop;
+        
+        /// <summary>
         /// lnkUserMang control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace VideoOnDemand.VODManage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkUserMang;
+        
+        /// <summary>
+        /// lnkGroupMang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkGroupMang;
         
         /// <summary>
         /// lnkVideoMang control.
@@ -31,15 +49,6 @@ namespace VideoOnDemand.VODManage {
         protected global::System.Web.UI.WebControls.LinkButton lnkVideoMang;
         
         /// <summary>
-        /// lnkSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkSearch;
-        
-        /// <summary>
         /// lnkArchiveListen control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace VideoOnDemand.VODManage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkArchiveListen;
+        
+        /// <summary>
+        /// lnkSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkSearch;
         
         /// <summary>
         /// VODMangContentPlaceHolder control.

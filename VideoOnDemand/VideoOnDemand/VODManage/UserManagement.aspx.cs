@@ -11,7 +11,19 @@ namespace VideoOnDemand.VODManage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        protected void lnkUserMang_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect(@"~/VODManage/UserManagement.aspx");
+            
+        }
+
+        protected void lnkVideoMang_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(@"~/VODManage/VideoManagement.aspx");
         }
     }
 }

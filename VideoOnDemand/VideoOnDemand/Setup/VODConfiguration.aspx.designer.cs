@@ -40,6 +40,24 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.TextBox txtArchiveFolder;
         
         /// <summary>
+        /// txtBackUpFolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBackUpFolder;
+        
+        /// <summary>
+        /// ddlInterval control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlInterval;
+        
+        /// <summary>
         /// txtScheduleInterval control.
         /// </summary>
         /// <remarks>
@@ -49,22 +67,13 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.TextBox txtScheduleInterval;
         
         /// <summary>
-        /// txtTime control.
+        /// ddlSimultaneous control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTime;
-        
-        /// <summary>
-        /// txtSimlVidConversions control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSimlVidConversions;
+        protected global::System.Web.UI.WebControls.DropDownList ddlSimultaneous;
         
         /// <summary>
         /// btnNext control.
@@ -73,6 +82,15 @@ namespace VideoOnDemand.Setup {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnNext;
+        protected global::System.Web.UI.WebControls.Button btnNext;
+        
+        /// <summary>
+        /// lblClickButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblClickButton;
     }
 }

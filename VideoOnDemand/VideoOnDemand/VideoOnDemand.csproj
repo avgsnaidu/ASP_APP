@@ -106,20 +106,25 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Content\css\boostrap-custom.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\combined-bootstrap.min.css" />
     <Content Include="Content\css\project-custom.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Images\sprite.png" />
+    <Content Include="Content\Images\step2.gif" />
+    <Content Include="Content\Images\step3.gif" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Images\header.png" />
     <Content Include="Content\Images\login.png" />
     <Content Include="Content\Images\logo.png" />
-    <Content Include="Content\Images\sprite.png" />
-    <Content Include="Content\Images\step2.gif" />
+    <Content Include="Content\Images\step2_o.gif" />
     <Content Include="packages.config" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Properties\PublishProfiles\VODWeb.pubxml" />
+    <None Include="Properties\PublishProfiles\VODWebTwo.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -128,10 +133,14 @@
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Setup\ActiveDirectoryInfo.aspx" />
     <Content Include="Setup\DatabaseSetup.aspx" />
     <Content Include="Setup\SuperAdminInfo.aspx" />
     <Content Include="Setup\VODConfiguration.aspx" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="VODManage\ArchiveListing.aspx" />
+    <Content Include="VODManage\GroupManagement.aspx" />
+    <Content Include="VODManage\Search.aspx" />
     <Content Include="VODManage\UserManagement.aspx" />
     <Content Include="VODManage\VideoManagement.aspx" />
     <Content Include="Web.config" />
@@ -155,8 +164,13 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Model\BAL\clsUserManagement.cs" />
+    <Compile Include="App_Code\Model\ConnectionString\ClsConnectionString.cs" />
+    <Compile Include="App_Code\Model\DAL\SqlHelper.cs" />
+    <Compile Include="App_Code\Model\DAL\clsDbConnector.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Code\Model\BAL\clsDBSetup.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -168,6 +182,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setup\ActiveDirectoryInfo.aspx.cs">
+      <DependentUpon>ActiveDirectoryInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Setup\ActiveDirectoryInfo.aspx.designer.cs">
+      <DependentUpon>ActiveDirectoryInfo.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Setup\DatabaseSetup.aspx.cs">
       <DependentUpon>DatabaseSetup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -210,6 +231,27 @@
     <Compile Include="VODMain.Master.designer.cs">
       <DependentUpon>VODMain.Master</DependentUpon>
     </Compile>
+    <Compile Include="VODManage\ArchiveListing.aspx.cs">
+      <DependentUpon>ArchiveListing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VODManage\ArchiveListing.aspx.designer.cs">
+      <DependentUpon>ArchiveListing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VODManage\GroupManagement.aspx.cs">
+      <DependentUpon>GroupManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VODManage\GroupManagement.aspx.designer.cs">
+      <DependentUpon>GroupManagement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VODManage\Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VODManage\Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
     <Compile Include="VODManage\UserManagement.aspx.cs">
       <DependentUpon>UserManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -233,6 +275,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Admin\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

@@ -13,5 +13,12 @@ namespace VideoOnDemand.Setup
         {
 
         }
+
+
+
+        protected void GoToVODDashBoard_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/VODManage/UserManagement.aspx");
+        }
     }
 }

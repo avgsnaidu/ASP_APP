@@ -3,28 +3,64 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainHeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="VODMangMasterContent" ContentPlaceHolderID="VODContentPlaceHolder" runat="server">
+  
+    <!-- Custom styles for this template -->
+  
+    
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+
+    <%--<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />--%>
+
+   
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/jquery.min.js"></script>
+    <!-- jQuery v1.11.0 -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Bootstrap v3.1.1 -->
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".dropdown-menu li a").click(function () {
+                var selText = $(this).text();
+                var selClass = $(this).children().attr('class');
+                $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+
+            });
+
+
+        });
+
+    </script>
+
+  
+
     <div id="management-top">
         <div class="container">
-            <ul>
-                <%-- <li class="active"><a href="#">User Management<span class="sprite ic-usermanagement"></span><small class="sprite arrow-down"></small></a></li>
-                <li><a href="video-management.html">Video Management<span class="sprite ic-videomanagement"></span><small class="sprite arrow-down"></small></a></li>
-                <li><a href="#">Search<span class="sprite ic-search"></span><small class="sprite arrow-down"></small></a></li>
-                <li><a href="#">Archive Listing<span class="sprite ic-archivelisting"></span><small class="sprite arrow-down"></small></a></li>--%>
+            <ul id="ulManageTop" runat="server">
 
-                <li class="active">
-                    <asp:LinkButton runat="server" ID="lnkUserMang" PostBackUrl="~/VODManage/UserManagement.aspx">User Management<span class="sprite ic-usermanagement"></span><small class="sprite arrow-down"></small> </asp:LinkButton>
+                <li runat="server">
+                    <asp:LinkButton runat="server" ID="lnkUserMang" OnClick="SelectedTheCurrentItem">User Management<span class="sprite ic-usermanagement"></span><small class="sprite arrow-down"></small> </asp:LinkButton>
                 </li>
-                <li>
-                    <asp:LinkButton runat="server" ID="lnkVideoMang" PostBackUrl="~/VODManage/VideoManagement.aspx">Video Management<span class="sprite ic-videomanagement"></span><small class="sprite arrow-down"></small></asp:LinkButton>
+                <li runat="server">
+                    <asp:LinkButton runat="server" ID="lnkGroupMang" OnClick="SelectedTheCurrentItem">Group Management<span class="sprite ic-creategroup"></span><small class="sprite arrow-down"></small></asp:LinkButton>
+                </li>
+                <li runat="server">
+                    <asp:LinkButton runat="server" ID="lnkVideoMang" OnClick="SelectedTheCurrentItem">Video Management<span class="sprite ic-videomanagement"></span><small class="sprite arrow-down"></small></asp:LinkButton>
+                </li>
+                <li runat="server">
+                    <asp:LinkButton runat="server" ID="lnkArchiveListen" OnClick="SelectedTheCurrentItem">Archive Listing<span class="sprite ic-archivelisting"></span><small class="sprite arrow-down"></small></asp:LinkButton>
+                </li>
+                <li runat="server">
+                    <asp:LinkButton runat="server" ID="lnkSearch" OnClick="SelectedTheCurrentItem">Search<span class="sprite ic-search"></span><small class="sprite arrow-down"></small></asp:LinkButton>
+                </li>
 
-                </li>
-                <li>
-                    <asp:LinkButton runat="server" ID="lnkSearch" PostBackUrl="#">Search<span class="sprite ic-search"></span><small class="sprite arrow-down"></small></asp:LinkButton>
-
-                </li>
-                <li>
-                    <asp:LinkButton runat="server" ID="lnkArchiveListen" PostBackUrl="#">Archive Listing<span class="sprite ic-archivelisting"></span><small class="sprite arrow-down"></small></asp:LinkButton>
-                </li>
 
             </ul>
         </div>

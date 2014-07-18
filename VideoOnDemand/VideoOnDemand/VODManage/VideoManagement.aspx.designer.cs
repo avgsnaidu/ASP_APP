@@ -13,75 +13,48 @@ namespace VideoOnDemand.VODManage {
     public partial class VideoManagement {
         
         /// <summary>
-        /// lnkUserMang control.
+        /// lnkAssignVidToGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkUserMang;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAssignVidToGroup;
         
         /// <summary>
-        /// lnkVideoMang control.
+        /// ddlGroupList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkVideoMang;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGroupList;
         
         /// <summary>
-        /// lnkSearch control.
+        /// btnAssign control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkSearch;
+        protected global::System.Web.UI.WebControls.Button btnAssign;
         
         /// <summary>
-        /// lnkArchiveListen control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkArchiveListen;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
-        /// lnkAll control.
+        /// grdVideoManagement control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAll;
-        
-        /// <summary>
-        /// lnkConverted control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkConverted;
-        
-        /// <summary>
-        /// lnkUnConverted control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkUnConverted;
-        
-        /// <summary>
-        /// lnkPresentlyConverting control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkPresentlyConverting;
+        protected global::System.Web.UI.HtmlControls.HtmlTable grdVideoManagement;
     }
 }

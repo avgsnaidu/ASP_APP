@@ -49,40 +49,13 @@ namespace VideoOnDemand {
         protected global::System.Web.UI.WebControls.LinkButton lnkArabic;
         
         /// <summary>
-        /// lnkDropDownMenu control.
+        /// lnkDDMUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkDropDownMenu;
-        
-        /// <summary>
-        /// btnMyAccount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnMyAccount;
-        
-        /// <summary>
-        /// btnMyVidoes control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnMyVidoes;
-        
-        /// <summary>
-        /// btnSettings control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnSettings;
+        protected global::System.Web.UI.WebControls.LinkButton lnkDDMUserName;
         
         /// <summary>
         /// btnLogout control.

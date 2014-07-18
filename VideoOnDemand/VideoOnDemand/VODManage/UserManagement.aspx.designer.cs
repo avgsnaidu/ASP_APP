@@ -13,66 +13,48 @@ namespace VideoOnDemand.VODManage {
     public partial class UserManagement {
         
         /// <summary>
-        /// lnkUserMang control.
+        /// lnkAssignUserGroup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkUserMang;
+        protected global::System.Web.UI.WebControls.LinkButton lnkAssignUserGroup;
         
         /// <summary>
-        /// lnkVideoMang control.
+        /// ddlGroupList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkVideoMang;
+        protected global::System.Web.UI.WebControls.DropDownList ddlGroupList;
         
         /// <summary>
-        /// lnkSearch control.
+        /// btnAssign control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkSearch;
+        protected global::System.Web.UI.WebControls.Button btnAssign;
         
         /// <summary>
-        /// lnkArchiveListen control.
+        /// btnCancel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkArchiveListen;
+        protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
-        /// lnkAssignVidGroup control.
+        /// gvcheckbox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAssignVidGroup;
-        
-        /// <summary>
-        /// lnkAssignGroup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAssignGroup;
-        
-        /// <summary>
-        /// lnkCreateGroup control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkCreateGroup;
+        protected global::System.Web.UI.HtmlControls.HtmlTable gvcheckbox;
     }
 }
