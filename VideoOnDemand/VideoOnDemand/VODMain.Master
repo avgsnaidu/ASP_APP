@@ -1,0 +1,102 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="VODMain.master.cs" Inherits="VideoOnDemand.VODMain" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>:: AL AIN CITY MUNCIPALITY :: </title>
+    <!-- Bootstrap core CSS -->
+    <link href="Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--Bootstrap v3.1.1-->
+
+    <!--Boostrap Custom CSS -->
+    <link href="Content/css/boostrap-custom.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="Content/css/project-custom.css" rel="stylesheet" type="text/css" />
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="Scripts/jquery.min.js"></script>
+    <!-- jQuery v1.11.0 -->
+    <script src="Scripts/bootstrap.min.js"></script>
+    <!-- Bootstrap v3.1.1 -->
+
+    <script type="text/javascript"> $(document).ready(function () { $('.dropdown-toggle').dropdown(); }); </script>
+
+
+    <asp:ContentPlaceHolder ID="MainHeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="wrapper">
+
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"></a>
+                        <h1>Video on Demand</h1>
+                        <div id="language">
+                            <asp:LinkButton runat="server" ID="lnkEnglish" PostBackUrl="#">English</asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lnkArabic" PostBackUrl="#">Arabic </asp:LinkButton>
+                        </div>
+                        <div id="user-info">
+                            <div class="dropdown">
+                                <asp:LinkButton runat="server" ID="lnkDropDownMenu" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                      Welcome, Username
+                    <span class="caret"></span>
+                                </asp:LinkButton>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="lnkDropDownMenu">
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="btnMyAccount" role="menuitem" TabIndex="-1" PostBackUrl="#"><span class="sprite ic-myaccount"></span>My Account</asp:LinkButton>
+
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="btnMyVidoes" role="menuitem" TabIndex="-1" PostBackUrl="#"><span class="sprite ic-myvideos"></span>My Videos</asp:LinkButton>
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="btnSettings" role="menuitem" TabIndex="-1" PostBackUrl="#"><span class="sprite ic-settings"></span>Settings</asp:LinkButton>
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="btnLogout" role="menuitem" TabIndex="-1" PostBackUrl="#"><span class="sprite ic-logout"></span>Logout</asp:LinkButton>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+
+            <div id="content">
+
+                <asp:ContentPlaceHolder ID="VODContentPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>

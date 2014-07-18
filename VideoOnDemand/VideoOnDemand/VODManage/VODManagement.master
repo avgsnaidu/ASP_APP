@@ -1,0 +1,41 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="VODManagement.master.cs" Inherits="VideoOnDemand.VODManage.VODManagement" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainHeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="VODMangMasterContent" ContentPlaceHolderID="VODContentPlaceHolder" runat="server">
+    <div id="management-top">
+        <div class="container">
+            <ul>
+                <%-- <li class="active"><a href="#">User Management<span class="sprite ic-usermanagement"></span><small class="sprite arrow-down"></small></a></li>
+                <li><a href="video-management.html">Video Management<span class="sprite ic-videomanagement"></span><small class="sprite arrow-down"></small></a></li>
+                <li><a href="#">Search<span class="sprite ic-search"></span><small class="sprite arrow-down"></small></a></li>
+                <li><a href="#">Archive Listing<span class="sprite ic-archivelisting"></span><small class="sprite arrow-down"></small></a></li>--%>
+
+                <li class="active">
+                    <asp:LinkButton runat="server" ID="lnkUserMang" PostBackUrl="~/VODManage/UserManagement.aspx">User Management<span class="sprite ic-usermanagement"></span><small class="sprite arrow-down"></small> </asp:LinkButton>
+                </li>
+                <li>
+                    <asp:LinkButton runat="server" ID="lnkVideoMang" PostBackUrl="~/VODManage/VideoManagement.aspx">Video Management<span class="sprite ic-videomanagement"></span><small class="sprite arrow-down"></small></asp:LinkButton>
+
+                </li>
+                <li>
+                    <asp:LinkButton runat="server" ID="lnkSearch" PostBackUrl="#">Search<span class="sprite ic-search"></span><small class="sprite arrow-down"></small></asp:LinkButton>
+
+                </li>
+                <li>
+                    <asp:LinkButton runat="server" ID="lnkArchiveListen" PostBackUrl="#">Archive Listing<span class="sprite ic-archivelisting"></span><small class="sprite arrow-down"></small></asp:LinkButton>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+    <div class="container">
+        <asp:ContentPlaceHolder ID="VODMangContentPlaceHolder" runat="server">
+
+            <!--container-->
+
+        </asp:ContentPlaceHolder>
+
+    </div>
+</asp:Content>
