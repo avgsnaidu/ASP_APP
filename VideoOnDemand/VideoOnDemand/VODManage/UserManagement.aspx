@@ -37,10 +37,10 @@
             $('#myModal1').on('show.bs.modal', function (e) {
                 var isValid = false;
                 debugger;
-                var gridView = document.getElementById('<%= gvcheckbox.ClientID %>');
+                var gridView = document.getElementById('<%= gvUserManagement.ClientID %>');
                 for (var i = 1; i < gridView.rows.length; i++) {
                     var inputs = gridView.rows[i].getElementsByTagName('input');
-                    if (inputs != null) {
+                    if (inputs != null && inputs.length>0) {
                         if (inputs[0].type == "checkbox") {
                             if (inputs[0].checked) {
                                 isValid = true;
@@ -117,9 +117,12 @@
             </div>
         </div>
         <div class="table-block clearfix col-md-12">
-                        
 
-            <table id="gvcheckbox" runat="server">
+            <asp:GridView ID="gvUserManagement" runat="server"></asp:GridView>
+
+
+
+<%--            <table id="gvcheckbox" runat="server">
                 <tr>
                     <th>User Name</th>
                     <th>Full Name </th>
@@ -172,7 +175,7 @@
                     <td>Group Name 5</td>
                     <td class="last-child"><a href="#" class="sprite edit"></a><a href="#" class="sprite delete"></a></td>
                 </tr>
-            </table>
+            </table>--%>
         </div>
     </div>
 
