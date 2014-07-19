@@ -40,7 +40,7 @@
                 var gridView = document.getElementById('<%= gvUserManagement.ClientID %>');
                 for (var i = 1; i < gridView.rows.length; i++) {
                     var inputs = gridView.rows[i].getElementsByTagName('input');
-                    if (inputs != null && inputs.length>0) {
+                    if (inputs != null && inputs.length > 0) {
                         if (inputs[0].type == "checkbox") {
                             if (inputs[0].checked) {
                                 isValid = true;
@@ -118,11 +118,25 @@
         </div>
         <div class="table-block clearfix col-md-12">
 
-            <asp:GridView ID="gvUserManagement" runat="server"></asp:GridView>
+            <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" GridLines="None">
+                <Columns>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:CheckBox ID="chkSelectUser" runat="server" />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:BoundField DataField="UserName" HeaderText="User Name" />
+                    <asp:BoundField DataField="FullName" HeaderText="Full Name" />
+                    <asp:BoundField DataField="Domain" HeaderText="Domain Name" />
+                    <asp:BoundField DataField="GroupName" HeaderText="Group Name" />
+                    <asp:TemplateField></asp:TemplateField>
+                </Columns>
+                <EditRowStyle BorderStyle="None" BorderWidth="0px" />
+            </asp:GridView>
 
 
 
-<%--            <table id="gvcheckbox" runat="server">
+            <%--            <table id="gvcheckbox" runat="server">
                 <tr>
                     <th>User Name</th>
                     <th>Full Name </th>

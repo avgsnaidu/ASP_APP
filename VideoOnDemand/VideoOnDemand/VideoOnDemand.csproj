@@ -164,6 +164,8 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Model\BAL\clsSearch.cs" />
+    <Compile Include="App_Code\Model\BAL\clsArchive.cs" />
     <Compile Include="App_Code\Model\BAL\clsUserManagement.cs" />
     <Compile Include="App_Code\Model\BAL\clsVideoManagement.cs" />
     <Compile Include="App_Code\Model\ConnectionString\ClsConnectionString.cs" />
