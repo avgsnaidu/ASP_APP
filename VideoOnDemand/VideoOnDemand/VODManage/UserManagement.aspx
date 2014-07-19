@@ -32,6 +32,75 @@
          */
 
 
+        function HighlightRow(chkB) {
+            debugger;
+            var IsChecked = chkB.checked;
+            if (IsChecked) {
+                chkB.parentElement.parentElement.style.backgroundColor = '#228b22';
+                chkB.parentElement.parentElement.style.color = 'white';
+            } else {
+                chkB.parentElement.parentElement.style.backgroundColor = 'white';
+                chkB.parentElement.parentElement.style.color = 'black';
+            }
+            var checkAll = document.getElementById('chkAll');
+
+            Parent = document.getElementById('<%= gvUserManagement.ClientID %>');
+            var items = Parent.getElementsByTagName('input');
+            if (IsChecked && (!checkAll.checked)) {
+
+
+            }
+            else {
+
+            }
+        }
+
+
+        function SelectAllCheckboxesSpecific(spanChk) {
+            var IsChecked = spanChk.checked;
+            var Chk = spanChk;
+            Parent = document.getElementById('<%= gvUserManagement.ClientID %>');
+            var items = Parent.getElementsByTagName('input');
+            for (i = 0; i < items.length; i++) {
+                if (items[i].id != Chk && items[i].type == "checkbox") {
+                    if (items[i].checked != IsChecked) {
+                        items[i].click();
+                    }
+                }
+            }
+        }
+
+
+
+        //function CheckAllEmp(Checkbox) {
+        //    var GridVwHeaderChckbox = document.getElementById("%=gvUserManagement.ClientID %>");
+        //      for (i = 1; i < GridVwHeaderChckbox.rows.length; i++) {
+        //          GridVwHeaderChckbox.rows[i].cells[0].getElementsByTagName("INPUT")[0].checked = Checkbox.checked;
+        //      }
+        //}
+
+
+        //function SelectAllCheckboxesMoreSpecific(spanChk) {
+        //    var IsChecked = spanChk.checked;
+        //    var Chk = spanChk;
+        //    Parent = document.getElementById('%= gvUserManagement.ClientID %>');
+        //    for (i = 0; i < Parent.rows.length; i++) {
+        //        debugger;
+        //        var tr = Parent.rows[i];
+        //        //var td = tr.childNodes[0];                                  
+        //        var td = tr.firstChild;
+        //        var item = td.firstChild;
+        //        if (item.id != Chk && item.type == "checkbox") {
+        //            if (item.checked != IsChecked) {
+        //                item.click();
+        //            }
+        //        }
+        //    }
+        //}
+
+
+
+
         $(document).ready(function () {
 
             $('#myModal1').on('show.bs.modal', function (e) {
@@ -60,6 +129,8 @@
 
 
     </script>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
 
     <div id="management-bottom" class="col-md-12">
         <div class="block1 clearfix">
@@ -69,7 +140,7 @@
                     <!--<li><a href="#"><span class="sprite ic-assignvideo"></span>Assign Videos to Group </a></li>-->
                     <li>
                         <%--                        <asp:LinkButton runat="server" data-toggle="modal" data-target="#myModal1" ID="LinkButton1" OnClientClick="javascript:validateCheckBoxes()"> <span class="sprite ic-assignvideo"></span>Assign Users to Group </asp:LinkButton></li>--%>
-                        <asp:LinkButton runat="server" data-toggle="modal" data-target="#myModal1" ID="lnkAssignUserGroup"> <span class="sprite ic-assignvideo"></span>Assign Users to Group </asp:LinkButton></li>
+                        <asp:LinkButton runat="server" data-toggle="modal" data-target="#myModal1" ID="lnkAssignUserGroup" OnClick="lnkAssignUserGroup_Click"> <span class="sprite ic-assignvideo"></span>Assign Users to Group </asp:LinkButton></li>
                     <!--<li><a href="#"><span class="sprite ic-creategroup"></span>Create Group </a></li>-->
                 </ul>
                 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-dismiss="modal">
@@ -114,26 +185,94 @@
                         </div>
                     </div>
                 </div>
+
+                <div id="editModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h3 id="editModalLabel">Edit Record</h3>
+                    </div>
+                    <asp:UpdatePanel ID="upEdit" runat="server">
+                        <ContentTemplate>
+                            <div class="modal-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>Country Code : 
+                            <asp:Label ID="lblCountryCode" runat="server"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Population : 
+                            <asp:TextBox ID="txtPopulation" runat="server"></asp:TextBox>
+                                            <asp:Label ID="Label1" runat="server" Text="Type Integer Value!" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Country Name:
+                            <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Continent:
+                            <asp:TextBox ID="txtContinent1" runat="server"></asp:TextBox>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <asp:Label ID="lblResult" Visible="false" runat="server"></asp:Label>
+                                <asp:Button ID="btnSave" runat="server" Text="Update" CssClass="btn btn-info" OnClick="lnkAssignUserGroup_Click" />
+                                <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
+                            </div>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="gvUserManagement" EventName="RowCommand" />
+                            <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
+                        </Triggers>
+                    </asp:UpdatePanel>
+                </div>
+
+
+
             </div>
         </div>
         <div class="table-block clearfix col-md-12">
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="UserId" OnRowCommand="gvUserManagement_RowCommand">
+                        <Columns>
+                            <asp:TemplateField HeaderText="Roles">
+                                <HeaderTemplate>
+                                    <asp:CheckBox ID="chkAll" ClientIDMode="Static" runat="server" AutoPostBack="true" OnCheckedChanged="chkAll_CheckedChanged" />
+                                    <%--<asp:CheckBox ID="chkAll" ClientIDMode="Static" onclick="javascript:SelectAllCheckboxesSpecific(this);" runat="server" AutoPostBack="true" OnCheckedChanged="chkAll_CheckedChanged" />--%>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <%--<asp:CheckBox onclick="javascript:HighlightRow(this);" ID="chkSelectUser" runat="server" EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />--%>
+                                    <asp:CheckBox ID="chkSelectUser" runat="server" EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
-            <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" GridLines="None">
-                <Columns>
-                    <asp:TemplateField>
+                            <%--<asp:TemplateField HeaderStyle-Width="10">
                         <ItemTemplate>
-                            <asp:CheckBox ID="chkSelectUser" runat="server" />
+                            <asp:CheckBox ID="chkSelectUser" runat="server" OnCheckedChanged="chkSelectUser_CheckedChanged" />
                         </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="UserName" HeaderText="User Name" />
-                    <asp:BoundField DataField="FullName" HeaderText="Full Name" />
-                    <asp:BoundField DataField="Domain" HeaderText="Domain Name" />
-                    <asp:BoundField DataField="GroupName" HeaderText="Group Name" />
-                    <asp:TemplateField></asp:TemplateField>
-                </Columns>
-                <EditRowStyle BorderStyle="None" BorderWidth="0px" />
-            </asp:GridView>
-
+                    </asp:TemplateField>--%>
+                            <asp:BoundField DataField="UserID" Visible="false" />
+                            <asp:BoundField DataField="UserName" HeaderText="User Name" />
+                            <asp:BoundField DataField="FullName" HeaderText="Full Name" />
+                            <asp:BoundField DataField="Domain" HeaderText="Domain Name" />
+                            <asp:BoundField DataField="GroupName" HeaderText="Group Name" />
+                            <asp:TemplateField HeaderText="Actions">
+                                <ItemTemplate>
+                                    
+                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Edit" CssClass="sprite delete" CommandArgument="<%Container.DataItemIndex %>" />
+                                    <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete" CssClass="sprite edit" CommandArgument="<%Container.DataItemIndex %>" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <EditRowStyle BorderStyle="None" BorderWidth="0px" />
+                    </asp:GridView>
+                </ContentTemplate>
+            </asp:UpdatePanel>
 
 
             <%--            <table id="gvcheckbox" runat="server">
