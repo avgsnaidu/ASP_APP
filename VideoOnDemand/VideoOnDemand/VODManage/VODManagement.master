@@ -20,9 +20,9 @@
 
    
     <!-- Bootstrap core JavaScript -->
-    <script src="js/jquery.min.js"></script>
+    <%--<script src="js/jquery.min.js"></script>--%>
     <!-- jQuery v1.11.0 -->
-    <script src="js/bootstrap.min.js"></script>
+    <%--<script src="js/bootstrap.min.js"></script>--%>
     <!-- Bootstrap v3.1.1 -->
 
     <script type="text/javascript">
@@ -39,7 +39,6 @@
 
     </script>
 
-  
 
     <div id="management-top">
         <div class="container">
@@ -67,6 +66,10 @@
 
     </div>
     <div class="container">
+        
+   <asp:ScriptManager ID="ScriptManagerUserManage" runat="server">
+    </asp:ScriptManager>
+
         <asp:ContentPlaceHolder ID="VODMangContentPlaceHolder" runat="server">
 
             <!--container-->

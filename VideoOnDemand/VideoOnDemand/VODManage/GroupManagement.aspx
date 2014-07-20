@@ -8,7 +8,17 @@
             }).show();
         });
 
+
+
     </script>
+
+    <script type="text/javascript">
+        function LoginFail() {
+            debugger;
+            alert('eee');
+            $('#editModal').modal();
+        }
+</script>
     <div id="management-bottom" class="col-md-12">
         <div class="block1 clearfix">
             <h2 class="col-md-3">Group Management</h2>
@@ -31,13 +41,13 @@
                                     <div class="form-group">
                                         <label for="inputEmail3" class="col-sm-4 control-label">Group&nbsp;Name<span class="required"> *</span></label>
                                         <div class="col-sm-7">
-                                            <input type="text" class="form-control textboxFormat required LettersMin3" id="txtGroupName" placeholder="Group Name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters.">
+                                            <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtGroupName" placeholder="Group Name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />
                                         </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputPassword3" class="col-sm-4 control-label">Description<span class="required"> *</span></label>
                                         <div class="col-sm-7">
-                                            <textarea class="form-control required NoEmpty" name="" cols="" rows="" placeholder="Description" data-placement="bottom" data-trigger="manual" data-content="Fields must not be empty."></textarea>
+                                            <asp:TextBox runat="server" ID="txtDescription" class="form-control required NoEmpty" name="" placeholder="Description" TextMode="MultiLine" data-placement="bottom" data-trigger="manual" data-content="Fields must not be empty."></asp:TextBox>
                                         </div>
                                     </div>
                                 </div>
@@ -46,7 +56,7 @@
                             <div class="modal-footer">
                                 <%-- <button type="submit" class="btn btn-primary" >Save</button>--%>
 
-                                <asp:Button ID="btnSave" runat="server" class="btn btn-primary" Text="Save" />
+                                <asp:Button ID="btnSave" runat="server" class="btn btn-primary" Text="Save" OnClick="btnSave_Click" />
                                 <%--<asp:LinkButton ID="btnSave" runat="server" class="btn btn-primary submit-link" Text="Save" />--%>
                                 <%--<asp:ImageButton ID="btnSave" runat="server" UseSubmitBehavior="true" class="btn btn-primary" Text="Save" />--%>
                                 <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
@@ -59,8 +69,74 @@
                 </div>
             </div>
         </div>
+            <div id="editModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h3 id="editModalLabel">Edit Record</h3>
+                </div>
+                <asp:UpdatePanel ID="upEdit" runat="server">
+                    <ContentTemplate>
+                        <div class="modal-body">
+                            <table class="table">
+                                <tr>
+                                    <td>Country Code : 
+                            <asp:Label ID="lblCountryCode" runat="server"></asp:Label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Population : 
+                            <asp:TextBox ID="txtPopulation" runat="server"></asp:TextBox>
+                                        <asp:Label ID="Label1" runat="server" Text="Type Integer Value!" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Country Name:
+                            <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Continent:
+                            <asp:TextBox ID="txtContinent1" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <asp:Label ID="lblResult" Visible="false" runat="server"></asp:Label>
+                            <asp:Button ID="btnSaveTwo" runat="server" Text="Update" CssClass="btn btn-info" OnClick="btnSave_Click" />
+                            <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
+                        </div>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="gvGroupManagement" EventName="RowCommand" />
+                        <asp:AsyncPostBackTrigger ControlID="btnSaveTwo" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
+            </div>
+
         <div class="table-block clearfix col-md-12">
-            <table>
+           <%-- <asp:UpdatePanel ID="UpdatePanelGroupMang" runat="server">
+                <ContentTemplate>--%>
+                    <asp:GridView ID="gvGroupManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="GroupId" OnRowEditing="gvGroupManagement_RowEditing"
+                        OnRowCommand="gvGroupManagement_RowCommand">
+                        <Columns>
+                            <asp:BoundField DataField="GroupId" Visible="false" />
+                            <asp:BoundField DataField="GroupName" HeaderText="Group Name" />
+                            <asp:BoundField DataField="Description" HeaderText="Description" />
+                            <asp:TemplateField HeaderText="Actions">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("GroupId")%>' />
+                                    <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("GroupId")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <EditRowStyle BorderStyle="None" BorderWidth="0px" />
+                    </asp:GridView>
+               <%-- </ContentTemplate>
+            </asp:UpdatePanel>--%>
+
+          
+            <%-- <table>
                 <tr>
 
                     <th>Group Name</th>
@@ -92,7 +168,7 @@
                     <td>Description</td>
                     <td class="last-child"><a href="#" class="sprite edit"></a><a href="#" class="sprite delete"></a></td>
                 </tr>
-            </table>
+            </table>--%>
         </div>
     </div>
 

@@ -30,7 +30,7 @@
  
          }
          */
-      
+
         function HighlightRow(chkB) {
             debugger;
             var IsChecked = chkB.checked;
@@ -130,6 +130,31 @@
 
         });
 
+
+        function CheckCheckBoxSelection() {
+            var isValid = false;
+            debugger;
+            var gridView = document.getElementById('<%= gvUserManagement.ClientID %>');
+            for (var i = 1; i < gridView.rows.length; i++) {
+                var inputs = gridView.rows[i].getElementsByTagName('input');
+                if (inputs != null && inputs.length > 0) {
+                    if (inputs[0].type == "checkbox") {
+                        if (inputs[0].checked) {
+                            isValid = true;
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            if (!isValid) {
+                alert("Please select atleast one user");
+                //return e.preventDefault() // stops modal from being shown
+                return false;
+            }
+        }
+
+
         //$(document).ready(function () {
         //    $("#tstModal").click(function () {
         //        $(".modal").modal("show");
@@ -137,10 +162,8 @@
         //});
 
     </script>
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
+   
 
-  
 
     <div id="management-bottom" class="col-md-12">
         <div class="block1 clearfix">
@@ -150,7 +173,7 @@
                     <!--<li><a href="#"><span class="sprite ic-assignvideo"></span>Assign Videos to Group </a></li>-->
                     <li>
                         <%--                        <asp:LinkButton runat="server" data-toggle="modal" data-target="#myModal1" ID="LinkButton1" OnClientClick="javascript:validateCheckBoxes()"> <span class="sprite ic-assignvideo"></span>Assign Users to Group </asp:LinkButton></li>--%>
-                        <asp:LinkButton runat="server" data-toggle="modal" data-target="#myModal1" ID="lnkAssignUserGroup" OnClick="lnkAssignUserGroup_Click"> <span class="sprite ic-assignvideo"></span>Assign Users to Group </asp:LinkButton></li>
+                        <asp:LinkButton runat="server" ID="lnkAssignUserGroup" OnClick="lnkAssignUserGroup_Click" OnClientClick="return CheckCheckBoxSelection();"> <span class="sprite ic-assignvideo"></span>Assign Users to Group </asp:LinkButton></li>
                     <!--<li><a href="#"><span class="sprite ic-creategroup"></span>Create Group </a></li>-->
                 </ul>
                 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-dismiss="modal">
@@ -166,11 +189,11 @@
                                         <label for="inputEmail3" class="col-sm-4 control-label">Select&nbsp;Group<span class="required"> *</span></label>
                                         <div class="col-sm-7">
                                             <asp:DropDownList ID="ddlGroupList" runat="server" CssClass="form-control">
-                                                <asp:ListItem Value="0" Text="Select" Selected="True" />
+                                                <%--<asp:ListItem Value="0" Text="Select" Selected="True" />
                                                 <asp:ListItem Value="1" Text="Group Name 1" />
                                                 <asp:ListItem Value="2" Text="Group Name 2" />
                                                 <asp:ListItem Value="3" Text="Group Name 3" />
-                                                <asp:ListItem Value="4" Text="Group Name 4" />
+                                                <asp:ListItem Value="4" Text="Group Name 4" />--%>
                                             </asp:DropDownList>
 
                                             <%--  <select name="" class="form-control">
@@ -186,7 +209,7 @@
 
                             </div>
                             <div class="modal-footer">
-                                <asp:Button ID="btnAssign" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Assign" />
+                                <asp:Button ID="btnAssign" runat="server" class="btn btn-primary" OnClick="btnAssign_Click" Text="Assign" />
                                 <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
 
                                 <%-- <button type="button" class="btn btn-primary" data-dismiss="modal">Assign</button>
@@ -195,8 +218,8 @@
                         </div>
                     </div>
                 </div>
-            
-            <%--    <div id="editModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+
+                <%--    <div id="editModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h3 id="editModalLabel">Edit Record</h3>
@@ -240,9 +263,7 @@
                         </Triggers>
                     </asp:UpdatePanel>
                 </div>
---%>
-
-
+                --%>
             </div>
         </div>
         <div class="table-block clearfix col-md-12">
@@ -273,8 +294,8 @@
                             <asp:BoundField DataField="GroupName" HeaderText="Group Name" />
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Edit" CssClass="sprite delete" CommandArgument="<%Container.DataItemIndex %>" />
-                                    <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete" CssClass="sprite edit" CommandArgument="<%Container.DataItemIndex %>" />
+                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Edit" CssClass="sprite delete" CommandArgument='<%#Eval("UserId")%>' />
+                                    <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete" CssClass="sprite edit" CommandArgument='<%#Eval("UserId") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
