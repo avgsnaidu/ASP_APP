@@ -30,8 +30,7 @@
  
          }
          */
-
-
+      
         function HighlightRow(chkB) {
             debugger;
             var IsChecked = chkB.checked;
@@ -102,6 +101,10 @@
 
 
         $(document).ready(function () {
+            function openModal() {
+                $('#myModal1').modal('show');
+            }
+
 
             $('#myModal1').on('show.bs.modal', function (e) {
                 var isValid = false;
@@ -127,10 +130,17 @@
 
         });
 
+        //$(document).ready(function () {
+        //    $("#tstModal").click(function () {
+        //        $(".modal").modal("show");
+        //    });
+        //});
 
     </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
+
+  
 
     <div id="management-bottom" class="col-md-12">
         <div class="block1 clearfix">
@@ -185,8 +195,8 @@
                         </div>
                     </div>
                 </div>
-
-                <div id="editModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+            
+            <%--    <div id="editModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         <h3 id="editModalLabel">Edit Record</h3>
@@ -230,7 +240,7 @@
                         </Triggers>
                     </asp:UpdatePanel>
                 </div>
-
+--%>
 
 
             </div>
@@ -263,7 +273,6 @@
                             <asp:BoundField DataField="GroupName" HeaderText="Group Name" />
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
-                                    
                                     <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Edit" CssClass="sprite delete" CommandArgument="<%Container.DataItemIndex %>" />
                                     <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete" CssClass="sprite edit" CommandArgument="<%Container.DataItemIndex %>" />
                                 </ItemTemplate>

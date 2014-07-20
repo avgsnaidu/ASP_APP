@@ -44,12 +44,16 @@ namespace VideoOnDemand.VODManage
                 //txtName.Text = HttpUtility.HtmlDecode(gvrow.Cells[4].Text);
                 //txtContinent1.Text = HttpUtility.HtmlDecode(gvrow.Cells[5].Text);
                 //lblResult.Visible = false;
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$('#editModal').modal('show');");
-                sb.Append(@"</script>");
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "EditModalScript", sb.ToString(), false);
-                //ClientScript.RegisterStartupScript(GetType(), "Select One User", sb.ToString());
+                //System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                //sb.Append(@"<script type='text/javascript'>");
+                //sb.Append("$('#editModal').modal('show');");
+                //sb.Append(@"</script>");
+                ////ScriptManager.RegisterStartupScript(this, this.GetType(), "EditModalScript", "openModal()", true);
+                //ScriptManager.RegisterStartupScript(this, this.GetType(), "EditModalScript", "<script>alert('ldldld')</script>", true);
+                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "EditModalScript", "<script>alert('ldldld')</script>", false);
+
+                ////ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "EditModalScript", sb.ToString(), false);
+                ////ClientScript.RegisterStartupScript(GetType(), "Select One User", sb.ToString());
 
             
             }
