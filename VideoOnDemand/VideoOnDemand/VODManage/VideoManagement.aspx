@@ -1,17 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManage/VODManagement.master" AutoEventWireup="true" CodeBehind="VideoManagement.aspx.cs" Inherits="VideoOnDemand.VODManage.VideoManagement" %>
 
 <asp:Content ID="VideoManagementContent" ContentPlaceHolderID="VODMangContentPlaceHolder" runat="server">
+    <script src="../Scripts/bootstrap-select.js"></script>
+    <link href="../Content/css/bootstrap-select.css" rel="stylesheet" />
 
     <script type="text/javascript">
 
+        $(document).ready(function () {
 
+            $(".selectpicker").selectpicker();
+
+        });
 
         $(document).ready(function () {
 
             $('#myModal3').on('show.bs.modal', function (e) {
                 var isValid = false;
                 debugger;
-                var gridView = document.getElementById('<%=grdVideoManagement.ClientID %>');
+                var gridView = document.getElementById('<%=gvVideoManagement.ClientID %>');
                 for (var i = 1; i < gridView.rows.length; i++) {
                     var inputs = gridView.rows[i].getElementsByTagName('input');
                     if (inputs != null) {
@@ -31,6 +37,31 @@
             })
 
         });
+
+        function CheckCheckBoxSelection() {
+            var isValid = false;
+            debugger;
+            var gridView = document.getElementById('<%= gvVideoManagement.ClientID %>');
+            for (var i = 1; i < gridView.rows.length; i++) {
+                var inputs = gridView.rows[i].getElementsByTagName('input');
+                if (inputs != null && inputs.length > 0) {
+                    if (inputs[0].type == "checkbox") {
+                        if (inputs[0].checked) {
+                            isValid = true;
+                            return true;
+                        }
+                    }
+                }
+            }
+
+            if (!isValid) {
+                alert("Please select atleast one user");
+                //return e.preventDefault() // stops modal from being shown
+                return false;
+            }
+        }
+
+
     </script>
 
 
@@ -41,11 +72,18 @@
             <div class="col-md-9">
                 <ul>
                     <li>
-                        <asp:LinkButton ID="lnkAssignVidToGroup" runat="server" data-toggle="modal" data-target="#myModal3"> <span class="sprite ic-assignvideo"></span>Assign Videos to Group </asp:LinkButton>
+                        <asp:LinkButton ID="lnkAssignVidToGroup" runat="server" OnClick="lnkAssignVidToGroup_Click" OnClientClick="return CheckCheckBoxSelection();"> <span class="sprite ic-assignvideo"></span>Assign Videos to Group </asp:LinkButton>
                     </li>
                     <li class="last">
                         <label>Filter By </label>
-                        <div class="btn-group">
+                        <asp:DropDownList ID="ddlStatus" runat="server" CssClass="selectpicker dropdownList searchBorder" >
+                            <asp:ListItem Text="All" Value="1" />
+                            <asp:ListItem Text="Converted" Value="2" />
+                            <asp:ListItem Text="Pending" Value="3" />
+                            <asp:ListItem Text="Processing" Value="4" />
+                        </asp:DropDownList>
+
+                      <%--  <div class="btn-group">
                             <button class="btn dropdown-toggle searchBorder dropbutton-align" data-toggle="dropdown">All<span class="caret"></span></button>
                             <ul class="dropdown-menu ">
                                 <li><a href="#">All      </a></li>
@@ -53,7 +91,7 @@
                                 <li><a href="#">Pending </a></li>
                                 <li><a href="#">Processing </a></li>
                             </ul>
-                        </div>
+                        </div>--%>
                     </li>
                 </ul>
                 <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -69,11 +107,7 @@
                                         <label for="inputEmail3" class="col-sm-4 control-label">Select&nbsp;Group<span class="required"> *</span></label>
                                         <div class="col-sm-7">
                                             <asp:DropDownList ID="ddlGroupList" runat="server" CssClass="form-control">
-                                                <asp:ListItem Value="0" Text="Select" Selected="True" />
-                                                <asp:ListItem Value="1" Text="Group Name 1" />
-                                                <asp:ListItem Value="2" Text="Group Name 2" />
-                                                <asp:ListItem Value="3" Text="Group Name 3" />
-                                                <asp:ListItem Value="4" Text="Group Name 4" />
+                                               
                                             </asp:DropDownList>
 
                                             <%-- <select name="" class="form-control">
@@ -103,7 +137,48 @@
 
         </div>
         <div class="table-block clearfix col-md-12">
-            <table id="grdVideoManagement" runat="server">
+
+
+               <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                <ContentTemplate>
+                    <asp:GridView ID="gvVideoManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="VIDEOID"
+                         OnRowCommand="gvVideoManagement_RowCommand">
+                        <Columns>
+                            <asp:TemplateField HeaderText="Roles">
+                                <HeaderTemplate>
+                                    <asp:CheckBox ID="chkAll" ClientIDMode="Static" runat="server" AutoPostBack="true" OnCheckedChanged="chkAll_CheckedChanged" />
+                                    <%--<asp:CheckBox ID="chkAll" ClientIDMode="Static" onclick="javascript:SelectAllCheckboxesSpecific(this);" runat="server" AutoPostBack="true" OnCheckedChanged="chkAll_CheckedChanged" />--%>
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <%--<asp:CheckBox onclick="javascript:HighlightRow(this);" ID="chkSelectUser" runat="server" EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />--%>
+                                    <asp:CheckBox ID="chkSelectUser" runat="server" EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
+                            <%--<asp:TemplateField HeaderStyle-Width="10">
+                        <ItemTemplate>
+                            <asp:CheckBox ID="chkSelectUser" runat="server" OnCheckedChanged="chkSelectUser_CheckedChanged" />
+                        </ItemTemplate>
+                    </asp:TemplateField>--%>
+                            <asp:BoundField DataField="VIDEOID" Visible="false" />
+                            <asp:BoundField DataField="FILENAME" HeaderText="Video Name" />
+                            <asp:BoundField DataField="STATUS" HeaderText="Status" />
+                            <asp:BoundField DataField="TAG" HeaderText="TAG" />
+                            <%--<asp:BoundField DataField="GroupName" HeaderText="Group Name" />--%>
+                            <asp:TemplateField HeaderText="Actions">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Edit" CssClass="sprite delete" CommandArgument='<%#Eval("VIDEOID")%>' />
+                                    <%--<asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete" CssClass="sprite edit" CommandArgument='<%#Eval("VIDEOID") %>' />--%>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <EditRowStyle BorderStyle="None" BorderWidth="0px" />
+                    </asp:GridView>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
+
+           <%-- <table id="grdVideoManagement" runat="server">
                 <tr>
                     <th>Video Name</th>
                     <th>Video Status</th>
@@ -145,7 +220,7 @@
                     <td>Root, Area, Place ...</td>
                 </tr>
             </table>
-        </div>
+       --%> </div>
     </div>
 
 

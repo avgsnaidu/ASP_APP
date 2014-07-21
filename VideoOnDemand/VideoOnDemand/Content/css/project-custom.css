@@ -145,6 +145,14 @@ a#lnkDropDownMenu.btn {
     border-color: #ee3241 !important;
 }
 
+
+.searchBorder button,.searchBorder open button,.searchBorder hover{
+    background-color: #ec3140;
+    color: white;
+}
+
+ 
+
 .dropdown-menu.showApparance {
     background-color: red;
 }
@@ -207,6 +215,7 @@ a#lnkDropDownMenu.btn {
     z-index: 9999;
     position: fixed;
 }
+
 
 
 

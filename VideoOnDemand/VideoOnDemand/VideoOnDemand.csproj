@@ -105,6 +105,7 @@
   <ItemGroup>
     <Content Include="Account\Login.aspx" />
     <Content Include="Content\css\boostrap-custom.css" />
+    <Content Include="Content\css\bootstrap-select.css" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\combined-bootstrap.min.css" />
     <Content Include="Content\css\project-custom.css" />
@@ -126,6 +127,7 @@
     <None Include="Properties\PublishProfiles\VODWeb.pubxml" />
     <None Include="Properties\PublishProfiles\VODWebTwo.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap-select.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\html5shiv.js" />
