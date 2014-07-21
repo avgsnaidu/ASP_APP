@@ -42,26 +42,26 @@
                                 <h4 class="modal-title" id="myModalLabel">Create Group</h4>
 
                             </div>
-                              <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                 <ContentTemplate>
-                            <div class="modal-body">
-                                <div class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-4 control-label">Group&nbsp;Name<span class="required"> *</span></label>
-                                        <div class="col-sm-7">
-                                            <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtGroupName" placeholder="Group Name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />
+                                    <div class="modal-body">
+                                        <div class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <label for="txtGroupName" class="col-sm-4 control-label">Group&nbsp;Name<span class="required"> *</span></label>
+                                                <div class="col-sm-7">
+                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtGroupName" placeholder="Group Name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtDescription" class="col-sm-4 control-label">Description<span class="required"> *</span></label>
+                                                <div class="col-sm-7">
+                                                    <asp:TextBox runat="server" ID="txtDescription" class="form-control required NoEmpty" name="" placeholder="Description" TextMode="MultiLine" data-placement="bottom" data-trigger="manual" data-content="Fields must not be empty."></asp:TextBox>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputPassword3" class="col-sm-4 control-label">Description<span class="required"> *</span></label>
-                                        <div class="col-sm-7">
-                                            <asp:TextBox runat="server" ID="txtDescription" class="form-control required NoEmpty" name="" placeholder="Description" TextMode="MultiLine" data-placement="bottom" data-trigger="manual" data-content="Fields must not be empty."></asp:TextBox>
-                                        </div>
-                                    </div>
-                                </div>
 
-                            </div>
-                                      </ContentTemplate>
+                                    </div>
+                                </ContentTemplate>
                                 <Triggers>
                                     <asp:AsyncPostBackTrigger ControlID="gvGroupManagement" EventName="RowCommand" />
                                     <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
@@ -128,6 +128,38 @@
 
                                 <%--  <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button> --%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="deleteWarning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-dismiss="modal">
+                    <div class="modal-dialog modal-dlg-top">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+                                <h4 class="modal-title" id="H2">Delete Warning</h4>
+                            </div>
+                            <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                                <ContentTemplate>
+                                    <div class="modal-body">
+                                        <div class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <label   class="col-sm- control-label" style="width: 320px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp?.</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="gvGroupManagement" EventName="RowCommand" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnDeleteConform" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+                            <div class="modal-footer">
+                                <asp:Button ID="btnDeleteConform" runat="server" class="btn btn-primary" OnClick="btnDeleteConform_Click" Text="Delete" />
+                                <asp:Button ID="btnDeleteCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
+
                             </div>
                         </div>
                     </div>

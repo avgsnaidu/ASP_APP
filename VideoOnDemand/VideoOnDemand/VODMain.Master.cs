@@ -35,6 +35,11 @@ namespace VideoOnDemand
 
         }
 
+        protected void btnConfiguration_Click(object sender, EventArgs e)
+        {
+            Response.Redirect(@"~/Admin/Configuration.aspx");
+        }
+
         protected void btnLogout_Click(object sender, EventArgs e)
         {
             Response.Redirect(@"~/Account/Login.aspx");

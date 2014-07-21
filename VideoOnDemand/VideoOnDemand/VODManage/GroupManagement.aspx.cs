@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,7 +18,7 @@ namespace VideoOnDemand.VODManage
         {
             //if (!IsPostBack)
             //{
-                BindGroupsDetails();
+            BindGroupsDetails();
             //}
         }
 
@@ -31,13 +32,13 @@ namespace VideoOnDemand.VODManage
         protected void gvGroupManagement_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument);
-            Session["GroupID"] = "";
+            Session["GroupID"] = index;
             if (e.CommandName.Equals("Editing"))
             {
                 GridViewRow row = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 // row contains current Clicked Gridview Row
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                Session["GroupID"] = index;
+
                 txtEditGroupName.Text = row.Cells[1].Text;
                 txtEditDescription.Text = row.Cells[2].Text;
 
@@ -64,6 +65,13 @@ namespace VideoOnDemand.VODManage
             }
             else if (e.CommandName.Equals("Deleting"))
             {
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$('#deleteWarning').modal('show');");
+
+                sb.Append(@"</script>");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ShowDeleteConfirmModal", sb.ToString(), false);
 
             }
         }
@@ -100,7 +108,7 @@ namespace VideoOnDemand.VODManage
                 bool returnValue = repository.UpdateGroupDetails(Convert.ToInt32(Session["GroupID"]), txtEditGroupName.Text.Trim(), txtEditDescription.Text.Trim());
                 if (returnValue)
                 {
-                  
+
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("alert('Record Updated Successfully');");
@@ -111,6 +119,55 @@ namespace VideoOnDemand.VODManage
 
                 }
             }
+        }
+
+        protected void btnDeleteConform_Click(object sender, EventArgs e)
+        {
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            try
+            {
+                var returnValue = repository.DeleteGroup(Convert.ToInt32(Session["GroupID"]));
+                if (returnValue)
+                    BindGroupsDetails();
+
+                sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("alert('Group deleted successfully');");
+                sb.Append("$('#deleteWarning').modal('hide');");
+                sb.Append(@"</script>");
+                //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "DeleteHideModalScript", sb.ToString(), false);
+            }
+            catch (SqlException ex)
+            {
+                sb = new System.Text.StringBuilder();
+                if (ex.Number == 547)
+                {
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("alert('Group not deleted.as it is assigned to another user/video');");
+                    sb.Append("$('#deleteWarning').modal('hide');");
+                    sb.Append(@"</script>");
+                }
+                else
+                {
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("alert('Group not deleted as it is assigned to another.');");
+                    sb.Append("$('#deleteWarning').modal('hide');");
+                    sb.Append(@"</script>");
+                }
+            }
+            catch (Exception ex)
+            {
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("alert('Another object is depends on this group');");
+                sb.Append("$('#deleteWarning').modal('hide');");
+                sb.Append(@"</script>");
+
+            }
+            finally
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "DeleteHideModalScript", sb.ToString(), false);
+            }
+
         }
     }
 }

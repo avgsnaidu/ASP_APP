@@ -37,43 +37,43 @@
             <div class="column2">
                 <label>IP Address<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtIPAddress" ClientIDMode="Static" CssClass="form-control required NoEmpty" data-placement="right" data-trigger="manual" data-content="Field should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtIPAddress" ClientIDMode="Static" CssClass="form-control required NoEmpty ipformat" data-placement="right" data-trigger="manual" MaxLength="25" data-content="Enter valid ip address"></asp:TextBox>
                     <span class="sprite ip"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvTxtIPAddress" ControlToValidate="txtIPAddress" EnableClientScript="false" ValidationGroup="DbSetup" ErrorMessage="Field must not be empty values ...." ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ID="rfvTxtIPAddress" ControlToValidate="txtIPAddress" EnableClientScript="false" ValidationGroup="DbSetup" ErrorMessage="Field must not be empty" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
             <div class="column2">
                 <label>Port<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtPort" ClientIDMode="Static" CssClass="form-control required NoEmpty " data-placement="right" data-trigger="manual" data-content="Field should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtPort" ClientIDMode="Static" CssClass="form-control required NoEmpty portnumber" data-placement="right" data-trigger="manual" MaxLength="6" data-content="Enter valid port number"></asp:TextBox>
                     <span class="sprite port"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvport" ControlToValidate="txtPort" ErrorMessage="*" EnableClientScript="false" ValidationGroup="DbSetup" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ID="rfvport" ControlToValidate="txtPort" EnableClientScript="false" ValidationGroup="DbSetup" ErrorMessage="Field must not be empty" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
             <div class="column2">
                 <label>Database Name<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtDatabaseName" CssClass="form-control required NoEmpty " data-placement="right" data-trigger="manual" data-content="Field should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtDatabaseName" CssClass="form-control required NoEmpty " data-placement="right" data-trigger="manual" MaxLength="25" data-content="Field should not be empty."></asp:TextBox>
                     <span class="sprite database"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvDatabaseName" ControlToValidate="txtDatabaseName" EnableClientScript="false" ValidationGroup="DbSetup" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ID="rfvDatabaseName" ControlToValidate="txtDatabaseName" EnableClientScript="false" ValidationGroup="DbSetup" ErrorMessage="Field must not be empty" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
 
             <div class="column2">
                 <label>User ID<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtUserId" CssClass="form-control required NoEmpty " data-placement="right" data-trigger="manual" data-content="Field should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtUserId" CssClass="form-control required NoEmpty " data-placement="right" data-trigger="manual" MaxLength="15" data-content="Field should not be empty."></asp:TextBox>
                     <span class="sprite username"></span>
                 </div>
-                  <asp:RequiredFieldValidator runat="server" ID="rfvUserId" ControlToValidate="txtUserId" ValidationGroup="DbSetup" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
+                  <asp:RequiredFieldValidator runat="server" ID="rfvUserId" ControlToValidate="txtUserId" ValidationGroup="DbSetup" ErrorMessage="Field must not be empty" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
             <div class="column2">
                 <label>Password<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtPassword" CssClass="form-control required NoEmpty" data-placement="right" data-trigger="manual" data-content="Field should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control required NoEmpty" data-placement="right" data-trigger="manual" MaxLength="15" data-content="Field should not be empty."></asp:TextBox>
                    <span class="sprite password"></span>
                 </div>
-                 <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtPassword" ValidationGroup="DbSetup" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
+                 <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtPassword" ValidationGroup="DbSetup" ErrorMessage="Field must not be empty" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
                     
               
             </div>
@@ -86,7 +86,7 @@
                 </p>
                 <p class="pull-right">
 
-                    <asp:Button runat="server" ID="btnNext" ClientIDMode="Static" Width="0" Height="0" BackColor="Transparent" ValidationGroup="DbSetup" BorderWidth="0" OnClick="btnNext_ServerClick" />
+                    <asp:Button runat="server" ID="btnNext" ClientIDMode="Static" Width="0" Height="0" CausesValidation="true" BackColor="Transparent" ValidationGroup="DbSetup" BorderWidth="0" OnClick="btnNext_ServerClick" />
                     <label runat="server" id="lblClickButton" for="btnNext" class="labelButton">Next<span class="sprite ic-arrow"></span></label>
                 </p>
             </div>

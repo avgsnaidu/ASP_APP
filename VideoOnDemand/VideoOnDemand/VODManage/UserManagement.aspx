@@ -162,7 +162,7 @@
         //});
 
     </script>
-   
+
 
 
     <div id="management-bottom" class="col-md-12">
@@ -183,31 +183,39 @@
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
                                 <h4 class="modal-title" id="myModalLabel">Assign Users to Group</h4>
                             </div>
-                            <div class="modal-body">
-                                <div class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-4 control-label">Select&nbsp;Group<span class="required"> *</span></label>
-                                        <div class="col-sm-7">
-                                            <asp:DropDownList ID="ddlGroupList" runat="server" CssClass="form-control">
-                                                <%--<asp:ListItem Value="0" Text="Select" Selected="True" />
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                <ContentTemplate>
+                                    <div class="modal-body">
+                                        <div class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="col-sm-4 control-label">Select&nbsp;Group<span class="required"> *</span></label>
+                                                <div class="col-sm-7">
+                                                    <asp:DropDownList ID="ddlGroupList" runat="server" CssClass="form-control">
+                                                        <%--<asp:ListItem Value="0" Text="Select" Selected="True" />
                                                 <asp:ListItem Value="1" Text="Group Name 1" />
                                                 <asp:ListItem Value="2" Text="Group Name 2" />
                                                 <asp:ListItem Value="3" Text="Group Name 3" />
                                                 <asp:ListItem Value="4" Text="Group Name 4" />--%>
-                                            </asp:DropDownList>
+                                                    </asp:DropDownList>
 
-                                            <%--  <select name="" class="form-control">
+                                                    <%--  <select name="" class="form-control">
                                       <option disabled selected>Select group</option>
 										<option>Group Name 1</option>
 										<option>Group Name 2</option>
 										<option>Group Name 3</option>
 										<option>Group Name 4</option>
                                       </select>--%>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                            </div>
+                                    </div>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="gvUserManagement" EventName="RowCommand" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnAssign" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
                             <div class="modal-footer">
                                 <asp:Button ID="btnAssign" runat="server" class="btn btn-primary" OnClick="btnAssign_Click" Text="Assign" />
                                 <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
@@ -218,6 +226,102 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="modal fade" id="editUserGroupModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-dismiss="modal">
+                    <div class="modal-dialog modal-dlg-top">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+                                <h4 class="modal-title" id="H1">Modify User Group</h4>
+                            </div>
+                            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                <ContentTemplate>
+                                    <div class="modal-body">
+
+                                        <div class="form-horizontal" role="form">
+                                            <div class="form-group">
+
+                                                <label for="lblUserName" class="col-sm-4 control-label">Description<span class="required"> *</span></label>
+                                                <div class="col-sm-7">
+                                                    <asp:Label runat="server" ID="lblUserName" class="form-control" name=""></asp:Label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="ddlGroups" class="col-sm-4 control-label">Select&nbsp;Group<span class="required"> *</span></label>
+                                                <div class="col-sm-7">
+                                                    <asp:DropDownList ID="ddlGroupsEdit" runat="server" CssClass="form-control">
+                                                        <%--<asp:ListItem Value="0" Text="Select" Selected="True" />
+                                                <asp:ListItem Value="1" Text="Group Name 1" />
+                                                <asp:ListItem Value="2" Text="Group Name 2" />
+                                                <asp:ListItem Value="3" Text="Group Name 3" />
+                                                <asp:ListItem Value="4" Text="Group Name 4" />--%>
+                                                    </asp:DropDownList>
+
+                                                    <%--  <select name="" class="form-control">
+                                      <option disabled selected>Select group</option>
+										<option>Group Name 1</option>
+										<option>Group Name 2</option>
+										<option>Group Name 3</option>
+										<option>Group Name 4</option>
+                                      </select>--%>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="gvUserManagement" EventName="RowCommand" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnSaveEdit" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+                            <div class="modal-footer">
+                                <asp:Button ID="btnSaveEdit" runat="server" class="btn btn-primary" OnClick="btnSaveEdit_Click" Text="Assign" />
+                                <asp:Button ID="btnCancelEdit" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
+
+                                <%-- <button type="button" class="btn btn-primary" data-dismiss="modal">Assign</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>--%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="deleteWarning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-dismiss="modal">
+                    <div class="modal-dialog modal-dlg-top">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+                                <h4 class="modal-title" id="H2">Delete Warning</h4>
+                            </div>
+                            <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                                <ContentTemplate>
+                                    <div class="modal-body">
+                                        <div class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="col-sm- control-label" style="width:370px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp;from&nbsp;user ?.</label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="gvUserManagement" EventName="RowCommand" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnDeleteConform" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+                            <div class="modal-footer">
+                                <asp:Button ID="btnDeleteConform" runat="server" class="btn btn-primary" OnClick="btnDeleteConform_Click" Text="Delete" />
+                                <asp:Button ID="btnDeleteCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
+
+                                <%-- <button type="button" class="btn btn-primary" data-dismiss="modal">Assign</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>--%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
                 <%--    <div id="editModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
                     <div class="modal-header">
@@ -269,7 +373,7 @@
         <div class="table-block clearfix col-md-12">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="UserId" OnRowCommand="gvUserManagement_RowCommand">
+                    <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="UserId,GroupId" OnRowCommand="gvUserManagement_RowCommand">
                         <Columns>
                             <asp:TemplateField HeaderText="Roles">
                                 <HeaderTemplate>
@@ -294,8 +398,8 @@
                             <asp:BoundField DataField="GroupName" HeaderText="Group Name" />
                             <asp:TemplateField HeaderText="Actions">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Edit" CssClass="sprite delete" CommandArgument='<%#Eval("UserId")%>' />
-                                    <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete" CssClass="sprite edit" CommandArgument='<%#Eval("UserId") %>' />
+                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("UserId")+ ";"+ Eval("GroupId")%>' />
+                                    <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("UserId")+ ";"+ Eval("GroupId")%>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

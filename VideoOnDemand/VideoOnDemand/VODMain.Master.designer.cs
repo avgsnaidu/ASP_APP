@@ -58,6 +58,15 @@ namespace VideoOnDemand {
         protected global::System.Web.UI.WebControls.LinkButton lnkDDMUserName;
         
         /// <summary>
+        /// lnkConfiguration control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkConfiguration;
+        
+        /// <summary>
         /// btnLogout control.
         /// </summary>
         /// <remarks>

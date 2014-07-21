@@ -76,14 +76,18 @@
                     </li>
                     <li class="last">
                         <label>Filter By </label>
-                        <asp:DropDownList ID="ddlStatus" runat="server" CssClass="selectpicker dropdownList searchBorder" >
+                        <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>--%>
+                        <asp:DropDownList ID="ddlStatus" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
                             <asp:ListItem Text="All" Value="1" />
                             <asp:ListItem Text="Converted" Value="2" />
                             <asp:ListItem Text="Pending" Value="3" />
                             <asp:ListItem Text="Processing" Value="4" />
                         </asp:DropDownList>
+                        <%--                            </ContentTemplate>
+                        </asp:UpdatePanel>--%>
 
-                      <%--  <div class="btn-group">
+                        <%--  <div class="btn-group">
                             <button class="btn dropdown-toggle searchBorder dropbutton-align" data-toggle="dropdown">All<span class="caret"></span></button>
                             <ul class="dropdown-menu ">
                                 <li><a href="#">All      </a></li>
@@ -101,29 +105,36 @@
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
                                 <h4 class="modal-title" id="myModalLabel">Assign Videos to Group</h4>
                             </div>
-                            <div class="modal-body">
-                                <div class="form-horizontal" role="form">
-                                    <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-4 control-label">Select&nbsp;Group<span class="required"> *</span></label>
-                                        <div class="col-sm-7">
-                                            <asp:DropDownList ID="ddlGroupList" runat="server" CssClass="form-control">
-                                               
-                                            </asp:DropDownList>
+                            <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                <ContentTemplate>
+                                    <div class="modal-body">
+                                        <div class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <label for="inputEmail3" class="col-sm-4 control-label">Select&nbsp;Group<span class="required"> *</span></label>
+                                                <div class="col-sm-7">
+                                                    <asp:DropDownList ID="ddlGroupList" runat="server" CssClass="form-control">
+                                                    </asp:DropDownList>
 
-                                            <%-- <select name="" class="form-control">
+                                                    <%-- <select name="" class="form-control">
                                                 <option disabled selected>Select group</option>
                                                 <option>Group Name 1</option>
                                                 <option>Group Name 2</option>
                                                 <option>Group Name 3</option>
                                                 <option>Group Name 4</option>
                                             </select>--%>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
 
-                            </div>
+                                    </div>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="gvVideoManagement" EventName="RowCommand" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnAssign" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
                             <div class="modal-footer">
-                                <asp:Button ID="btnAssign" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Assign" />
+                                <asp:Button ID="btnAssign" runat="server" class="btn btn-primary" Text="Assign" OnClick="btnAssign_Click" />
                                 <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
 
                                 <%--  <button type="button" class="btn btn-primary" data-dismiss="modal">Assign</button>
@@ -139,10 +150,10 @@
         <div class="table-block clearfix col-md-12">
 
 
-               <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <asp:GridView ID="gvVideoManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="VIDEOID"
-                         OnRowCommand="gvVideoManagement_RowCommand">
+                        OnRowCommand="gvVideoManagement_RowCommand">
                         <Columns>
                             <asp:TemplateField HeaderText="Roles">
                                 <HeaderTemplate>
@@ -165,7 +176,7 @@
                             <asp:BoundField DataField="STATUS" HeaderText="Status" />
                             <asp:BoundField DataField="TAG" HeaderText="TAG" />
                             <%--<asp:BoundField DataField="GroupName" HeaderText="Group Name" />--%>
-                            <asp:TemplateField HeaderText="Actions">
+                            <asp:TemplateField HeaderText="Play">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Edit" CssClass="sprite delete" CommandArgument='<%#Eval("VIDEOID")%>' />
                                     <%--<asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete" CssClass="sprite edit" CommandArgument='<%#Eval("VIDEOID") %>' />--%>
@@ -178,7 +189,7 @@
             </asp:UpdatePanel>
 
 
-           <%-- <table id="grdVideoManagement" runat="server">
+            <%-- <table id="grdVideoManagement" runat="server">
                 <tr>
                     <th>Video Name</th>
                     <th>Video Status</th>
@@ -220,7 +231,8 @@
                     <td>Root, Area, Place ...</td>
                 </tr>
             </table>
-       --%> </div>
+            --%>
+        </div>
     </div>
 
 

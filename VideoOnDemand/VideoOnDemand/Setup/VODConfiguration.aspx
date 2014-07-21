@@ -20,31 +20,34 @@
             <div class="column2">
                 <label>Source Folder<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtSourceFolder" CssClass="form-control required LettersMin3" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtSourceFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
                     <span class="sprite source"></span>
                 </div>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtSourceFolder" ControlToValidate="txtSourceFolder" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
             <div class="column2">
                 <label>Destination Folder<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtDestFolder" CssClass="form-control required LettersMin3" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtDestFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
                     <span class="sprite destination"></span>
                 </div>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtDestFolder" ControlToValidate="txtDestFolder" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
             <div class="column2">
                 <label>Archive Folder<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtArchiveFolder" CssClass="form-control required LettersMin3" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtArchiveFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
                     <span class="sprite archive"></span>
                 </div>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtArchiveFolder" ControlToValidate="txtArchiveFolder" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
             <div class="column2">
                 <label>Backup Folder<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtBackUpFolder" CssClass="form-control required LettersMin3" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
-
+                    <asp:TextBox runat="server" ID="txtBackUpFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
                     <span class="sprite backup"></span>
                 </div>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtBackUpFolder" ControlToValidate="txtBackUpFolder" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
 
             <!--  <div class="column2">

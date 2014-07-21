@@ -62,6 +62,16 @@ namespace VideoOnDemand.Model.BAL
 
         }
 
+        public bool DeleteGroup(int groupID)
+        { 
+            string strSql = "DELETE FROM GROUPS WHERE GROUP_ID=" + groupID;
+            int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+            if (value > 0)
+                return true;
+            else return false;
+
+        }
+
 
     }
 }

@@ -20,30 +20,36 @@
             <div class="column2">
                 <label>User Name<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtUserName" CssClass="form-control required NoEmpty" data-placement="top" data-trigger="manual" data-content="Fields should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtUserName" CssClass="form-control required NoEmpty" MaxLength="15" data-placement="right" data-trigger="manual" data-content="Fields should not be empty."></asp:TextBox>
                     <span class="sprite username"></span>
                 </div>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtUserName" ControlToValidate="txtUserName" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
             <div class="column2">
                 <label>Password<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtPassword" CssClass="form-control required NoEmpty" data-placement="top" data-trigger="manual" data-content="Fields should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control required NoEmpty" MaxLength="15" data-placement="right" data-trigger="manual" data-content="Fields should not be empty."></asp:TextBox>
                     <span class="sprite password"></span>
                 </div>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtPassword" ControlToValidate="txtPassword" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
             <div class="column2">
                 <label>Re-type Password<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtConfmPwd" CssClass="form-control required NoEmpty" data-placement="top" data-trigger="manual" data-content="Fields should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtConfmPwd" TextMode="Password" CssClass="form-control required NoEmpty" MaxLength="15" data-placement="right" data-trigger="manual" data-content="Fields should not be empty."></asp:TextBox>
                     <span class="sprite password"></span>
                 </div>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtConfmPwd" ControlToValidate="txtConfmPwd" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
+                <asp:CompareValidator runat="server" ID="cvPassword" ControlToValidate="txtConfmPwd" ControlToCompare="txtPassword" Operator="Equal" Type="String" ErrorMessage="Please enter the same password as above" />
             </div>
             <div class="column2">
                 <label>Email<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtMail" CssClass="form-control required email" data-placement="top" data-trigger="manual" data-content="Enter valid email format."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtMail" CssClass="form-control required email" MaxLength="25" data-placement="right" data-trigger="manual" data-content="Enter valid email format."></asp:TextBox>
                     <span class="sprite mail"></span>
                 </div>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtMail" ControlToValidate="txtMail" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator runat="server" ID="revtxtMail" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtMail" ErrorMessage="Invalid Email Address" />
             </div>
 
 

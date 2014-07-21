@@ -19,7 +19,17 @@
             </div>
         </div>
         <div class="table-block clearfix col-md-12">
-            <table>
+               <asp:GridView ID="gvArchiveListing" runat="server"   AutoGenerateColumns="False" GridLines="None">
+                <Columns>              
+                 
+                    <asp:BoundField DataField="FILE_NAME" HeaderText="File Name" />
+                    <asp:BoundField DataField="GROUP_NAME" HeaderText="Group Name" />
+                    <asp:BoundField DataField="DESCRIPTION" HeaderText="Description" />
+                    <asp:BoundField DataField="TAGS_ENG" HeaderText="Tag" />                                
+                </Columns>
+                <EditRowStyle BorderStyle="None" BorderWidth="0px" />
+            </asp:GridView>
+            <%--<table>
                 <tr>
                     <th>Video Name</th>
                     
@@ -50,7 +60,7 @@
                     
                     <td>Root, Area, Place ...</td>
                 </tr>
-            </table>
+            </table>--%>
         </div>
     </div>
 

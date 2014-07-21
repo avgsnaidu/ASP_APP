@@ -3,36 +3,37 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VideoOnDemand.Model;
-//using VideoOnDemand.Model;
-//using VideoOnDemand.Model.DAL;
 
 namespace VideoOnDemand.Model.BAL
 {
-    public class clsDBSetup
+    public class clsVODConfiguration
     {
-        public String IPAddress { get; set; }
-        public string Port { get; set; }
-        public string DatabaseName { get; set; }
-        public string UserID { get; set; }
-        public string Password { get; set; }
+        public string SourceFolder { get; set; }
+        public string TargetFolder { get; set; }
+        public string ArchiveFolder { get; set; }
+        public string BackupFolder { get; set; }
+        public string SchedulerFlag { get; set; }
+        public int SchedulerHours { get; set; }
+
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        public bool AddDBDetails()
+        public bool AddVODConfigurationDetails()
         {
             string strSql = string.Empty;
-            strSql = string.Format("INSERT INTO DB_DETAILS (IP,PORT,NAME,USERID,PASSWORD,DATE_CREATED,DATE_UPDATED)VALUES('{0}',{1},'{2}','{3}','{4}','{5}','{6}')",
-                 IPAddress, Port, DatabaseName, UserID, Password, DateTime.Now, (DateTime?)null);
+            strSql = string.Format("INSERT INTO VOD_CONFIG (SOURCE_FOLDER,TARGET_FOLDER,ARCHIVE_FOLDER,BACKUP_FOLDER,SCHEDULER_FLAG,SCHEDULER_HOURS_INTERVAL,DATE_CREATED,DATE_UPDATED)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
+                SourceFolder, TargetFolder, ArchiveFolder, BackupFolder, SchedulerFlag, SchedulerHours, DateTime.Now, (DateTime?)null);
             int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
             if (returnVal > 0)
                 return true;
             else
                 return false;
+
         }
-        public bool GetDBDetails()
+        public bool GetVODConfigurationDetails()
         {
             string strSql = string.Empty;
-            strSql = string.Format("Select * from DB_DETAILS");
+            strSql = string.Format("Select * from VOD_CONFIG");
             int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
             if (returnVal > 0)
                 return true;

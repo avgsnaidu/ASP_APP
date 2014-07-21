@@ -21,17 +21,32 @@ namespace VideoOnDemand.Setup
             {
                 return;
             }
-            else
+            bool intResult = true;
+
+            clsDBSetup repository = new clsDBSetup();
+
+            repository.IPAddress = txtIPAddress.Text;
+            repository.Port = txtPort.Text;
+            repository.DatabaseName = txtDatabaseName.Text;
+            repository.UserID = txtUserId.Text;
+            repository.Password = txtPassword.Text;
+            repository.CreatedDate = DateTime.Now;
+            repository.ModifiedDate = DateTime.Now;
+
+            try
             {
-                repository.IPAddress = txtIPAddress.Text.Trim();
-                repository.DatabaseName = txtDatabaseName.Text.Trim();
-                repository.UserID = txtUserId.Text.Trim();
-                repository.Password = txtPassword.Text.Trim();
-                repository.Port = txtPort.Text.Trim();
-                bool IsSuccess = repository.AddDBDetails();
-                if (IsSuccess)
-                    Response.Redirect("~/Setup/ActiveDirectoryInfo.aspx");
+                intResult = repository.AddDBDetails();
+
             }
+            catch (Exception ee)
+            {
+                ee.Message.ToString();
+            }
+            finally
+            {
+                repository = null;
+            }
+            Response.Redirect("~/Setup/ActiveDirectoryInfo.aspx");
         }
     }
 }

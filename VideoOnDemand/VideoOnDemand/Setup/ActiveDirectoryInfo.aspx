@@ -21,33 +21,37 @@
             <div class="column2">
                 <label>Server ID<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtADServerId"  CssClass="form-control required LettersMin3" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtADServerId"  CssClass="form-control required LettersMin3" data-placement="right" data-trigger="manual" data-content="Enter valid server id"></asp:TextBox>
                     <span class="sprite ip"></span>
                 </div>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtADServerId" ControlToValidate="txtADServerId" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
 
 
             <div class="column2">
                 <label>User Name<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtADUserName"  CssClass="form-control required LettersMin3" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtADUserName" MaxLength="15"  CssClass="form-control required LettersMin3" data-placement="right" data-trigger="manual" data-content="Enter valid username"></asp:TextBox>
                     <span class="sprite username"></span>
                 </div>
-            </div>
+                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtADUserName" ControlToValidate="txtADUserName" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
+              </div>
             <div class="column2">
                 <label>Password<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtADPassword"  CssClass="form-control required LettersMin3" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtADPassword" TextMode="Password" MaxLength="15" CssClass="form-control required LettersMin3" data-placement="right" data-trigger="manual" data-content="Enter valid password"></asp:TextBox>
                     <span class="sprite password"></span>
                 </div>
+                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtADPassword" ControlToValidate="txtADPassword" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
 
             <div class="column2">
                 <label>Domain Name<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtDomain"  CssClass="form-control required LettersMin3" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtDomain" MaxLength="15"  CssClass="form-control required LettersMin3" data-placement="right" data-trigger="manual" data-content="Enter valid domain name"></asp:TextBox>
                     <span class="sprite port"></span>
                 </div>
+                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtDomain" ControlToValidate="txtDomain" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
             </div>
 
 

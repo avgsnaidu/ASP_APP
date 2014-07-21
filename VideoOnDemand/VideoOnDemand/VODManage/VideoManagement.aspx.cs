@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -16,12 +17,15 @@ namespace VideoOnDemand.VODManage
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-                BindVideos();
+            {
+                char status = (ddlStatus.SelectedItem.Value.ToString() != string.Empty) ? Convert.ToChar(ddlStatus.SelectedItem.Value) : '1';
+                BindVideos(status);
+            }
         }
 
-        private void BindVideos()
+        private void BindVideos(char status = '1')
         {
-            DataSet ds = repository.GetVideosList();
+            DataSet ds = repository.GetVideosList(Convert.ToChar(status));
             gvVideoManagement.DataSource = ds;
             gvVideoManagement.DataBind();
 
@@ -113,17 +117,14 @@ namespace VideoOnDemand.VODManage
                 {
                     if (!checkBox.Checked)
                     {
-                        allNotChecked = true; 
+                        allNotChecked = true;
                     }
                     else
                     {
                         row.BackColor = System.Drawing.Color.FromName("#D1DDF1");
-
-                    } 
+                    }
                 }
-                 
             }
-
             if (allNotChecked)
             {
                 if (ChkBoxHeader != null)
@@ -133,8 +134,6 @@ namespace VideoOnDemand.VODManage
             {
                 ChkBoxHeader.Checked = true;
             }
-
-
 
         }
 
@@ -147,11 +146,57 @@ namespace VideoOnDemand.VODManage
                 GridViewRow row = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 // row contains current Clicked Gridview Row
                 String VersionId = row.Cells[2].Text;
+            }
 
-                 
+        }
+
+        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            char status = (ddlStatus.SelectedItem.Value.ToString() != string.Empty) ? Convert.ToChar(ddlStatus.SelectedItem.Value) : '1';
+            BindVideos(status);
+        }
+
+        protected void btnAssign_Click(object sender, EventArgs e)
+        {
+            Session["SelectedVideosToAddGroup"] = "";
+            StringBuilder sb = new StringBuilder();
+
+            if (ddlGroupList.SelectedItem.Value == null || ddlGroupList.SelectedItem.Value == "" || ddlGroupList.SelectedItem.Value == "0")
+            {
+                string script = string.Format("<script>alert('Please select valid group Name');</script>");
+                ClientScript.RegisterStartupScript(this.GetType(), "SelectGroup", script, false);
+                return;
+            }
+            foreach (GridViewRow row in gvVideoManagement.Rows)
+            {
+                //check is any single row is selected.
+                CheckBox checkBox = (CheckBox)row.FindControl("chkSelectUser");
+                if (checkBox != null && checkBox.Checked)
+                {
+                    sb.Append(gvVideoManagement.DataKeys[row.RowIndex].Value.ToString()); sb.Append(';');
+                }
+            }
+            Session["SelectedVideosToAddGroup"] = sb.ToString();
+
+            string scriptValue = string.Format("<script>alert('checked Checkboxes {0} ');</script>", Session["SelectedVideosToAddGroup"]);
+            ClientScript.RegisterStartupScript(this.GetType(), "SelectedList", scriptValue, false);
+
+
+            if (Session["SelectedVideosToAddGroup"] != null && Session["SelectedVideosToAddGroup"].ToString() != "")
+            {
+                repository.AssignVideosToGroup(Convert.ToInt32(ddlGroupList.SelectedItem.Value), Session["SelectedVideosToAddGroup"].ToString());
+                BindVideos();
+
+                sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("alert('Added Group Successfully');");
+                sb.Append("$('#myModal3').modal('hide');");
+                sb.Append(@"</script>");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
 
             }
-           
         }
+
+
     }
 }

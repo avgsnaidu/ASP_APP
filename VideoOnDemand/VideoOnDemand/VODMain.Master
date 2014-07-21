@@ -229,6 +229,10 @@
                                         <asp:LinkButton runat="server" ID="btnSettings" role="menuitem" TabIndex="-1" PostBackUrl="#"><span class="sprite ic-settings"></span>Settings</asp:LinkButton>
                                     </li>--%>
                                     <li role="presentation" class="divider"></li>
+                                     <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="lnkConfiguration" UseSubmitBehavior="true" role="menuitem" OnClick="btnConfiguration_Click" TabIndex="-1" ><span class="sprite ic-logout"></span>Configuration</asp:LinkButton>
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
                                     <li role="presentation">
                                         <asp:LinkButton runat="server" ID="btnLogout" UseSubmitBehavior="true" role="menuitem" TabIndex="-1" OnClick="btnLogout_Click"><span class="sprite ic-logout"></span>Logout</asp:LinkButton>
                                     </li>

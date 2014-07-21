@@ -146,12 +146,19 @@ a#lnkDropDownMenu.btn {
 }
 
 
-.searchBorder button,.searchBorder open button,.searchBorder hover{
-    background-color: #ec3140;
-    color: white;
-}
+    .searchBorder button, .searchBorder open button, .searchBorder hover {
+        background-color: #ec3140;
+        color: white;
+    }
 
- 
+
+    .searchborder .btn-default:hover,  .searchborder .btn-default:focus,  .searchborder .btn-default:active, .searchborder  .btn-default.active, 
+    .searchborder .open .dropdown-toggle.btn-default {
+        background-color: #ec3140 !important;
+        color: white !important;
+    }
+
+
 
 .dropdown-menu.showApparance {
     background-color: red;
@@ -215,8 +222,6 @@ a#lnkDropDownMenu.btn {
     z-index: 9999;
     position: fixed;
 }
-
-
 
 
 /*.modal-body{overflow-y:visible;}*/

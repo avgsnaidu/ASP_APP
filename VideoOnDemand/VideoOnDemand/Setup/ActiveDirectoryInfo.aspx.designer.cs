@@ -22,6 +22,15 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.TextBox txtADServerId;
         
         /// <summary>
+        /// rfvtxtADServerId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtADServerId;
+        
+        /// <summary>
         /// txtADUserName control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace VideoOnDemand.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtADUserName;
+        
+        /// <summary>
+        /// rfvtxtADUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtADUserName;
         
         /// <summary>
         /// txtADPassword control.
@@ -40,6 +58,15 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.TextBox txtADPassword;
         
         /// <summary>
+        /// rfvtxtADPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtADPassword;
+        
+        /// <summary>
         /// txtDomain control.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace VideoOnDemand.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDomain;
+        
+        /// <summary>
+        /// rfvtxtDomain control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtDomain;
         
         /// <summary>
         /// btnNext control.

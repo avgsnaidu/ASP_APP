@@ -22,6 +22,15 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.TextBox txtSourceFolder;
         
         /// <summary>
+        /// rfvtxtSourceFolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtSourceFolder;
+        
+        /// <summary>
         /// txtDestFolder control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace VideoOnDemand.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDestFolder;
+        
+        /// <summary>
+        /// rfvtxtDestFolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtDestFolder;
         
         /// <summary>
         /// txtArchiveFolder control.
@@ -40,6 +58,15 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.TextBox txtArchiveFolder;
         
         /// <summary>
+        /// rfvtxtArchiveFolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtArchiveFolder;
+        
+        /// <summary>
         /// txtBackUpFolder control.
         /// </summary>
         /// <remarks>
@@ -47,6 +74,15 @@ namespace VideoOnDemand.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBackUpFolder;
+        
+        /// <summary>
+        /// rfvtxtBackUpFolder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtBackUpFolder;
         
         /// <summary>
         /// ddlInterval control.
