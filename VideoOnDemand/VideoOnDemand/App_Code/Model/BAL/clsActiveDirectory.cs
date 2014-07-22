@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Data;
 
 namespace VideoOnDemand.Model.BAL
 {
@@ -26,16 +27,12 @@ namespace VideoOnDemand.Model.BAL
                 return false;
 
         }
-        public bool GetADDetails()
+        public DataSet GetADDetails()
         {
             string strSql = string.Empty;
-            strSql = string.Format("Select * from ADS_DETAILS");
-            int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
-            if (returnVal > 0)
-                return true;
-            else
-                return false;
-
+            strSql = string.Format("SELECT top 1  IP,USERID,PASSWORD FROM ADS_DETAILS order by date_Created desc ");
+            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+            return ds;
         }
     }
 }

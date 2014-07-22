@@ -137,7 +137,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Setup\ActiveDirectoryInfo.aspx" />
-    <Content Include="Setup\DatabaseSetup.aspx" />
+    <Content Include="Setup\Index.aspx" />
     <Content Include="Setup\SuperAdminInfo.aspx" />
     <Content Include="Setup\VODConfiguration.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -206,12 +206,12 @@
     <Compile Include="Setup\ActiveDirectoryInfo.aspx.designer.cs">
       <DependentUpon>ActiveDirectoryInfo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Setup\DatabaseSetup.aspx.cs">
-      <DependentUpon>DatabaseSetup.aspx</DependentUpon>
+    <Compile Include="Setup\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Setup\DatabaseSetup.aspx.designer.cs">
-      <DependentUpon>DatabaseSetup.aspx</DependentUpon>
+    <Compile Include="Setup\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Setup\SuperAdminInfo.aspx.cs">
       <DependentUpon>SuperAdminInfo.aspx</DependentUpon>

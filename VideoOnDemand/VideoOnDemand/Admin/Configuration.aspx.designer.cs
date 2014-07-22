@@ -13,6 +13,15 @@ namespace VideoOnDemand.Admin {
     public partial class Configuration {
         
         /// <summary>
+        /// btnSubmit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnSubmit;
+        
+        /// <summary>
         /// lblIpAddress control.
         /// </summary>
         /// <remarks>

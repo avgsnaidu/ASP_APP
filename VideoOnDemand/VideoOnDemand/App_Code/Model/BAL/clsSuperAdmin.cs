@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VideoOnDemand.Model;
+using System.Data;
 
 namespace VideoOnDemand.Model.BAL
 {
@@ -27,16 +28,12 @@ namespace VideoOnDemand.Model.BAL
                 return false;
 
         }
-        public bool GetSuperAdminDetails()
+        public DataSet GetSuperAdminDetails()
         {
             string strSql = string.Empty;
-            strSql = string.Format("Select * from SUPER_ADMIN");
-            int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
-            if (returnVal > 0)
-                return true;
-            else
-                return false;
-
+            strSql = string.Format("SELECT top 1 USERID,PASSWORD,EMAIL FROM SUPER_ADMIN order by date_Created desc ");
+            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+            return ds;
         }
     }
 }

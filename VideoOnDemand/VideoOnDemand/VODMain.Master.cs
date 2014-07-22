@@ -27,11 +27,7 @@ namespace VideoOnDemand
                 else
                     lnkDDMUserName.Visible = false;
 
-
-
             }
-
-
 
         }
 

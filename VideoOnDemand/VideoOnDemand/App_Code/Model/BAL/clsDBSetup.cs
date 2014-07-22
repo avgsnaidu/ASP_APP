@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using VideoOnDemand.Model;
+using System.Data;
 //using VideoOnDemand.Model;
 //using VideoOnDemand.Model.DAL;
 
@@ -29,16 +30,12 @@ namespace VideoOnDemand.Model.BAL
             else
                 return false;
         }
-        public bool GetDBDetails()
+        public DataSet GetDBDetails()
         {
             string strSql = string.Empty;
-            strSql = string.Format("Select * from DB_DETAILS");
-            int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
-            if (returnVal > 0)
-                return true;
-            else
-                return false;
-
+            strSql = string.Format("SELECT top 1  IP,PORT,NAME,USERID,PASSWORD FROM DB_DETAILS order by date_Created desc ");
+            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+            return ds;
         }
 
     }

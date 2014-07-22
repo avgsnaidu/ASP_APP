@@ -10,115 +10,115 @@
 namespace VideoOnDemand.Setup {
     
     
-    public partial class VODConfiguration {
+    public partial class DatabaseSetup {
         
         /// <summary>
-        /// txtSourceFolder control.
+        /// txtIPAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSourceFolder;
+        protected global::System.Web.UI.WebControls.TextBox txtIPAddress;
         
         /// <summary>
-        /// rfvtxtSourceFolder control.
+        /// rfvTxtIPAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtSourceFolder;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTxtIPAddress;
         
         /// <summary>
-        /// txtDestFolder control.
+        /// revTxtIPAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDestFolder;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revTxtIPAddress;
         
         /// <summary>
-        /// rfvtxtDestFolder control.
+        /// txtPort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtDestFolder;
+        protected global::System.Web.UI.WebControls.TextBox txtPort;
         
         /// <summary>
-        /// txtArchiveFolder control.
+        /// rfvport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtArchiveFolder;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvport;
         
         /// <summary>
-        /// rfvtxtArchiveFolder control.
+        /// revPort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtArchiveFolder;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revPort;
         
         /// <summary>
-        /// txtBackUpFolder control.
+        /// txtDatabaseName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBackUpFolder;
+        protected global::System.Web.UI.WebControls.TextBox txtDatabaseName;
         
         /// <summary>
-        /// rfvtxtBackUpFolder control.
+        /// rfvDatabaseName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtBackUpFolder;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDatabaseName;
         
         /// <summary>
-        /// ddlInterval control.
+        /// txtUserId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlInterval;
+        protected global::System.Web.UI.WebControls.TextBox txtUserId;
         
         /// <summary>
-        /// txtScheduleInterval control.
+        /// rfvUserId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtScheduleInterval;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserId;
         
         /// <summary>
-        /// ddlSimultaneous control.
+        /// txtPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSimultaneous;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
-        /// rfvddlSimultaneous control.
+        /// rfvPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvddlSimultaneous;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
         
         /// <summary>
         /// btnNext control.

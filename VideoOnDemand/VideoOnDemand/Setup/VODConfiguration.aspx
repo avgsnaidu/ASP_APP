@@ -10,7 +10,7 @@
         <div class="col-md-12 full-width">
             <div class="navigation">
                 <ul class="step3">
-                    <li class="first-child completed edit-s"><a href="DatabaseSetup.aspx"><span>1</span>Database Setup</a></li>
+                    <li class="first-child completed edit-s"><a href="Index.aspx"><span>1</span>Database Setup</a></li>
                     <li class="completed edit-s middle-leftchild"><a href="ActiveDirectoryInfo.aspx"><span>2</span>Active Directory Details </a></li>
                     <li class="completed middle-rightchild"><a href="#"><span>3</span>VOD Configuration Details </a></li>
                     <li class="last-child"><a href="#"><span>4</span>Super Admin Info</a></li>
@@ -23,7 +23,7 @@
                     <asp:TextBox runat="server" ID="txtSourceFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
                     <span class="sprite source"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvtxtSourceFolder" ControlToValidate="txtSourceFolder" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtSourceFolder" ControlToValidate="txtSourceFolder"  ValidationGroup="ADInfo" ErrorMessage="* Please Enter Source Folder" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
             </div>
             <div class="column2">
                 <label>Destination Folder<span class="required"> *</span></label>
@@ -31,7 +31,7 @@
                     <asp:TextBox runat="server" ID="txtDestFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
                     <span class="sprite destination"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvtxtDestFolder" ControlToValidate="txtDestFolder" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtDestFolder" ControlToValidate="txtDestFolder"  ValidationGroup="ADInfo" ErrorMessage="* Please Enter Destination Folder" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
             </div>
             <div class="column2">
                 <label>Archive Folder<span class="required"> *</span></label>
@@ -39,7 +39,7 @@
                     <asp:TextBox runat="server" ID="txtArchiveFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
                     <span class="sprite archive"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvtxtArchiveFolder" ControlToValidate="txtArchiveFolder" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtArchiveFolder" ControlToValidate="txtArchiveFolder"  ValidationGroup="ADInfo" ErrorMessage="* Please Enter Archive Folder" ForeColor="#E2351D"></asp:RequiredFieldValidator>
             </div>
             <div class="column2">
                 <label>Backup Folder<span class="required"> *</span></label>
@@ -47,7 +47,7 @@
                     <asp:TextBox runat="server" ID="txtBackUpFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
                     <span class="sprite backup"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvtxtBackUpFolder" ControlToValidate="txtBackUpFolder" EnableClientScript="false" ValidationGroup="ADInfo" ErrorMessage="Field must not be empty values" ForeColor="#E2351D"> *  Field should not be empty.</asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtBackUpFolder" ControlToValidate="txtBackUpFolder"  ValidationGroup="ADInfo" ErrorMessage="* Please Enter Backup Folder" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
             </div>
 
             <!--  <div class="column2">
@@ -129,6 +129,8 @@
                         <asp:ListItem Text="4" Value="4" />
                         <asp:ListItem Text="5" Value="5" />
                     </asp:DropDownList>
+                     <asp:RequiredFieldValidator runat="server" ID="rfvddlSimultaneous" ControlToValidate="ddlSimultaneous"  ValidationGroup="ADInfo" ErrorMessage="* Please Select Video Conversion" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+
                     <%--  <select id="selectSimultaneous">
                                     <option selected>1 </option>
                                     <option>2 </option>
@@ -148,7 +150,7 @@
                     <br />
                     If you are not sure about database details, please contact your host.
                      <p class="pull-right">
-                         <asp:Button runat="server" ID="btnNext" ClientIDMode="Static" Width="0" Height="0" BackColor="Transparent" BorderWidth="0" OnClick="GoToSuperAdminInfo_Click" />
+                         <asp:Button runat="server" ID="btnNext" ClientIDMode="Static" ValidationGroup="ADInfo" CausesValidation="true" Width="0" Height="0" BackColor="Transparent" BorderWidth="0" OnClick="GoToSuperAdminInfo_Click" />
                          <label runat="server" id="lblClickButton" for="btnNext" class="labelButton">Next<span class="sprite ic-arrow"></span></label>
                          <%--    <asp:LinkButton runat="server" ID="btnNext" PostBackUrl="~/Setup/SuperAdminInfo.aspx">Next<span class="sprite ic-arrow"></span></asp:LinkButton>--%>
                      </p>

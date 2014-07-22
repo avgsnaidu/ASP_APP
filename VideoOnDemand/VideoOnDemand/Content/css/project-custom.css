@@ -218,10 +218,20 @@ a#lnkDropDownMenu.btn {
     font-weight: normal;
 }
 
-.popover {
+/*.popover {
     z-index: 9999;
     position: fixed;
+}*/
+
+
+
+.popover {
+    z-index: 9999;
+    
 }
+.popover-content { white-space:nowrap}
+
+
 
 .buttonColor {
     background-color: #ec3140;
