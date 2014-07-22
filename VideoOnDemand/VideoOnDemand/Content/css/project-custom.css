@@ -223,6 +223,10 @@ a#lnkDropDownMenu.btn {
     position: fixed;
 }
 
+.buttonColor {
+    background-color: #ec3140;
+}
+
 
 /*.modal-body{overflow-y:visible;}*/
 

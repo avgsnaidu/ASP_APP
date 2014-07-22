@@ -20,7 +20,7 @@ namespace VideoOnDemand
                 string linkButtonID = Request.RawUrl;
 
                 if (-1 < linkButtonID.IndexOf("UserManagement") || -1 < linkButtonID.IndexOf("GroupManagement") || -1 < linkButtonID.IndexOf("VideoManagement")
-                    || -1 < linkButtonID.IndexOf("Search") || -1 < linkButtonID.IndexOf("ArchiveListing"))
+                    || -1 < linkButtonID.IndexOf("Search") || -1 < linkButtonID.IndexOf("ArchiveListing") || -1 < linkButtonID.IndexOf("Configuration"))
                 {
                     lnkDDMUserName.Visible = true;
                 }

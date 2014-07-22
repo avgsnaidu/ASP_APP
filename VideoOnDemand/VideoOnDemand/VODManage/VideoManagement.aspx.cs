@@ -18,12 +18,67 @@ namespace VideoOnDemand.VODManage
         {
             if (!IsPostBack)
             {
-                char status = (ddlStatus.SelectedItem.Value.ToString() != string.Empty) ? Convert.ToChar(ddlStatus.SelectedItem.Value) : '1';
+                BindVideoStatus();
+
+                char status = (ddlStatus.SelectedItem != null && ddlStatus.SelectedValue.ToString() != string.Empty) ? Convert.ToChar(ddlStatus.SelectedItem.Value) : '0';
                 BindVideos(status);
             }
         }
 
-        private void BindVideos(char status = '1')
+        private void BindVideoStatus()
+        {
+            DataSet ds = repository.GetVideoStatus();
+
+            if (ds != null && ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow dr = ds.Tables[0].NewRow();
+                dr["StatusCode"] = 0;
+                dr["StatusName"] = "All";
+                ds.Tables[0].Rows.InsertAt(dr, 0);
+
+                ddlStatus.DataTextField = "StatusName";
+                ddlStatus.DataValueField = "StatusCode";
+
+                ddlStatus.DataSource = ds;
+                ddlStatus.DataBind();
+                 
+            }
+            else
+            {
+                var dt = new DataTable();
+                dt.Columns.Add("StatusCode");
+                dt.Columns.Add("StatusName");
+                DataRow dr = dt.NewRow();
+                dr["StatusCode"] = 0;
+                dr["StatusName"] = "All";
+                dt.Rows.InsertAt(dr, 0);
+                dr = dt.NewRow();
+                dr["StatusCode"] = 1;
+                dr["StatusName"] = "Converted";
+                dt.Rows.InsertAt(dr, 1);
+                dr = dt.NewRow();
+                dr["StatusCode"] = 2;
+                dr["StatusName"] = "Pending";
+                dt.Rows.InsertAt(dr, 2);
+                dr = dt.NewRow();
+                dr["StatusCode"] = 3;
+                dr["StatusName"] = "Processing";
+                dt.Rows.InsertAt(dr, 3);
+
+
+                ddlStatus.DataTextField = "StatusName";
+                ddlStatus.DataValueField = "StatusCode";
+
+                ddlStatus.DataSource = ds;
+                ddlStatus.DataBind();
+
+
+            }
+
+
+        }
+
+        private void BindVideos(char status = '0')
         {
             DataSet ds = repository.GetVideosList(Convert.ToChar(status));
             gvVideoManagement.DataSource = ds;

@@ -373,7 +373,8 @@
         <div class="table-block clearfix col-md-12">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="UserId,GroupId" OnRowCommand="gvUserManagement_RowCommand">
+                    <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true"
+                        GridLines="None" DataKeyNames="UserId,GroupId" OnRowCommand="gvUserManagement_RowCommand" EmptyDataText="No users to display." EmptyDataRowStyle-HorizontalAlign="Center" >
                         <Columns>
                             <asp:TemplateField HeaderText="Roles">
                                 <HeaderTemplate>
@@ -386,11 +387,7 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <%--<asp:TemplateField HeaderStyle-Width="10">
-                        <ItemTemplate>
-                            <asp:CheckBox ID="chkSelectUser" runat="server" OnCheckedChanged="chkSelectUser_CheckedChanged" />
-                        </ItemTemplate>
-                    </asp:TemplateField>--%>
+                             
                             <asp:BoundField DataField="UserID" Visible="false" />
                             <asp:BoundField DataField="UserName" HeaderText="User Name" />
                             <asp:BoundField DataField="FullName" HeaderText="Full Name" />
@@ -409,60 +406,7 @@
             </asp:UpdatePanel>
 
 
-            <%--            <table id="gvcheckbox" runat="server">
-                <tr>
-                    <th>User Name</th>
-                    <th>Full Name </th>
-                    <th>Domain Name </th>
-                    <th>Group Name</th>
-                    <th class="last-child">Actions</th>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" name="" />
-                        User Name</td>
-                    <td>Full Name </td>
-                    <td>ETG </td>
-                    <td>Group Name 1</td>
-                    <td class="last-child"><a href="#" class="sprite edit"></a><a href="#" class="sprite delete"></a></td>
-                </tr>
-                <tr class="even">
-                    <td>
-                        <input type="checkbox" name="" />
-                        User Name</td>
-                    <td>Full Name </td>
-                    <td>ETG.Net </td>
-                    <td>Group Name 2</td>
-                    <td class="last-child"><a href="#" class="sprite edit"></a><a href="#" class="sprite delete"></a></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" name="" />
-                        User Name</td>
-                    <td>Full Name </td>
-                    <td>ETG.Mobile </td>
-                    <td>Group Name 3</td>
-                    <td class="last-child"><a href="#" class="sprite edit"></a><a href="#" class="sprite delete"></a></td>
-                </tr>
-                <tr class="even">
-                    <td>
-                        <input type="checkbox" name="" />
-                        User Name</td>
-                    <td>Full Name </td>
-                    <td>ETG.PHP </td>
-                    <td>Group Name 4</td>
-                    <td class="last-child"><a href="#" class="sprite edit"></a><a href="#" class="sprite delete"></a></td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" name="" />
-                        User Name</td>
-                    <td>Full Name </td>
-                    <td>ETG.Admin </td>
-                    <td>Group Name 5</td>
-                    <td class="last-child"><a href="#" class="sprite edit"></a><a href="#" class="sprite delete"></a></td>
-                </tr>
-            </table>--%>
+           
         </div>
     </div>
 

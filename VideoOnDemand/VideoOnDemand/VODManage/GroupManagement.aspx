@@ -220,8 +220,9 @@
         <div class="table-block clearfix col-md-12">
             <%-- <asp:UpdatePanel ID="UpdatePanelGroupMang" runat="server">
                 <ContentTemplate>--%>
-            <asp:GridView ID="gvGroupManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="GroupId" OnRowEditing="gvGroupManagement_RowEditing"
-                OnRowCommand="gvGroupManagement_RowCommand">
+            <asp:GridView ID="gvGroupManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="GroupId"
+                 OnRowEditing="gvGroupManagement_RowEditing" ShowHeaderWhenEmpty="true"
+                OnRowCommand="gvGroupManagement_RowCommand" EmptyDataText="No groups found" EmptyDataRowStyle-HorizontalAlign="Center">
                 <Columns>
                     <asp:BoundField DataField="GroupId" Visible="false" />
                     <asp:BoundField DataField="GroupName" HeaderText="Group Name" />

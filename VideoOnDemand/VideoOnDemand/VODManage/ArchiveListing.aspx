@@ -19,9 +19,9 @@
             </div>
         </div>
         <div class="table-block clearfix col-md-12">
-               <asp:GridView ID="gvArchiveListing" runat="server"   AutoGenerateColumns="False" GridLines="None">
-                <Columns>              
-                 
+               <asp:GridView ID="gvArchiveListing" runat="server"   AutoGenerateColumns="False" GridLines="None" ShowHeaderWhenEmpty="true" 
+                   EmptyDataText="No archive records found"  EmptyDataRowStyle-HorizontalAlign="Center">
+                <Columns>    
                     <asp:BoundField DataField="FILE_NAME" HeaderText="File Name" />
                     <asp:BoundField DataField="GROUP_NAME" HeaderText="Group Name" />
                     <asp:BoundField DataField="DESCRIPTION" HeaderText="Description" />

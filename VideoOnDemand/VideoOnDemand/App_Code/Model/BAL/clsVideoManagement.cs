@@ -12,7 +12,11 @@ namespace VideoOnDemand.Model.BAL
         public DataSet GetVideosList(char status)
         {
             string strSql = string.Empty;
-            strSql = "SELECT VOD_ID AS VIDEOID ,FILE_NAME AS FILENAME,vs.Text AS STATUS,TAGS_ENG AS TAG FROM VOD_VIDEOS v LEFT JOIN VideoStatus vs On v.STATUS=vs.Code where v.Status='" + status + "'";
+            if (status == '0')
+                strSql = "SELECT VOD_ID AS VIDEOID ,FILE_NAME AS FILENAME,vs.StatusName AS STATUS,TAGS_ENG AS TAG FROM VOD_VIDEOS v LEFT JOIN VideoStatus vs On v.STATUS=vs.Statuscode";
+            else
+                strSql = "SELECT VOD_ID AS VIDEOID ,FILE_NAME AS FILENAME,vs.StatusName AS STATUS,TAGS_ENG AS TAG FROM VOD_VIDEOS v LEFT JOIN VideoStatus vs On v.STATUS=vs.Statuscode where v.Status='" + status + "'";
+
             DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
             return ds;
         }
@@ -34,5 +38,13 @@ namespace VideoOnDemand.Model.BAL
 
         }
 
+
+        public DataSet GetVideoStatus()
+        {
+            string strSql = string.Empty;
+            strSql = " Select Statuscode,statusName from VideoStatus";
+            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+            return ds;
+        }
     }
 }

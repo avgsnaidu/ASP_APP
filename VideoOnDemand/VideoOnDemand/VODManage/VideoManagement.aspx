@@ -78,11 +78,12 @@
                         <label>Filter By </label>
                         <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>--%>
-                        <asp:DropDownList ID="ddlStatus" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true" OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
-                            <asp:ListItem Text="All" Value="1" />
+                        <asp:DropDownList ID="ddlStatus" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
+                             OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
+                            <%--<asp:ListItem Text="All" Value="1" />
                             <asp:ListItem Text="Converted" Value="2" />
                             <asp:ListItem Text="Pending" Value="3" />
-                            <asp:ListItem Text="Processing" Value="4" />
+                            <asp:ListItem Text="Processing" Value="4" />--%>
                         </asp:DropDownList>
                         <%--                            </ContentTemplate>
                         </asp:UpdatePanel>--%>
@@ -152,8 +153,8 @@
 
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="gvVideoManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="VIDEOID"
-                        OnRowCommand="gvVideoManagement_RowCommand">
+                    <asp:GridView ID="gvVideoManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="VIDEOID" ShowHeaderWhenEmpty="true"
+                        OnRowCommand="gvVideoManagement_RowCommand" EmptyDataText="No videos to display." EmptyDataRowStyle-HorizontalAlign="Center">
                         <Columns>
                             <asp:TemplateField HeaderText="Roles">
                                 <HeaderTemplate>
@@ -166,11 +167,7 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <%--<asp:TemplateField HeaderStyle-Width="10">
-                        <ItemTemplate>
-                            <asp:CheckBox ID="chkSelectUser" runat="server" OnCheckedChanged="chkSelectUser_CheckedChanged" />
-                        </ItemTemplate>
-                    </asp:TemplateField>--%>
+                         
                             <asp:BoundField DataField="VIDEOID" Visible="false" />
                             <asp:BoundField DataField="FILENAME" HeaderText="Video Name" />
                             <asp:BoundField DataField="STATUS" HeaderText="Status" />
@@ -188,50 +185,7 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
 
-
-            <%-- <table id="grdVideoManagement" runat="server">
-                <tr>
-                    <th>Video Name</th>
-                    <th>Video Status</th>
-                    <th>Tags</th>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" name="" />
-                        Video Name</td>
-                    <td>Pending</td>
-                    <td>Root, Area, Place ...</td>
-                </tr>
-                <tr class="even">
-                    <td>
-                        <input type="checkbox" name="" />
-                        Video Name</td>
-                    <td>Converted</td>
-                    <td>Root, Area, Place ...</td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" name="" />
-                        Video Name</td>
-                    <td>Pending</td>
-                    <td>Root, Area, Place ...</td>
-                </tr>
-                <tr class="even">
-                    <td>
-                        <input type="checkbox" name="" />
-                        Video Name</td>
-                    <td>Processing</td>
-                    <td>Root, Area, Place ...</td>
-                </tr>
-                <tr>
-                    <td>
-                        <input type="checkbox" name="" />
-                        Video Name</td>
-                    <td>Converted</td>
-                    <td>Root, Area, Place ...</td>
-                </tr>
-            </table>
-            --%>
+ 
         </div>
     </div>
 

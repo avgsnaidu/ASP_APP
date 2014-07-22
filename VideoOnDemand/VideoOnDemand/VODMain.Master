@@ -21,6 +21,7 @@
 
 
 
+
     <%--<script src="Scripts/bootstrap-select.js"></script>--%>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -57,6 +58,15 @@
     <script type="text/javascript"> $(document).ready(function () { $('.dropdown-toggle').dropdown(); }); </script>
     --%>
     <script type="text/javascript">
+
+
+        //$(document).ready(function () {
+
+        //    $(".selectpicker").selectpicker();
+
+        //});
+
+
         $(document).ready(function () {
 
             /* form validation plugin */
@@ -180,7 +190,7 @@
                 });
                 return this;
             };
-            $('form').goValidate();
+            //$('form').goValidate();
 
 
 
@@ -203,7 +213,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="UserManagement.aspx"></a>
+                        <a class="navbar-brand" href="../VODManage/UserManagement.aspx"></a>
                         <h1>Video on Demand</h1>
                         <div id="language">
                             <asp:LinkButton runat="server" ID="lnkEnglish">English</asp:LinkButton>
@@ -229,8 +239,8 @@
                                         <asp:LinkButton runat="server" ID="btnSettings" role="menuitem" TabIndex="-1" PostBackUrl="#"><span class="sprite ic-settings"></span>Settings</asp:LinkButton>
                                     </li>--%>
                                     <li role="presentation" class="divider"></li>
-                                     <li role="presentation">
-                                        <asp:LinkButton runat="server" ID="lnkConfiguration" UseSubmitBehavior="true" role="menuitem" OnClick="btnConfiguration_Click" TabIndex="-1" ><span class="sprite ic-logout"></span>Configuration</asp:LinkButton>
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="lnkConfiguration" UseSubmitBehavior="true" role="menuitem" OnClick="btnConfiguration_Click" TabIndex="-1"><span class="sprite ic-logout"></span>Configuration</asp:LinkButton>
                                     </li>
                                     <li role="presentation" class="divider"></li>
                                     <li role="presentation">

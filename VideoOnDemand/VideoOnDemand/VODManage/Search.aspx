@@ -4,19 +4,33 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="VODMangContentPlaceHolder" runat="server">
 
+     <script src="../Scripts/bootstrap-select.js"></script>
+    <link href="../Content/css/bootstrap-select.css" rel="stylesheet" />
 
     <script type="text/javascript">
+
+
         $(document).ready(function () {
 
-            $(".dropdown-menu li a").click(function () {
-                var selText = $(this).text();
-                $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
-            });
-
+            $(".selectpicker").selectpicker();
 
         });
 
+        //$(document).ready(function () {
+
+        //    $(".dropdown-menu li a").click(function () {
+        //        var selText = $(this).text();
+        //        $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        //    });
+
+
+        //});
+
+
     </script>
+
+
+
 
     <%--  
     <style>
@@ -43,14 +57,24 @@
 
 
     <div id="management-bottom" class="col-md-12">
+          
         <div class="block1 block2 clearfix">
             <h2 class="col-md-3">Search</h2>
             <div class="col-md-9">
 
                 <div class="form-search pull-right">
+                    
                     <div class="input-append">
                         <input type="text" class="span2 search-query searchBorder searchTextPadingExist" style="height: inherit; min-width: 350px;" placeholder="Enter search keywords..">
-                        <div class="btn-group input-prepend">
+                        
+                         <asp:DropDownList ID="ddlStatus" runat="server" CssClass="selectpicker searchBorder input-prepend" AutoPostBack="true" Width="100px" Height="35px" >
+                            <asp:ListItem Text="All" Value="1" />
+                            <asp:ListItem Text="Area" Value="2" />
+                            <asp:ListItem Text="Community" Value="3" />
+                            <asp:ListItem Text="District" Value="4" />
+                            <asp:ListItem Text="Road" Value="4" />
+                        </asp:DropDownList>
+                        <%--<div class="btn-group input-prepend">
                             <button id="btnDropDown" class="btn dropdown-toggle searchBorder" data-toggle="dropdown">Filter By..<span class="caret"></span></button>
                             <ul class="dropdown-menu">
                                 <li><a href="#">Route </a></li>
@@ -59,8 +83,10 @@
                                 <li><a href="#">Community </a></li>
                                 <li><a href="#">District </a></li>
                             </ul>
-                        </div>
-                        <button type="submit" class="btn searchBorder btn-danger">Search <i class="icon-search"></i></button>
+                        </div>--%>
+                           
+
+                        <button type="submit" class="btn searchBorder buttonColor">Search <i class="icon-search"></i></button>
 
                     </div>
                 </div>
