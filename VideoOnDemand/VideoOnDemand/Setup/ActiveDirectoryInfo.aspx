@@ -10,7 +10,7 @@
         <div class="col-md-12 full-width">
             <div class="navigation">
                 <ul class="step2">
-                    <li class="first-child completed edit-s"><a href="Index.aspx"><span>1</span>Database Setup</a></li>
+                    <li class="first-child completed edit-s"><a href="index.aspx"><span>1</span>Database Setup</a></li>
                     <li class="completed middle-leftchild"><a href="#"><span>2</span>Active Directory Details </a></li>
                     <li class="middle-rightchild"><a href="#"><span>3</span>VOD Configuration Details </a></li>
                     <li class="last-child"><a href="#"><span>4</span>Super Admin Info</a></li>

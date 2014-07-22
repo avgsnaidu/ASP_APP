@@ -20,7 +20,7 @@
             <div class="column2">
                 <label>User Name<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtUserName" CssClass="form-control required NoEmpty" MaxLength="15" data-placement="right" data-trigger="manual" data-content="Fields should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtUserName" CssClass="form-control required NoEmpty" MaxLength="15" data-placement="right" data-trigger="manual" data-content="Please Enter Username"></asp:TextBox>
                     <span class="sprite username"></span>
                 </div>
                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtUserName" ControlToValidate="txtUserName" ValidationGroup="ADInfo" ErrorMessage="* Please Enter Username" ForeColor="#E2351D"></asp:RequiredFieldValidator>
@@ -28,7 +28,7 @@
             <div class="column2">
                 <label>Password<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control required NoEmpty" MaxLength="15" data-placement="right" data-trigger="manual" data-content="Fields should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control required NoEmpty" MaxLength="15" data-placement="right" data-trigger="manual" data-content="Please Enter Password"></asp:TextBox>
                     <span class="sprite password"></span>
                 </div>
                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtPassword" ControlToValidate="txtPassword" ValidationGroup="ADInfo" ErrorMessage="* Please Enter Password" ForeColor="#E2351D"></asp:RequiredFieldValidator>
@@ -36,7 +36,7 @@
             <div class="column2">
                 <label>Re-type Password<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtConfmPwd" TextMode="Password" CssClass="form-control required NoEmpty" MaxLength="15" data-placement="right" data-trigger="manual" data-content="Fields should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtConfmPwd" TextMode="Password" CssClass="form-control required NoEmpty" MaxLength="15" data-placement="right" data-trigger="manual" data-content="Please Enter Password"></asp:TextBox>
                     <span class="sprite password"></span>
                 </div>
                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtConfmPwd" ControlToValidate="txtConfmPwd" ValidationGroup="ADInfo" ErrorMessage="* Please Enter Password" Display="Dynamic" ForeColor="#E2351D"></asp:RequiredFieldValidator>

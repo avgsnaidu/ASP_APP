@@ -50,13 +50,13 @@
                     <span class="sprite port"></span>
                 </div>
                 <asp:RequiredFieldValidator runat="server" ID="rfvport" ControlToValidate="txtPort"  ValidationGroup="DbSetup" ErrorMessage="* Please Enter Port" ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
-             <asp:RegularExpressionValidator runat="server" ID="revPort" ValidationGroup="DbSetup" ValidationExpression="^(102[0-3]|10[0-1]\d|[1-9][0-9]{0,2}|0)$" ForeColor="Red" ControlToValidate="txtPort" Display="Dynamic"  ErrorMessage="* Invalid Port" />
+             <asp:RegularExpressionValidator runat="server" ID="revPort" ValidationGroup="DbSetup" ValidationExpression="^(102[0-4]|10[0-1]\d|[1-9][0-9]{0,3}|0)$" ForeColor="Red" ControlToValidate="txtPort" Display="Dynamic"  ErrorMessage="* Invalid Port" />
             
             </div>
             <div class="column2">
                 <label>Database Name<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtDatabaseName" CssClass="form-control required NoEmpty " data-placement="right" data-trigger="manual" MaxLength="25" data-content="Field should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtDatabaseName" CssClass="form-control required NoEmpty " data-placement="right" data-trigger="manual" MaxLength="25" data-content="Enter Valid Database"></asp:TextBox>
                     <span class="sprite database"></span>
                 </div>
                 <asp:RequiredFieldValidator runat="server" ID="rfvDatabaseName" ControlToValidate="txtDatabaseName"  ValidationGroup="DbSetup" ErrorMessage="* Please Enter Database" ForeColor="#E2351D"></asp:RequiredFieldValidator>
@@ -65,7 +65,7 @@
             <div class="column2">
                 <label>User ID<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtUserId" CssClass="form-control required NoEmpty " data-placement="right" data-trigger="manual" MaxLength="15" data-content="Field should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtUserId" CssClass="form-control required NoEmpty " data-placement="right" data-trigger="manual" MaxLength="15" data-content="Enter Valid UserId"></asp:TextBox>
                     <span class="sprite username"></span>
                 </div>
                   <asp:RequiredFieldValidator runat="server" ID="rfvUserId" ControlToValidate="txtUserId" ValidationGroup="DbSetup" ErrorMessage="* Please Enter UserId" ForeColor="#E2351D"></asp:RequiredFieldValidator>
@@ -73,7 +73,7 @@
             <div class="column2">
                 <label>Password<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control required NoEmpty" data-placement="right" data-trigger="manual" MaxLength="15" data-content="Field should not be empty."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control required NoEmpty" data-placement="right" data-trigger="manual" MaxLength="15" data-content="Enter Password"></asp:TextBox>
                    <span class="sprite password"></span>
                 </div>
                  <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtPassword" ValidationGroup="DbSetup" ErrorMessage="* Please Enter Password" ForeColor="#E2351D"></asp:RequiredFieldValidator>

@@ -10,7 +10,7 @@
         <div class="col-md-12 full-width">
             <div class="navigation">
                 <ul class="step3">
-                    <li class="first-child completed edit-s"><a href="Index.aspx"><span>1</span>Database Setup</a></li>
+                    <li class="first-child completed edit-s"><a href="index.aspx"><span>1</span>Database Setup</a></li>
                     <li class="completed edit-s middle-leftchild"><a href="ActiveDirectoryInfo.aspx"><span>2</span>Active Directory Details </a></li>
                     <li class="completed middle-rightchild"><a href="#"><span>3</span>VOD Configuration Details </a></li>
                     <li class="last-child"><a href="#"><span>4</span>Super Admin Info</a></li>
@@ -20,7 +20,7 @@
             <div class="column2">
                 <label>Source Folder<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtSourceFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtSourceFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Please Enter Source Folder"></asp:TextBox>
                     <span class="sprite source"></span>
                 </div>
                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtSourceFolder" ControlToValidate="txtSourceFolder"  ValidationGroup="ADInfo" ErrorMessage="* Please Enter Source Folder" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
@@ -28,7 +28,7 @@
             <div class="column2">
                 <label>Destination Folder<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtDestFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtDestFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Please Enter Destination Folder"></asp:TextBox>
                     <span class="sprite destination"></span>
                 </div>
                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtDestFolder" ControlToValidate="txtDestFolder"  ValidationGroup="ADInfo" ErrorMessage="* Please Enter Destination Folder" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
@@ -36,7 +36,7 @@
             <div class="column2">
                 <label>Archive Folder<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtArchiveFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtArchiveFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Please Enter Archive Folder"></asp:TextBox>
                     <span class="sprite archive"></span>
                 </div>
                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtArchiveFolder" ControlToValidate="txtArchiveFolder"  ValidationGroup="ADInfo" ErrorMessage="* Please Enter Archive Folder" ForeColor="#E2351D"></asp:RequiredFieldValidator>
@@ -44,7 +44,7 @@
             <div class="column2">
                 <label>Backup Folder<span class="required"> *</span></label>
                 <div class="input-holder">
-                    <asp:TextBox runat="server" ID="txtBackUpFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtBackUpFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Please Enter Backup Folder"></asp:TextBox>
                     <span class="sprite backup"></span>
                 </div>
                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtBackUpFolder" ControlToValidate="txtBackUpFolder"  ValidationGroup="ADInfo" ErrorMessage="* Please Enter Backup Folder" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
