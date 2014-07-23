@@ -56,7 +56,7 @@ namespace VideoOnDemand.VODManage
 
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#editUserGroupModal').modal('show');");
-                 
+
                     sb.Append(@"</script>");
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ShowEditModal", sb.ToString(), false);
                 }
@@ -70,7 +70,7 @@ namespace VideoOnDemand.VODManage
                 //deleteWarning
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#deleteWarning').modal('show');");
-            
+
                 sb.Append(@"</script>");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ShowDeleteConfirmModal", sb.ToString(), false);
 
@@ -83,6 +83,7 @@ namespace VideoOnDemand.VODManage
 
         protected void lnkAssignUserGroup_Click(object sender, EventArgs e)
         {
+            System.Text.StringBuilder sb;
             bool atLeastOneSelected = default(bool);
             foreach (GridViewRow row in gvUserManagement.Rows)
             {
@@ -95,11 +96,17 @@ namespace VideoOnDemand.VODManage
                 }
             }
             if (!atLeastOneSelected)
-                ClientScript.RegisterStartupScript(GetType(), "Select One User", "<script>alert('please Select At Least One User')</script>");
-
+            {
+                sb = new System.Text.StringBuilder();
+                lblMessage.Text = "Please select at least one user.";
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$('#alertMessageModal').modal('show');");
+                sb.Append(@"</script>");
+                ClientScript.RegisterStartupScript(GetType(), "SelectOneUser", sb.ToString());
+            }
             if (BindGroups())
             {
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#myModal1').modal('show');");
                 sb.Append(@"</script>");
@@ -128,7 +135,15 @@ namespace VideoOnDemand.VODManage
             }
             else
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "NoGroups", "<script>alert('there is no groups avaliable')</script>", false); groupBinded = false;
+                System.Text.StringBuilder sb;
+
+                sb = new System.Text.StringBuilder();
+                lblMessage.Text = "There is no groups avaliable.";
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$('#alertMessageModal').modal('show');");
+                sb.Append(@"</script>");
+                ClientScript.RegisterStartupScript(GetType(), "NoGroups", sb.ToString(), false);
+                groupBinded = false;
             }
             return groupBinded;
         }
@@ -151,7 +166,15 @@ namespace VideoOnDemand.VODManage
             }
             else
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "NoGroups", "<script>alert('there is no groups avaliable')</script>", false); groupBinded = false;
+                System.Text.StringBuilder sb;
+
+                sb = new System.Text.StringBuilder();
+                lblMessage.Text = "There is no groups avaliable.";
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$('#alertMessageModal').modal('show');");
+                sb.Append(@"</script>");
+                ClientScript.RegisterStartupScript(GetType(), "NoGroups", sb.ToString(), false);
+                groupBinded = false;
             }
             return groupBinded;
         }
@@ -224,8 +247,14 @@ namespace VideoOnDemand.VODManage
 
             if (ddlGroupList.SelectedItem.Value == null || ddlGroupList.SelectedItem.Value == "" || ddlGroupList.SelectedItem.Value == "0")
             {
-                string script = string.Format("<script>alert('Please select valid group Name');</script>");
-                ClientScript.RegisterStartupScript(this.GetType(), "SelectGroup", script, false);
+
+                sb = new System.Text.StringBuilder();
+
+                lblMessage.Text = "Please select valid group Name.";
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$('#alertMessageModal').modal('show');");
+                sb.Append(@"</script>");
+                ClientScript.RegisterStartupScript(GetType(), "SelectGroup", sb.ToString(), false);
                 return;
             }
             foreach (GridViewRow row in gvUserManagement.Rows)
@@ -239,18 +268,18 @@ namespace VideoOnDemand.VODManage
             }
             Session["SelectedUsersToAddGroup"] = sb.ToString();
 
-            string scriptValue = string.Format("<script>alert('checked Checkboxes {0} ');</script>", Session["SelectedUsersToAddGroup"]);
-            ClientScript.RegisterStartupScript(this.GetType(), "SelectedList", scriptValue, false);
+            //string scriptValue = string.Format("<script>alert('checked Checkboxes {0} ');</script>", Session["SelectedUsersToAddGroup"]);
+            //ClientScript.RegisterStartupScript(this.GetType(), "SelectedList", scriptValue, false);
 
 
             if (Session["SelectedUsersToAddGroup"] != null && Session["SelectedUsersToAddGroup"].ToString() != "")
             {
                 repository.AssignUsersToGroup(Convert.ToInt32(ddlGroupList.SelectedItem.Value), Session["SelectedUsersToAddGroup"].ToString());
                 BindUsers();
-
-               sb = new System.Text.StringBuilder();
+                lblMessage.Text = "Successfully users assigned to group ";
+                sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
-                sb.Append("alert('Added Group Successfully');");
+                sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append("$('#myModal1').modal('hide');");
                 sb.Append(@"</script>");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
@@ -261,21 +290,28 @@ namespace VideoOnDemand.VODManage
 
         protected void btnSaveEdit_Click(object sender, EventArgs e)
         {
-
+            StringBuilder sb;
             if (ddlGroupsEdit.SelectedItem.Value == null || ddlGroupsEdit.SelectedItem.Value == "" || ddlGroupsEdit.SelectedItem.Value == "0")
             {
-                string script = string.Format("<script>alert('Please select valid group Name');</script>");
-                ClientScript.RegisterStartupScript(this.GetType(), "SelectGroup", script, false);
+
+                sb = new System.Text.StringBuilder();
+
+                lblMessage.Text = "Please select valid group Name.";
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$('#alertMessageModal').modal('show');");
+                sb.Append(@"</script>");
+                ClientScript.RegisterStartupScript(GetType(), "SelectGroup", sb.ToString(), false);
+
                 return;
             }
-             
+
             var returnValue = repository.UpdateUserGroup(Convert.ToInt32(ddlGroupsEdit.SelectedItem.Value), Convert.ToInt32(Session["UserID"].ToString()));
             if (returnValue)
                 BindUsers();
-
-            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            lblMessage.Text = "Group Updated Successfully";
+            sb = new System.Text.StringBuilder();
             sb.Append(@"<script type='text/javascript'>");
-            sb.Append("alert('Group Updated Successfully');");
+            sb.Append("$('#alertMessageModal').modal('show');");
             sb.Append("$('#editUserGroupModal').modal('hide');");
             sb.Append(@"</script>");
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "EditHideModalScript", sb.ToString(), false);
@@ -290,10 +326,10 @@ namespace VideoOnDemand.VODManage
             var returnValue = repository.UpdateUserGroup(0, Convert.ToInt32(Session["UserID"].ToString()));
             if (returnValue)
                 BindUsers();
-
+            lblMessage.Text = "Group deleted successfully";
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             sb.Append(@"<script type='text/javascript'>");
-            sb.Append("alert('Group deleted successfully');");
+            sb.Append("$('#alertMessageModal').modal('show');");
             sb.Append("$('#deleteWarning').modal('hide');");
             sb.Append(@"</script>");
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "DeleteHideModalScript", sb.ToString(), false);

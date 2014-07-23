@@ -300,7 +300,7 @@
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm- control-label" style="width:370px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp;from&nbsp;user ?.</label>
+                                                <label for="inputEmail3" class="col-sm- control-label" style="width: 370px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp;from&nbsp;user ?.</label>
                                             </div>
                                         </div>
 
@@ -317,6 +317,36 @@
 
                                 <%-- <button type="button" class="btn btn-primary" data-dismiss="modal">Assign</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>--%>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="alertMessageModal" tabindex="-1" role="dialog" aria-labelledby="alertHeader" aria-hidden="true" data-dismiss="modal">
+                    <div class="modal-dialog modal-dlg-top">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+                                <h3 class="modal-title" id="alertHeader">Alert !</h3>
+                            </div>
+                            <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                                <ContentTemplate>
+                                    <div class="modal-body">
+                                        <div class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <asp:Label ID="lblMessage" runat="server" class="col-sm- control-label" Style="width: 320px;"></asp:Label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="gvUserManagement" EventName="RowCommand" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnOk" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+                            <div class="modal-footer">
+                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text=" OK " />
                             </div>
                         </div>
                     </div>
@@ -374,7 +404,7 @@
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true"
-                        GridLines="None" DataKeyNames="UserId,GroupId" OnRowCommand="gvUserManagement_RowCommand" EmptyDataText="No users to display." EmptyDataRowStyle-HorizontalAlign="Center" >
+                        GridLines="None" DataKeyNames="UserId,GroupId" OnRowCommand="gvUserManagement_RowCommand" EmptyDataText="No users to display." EmptyDataRowStyle-HorizontalAlign="Center">
                         <Columns>
                             <asp:TemplateField HeaderText="Roles">
                                 <HeaderTemplate>
@@ -387,7 +417,7 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                             
+
                             <asp:BoundField DataField="UserID" Visible="false" />
                             <asp:BoundField DataField="UserName" HeaderText="User Name" />
                             <asp:BoundField DataField="FullName" HeaderText="Full Name" />
@@ -406,7 +436,7 @@
             </asp:UpdatePanel>
 
 
-           
+
         </div>
     </div>
 

@@ -87,16 +87,7 @@
                         </asp:DropDownList>
                         <%--                            </ContentTemplate>
                         </asp:UpdatePanel>--%>
-
-                        <%--  <div class="btn-group">
-                            <button class="btn dropdown-toggle searchBorder dropbutton-align" data-toggle="dropdown">All<span class="caret"></span></button>
-                            <ul class="dropdown-menu ">
-                                <li><a href="#">All      </a></li>
-                                <li><a href="#">Converted</a></li>
-                                <li><a href="#">Pending </a></li>
-                                <li><a href="#">Processing </a></li>
-                            </ul>
-                        </div>--%>
+ 
                     </li>
                 </ul>
                 <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -116,13 +107,7 @@
                                                     <asp:DropDownList ID="ddlGroupList" runat="server" CssClass="form-control">
                                                     </asp:DropDownList>
 
-                                                    <%-- <select name="" class="form-control">
-                                                <option disabled selected>Select group</option>
-                                                <option>Group Name 1</option>
-                                                <option>Group Name 2</option>
-                                                <option>Group Name 3</option>
-                                                <option>Group Name 4</option>
-                                            </select>--%>
+                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -144,6 +129,40 @@
                         </div>
                     </div>
                 </div>
+
+                   <div class="modal fade" id="alertMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" data-dismiss="modal">
+                    <div class="modal-dialog modal-dlg-top">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+                                <h3 class="modal-title" id="myModalLabel2">Alert !</h3>
+                            </div>
+                            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                <ContentTemplate>
+                                    <div class="modal-body">
+                                        <div class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <%--<label   class="col-sm- control-label" style="width: 320px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp?.</label>--%>
+                                                <asp:Label ID="lblMessage" runat="server" class="col-sm- control-label" Style="width: 320px;"></asp:Label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="gvVideoManagement" EventName="RowCommand" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnOk" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+
+                            <div class="modal-footer">
+                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary"  Text=" OK " />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
 
@@ -165,8 +184,7 @@
                                     <%--<asp:CheckBox onclick="javascript:HighlightRow(this);" ID="chkSelectUser" runat="server" EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />--%>
                                     <asp:CheckBox ID="chkSelectUser" runat="server" EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />
                                 </ItemTemplate>
-                            </asp:TemplateField>
-
+                            </asp:TemplateField> 
                          
                             <asp:BoundField DataField="VIDEOID" Visible="false" />
                             <asp:BoundField DataField="FILENAME" HeaderText="Video Name" />

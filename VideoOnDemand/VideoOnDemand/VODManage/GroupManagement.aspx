@@ -13,11 +13,7 @@
     </script>
 
     <script type="text/javascript">
-        function LoginFail() {
-            debugger;
-            alert('eee');
-            $('#editModal').modal();
-        }
+         
     </script>
     <div id="management-bottom" class="col-md-12">
         <div class="block1 clearfix">
@@ -145,7 +141,7 @@
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
-                                                <label   class="col-sm- control-label" style="width: 320px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp?.</label>
+                                                <label class="col-sm- control-label" style="width: 320px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp?.</label>
                                             </div>
                                         </div>
 
@@ -164,6 +160,39 @@
                         </div>
                     </div>
                 </div>
+
+
+                <div class="modal fade" id="alertMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel22" aria-hidden="true" data-dismiss="modal">
+                    <div class="modal-dialog modal-dlg-top">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+                                <h3 class="modal-title" id="myModalLabel22">Alert !</h3>
+                            </div>
+                            <asp:UpdatePanel ID="UpdatePanel3" runat="server">
+                                <ContentTemplate>
+                                    <div class="modal-body">
+                                        <div class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <%--<label   class="col-sm- control-label" style="width: 320px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp?.</label>--%>
+                                                <asp:Label ID="lblMessage" runat="server" class="col-sm- control-label" Style="width: 320px;"></asp:Label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="gvGroupManagement" EventName="RowCommand" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnOk" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+                            <div class="modal-footer">
+                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary"  Text=" OK " />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
 
             </div>
@@ -221,7 +250,7 @@
             <%-- <asp:UpdatePanel ID="UpdatePanelGroupMang" runat="server">
                 <ContentTemplate>--%>
             <asp:GridView ID="gvGroupManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="GroupId"
-                 OnRowEditing="gvGroupManagement_RowEditing" ShowHeaderWhenEmpty="true"
+                OnRowEditing="gvGroupManagement_RowEditing" ShowHeaderWhenEmpty="true"
                 OnRowCommand="gvGroupManagement_RowCommand" EmptyDataText="No groups found" EmptyDataRowStyle-HorizontalAlign="Center">
                 <Columns>
                     <asp:BoundField DataField="GroupId" Visible="false" />
