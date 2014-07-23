@@ -10,7 +10,11 @@ namespace VideoOnDemand
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.EnableFriendlyUrls();
+            //routes.EnableFriendlyUrls();
+            routes.EnableFriendlyUrls(new FriendlyUrlSettings
+            {
+                AutoRedirectMode = RedirectMode.Permanent
+            }); 
         }
     }
 }
