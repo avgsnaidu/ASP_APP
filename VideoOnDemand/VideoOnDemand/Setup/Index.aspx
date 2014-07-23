@@ -40,7 +40,7 @@
                     <asp:TextBox runat="server" ID="txtIPAddress" ClientIDMode="Static" CssClass="form-control required NoEmpty ipformat" data-placement="right" data-trigger="manual" MaxLength="25" data-content="Enter valid ip address"></asp:TextBox>
                     <span class="sprite ip"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvTxtIPAddress"  ControlToValidate="txtIPAddress" ValidationGroup="DbSetup" ErrorMessage="* Please Enter Ip Address" ForeColor="Red" Display="Dynamic" />
+                <asp:RequiredFieldValidator runat="server" ID="rfvTxtIPAddress"  ControlToValidate="txtIPAddress" ValidationGroup="DbSetup" ErrorMessage="* Please Enter IP Address" ForeColor="Red" Display="Dynamic" />
                 <asp:RegularExpressionValidator runat="server" ID="revTxtIPAddress" ValidationGroup="DbSetup" ValidationExpression="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" ForeColor="Red" ControlToValidate="txtIPAddress" ErrorMessage="* Invalid Ip Address" Display="Dynamic" />
               </div>
             <div class="column2">
