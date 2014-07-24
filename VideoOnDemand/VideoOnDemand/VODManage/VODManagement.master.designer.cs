@@ -67,15 +67,6 @@ namespace VideoOnDemand.VODManage {
         protected global::System.Web.UI.WebControls.LinkButton lnkSearch;
         
         /// <summary>
-        /// ScriptManagerUserManage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManagerUserManage;
-        
-        /// <summary>
         /// VODMangContentPlaceHolder control.
         /// </summary>
         /// <remarks>

@@ -21,12 +21,13 @@ namespace VideoOnDemand.VODManage
             if (!IsPostBack)
             {
                 BindUsers();
+                BindGroups(false);
             }
         }
 
-        private void BindUsers()
+        private void BindUsers(int groupId = 0)
         {
-            DataSet ds = repository.GetUsersList();
+            DataSet ds = repository.GetUsersList(groupId);
             gvUserManagement.DataSource = ds;
             gvUserManagement.DataBind();
         }
@@ -50,7 +51,7 @@ namespace VideoOnDemand.VODManage
                 Session["UserID"] = userId;
                 Session["GroupID"] = GroupId;
                 lblUserName.Text = row.Cells[2].Text;
-                if (BindEditGroupsList())
+                if (BindGroups(true, true))
                 {
                     ddlGroupsEdit.SelectedValue = GroupId.ToString();
 
@@ -117,21 +118,53 @@ namespace VideoOnDemand.VODManage
 
         }
 
-        private bool BindGroups()
+        private bool BindGroups(bool bindPopUp = true, bool isEdit = false, bool fromLoad = true)
         {
             bool groupBinded = false;
             DataSet ds = groupRepository.GetGroups();
+
             if (ds.Tables[0].Rows.Count > 0)
             {
+                if (fromLoad)
+                {
+                    DataRow drow = ds.Tables[0].NewRow();
+                    drow["GroupId"] = 0;
+                    drow["GroupName"] = "All";
+                    ds.Tables[0].Rows.InsertAt(drow, 0);
+                    ddlGroupsFilter.DataTextField = "GroupName";
+                    ddlGroupsFilter.DataValueField = "GroupId";
+                    ddlGroupsFilter.DataSource = ds;
+                    ddlGroupsFilter.DataBind();
+                    groupBinded = true;
+                }
+
                 DataRow dr = ds.Tables[0].NewRow();
                 dr["GroupId"] = 0;
                 dr["GroupName"] = "Select";
                 ds.Tables[0].Rows.InsertAt(dr, 0);
-                ddlGroupList.DataTextField = "GroupName";
-                ddlGroupList.DataValueField = "GroupId";
-                ddlGroupList.DataSource = ds;
-                ddlGroupList.DataBind();
-                groupBinded = true; ;
+                if (bindPopUp)
+                {
+                    if (!isEdit)
+                    {
+                        ddlGroupList.DataTextField = "GroupName";
+                        ddlGroupList.DataValueField = "GroupId";
+                        ddlGroupList.DataSource = ds;
+                        ddlGroupList.DataBind();
+                        groupBinded = true; ;
+                    }
+                    else
+                    {
+                        //DataRow dr = ds.Tables[0].NewRow();
+                        //dr["GroupId"] = 0;
+                        //dr["GroupName"] = "Select";
+                        //ds.Tables[0].Rows.InsertAt(dr, 0);
+                        ddlGroupsEdit.DataTextField = "GroupName";
+                        ddlGroupsEdit.DataValueField = "GroupId";
+                        ddlGroupsEdit.DataSource = ds;
+                        ddlGroupsEdit.DataBind();
+                        groupBinded = true; ;
+                    }
+                }
             }
             else
             {
@@ -148,36 +181,28 @@ namespace VideoOnDemand.VODManage
             return groupBinded;
         }
 
-        private bool BindEditGroupsList()
-        {
-            bool groupBinded = false;
-            DataSet ds = groupRepository.GetGroups();
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                DataRow dr = ds.Tables[0].NewRow();
-                dr["GroupId"] = 0;
-                dr["GroupName"] = "Select";
-                ds.Tables[0].Rows.InsertAt(dr, 0);
-                ddlGroupsEdit.DataTextField = "GroupName";
-                ddlGroupsEdit.DataValueField = "GroupId";
-                ddlGroupsEdit.DataSource = ds;
-                ddlGroupsEdit.DataBind();
-                groupBinded = true; ;
-            }
-            else
-            {
-                System.Text.StringBuilder sb;
+        //private bool BindEditGroupsList()
+        //{
+        //    bool groupBinded = false;
+        //    DataSet ds = groupRepository.GetGroups();
+        //    if (ds.Tables[0].Rows.Count > 0)
+        //    {
 
-                sb = new System.Text.StringBuilder();
-                lblMessage.Text = "There is no groups avaliable.";
-                sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$('#alertMessageModal').modal('show');");
-                sb.Append(@"</script>");
-                ClientScript.RegisterStartupScript(GetType(), "NoGroups", sb.ToString(), false);
-                groupBinded = false;
-            }
-            return groupBinded;
-        }
+        //    }
+        //    else
+        //    {
+        //        System.Text.StringBuilder sb;
+
+        //        sb = new System.Text.StringBuilder();
+        //        lblMessage.Text = "There is no groups avaliable.";
+        //        sb.Append(@"<script type='text/javascript'>");
+        //        sb.Append("$('#alertMessageModal').modal('show');");
+        //        sb.Append(@"</script>");
+        //        ClientScript.RegisterStartupScript(GetType(), "NoGroups", sb.ToString(), false);
+        //        groupBinded = false;
+        //    }
+        //    return groupBinded;
+        //}
 
         protected void chkSelectUser_CheckedChanged(object sender, EventArgs e)
         {
@@ -334,6 +359,15 @@ namespace VideoOnDemand.VODManage
             sb.Append(@"</script>");
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "DeleteHideModalScript", sb.ToString(), false);
 
+        }
+
+        protected void ddlGroupsFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlGroupsFilter.SelectedItem != null && ddlGroupsFilter.SelectedItem.Value != string.Empty)
+            {
+                var group = Convert.ToInt32(ddlGroupsFilter.SelectedItem.Value);
+                BindUsers(group);
+            }
         }
 
 

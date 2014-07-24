@@ -152,7 +152,7 @@ a#lnkDropDownMenu.btn {
     }
 
 
-    .searchborder .btn-default:hover,  .searchborder .btn-default:focus,  .searchborder .btn-default:active, .searchborder  .btn-default.active, 
+    .searchborder .btn-default:hover, .searchborder .btn-default:focus, .searchborder .btn-default:active, .searchborder .btn-default.active,
     .searchborder .open .dropdown-toggle.btn-default {
         background-color: #ec3140 !important;
         color: white !important;
@@ -176,6 +176,7 @@ a#lnkDropDownMenu.btn {
 
 .searchTextPadingExist {
     padding: 6px 6px !important;
+    padding-left: 15px !important;
 }
 
 .labelNoBold label {
@@ -227,16 +228,38 @@ a#lnkDropDownMenu.btn {
 
 .popover {
     z-index: 9999;
-    
 }
-.popover-content { white-space:nowrap}
+
+.popover-content {
+    white-space: nowrap;
+}
 
 
 
 .buttonColor {
     background-color: #ec3140;
+    color:white;
 }
 
+
+/*======= 24-7-2014 =========*/
+
+.dropdownList {
+    width: 158px !IMPORTANT;
+}
+
+#alertMessageModal .modal-content {
+    width: 425px;
+    height: 200px;
+}
+
+#alertMessageModal .modal-header {
+    padding: 10px;
+}
+
+.modal-footer input[type="submit"].btn {
+    width: 55px;
+}
 
 /*.modal-body{overflow-y:visible;}*/
 

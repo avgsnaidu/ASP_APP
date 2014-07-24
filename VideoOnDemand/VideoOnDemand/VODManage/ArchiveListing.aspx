@@ -9,9 +9,9 @@
 
                 <div class="form-search pull-right">
                     <div class="input-append">
-                        <input type="text" class="span2 search-query searchBorder searchTextPadingExist" style="height: inherit; min-width: 350px;" placeholder="Enter search keywords..">
+                        <asp:TextBox runat="server" ID="txtSearchKey" type="text" class="span2 search-query searchBorder searchTextPadingExist" Style="height: inherit; min-width: 350px;" placeholder="Enter search keywords.." />
                         <%--<button type="submit" class="btn btn-danger searchBorder">Search <i class="icon-search"></i></button>--%>
-                        <asp:LinkButton ID="btnSearch" runat="server" class="btn btn-danger searchBorder">Search <i class="icon-search"></i></asp:LinkButton>
+                        <asp:LinkButton ID="btnSearch" runat="server" class="btn btn-danger searchBorder" OnClick="btnSearch_Click">Search <i class="icon-search"></i></asp:LinkButton>
                     </div>
                 </div>
 
@@ -19,13 +19,14 @@
             </div>
         </div>
         <div class="table-block clearfix col-md-12">
-               <asp:GridView ID="gvArchiveListing" runat="server"   AutoGenerateColumns="False" GridLines="None" ShowHeaderWhenEmpty="true" 
-                   EmptyDataText="No archive records found"  EmptyDataRowStyle-HorizontalAlign="Center">
-                <Columns>    
-                    <asp:BoundField DataField="FILE_NAME" HeaderText="File Name" />
-                    <asp:BoundField DataField="GROUP_NAME" HeaderText="Group Name" />
-                    <asp:BoundField DataField="DESCRIPTION" HeaderText="Description" />
-                    <asp:BoundField DataField="TAGS_ENG" HeaderText="Tag" />                                
+            <asp:GridView ID="gvArchiveListing" runat="server" AutoGenerateColumns="False" GridLines="None" ShowHeaderWhenEmpty="true"
+                EmptyDataText="No archive records found" EmptyDataRowStyle-HorizontalAlign="Center">
+                <Columns>
+                    <asp:BoundField DataField="FILENAME" HeaderText="FILE NAME" />
+                   <%-- <asp:BoundField DataField="GROUP_NAME" HeaderText="Group Name" />
+                    <asp:BoundField DataField="DESCRIPTION" HeaderText="Description" />--%>
+                    <asp:BoundField DataField="TAG" HeaderText="TAGS" />
+                    <asp:BoundField DataField="ARCHIVEDDATE" HeaderText="ARCHIVED DATE" />
                 </Columns>
                 <EditRowStyle BorderStyle="None" BorderWidth="0px" />
             </asp:GridView>

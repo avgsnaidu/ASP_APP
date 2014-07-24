@@ -2,6 +2,12 @@
 
 <asp:Content ID="UserManagementContent" ContentPlaceHolderID="VODMangContentPlaceHolder" runat="server">
 
+    <script src="../Scripts/bootstrap-select.js"></script>
+    <link href="../Content/css/bootstrap-select.css" rel="stylesheet" />
+    <style>
+      
+
+    </style>
     <script type="text/javascript" lang="javascript">
         /* function validateCheckBoxes() {
              var isValid = false;
@@ -30,6 +36,12 @@
  
          }
          */
+
+        $(document).ready(function () {
+
+            $(".selectpicker").selectpicker();
+
+        });
 
         function HighlightRow(chkB) {
             debugger;
@@ -123,7 +135,8 @@
                 }
 
                 if (!isValid) {
-                    alert("Please select atleast one user");
+                    $('#alertMessageModal').modal('show');
+                    //alert("Please select atleast one user");
                     return e.preventDefault() // stops modal from being shown
                 }
             })
@@ -148,7 +161,10 @@
             }
 
             if (!isValid) {
-                alert("Please select atleast one user");
+                var label = document.getElementById('<%= lblMessage.ClientID %>');
+                label.innerHTML = 'Please select minimum one user';
+                $('#alertMessageModal').modal('show');
+                //alert("Please select atleast one user");
                 //return e.preventDefault() // stops modal from being shown
                 return false;
             }
@@ -166,7 +182,8 @@
 
 
     <div id="management-bottom" class="col-md-12">
-        <div class="block1 clearfix">
+
+        <div class="block1 block2 clearfix">
             <h2 class="col-md-3">User Management</h2>
             <div class="col-md-9">
                 <ul>
@@ -175,7 +192,19 @@
                         <%--                        <asp:LinkButton runat="server" data-toggle="modal" data-target="#myModal1" ID="LinkButton1" OnClientClick="javascript:validateCheckBoxes()"> <span class="sprite ic-assignvideo"></span>Assign Users to Group </asp:LinkButton></li>--%>
                         <asp:LinkButton runat="server" ID="lnkAssignUserGroup" OnClick="lnkAssignUserGroup_Click" OnClientClick="return CheckCheckBoxSelection();"> <span class="sprite ic-assignvideo"></span>Assign Users to Group </asp:LinkButton></li>
                     <!--<li><a href="#"><span class="sprite ic-creategroup"></span>Create Group </a></li>-->
+                    <li class="last">
+                        <label>Group By </label>
+                        <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>--%>
+                        <asp:DropDownList ID="ddlGroupsFilter" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
+                            Width="100px" OnSelectedIndexChanged="ddlGroupsFilter_SelectedIndexChanged">
+                        </asp:DropDownList>
+                        <%--                            </ContentTemplate>
+                        </asp:UpdatePanel>--%>
+ 
+                    </li>
                 </ul>
+
                 <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-dismiss="modal">
                     <div class="modal-dialog modal-dlg-top">
                         <div class="modal-content">
@@ -328,7 +357,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h3 class="modal-title" id="alertHeader">Alert !</h3>
+                                <h4 class="modal-title" id="alertHeader">Alert !</h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                                 <ContentTemplate>
@@ -353,58 +382,15 @@
                 </div>
 
 
-                <%--    <div id="editModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h3 id="editModalLabel">Edit Record</h3>
-                    </div>
-                    <asp:UpdatePanel ID="upEdit" runat="server">
-                        <ContentTemplate>
-                            <div class="modal-body">
-                                <table class="table">
-                                    <tr>
-                                        <td>Country Code : 
-                            <asp:Label ID="lblCountryCode" runat="server"></asp:Label>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Population : 
-                            <asp:TextBox ID="txtPopulation" runat="server"></asp:TextBox>
-                                            <asp:Label ID="Label1" runat="server" Text="Type Integer Value!" />
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Country Name:
-                            <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Continent:
-                            <asp:TextBox ID="txtContinent1" runat="server"></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="modal-footer">
-                                <asp:Label ID="lblResult" Visible="false" runat="server"></asp:Label>
-                                <asp:Button ID="btnSave" runat="server" Text="Update" CssClass="btn btn-info" OnClick="lnkAssignUserGroup_Click" />
-                                <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Close</button>
-                            </div>
-                        </ContentTemplate>
-                        <Triggers>
-                            <asp:AsyncPostBackTrigger ControlID="gvUserManagement" EventName="RowCommand" />
-                            <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
-                        </Triggers>
-                    </asp:UpdatePanel>
-                </div>
-                --%>
+            
             </div>
         </div>
         <div class="table-block clearfix col-md-12">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true"
-                        GridLines="None" DataKeyNames="UserId,GroupId" OnRowCommand="gvUserManagement_RowCommand" EmptyDataText="No users to display." EmptyDataRowStyle-HorizontalAlign="Center">
+                        GridLines="None" DataKeyNames="UserId,GroupId" OnRowCommand="gvUserManagement_RowCommand" EmptyDataText="No users to display in selected group." 
+                        EmptyDataRowStyle-HorizontalAlign="Center">
                         <Columns>
                             <asp:TemplateField HeaderText="Roles">
                                 <HeaderTemplate>

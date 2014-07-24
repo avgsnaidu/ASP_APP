@@ -38,5 +38,20 @@ namespace VideoOnDemand.Model.BAL
             return ds;
         }
 
+        public bool IsValidConnectionString()
+        {
+            clsConnectionStringBuilder clsObj = new clsConnectionStringBuilder();
+            clsObj.Password = Password;
+            clsObj.Port = Port;
+            clsObj.ServerName = IPAddress;
+            clsObj.UserID = UserID;
+            clsObj.DatabaseName = DatabaseName;
+            string connectionString = clsObj.GetConnectionString();
+
+            if (SqlHelper.IsValidConnectionSting(connectionString))
+                return true;
+            else return false;
+
+        }
     }
 }

@@ -55,7 +55,10 @@
             }
 
             if (!isValid) {
-                alert("Please select atleast one user");
+                var label = document.getElementById('<%= lblMessage.ClientID %>');
+                label.innerHTML = 'Please select minimum one video';
+                $('#alertMessageModal').modal('show');
+                //alert("Please select atleast one user");
                 //return e.preventDefault() // stops modal from being shown
                 return false;
             }
@@ -79,12 +82,17 @@
                         <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>--%>
                         <asp:DropDownList ID="ddlStatus" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
-                             OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
+                            OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
                             <%--<asp:ListItem Text="All" Value="1" />
                             <asp:ListItem Text="Converted" Value="2" />
                             <asp:ListItem Text="Pending" Value="3" />
                             <asp:ListItem Text="Processing" Value="4" />--%>
                         </asp:DropDownList>
+
+                        <asp:DropDownList ID="ddlGroupsFilter" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
+                            OnSelectedIndexChanged="ddlGroups_SelectedIndexChanged">
+                        </asp:DropDownList>
+
                         <%--                            </ContentTemplate>
                         </asp:UpdatePanel>--%>
  
@@ -107,7 +115,7 @@
                                                     <asp:DropDownList ID="ddlGroupList" runat="server" CssClass="form-control">
                                                     </asp:DropDownList>
 
-                                                   
+
                                                 </div>
                                             </div>
                                         </div>
@@ -130,12 +138,12 @@
                     </div>
                 </div>
 
-                   <div class="modal fade" id="alertMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" data-dismiss="modal">
+                <div class="modal fade" id="alertMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" data-dismiss="modal">
                     <div class="modal-dialog modal-dlg-top">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h3 class="modal-title" id="myModalLabel2">Alert !</h3>
+                                <h4 class="modal-title" id="myModalLabel2">Alert !</h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                                 <ContentTemplate>
@@ -156,7 +164,7 @@
                             </asp:UpdatePanel>
 
                             <div class="modal-footer">
-                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary"  Text=" OK " />
+                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text=" OK " />
                             </div>
                         </div>
                     </div>
@@ -184,8 +192,8 @@
                                     <%--<asp:CheckBox onclick="javascript:HighlightRow(this);" ID="chkSelectUser" runat="server" EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />--%>
                                     <asp:CheckBox ID="chkSelectUser" runat="server" EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />
                                 </ItemTemplate>
-                            </asp:TemplateField> 
-                         
+                            </asp:TemplateField>
+
                             <asp:BoundField DataField="VIDEOID" Visible="false" />
                             <asp:BoundField DataField="FILENAME" HeaderText="Video Name" />
                             <asp:BoundField DataField="STATUS" HeaderText="Status" />
@@ -203,7 +211,7 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
 
- 
+
         </div>
     </div>
 

@@ -27,5 +27,13 @@ namespace VideoOnDemand.VODManage
             gvArchiveListing.DataBind();
         }
 
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchKeyword = txtSearchKey.Text.Trim();
+            DataSet ds = repository.GetSearchedArchiveList(searchKeyword);
+            gvArchiveListing.DataSource = ds;
+            gvArchiveListing.DataBind();
+        }
+
     }
 }

@@ -50,6 +50,7 @@ namespace VideoOnDemand.Model
             }
         }
 
+
         /// <summary>
         /// This method assigns an array of values to an array of SqlParameters.
         /// </summary>
@@ -124,6 +125,40 @@ namespace VideoOnDemand.Model
 
         #region ExecuteNonQuery
 
+        public static bool IsValidConnectionSting(string connectionString)
+        {
+            //If you know only provider.
+            //string provider = "System.Data.SqlClient"; // for example
+            //DbProviderFactory factory = DbProviderFactories.GetFactory(provider);
+            //using (DbConnection conn = factory.CreateConnection())
+            //{
+            //    conn.ConnectionString = connectionString;
+            //    conn.Open();
+            //}
+
+            //For quick (offline) validation
+            //DbConnectionStringBuilder csb = new DbConnectionStringBuilder();
+            //csb.ConnectionString = c; // throws
+
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+
+                    return (conn.State == ConnectionState.Open);
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+
+        }
+
+
+
         /// <summary>
         /// Execute a SqlCommand (that returns no resultset and takes no parameters) against the database specified in 
         /// the connection string. 
@@ -166,6 +201,8 @@ namespace VideoOnDemand.Model
                 return ExecuteNonQuery(cn, commandType, commandText, commandParameters);
             }
         }
+
+
 
         /// <summary>
         /// Execute a stored procedure via a SqlCommand (that returns no resultset) against the database specified in 

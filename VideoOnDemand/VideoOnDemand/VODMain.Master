@@ -202,6 +202,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManagerUserManage" runat="server">
+        </asp:ScriptManager>
+
         <div id="wrapper">
 
             <div class="navbar navbar-default navbar-fixed-top" role="navigation">

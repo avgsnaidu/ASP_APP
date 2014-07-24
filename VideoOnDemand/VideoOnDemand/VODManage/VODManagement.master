@@ -67,9 +67,7 @@
     </div>
     <div class="container">
         
-   <asp:ScriptManager ID="ScriptManagerUserManage" runat="server">
-    </asp:ScriptManager>
-
+  
         <asp:ContentPlaceHolder ID="VODMangContentPlaceHolder" runat="server">
 
             <!--container-->

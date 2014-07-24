@@ -19,9 +19,11 @@ namespace VideoOnDemand.VODManage
             if (!IsPostBack)
             {
                 BindVideoStatus();
-
+                BindGroups(false, true);
                 char status = (ddlStatus.SelectedItem != null && ddlStatus.SelectedValue.ToString() != string.Empty) ? Convert.ToChar(ddlStatus.SelectedItem.Value) : '0';
-                BindVideos(status);
+                int groupSelected = (ddlGroupsFilter.SelectedItem != null && ddlGroupsFilter.SelectedValue.ToString() != string.Empty) ? Convert.ToInt32(ddlGroupsFilter.SelectedItem.Value) : 0;
+                BindVideos(status, groupSelected);
+
             }
         }
 
@@ -33,7 +35,7 @@ namespace VideoOnDemand.VODManage
             {
                 DataRow dr = ds.Tables[0].NewRow();
                 dr["StatusCode"] = 0;
-                dr["StatusName"] = "All";
+                dr["StatusName"] = "Status All";
                 ds.Tables[0].Rows.InsertAt(dr, 0);
 
                 ddlStatus.DataTextField = "StatusName";
@@ -50,7 +52,7 @@ namespace VideoOnDemand.VODManage
                 dt.Columns.Add("StatusName");
                 DataRow dr = dt.NewRow();
                 dr["StatusCode"] = 0;
-                dr["StatusName"] = "All";
+                dr["StatusName"] = "Status All";
                 dt.Rows.InsertAt(dr, 0);
                 dr = dt.NewRow();
                 dr["StatusCode"] = 1;
@@ -78,9 +80,9 @@ namespace VideoOnDemand.VODManage
 
         }
 
-        private void BindVideos(char status = '0')
+        private void BindVideos(char status = '0', int selectedGroup = 0)
         {
-            DataSet ds = repository.GetVideosList(Convert.ToChar(status));
+            DataSet ds = repository.GetVideosList(Convert.ToChar(status), selectedGroup);
             gvVideoManagement.DataSource = ds;
             gvVideoManagement.DataBind();
 
@@ -123,21 +125,40 @@ namespace VideoOnDemand.VODManage
 
         }
 
-        private bool BindGroups()
+
+
+
+
+        private bool BindGroups(bool bindPopUp = true, bool fromLoad = false)
         {
             bool groupBinded = false;
             DataSet ds = groupRepository.GetGroups();
             if (ds.Tables[0].Rows.Count > 0)
             {
-                DataRow dr = ds.Tables[0].NewRow();
-                dr["GroupId"] = 0;
-                dr["GroupName"] = "Select";
-                ds.Tables[0].Rows.InsertAt(dr, 0);
-                ddlGroupList.DataTextField = "GroupName";
-                ddlGroupList.DataValueField = "GroupId";
-                ddlGroupList.DataSource = ds;
-                ddlGroupList.DataBind();
-                groupBinded = true; ;
+                if (fromLoad)
+                {
+                    DataRow drow = ds.Tables[0].NewRow();
+                    drow["GroupId"] = 0;
+                    drow["GroupName"] = "Group All";
+                    ds.Tables[0].Rows.InsertAt(drow, 0);
+                    ddlGroupsFilter.DataTextField = "GroupName";
+                    ddlGroupsFilter.DataValueField = "GroupId";
+                    ddlGroupsFilter.DataSource = ds;
+                    ddlGroupsFilter.DataBind();
+                    groupBinded = true;
+                }
+                if (bindPopUp)
+                {
+                    DataRow dr = ds.Tables[0].NewRow();
+                    dr["GroupId"] = 0;
+                    dr["GroupName"] = "Select";
+                    ds.Tables[0].Rows.InsertAt(dr, 0);
+                    ddlGroupList.DataTextField = "GroupName";
+                    ddlGroupList.DataValueField = "GroupId";
+                    ddlGroupList.DataSource = ds;
+                    ddlGroupList.DataBind();
+                    groupBinded = true;
+                }
             }
             else
             {
@@ -220,10 +241,18 @@ namespace VideoOnDemand.VODManage
 
         }
 
+        protected void ddlGroups_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            char status = (ddlStatus.SelectedItem.Value.ToString() != string.Empty) ? Convert.ToChar(ddlStatus.SelectedItem.Value) : '0';
+            int groupSelected = (ddlGroupsFilter.SelectedItem != null && ddlGroupsFilter.SelectedValue.ToString() != string.Empty) ? Convert.ToInt32(ddlGroupsFilter.SelectedItem.Value) : 0;
+            BindVideos(status,groupSelected);
+        }
+
         protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            char status = (ddlStatus.SelectedItem.Value.ToString() != string.Empty) ? Convert.ToChar(ddlStatus.SelectedItem.Value) : '1';
-            BindVideos(status);
+            char status = (ddlStatus.SelectedItem.Value.ToString() != string.Empty) ? Convert.ToChar(ddlStatus.SelectedItem.Value) : '0';
+            int groupSelected = (ddlGroupsFilter.SelectedItem != null && ddlGroupsFilter.SelectedValue.ToString() != string.Empty) ? Convert.ToInt32(ddlGroupsFilter.SelectedItem.Value) : 0;
+            BindVideos(status, groupSelected);
         }
 
         protected void btnAssign_Click(object sender, EventArgs e)

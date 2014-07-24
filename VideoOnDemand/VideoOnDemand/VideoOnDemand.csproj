@@ -175,6 +175,7 @@
       <DependentUpon>Configuration.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Code\Model\BAL\clsActiveDirectory.cs" />
+    <Compile Include="App_Code\Model\ConnectionString\clsConnectionBuilder.cs" />
     <Compile Include="App_Code\Model\BAL\clsGroupManagement.cs" />
     <Compile Include="App_Code\Model\BAL\clsSearch.cs" />
     <Compile Include="App_Code\Model\BAL\clsArchive.cs" />
