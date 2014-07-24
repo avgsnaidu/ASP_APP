@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="ActiveDirectoryInfo.aspx.cs" Inherits="VideoOnDemand.Setup.ActiveDirectoryInfo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="setup2.aspx.cs" Inherits="VideoOnDemand.Setup.ActiveDirectoryInfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainHeadContent" runat="server">
 </asp:Content>
@@ -10,7 +10,7 @@
         <div class="col-md-12 full-width">
             <div class="navigation">
                 <ul class="step2">
-                    <li class="first-child completed edit-s"><a href="index.aspx"><span>1</span>Database Setup</a></li>
+                    <li class="first-child completed edit-s"><a href="setup1.aspx"><span>1</span>Database Setup</a></li>
                     <li class="completed middle-leftchild"><a href="#"><span>2</span>Active Directory Details </a></li>
                     <li class="middle-rightchild"><a href="#"><span>3</span>VOD Configuration Details </a></li>
                     <li class="last-child"><a href="#"><span>4</span>Super Admin Info</a></li>
@@ -62,7 +62,7 @@
                     If you are not sure about database details, please contact your host.
                 </p>
                 <p class="pull-right">
-                   <%-- <asp:LinkButton runat="server" ID="btnNext" PostBackUrl="~/Setup/VODConfiguration.aspx">Next<span class="sprite ic-arrow"></span></asp:LinkButton>--%>
+                   <%-- <asp:LinkButton runat="server" ID="btnNext" PostBackUrl="~/Setup/setup3.aspx">Next<span class="sprite ic-arrow"></span></asp:LinkButton>--%>
                       <asp:Button runat="server" ID="btnNext" ClientIDMode="Static" CausesValidation="true" Width="0" Height="0" ValidationGroup="ADInfo"  BackColor="Transparent" BorderWidth="0" OnClick="GoToVODConfigurationPage_Click" />
                     <label runat="server" id="lblClickButton" for="btnNext" class="labelButton">Next<span class="sprite ic-arrow"></span></label>
                 </p>

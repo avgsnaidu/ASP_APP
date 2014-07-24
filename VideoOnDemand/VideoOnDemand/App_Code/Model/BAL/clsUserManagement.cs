@@ -35,7 +35,7 @@ namespace VideoOnDemand.Model.BAL
             SqlParameter[] paramList = new SqlParameter[2];
             paramList[0] = new SqlParameter("@GroupId", SqlDbType.Int);
             paramList[0].Value = groupId;
-            paramList[1] = new SqlParameter("@Users", SqlDbType.VarChar);
+            paramList[1] = new SqlParameter("@Users", SqlDbType.NVarChar);
             paramList[1].Value = userListWithSemiColonSeparated;
 
             int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.StoredProcedure, "usp_UpdateUserGroup", paramList);
@@ -53,7 +53,7 @@ namespace VideoOnDemand.Model.BAL
             SqlParameter[] paramList = new SqlParameter[2];
             paramList[0] = new SqlParameter("@GroupId", SqlDbType.Int);
             paramList[0].Value = groupId;
-            paramList[1] = new SqlParameter("@UserId", SqlDbType.VarChar);
+            paramList[1] = new SqlParameter("@UserId", SqlDbType.NVarChar);
             paramList[1].Value = userId;
             if (groupId == 0)
                 strSql = "UPDATE USERS SET GROUP_ID=NULL WHERE USER_ID=@UserId";

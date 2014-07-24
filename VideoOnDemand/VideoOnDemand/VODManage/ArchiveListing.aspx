@@ -13,55 +13,25 @@
                         <%--<button type="submit" class="btn btn-danger searchBorder">Search <i class="icon-search"></i></button>--%>
                         <asp:LinkButton ID="btnSearch" runat="server" class="btn btn-danger searchBorder" OnClick="btnSearch_Click">Search <i class="icon-search"></i></asp:LinkButton>
                     </div>
-                </div>
-
-
+                </div> 
             </div>
         </div>
         <div class="table-block clearfix col-md-12">
             <asp:GridView ID="gvArchiveListing" runat="server" AutoGenerateColumns="False" GridLines="None" ShowHeaderWhenEmpty="true"
-                EmptyDataText="No archive records found" EmptyDataRowStyle-HorizontalAlign="Center">
+                EmptyDataText="No archive records found" EmptyDataRowStyle-HorizontalAlign="Center" AllowPaging="true"
+                PageSize="10" OnPageIndexChanging="gvArchiveListing_PageIndexChanging">
+                <AlternatingRowStyle BackColor="#DEDEDE" />
+                <HeaderStyle CssClass="gridheader" />
+                <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
                 <Columns>
                     <asp:BoundField DataField="FILENAME" HeaderText="FILE NAME" />
-                   <%-- <asp:BoundField DataField="GROUP_NAME" HeaderText="Group Name" />
+                    <%-- <asp:BoundField DataField="GROUP_NAME" HeaderText="Group Name" />
                     <asp:BoundField DataField="DESCRIPTION" HeaderText="Description" />--%>
                     <asp:BoundField DataField="TAG" HeaderText="TAGS" />
                     <asp:BoundField DataField="ARCHIVEDDATE" HeaderText="ARCHIVED DATE" />
                 </Columns>
                 <EditRowStyle BorderStyle="None" BorderWidth="0px" />
-            </asp:GridView>
-            <%--<table>
-                <tr>
-                    <th>Video Name</th>
-                    
-                    <th>Tags</th>
-                </tr>
-                <tr>
-                    <td>Video Name</td>
-                    
-                    <td>Root, Area, Place ...</td>
-                </tr>
-                <tr class="even">
-                    <td>Video Name</td>
-                     
-                    <td>Root, Area, Place ...</td>
-                </tr>
-                <tr>
-                    <td>Video Name</td>
-                     
-                    <td>Root, Area, Place ...</td>
-                </tr>
-                <tr class="even">
-                    <td>Video Name</td>
-                    
-                    <td>Root, Area, Place ...</td>
-                </tr>
-                <tr>
-                    <td>Video Name</td>
-                    
-                    <td>Root, Area, Place ...</td>
-                </tr>
-            </table>--%>
+            </asp:GridView> 
         </div>
     </div>
 

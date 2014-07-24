@@ -112,6 +112,7 @@ namespace VideoOnDemand.VODManage
                 sb.Append("$('#myModal1').modal('show');");
                 sb.Append(@"</script>");
                 //ClientScript.RegisterStartupScript(this.GetType(), "SelectGroup", sb.ToString()); //(0r)
+
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "EditModalScript", sb.ToString(), false);
             }
 
@@ -129,7 +130,7 @@ namespace VideoOnDemand.VODManage
                 {
                     DataRow drow = ds.Tables[0].NewRow();
                     drow["GroupId"] = 0;
-                    drow["GroupName"] = "All";
+                    drow["GroupName"] = "Select Group";
                     ds.Tables[0].Rows.InsertAt(drow, 0);
                     ddlGroupsFilter.DataTextField = "GroupName";
                     ddlGroupsFilter.DataValueField = "GroupId";
@@ -369,6 +370,21 @@ namespace VideoOnDemand.VODManage
                 BindUsers(group);
             }
         }
+
+        protected void gvUserManagement_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvUserManagement.PageIndex = e.NewPageIndex;
+            var group = Convert.ToInt32(ddlGroupsFilter.SelectedItem.Value);
+            BindUsers(group);
+        }
+
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
+            GridViewRow pagerRow = gvUserManagement.BottomPagerRow;
+            pagerRow.Cells[0].Attributes.Add("align", "right");
+        }
+
 
 
 

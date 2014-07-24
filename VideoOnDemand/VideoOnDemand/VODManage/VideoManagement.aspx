@@ -98,11 +98,66 @@
  
                     </li>
                 </ul>
+
+                <div class="modal fade" id="editTagsModal" tabindex="-1" role="dialog" aria-labelledby="myEditTabLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dlg-top">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <!-- <button type="button" class="close"  data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+                                <h4 class="modal-title" id="myEditTabLabel">Edit Tags Details</h4>
+                            </div>
+                            <asp:UpdatePanel ID="UpdatePanel4" runat="server">
+                                <ContentTemplate>
+                                    <div class="modal-body">
+                                        <div class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <label for="txtCommunityTag" class="col-sm-4 control-label">
+                                                    Community&nbsp;Tags :</label>
+                                                <div class="col-sm-7">
+                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat"
+                                                        ID="txtCommunityTag" placeholder="Community Tag" data-placement="top" data-trigger="manual" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtDistrictTag" class="col-sm-4 control-label">
+                                                    District Tags :</label>
+                                                <div class="col-sm-7">
+                                                    <asp:TextBox type="text" ID="txtDistrictTag" runat="server" class="form-control textboxFormat "
+                                                        placeholder="District Tag" data-placement="bottom" data-trigger="manual" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtRoadTag" class="col-sm-4 control-label">
+                                                    Road Tags :</label>
+                                                <div class="col-sm-7">
+                                                    <asp:TextBox type="text" runat="server" ID="txtRoadTag" class="form-control textboxFormat"
+                                                        name="" placeholder="Road Tags" data-placement="bottom" data-trigger="manual"></asp:TextBox>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:AsyncPostBackTrigger ControlID="gvVideoManagement" EventName="RowCommand" />
+                                    <asp:AsyncPostBackTrigger ControlID="btnSaveTag" EventName="Click" />
+                                </Triggers>
+                            </asp:UpdatePanel>
+                            <div class="modal-footer">
+                                <asp:Button ID="btnSaveTag" runat="server" class="btn btn-primary" Text="Save" OnClick="btnSaveTag_Click" />
+                                <asp:Button ID="btnCancelTag" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
                 <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dlg-top">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+                                
                                 <h4 class="modal-title" id="myModalLabel">Assign Videos to Group</h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
@@ -130,13 +185,13 @@
                             <div class="modal-footer">
                                 <asp:Button ID="btnAssign" runat="server" class="btn btn-primary" Text="Assign" OnClick="btnAssign_Click" />
                                 <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
-
-                                <%--  <button type="button" class="btn btn-primary" data-dismiss="modal">Assign</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>--%>
+                                                              
                             </div>
                         </div>
                     </div>
                 </div>
+
+                 
 
                 <div class="modal fade" id="alertMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" data-dismiss="modal">
                     <div class="modal-dialog modal-dlg-top">
@@ -180,8 +235,13 @@
 
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="gvVideoManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="VIDEOID" ShowHeaderWhenEmpty="true"
-                        OnRowCommand="gvVideoManagement_RowCommand" EmptyDataText="No videos to display." EmptyDataRowStyle-HorizontalAlign="Center">
+                    <asp:GridView ID="gvVideoManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="VIDEOID"
+                        ShowHeaderWhenEmpty="true" AllowPaging="true" OnRowDataBound="gvVideoManagement_RowDataBound"
+                        OnRowCommand="gvVideoManagement_RowCommand" OnPageIndexChanging="gvVideoManagement_PageIndexChanging"
+                        EmptyDataText="No videos to display." EmptyDataRowStyle-HorizontalAlign="Center">
+                        <AlternatingRowStyle BackColor="#DEDEDE" />
+                        <HeaderStyle CssClass="gridheader" />
+                        <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
                         <Columns>
                             <asp:TemplateField HeaderText="Roles">
                                 <HeaderTemplate>
@@ -199,10 +259,15 @@
                             <asp:BoundField DataField="STATUS" HeaderText="Status" />
                             <asp:BoundField DataField="TAG" HeaderText="TAG" />
                             <%--<asp:BoundField DataField="GroupName" HeaderText="Group Name" />--%>
+                            <asp:TemplateField HeaderText="Edit">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("VIDEOID") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+
                             <asp:TemplateField HeaderText="Play">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Edit" CssClass="sprite delete" CommandArgument='<%#Eval("VIDEOID")%>' />
-                                    <%--<asp:LinkButton ID="lnkDelete" runat="server" CommandName="Delete" CssClass="sprite edit" CommandArgument='<%#Eval("VIDEOID") %>' />--%>
+                                    <asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="glyphicon glyphicon-play-circle" CommandArgument='<%#Eval("VIDEOID")%>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

@@ -173,5 +173,17 @@ namespace VideoOnDemand.VODManage
             }
 
         }
+
+        protected void gvGroupManagement_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvGroupManagement.PageIndex = e.NewPageIndex;
+            BindGroupsDetails();
+        }
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
+            GridViewRow pagerRow = gvGroupManagement.BottomPagerRow;
+            pagerRow.Cells[0].Attributes.Add("align", "right");
+        }
     }
 }

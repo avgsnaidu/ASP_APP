@@ -249,9 +249,13 @@
         <div class="table-block clearfix col-md-12">
             <%-- <asp:UpdatePanel ID="UpdatePanelGroupMang" runat="server">
                 <ContentTemplate>--%>
-            <asp:GridView ID="gvGroupManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="GroupId"
+            <asp:GridView ID="gvGroupManagement" runat="server" AutoGenerateColumns="False" GridLines="None"
+                 DataKeyNames="GroupId" AllowPaging="true" PagerSettings-Mode="Numeric"  OnPageIndexChanging="gvGroupManagement_PageIndexChanging"
                 OnRowEditing="gvGroupManagement_RowEditing" ShowHeaderWhenEmpty="true"
                 OnRowCommand="gvGroupManagement_RowCommand" EmptyDataText="No groups found" EmptyDataRowStyle-HorizontalAlign="Center">
+                 <AlternatingRowStyle BackColor="#DEDEDE" />
+                        <HeaderStyle CssClass="gridheader" />
+                        <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
                 <Columns>
                     <asp:BoundField DataField="GroupId" Visible="false" />
                     <asp:BoundField DataField="GroupName" HeaderText="Group Name" />
@@ -268,40 +272,7 @@
             <%-- </ContentTemplate>
             </asp:UpdatePanel>--%>
 
-
-            <%-- <table>
-                <tr>
-
-                    <th>Group Name</th>
-                    <th>Description</th>
-                    <th class="last-child">Actions</th>
-                </tr>
-                <tr>
-                    <td>Group Name 1</td>
-                    <td>Description</td>
-                    <td class="last-child"><a href="#" class="sprite edit"></a><a href="#" class="sprite delete"></a></td>
-                </tr>
-                <tr class="even">
-                    <td>Group Name 2</td>
-                    <td>Description</td>
-                    <td class="last-child"><a href="#" class="sprite edit"></a><a href="#" class="sprite delete"></a></td>
-                </tr>
-                <tr>
-                    <td>Group Name 3</td>
-                    <td>Description</td>
-                    <td class="last-child"><a href="#" class="sprite edit"></a><a href="#" class="sprite delete"></a></td>
-                </tr>
-                <tr class="even">
-                    <td>Group Name 4</td>
-                    <td>Description</td>
-                    <td class="last-child"><a href="#" class="sprite edit"></a><a href="#" class="sprite delete"></a></td>
-                </tr>
-                <tr>
-                    <td>Group Name 5</td>
-                    <td>Description</td>
-                    <td class="last-child"><a href="#" class="sprite edit"></a><a href="#" class="sprite delete"></a></td>
-                </tr>
-            </table>--%>
+ 
         </div>
 
         <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="delModalLabel" aria-hidden="true">

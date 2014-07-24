@@ -25,12 +25,12 @@ namespace VideoOnDemand.Model.BAL
         public bool InsertGroupDetails(string groupName, string description)
         {
             SqlParameter[] p = new SqlParameter[3];
-            p[0] = new SqlParameter("@GroupName", SqlDbType.VarChar);
+            p[0] = new SqlParameter("@GroupName", SqlDbType.NVarChar);
             p[0].Value = groupName;
-            p[1] = new SqlParameter("@Description", SqlDbType.VarChar);
+            p[1] = new SqlParameter("@Description", SqlDbType.NVarChar);
             p[1].Value = description;
 
-            p[2] = new SqlParameter("@CreatedDate", SqlDbType.VarChar);
+            p[2] = new SqlParameter("@CreatedDate", SqlDbType.NVarChar);
             p[2].Value = DateTime.Now;
 
 
@@ -46,9 +46,9 @@ namespace VideoOnDemand.Model.BAL
         public bool UpdateGroupDetails(int groupID, string groupName, string description)
         {
             SqlParameter[] p = new SqlParameter[3];
-            p[0] = new SqlParameter("@GroupName", SqlDbType.VarChar);
+            p[0] = new SqlParameter("@GroupName", SqlDbType.NVarChar);
             p[0].Value = groupName;
-            p[1] = new SqlParameter("@Description", SqlDbType.VarChar);
+            p[1] = new SqlParameter("@Description", SqlDbType.NVarChar);
             p[1].Value = description;
             p[2] = new SqlParameter("@GROUPID", SqlDbType.Int);
             p[2].Value = groupID;

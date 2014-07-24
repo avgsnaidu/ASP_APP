@@ -193,7 +193,7 @@
                         <asp:LinkButton runat="server" ID="lnkAssignUserGroup" OnClick="lnkAssignUserGroup_Click" OnClientClick="return CheckCheckBoxSelection();"> <span class="sprite ic-assignvideo"></span>Assign Users to Group </asp:LinkButton></li>
                     <!--<li><a href="#"><span class="sprite ic-creategroup"></span>Create Group </a></li>-->
                     <li class="last">
-                        <label>Group By </label>
+                        <label>Filter By </label>
                         <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>--%>
                         <asp:DropDownList ID="ddlGroupsFilter" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
@@ -382,15 +382,18 @@
                 </div>
 
 
-            
+
             </div>
         </div>
         <div class="table-block clearfix col-md-12">
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true"
-                        GridLines="None" DataKeyNames="UserId,GroupId" OnRowCommand="gvUserManagement_RowCommand" EmptyDataText="No users to display in selected group." 
-                        EmptyDataRowStyle-HorizontalAlign="Center">
+                    <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true" AllowPaging="true"
+                        GridLines="None" DataKeyNames="UserId,GroupId" OnRowCommand="gvUserManagement_RowCommand" EmptyDataText="No users to display in selected group."
+                        EmptyDataRowStyle-HorizontalAlign="Center"  PagerSettings-Mode="Numeric" OnPageIndexChanging="gvUserManagement_PageIndexChanging">
+                        <AlternatingRowStyle BackColor="#DEDEDE" />
+                         <HeaderStyle CssClass="gridheader" />
+                        <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
                         <Columns>
                             <asp:TemplateField HeaderText="Roles">
                                 <HeaderTemplate>

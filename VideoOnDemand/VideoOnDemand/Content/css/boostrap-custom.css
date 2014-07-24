@@ -936,12 +936,18 @@ body { /* Margin bottom by footer height */
 /*.container { max-width: 1050px; }*/
 
 
-
-
 .block1 .title1 
 {
 	background:#313131;
 	color:#fff;
 	}
 	
-
+.search-select .btn 
+{
+	border: 1px solid #ee3241;
+	border-radius: 0 !important;
+	}
+.configuration-wrap .middle-rightchild {
+    padding-left: 0;
+}
+.configuration-wrap .table-block { padding:0;}

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="VODConfiguration.aspx.cs" Inherits="VideoOnDemand.Setup.VODConfiguration" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="setup3.aspx.cs" Inherits="VideoOnDemand.Setup.VODConfiguration" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainHeadContent" runat="server">
 </asp:Content>
@@ -10,8 +10,8 @@
         <div class="col-md-12 full-width">
             <div class="navigation">
                 <ul class="step3">
-                    <li class="first-child completed edit-s"><a href="index.aspx"><span>1</span>Database Setup</a></li>
-                    <li class="completed edit-s middle-leftchild"><a href="ActiveDirectoryInfo.aspx"><span>2</span>Active Directory Details </a></li>
+                    <li class="first-child completed edit-s"><a href="setup1.aspx"><span>1</span>Database Setup</a></li>
+                    <li class="completed edit-s middle-leftchild"><a href="setup2.aspx"><span>2</span>Active Directory Details </a></li>
                     <li class="completed middle-rightchild"><a href="#"><span>3</span>VOD Configuration Details </a></li>
                     <li class="last-child"><a href="#"><span>4</span>Super Admin Info</a></li>
                 </ul>

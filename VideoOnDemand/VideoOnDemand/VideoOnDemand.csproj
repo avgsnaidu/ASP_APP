@@ -136,10 +136,11 @@
     <Content Include="Scripts\jquery.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Setup\ActiveDirectoryInfo.aspx" />
     <Content Include="Setup\Index.aspx" />
-    <Content Include="Setup\SuperAdminInfo.aspx" />
-    <Content Include="Setup\VODConfiguration.aspx" />
+    <Content Include="Setup\setup2.aspx" />
+    <Content Include="Setup\setup1.aspx" />
+    <Content Include="Setup\setup4.aspx" />
+    <Content Include="Setup\setup3.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="VODManage\ArchiveListing.aspx" />
     <Content Include="VODManage\GroupManagement.aspx" />
@@ -200,13 +201,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Setup\ActiveDirectoryInfo.aspx.cs">
-      <DependentUpon>ActiveDirectoryInfo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Setup\ActiveDirectoryInfo.aspx.designer.cs">
-      <DependentUpon>ActiveDirectoryInfo.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Setup\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -214,19 +208,33 @@
     <Compile Include="Setup\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Setup\SuperAdminInfo.aspx.cs">
-      <DependentUpon>SuperAdminInfo.aspx</DependentUpon>
+    <Compile Include="Setup\setup2.aspx.cs">
+      <DependentUpon>setup2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Setup\SuperAdminInfo.aspx.designer.cs">
-      <DependentUpon>SuperAdminInfo.aspx</DependentUpon>
+    <Compile Include="Setup\setup2.aspx.designer.cs">
+      <DependentUpon>setup2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Setup\VODConfiguration.aspx.cs">
-      <DependentUpon>VODConfiguration.aspx</DependentUpon>
+    <Compile Include="Setup\setup1.aspx.cs">
+      <DependentUpon>setup1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Setup\VODConfiguration.aspx.designer.cs">
-      <DependentUpon>VODConfiguration.aspx</DependentUpon>
+    <Compile Include="Setup\setup1.aspx.designer.cs">
+      <DependentUpon>setup1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\setup4.aspx.cs">
+      <DependentUpon>setup4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Setup\setup4.aspx.designer.cs">
+      <DependentUpon>setup4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\setup3.aspx.cs">
+      <DependentUpon>setup3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Setup\setup3.aspx.designer.cs">
+      <DependentUpon>setup3.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>

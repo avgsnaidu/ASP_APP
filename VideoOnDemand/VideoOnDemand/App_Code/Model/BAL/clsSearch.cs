@@ -15,9 +15,9 @@ namespace VideoOnDemand.Model.BAL
             DataSet ds;
 
             SqlParameter[] p = new SqlParameter[3];
-            p[0] = new SqlParameter("@SearchKey", SqlDbType.VarChar);
+            p[0] = new SqlParameter("@SearchKey", SqlDbType.NVarChar);
             p[0].Value = searchKeyword;
-            p[1] = new SqlParameter("@SearchOn", SqlDbType.VarChar);
+            p[1] = new SqlParameter("@SearchOn", SqlDbType.NVarChar);
             p[1].Value = searchOn;
             p[2] = new SqlParameter("@IsArabic", SqlDbType.Bit);
             p[2].Value = IsArabic;

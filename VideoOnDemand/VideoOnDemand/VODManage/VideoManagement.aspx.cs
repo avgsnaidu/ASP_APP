@@ -35,7 +35,7 @@ namespace VideoOnDemand.VODManage
             {
                 DataRow dr = ds.Tables[0].NewRow();
                 dr["StatusCode"] = 0;
-                dr["StatusName"] = "Status All";
+                dr["StatusName"] = "Select Status";
                 ds.Tables[0].Rows.InsertAt(dr, 0);
 
                 ddlStatus.DataTextField = "StatusName";
@@ -51,19 +51,19 @@ namespace VideoOnDemand.VODManage
                 dt.Columns.Add("StatusCode");
                 dt.Columns.Add("StatusName");
                 DataRow dr = dt.NewRow();
-                dr["StatusCode"] = 0;
-                dr["StatusName"] = "Status All";
+                dr["StatusCode"] = '0';
+                dr["StatusName"] = "Select Status";
                 dt.Rows.InsertAt(dr, 0);
                 dr = dt.NewRow();
-                dr["StatusCode"] = 1;
+                dr["StatusCode"] = 'D';
                 dr["StatusName"] = "Converted";
                 dt.Rows.InsertAt(dr, 1);
                 dr = dt.NewRow();
-                dr["StatusCode"] = 2;
+                dr["StatusCode"] = 'U';
                 dr["StatusName"] = "Pending";
                 dt.Rows.InsertAt(dr, 2);
                 dr = dt.NewRow();
-                dr["StatusCode"] = 3;
+                dr["StatusCode"] = 'P';
                 dr["StatusName"] = "Processing";
                 dt.Rows.InsertAt(dr, 3);
 
@@ -109,6 +109,9 @@ namespace VideoOnDemand.VODManage
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append(@"</script>");
                 ClientScript.RegisterStartupScript(GetType(), "SelectOneVideo", sb.ToString());
+                return;
+
+
 
             }
             if (BindGroups())
@@ -125,6 +128,36 @@ namespace VideoOnDemand.VODManage
 
         }
 
+        protected void gvVideoManagement_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            int index = Convert.ToInt32(e.CommandArgument);
+            Session["VideoId"] = index;
+            if (e.CommandName.Equals("Editing"))
+            {
+                if (index > 0)
+                {
+                    DataSet ds = GetVideoTagsDetails(index);
+                    txtCommunityTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["COMMUNITY_TAG"].ToString());
+                    txtDistrictTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["DISTRICT_TAG"].ToString());
+                    txtRoadTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["ROAD_TAG"].ToString());
+
+                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("$('#editTagsModal').modal('show');");
+                    sb.Append(@"</script>");
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "AdddModalScript", sb.ToString(), false);
+
+                }
+            }
+
+        }
+
+        private DataSet GetVideoTagsDetails(int vidoeId)
+        {
+            return repository.GetVideoTagDetails(vidoeId);
+        }
+
+
 
 
 
@@ -139,7 +172,7 @@ namespace VideoOnDemand.VODManage
                 {
                     DataRow drow = ds.Tables[0].NewRow();
                     drow["GroupId"] = 0;
-                    drow["GroupName"] = "Group All";
+                    drow["GroupName"] = "Select Group";
                     ds.Tables[0].Rows.InsertAt(drow, 0);
                     ddlGroupsFilter.DataTextField = "GroupName";
                     ddlGroupsFilter.DataValueField = "GroupId";
@@ -151,7 +184,7 @@ namespace VideoOnDemand.VODManage
                 {
                     DataRow dr = ds.Tables[0].NewRow();
                     dr["GroupId"] = 0;
-                    dr["GroupName"] = "Select";
+                    dr["GroupName"] = "Select Group";
                     ds.Tables[0].Rows.InsertAt(dr, 0);
                     ddlGroupList.DataTextField = "GroupName";
                     ddlGroupList.DataValueField = "GroupId";
@@ -228,24 +261,48 @@ namespace VideoOnDemand.VODManage
 
         }
 
-        protected void gvVideoManagement_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            int index = Convert.ToInt32(e.CommandArgument);
+        //protected void gvVideoManagement_RowCommand(object sender, GridViewCommandEventArgs e)
+        //{
+        //    int index = Convert.ToInt32(e.CommandArgument);
+        //    //StringBuilder sb;
 
-            if (e.CommandName.Equals("Edit"))
-            {
-                GridViewRow row = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
-                // row contains current Clicked Gridview Row
-                String VersionId = row.Cells[2].Text;
-            }
+        //    if (e.CommandName.Equals("Editing"))
+        //    {
+        //        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+        //        sb.Append(@"<script type='text/javascript'>");
+        //        sb.Append("$('#myModal3').modal('show');");
+        //        sb.Append(@"</script>");
+        //        //ClientScript.RegisterStartupScript(this.GetType(), "SelectGroup", sb.ToString()); //(0r)
+        //        ScriptManager.RegisterStartupScript(this, this.GetType(), "AddModalScript", sb.ToString(), false);
 
-        }
+
+        //        //GridViewRow row = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
+        //        //// row contains current Clicked Gridview Row
+        //        //String VersionId = row.Cells[2].Text;
+
+        //        //StringBuilder sb = new System.Text.StringBuilder();
+        //        //lblMessage.Text = "Please select at least one video.";
+        //        //sb.Append(@"<script type='text/javascript'>");
+        //        //sb.Append("$('#alertMessageModal').modal('show');");
+        //        //sb.Append(@"</script>");
+        //        //ClientScript.RegisterStartupScript(GetType(), "SelectOneVideo", sb.ToString());
+
+        //        //sb = new System.Text.StringBuilder();
+
+        //        //sb.Append(@"<script type='text/javascript'>");
+        //        //sb.Append("$('#alertMessageModal').modal('show');");
+        //        //sb.Append(@"</script>");
+        //        //ClientScript.RegisterStartupScript(this.GetType(), "SelectGroup", sb.ToString(), false);
+
+        //    }
+
+        //}
 
         protected void ddlGroups_SelectedIndexChanged(object sender, EventArgs e)
         {
             char status = (ddlStatus.SelectedItem.Value.ToString() != string.Empty) ? Convert.ToChar(ddlStatus.SelectedItem.Value) : '0';
             int groupSelected = (ddlGroupsFilter.SelectedItem != null && ddlGroupsFilter.SelectedValue.ToString() != string.Empty) ? Convert.ToInt32(ddlGroupsFilter.SelectedItem.Value) : 0;
-            BindVideos(status,groupSelected);
+            BindVideos(status, groupSelected);
         }
 
         protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -302,6 +359,61 @@ namespace VideoOnDemand.VODManage
 
             }
         }
+
+        protected void gvVideoManagement_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvVideoManagement.PageIndex = e.NewPageIndex;
+            char status = (ddlStatus.SelectedItem.Value.ToString() != string.Empty) ? Convert.ToChar(ddlStatus.SelectedItem.Value) : '0';
+            int groupSelected = (ddlGroupsFilter.SelectedItem != null && ddlGroupsFilter.SelectedValue.ToString() != string.Empty) ? Convert.ToInt32(ddlGroupsFilter.SelectedItem.Value) : 0;
+            BindVideos(status, groupSelected);
+
+        }
+
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
+            if (gvVideoManagement.BottomPagerRow != null)
+            {
+                GridViewRow pagerRow = gvVideoManagement.BottomPagerRow;
+                pagerRow.Cells[0].Attributes.Add("align", "right");
+            }
+        }
+
+        protected void btnSaveTag_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb;
+            bool updateSucess = repository.UpdateVideoTags(Convert.ToInt32(Session["VideoId"].ToString()), txtCommunityTag.Text.Trim(), txtDistrictTag.Text.Trim(), txtRoadTag.Text.Trim());
+            if (updateSucess)
+            {
+                lblMessage.Text = "Successfully video tags updated.";
+                sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$('#alertMessageModal').modal('show');");
+                sb.Append("$('#editTagsModal').modal('hide');");
+                sb.Append(@"</script>");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
+            }
+            else
+            {
+                lblMessage.Text = "Updations of video tags not completed.";
+                sb = new System.Text.StringBuilder();
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$('#alertMessageModal').modal('show');");
+                sb.Append("$('#editTagsModal').modal('hide');");
+                sb.Append(@"</script>");
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
+            }
+
+
+
+        }
+
+        protected void gvVideoManagement_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+
+        }
+
+
 
 
     }

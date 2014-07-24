@@ -7,136 +7,145 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VideoOnDemand.VODManage {
+namespace VideoOnDemand.Setup {
     
     
-    public partial class VideoManagement {
+    public partial class DatabaseSetup {
         
         /// <summary>
-        /// lnkAssignVidToGroup control.
+        /// txtIPAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkAssignVidToGroup;
+        protected global::System.Web.UI.WebControls.TextBox txtIPAddress;
         
         /// <summary>
-        /// ddlStatus control.
+        /// rfvTxtIPAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTxtIPAddress;
         
         /// <summary>
-        /// ddlGroupsFilter control.
+        /// revTxtIPAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGroupsFilter;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revTxtIPAddress;
         
         /// <summary>
-        /// UpdatePanel4 control.
+        /// txtPort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel4;
+        protected global::System.Web.UI.WebControls.TextBox txtPort;
         
         /// <summary>
-        /// txtCommunityTag control.
+        /// rfvport control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCommunityTag;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvport;
         
         /// <summary>
-        /// txtDistrictTag control.
+        /// revPort control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDistrictTag;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator revPort;
         
         /// <summary>
-        /// txtRoadTag control.
+        /// txtDatabaseName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRoadTag;
+        protected global::System.Web.UI.WebControls.TextBox txtDatabaseName;
         
         /// <summary>
-        /// btnSaveTag control.
+        /// rfvDatabaseName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveTag;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDatabaseName;
         
         /// <summary>
-        /// btnCancelTag control.
+        /// txtUserId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancelTag;
+        protected global::System.Web.UI.WebControls.TextBox txtUserId;
         
         /// <summary>
-        /// UpdatePanel2 control.
+        /// rfvUserId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserId;
         
         /// <summary>
-        /// ddlGroupList control.
+        /// txtPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGroupList;
+        protected global::System.Web.UI.WebControls.TextBox txtPassword;
         
         /// <summary>
-        /// btnAssign control.
+        /// rfvPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAssign;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
         
         /// <summary>
-        /// btnCancel control.
+        /// btnNext control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
+        protected global::System.Web.UI.WebControls.Button btnNext;
         
         /// <summary>
-        /// UpdatePanel3 control.
+        /// lblClickButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblClickButton;
+        
+        /// <summary>
+        /// UpdatePanel5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel5;
         
         /// <summary>
         /// lblMessage control.
@@ -155,23 +164,5 @@ namespace VideoOnDemand.VODManage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnOk;
-        
-        /// <summary>
-        /// UpdatePanel1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
-        /// <summary>
-        /// gvVideoManagement control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvVideoManagement;
     }
 }

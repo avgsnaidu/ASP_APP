@@ -28,9 +28,9 @@ namespace VideoOnDemand
                     lnkDDMUserName.Visible = false;
 
             }
-
         }
 
+        
         protected void btnConfiguration_Click(object sender, EventArgs e)
         {
             Response.Redirect(@"~/Admin/Configuration.aspx");

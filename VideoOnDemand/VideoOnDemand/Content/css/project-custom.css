@@ -10,7 +10,7 @@
 .modal-content {
     background: #efefef;
     border: 0;
-    width: 460px;
+    width: 560px;
 }
 
     .modal-content .modal-header .close {
@@ -262,6 +262,37 @@ a#lnkDropDownMenu.btn {
 }
 
 /*.modal-body{overflow-y:visible;}*/
+
+
+
+.modal-body .input-holder { width:100% !important;}
+.modal-body .col-sm-7 {
+width: 68%;
+}
+.modal-body .form-horizontal .control-label { width:169px;}
+.label1.float-l{text-align: left;
+padding: 5px 10px 5px 0;}
+
+
+
+/*======= Grid paging css======*/
+
+.gridpager, .gridpager td{ 
+text-align: right;
+
+font-weight: bold;
+text-decoration: none;
+}
+
+.gridpager Table
+{
+width: 5%;
+float:right;
+}
+
+
+
+
 
 
 

@@ -29,10 +29,30 @@ namespace VideoOnDemand.VODManage
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
+            BindSearchedList();
+        }
+
+        private void BindSearchedList()
+        {
             string searchKeyword = txtSearchKey.Text.Trim();
             DataSet ds = repository.GetSearchedArchiveList(searchKeyword);
             gvArchiveListing.DataSource = ds;
             gvArchiveListing.DataBind();
+        }
+
+
+
+        protected void gvArchiveListing_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            gvArchiveListing.PageIndex = e.NewPageIndex;
+            BindSearchedList();
+        }
+
+        protected override void OnPreRender(EventArgs e)
+        {
+            base.OnPreRender(e);
+            GridViewRow pagerRow = gvArchiveListing.BottomPagerRow;
+            pagerRow.Cells[0].Attributes.Add("align", "right");
         }
 
     }
