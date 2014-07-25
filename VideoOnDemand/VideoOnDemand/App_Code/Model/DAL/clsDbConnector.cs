@@ -18,9 +18,9 @@ namespace VideoOnDemand.App_Code
 
         public clsDbConnector()
         {
-            this.dbConnection = new SqlConnection(ConfigurationManager.AppSettings["connstr"]);
+            //this.dbConnection = new SqlConnection(ConfigurationManager.AppSettings["connstr"]);
             //Or
-            //this.dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["conString"]);
+            this.dbConnection = new SqlConnection(ConfigurationManager.ConnectionStrings["VODConnection"].ConnectionString);
             if (dbConnection.State == ConnectionState.Closed)
             {
                 try
@@ -44,7 +44,7 @@ namespace VideoOnDemand.App_Code
             cmd = new SqlCommand();
         }
 
-   
+
 
         public DataSet GetDataSet(string strSQL)
         {

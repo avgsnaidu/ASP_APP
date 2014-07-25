@@ -104,6 +104,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Login.aspx" />
+    <Compile Include="Admin\Configuration.aspx.cs">
+      <DependentUpon>Configuration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Configuration.aspx.designer.cs">
+      <DependentUpon>Configuration.aspx</DependentUpon>
+    </Compile>
     <Content Include="Admin\Configuration.aspx" />
     <Content Include="Content\css\boostrap-custom.css" />
     <Content Include="Content\css\bootstrap-select.css" />
@@ -168,28 +175,21 @@
     <Compile Include="Account\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Configuration.aspx.cs">
-      <DependentUpon>Configuration.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\Configuration.aspx.designer.cs">
-      <DependentUpon>Configuration.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="App_Code\Model\BAL\clsVODConfiguration.cs" />
+    <Compile Include="App_Code\Model\BAL\clsSuperAdmin.cs" />
     <Compile Include="App_Code\Model\BAL\clsActiveDirectory.cs" />
+    <Compile Include="App_Code\Model\BAL\clsArchive.cs" />
+    <Compile Include="App_Code\Model\BAL\clsDBSetup.cs" />
     <Compile Include="App_Code\Model\ConnectionString\clsConnectionBuilder.cs" />
     <Compile Include="App_Code\Model\BAL\clsGroupManagement.cs" />
     <Compile Include="App_Code\Model\BAL\clsSearch.cs" />
-    <Compile Include="App_Code\Model\BAL\clsArchive.cs" />
-    <Compile Include="App_Code\Model\BAL\clsSuperAdmin.cs" />
     <Compile Include="App_Code\Model\BAL\clsUserManagement.cs" />
     <Compile Include="App_Code\Model\BAL\clsVideoManagement.cs" />
-    <Compile Include="App_Code\Model\BAL\clsVODConfiguration.cs" />
     <Compile Include="App_Code\Model\ConnectionString\ClsConnectionString.cs" />
     <Compile Include="App_Code\Model\DAL\SqlHelper.cs" />
     <Compile Include="App_Code\Model\DAL\clsDbConnector.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Code\Model\BAL\clsDBSetup.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

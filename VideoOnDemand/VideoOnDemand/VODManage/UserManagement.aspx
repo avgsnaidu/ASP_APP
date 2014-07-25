@@ -220,20 +220,8 @@
                                                 <label for="inputEmail3" class="col-sm-4 control-label">Select&nbsp;Group<span class="required"> *</span></label>
                                                 <div class="col-sm-7">
                                                     <asp:DropDownList ID="ddlGroupList" runat="server" CssClass="form-control">
-                                                        <%--<asp:ListItem Value="0" Text="Select" Selected="True" />
-                                                <asp:ListItem Value="1" Text="Group Name 1" />
-                                                <asp:ListItem Value="2" Text="Group Name 2" />
-                                                <asp:ListItem Value="3" Text="Group Name 3" />
-                                                <asp:ListItem Value="4" Text="Group Name 4" />--%>
                                                     </asp:DropDownList>
 
-                                                    <%--  <select name="" class="form-control">
-                                      <option disabled selected>Select group</option>
-										<option>Group Name 1</option>
-										<option>Group Name 2</option>
-										<option>Group Name 3</option>
-										<option>Group Name 4</option>
-                                      </select>--%>
                                                 </div>
                                             </div>
                                         </div>
@@ -249,8 +237,6 @@
                                 <asp:Button ID="btnAssign" runat="server" class="btn btn-primary" OnClick="btnAssign_Click" Text="Assign" />
                                 <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
 
-                                <%-- <button type="button" class="btn btn-primary" data-dismiss="modal">Assign</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>--%>
                             </div>
                         </div>
                     </div>
@@ -280,20 +266,7 @@
                                                 <label for="ddlGroups" class="col-sm-4 control-label">Select&nbsp;Group<span class="required"> *</span></label>
                                                 <div class="col-sm-7">
                                                     <asp:DropDownList ID="ddlGroupsEdit" runat="server" CssClass="form-control">
-                                                        <%--<asp:ListItem Value="0" Text="Select" Selected="True" />
-                                                <asp:ListItem Value="1" Text="Group Name 1" />
-                                                <asp:ListItem Value="2" Text="Group Name 2" />
-                                                <asp:ListItem Value="3" Text="Group Name 3" />
-                                                <asp:ListItem Value="4" Text="Group Name 4" />--%>
                                                     </asp:DropDownList>
-
-                                                    <%--  <select name="" class="form-control">
-                                      <option disabled selected>Select group</option>
-										<option>Group Name 1</option>
-										<option>Group Name 2</option>
-										<option>Group Name 3</option>
-										<option>Group Name 4</option>
-                                      </select>--%>
                                                 </div>
                                             </div>
                                         </div>
@@ -390,9 +363,9 @@
                 <ContentTemplate>
                     <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="true" AllowPaging="true"
                         GridLines="None" DataKeyNames="UserId,GroupId" OnRowCommand="gvUserManagement_RowCommand" EmptyDataText="No users to display in selected group."
-                        EmptyDataRowStyle-HorizontalAlign="Center"  PagerSettings-Mode="Numeric" OnPageIndexChanging="gvUserManagement_PageIndexChanging">
+                        EmptyDataRowStyle-HorizontalAlign="Center" PagerSettings-Mode="Numeric" OnPageIndexChanging="gvUserManagement_PageIndexChanging">
                         <AlternatingRowStyle BackColor="#DEDEDE" />
-                         <HeaderStyle CssClass="gridheader" />
+                        <HeaderStyle CssClass="gridheader" />
                         <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
                         <Columns>
                             <asp:TemplateField HeaderText="Roles">
