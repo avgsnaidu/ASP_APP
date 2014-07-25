@@ -51,9 +51,11 @@ namespace VideoOnDemand.VODManage
         protected override void OnPreRender(EventArgs e)
         {
             base.OnPreRender(e);
-            GridViewRow pagerRow = gvArchiveListing.BottomPagerRow;
-            pagerRow.Cells[0].Attributes.Add("align", "right");
+            if (gvArchiveListing.BottomPagerRow != null)
+            {
+                GridViewRow pagerRow = gvArchiveListing.BottomPagerRow;
+                pagerRow.Cells[0].Attributes.Add("align", "right");
+            }
         }
-
     }
 }
