@@ -442,10 +442,14 @@ namespace VideoOnDemand.Model
             //create & open a SqlConnection, and dispose of it after we are done.
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
-                cn.Open();
+                try
+                {
+                    cn.Open();
 
-                //call the overload that takes a connection in place of the connection string
-                return ExecuteDataset(cn, commandType, commandText, commandParameters);
+                    //call the overload that takes a connection in place of the connection string
+                    return ExecuteDataset(cn, commandType, commandText, commandParameters);
+                }
+                catch(Exception ex) { throw ex; }
             }
         }
 

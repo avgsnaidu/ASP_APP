@@ -1,9 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManagement.master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="VideoOnDemand.VODManage.UserManagement" %>
 
 <asp:Content ID="UserManagementContent" ContentPlaceHolderID="VODMangContentPlaceHolder" runat="server">
-
-    <script src="../Scripts/bootstrap-select.js"></script>
-    <link href="../Content/css/bootstrap-select.css" rel="stylesheet" />
+    
+<%--    <script src="../Scripts/bootstrap-select.js"></script>
+    <link href="../Content/css/bootstrap-select.css" rel="stylesheet" />--%>
     <style>
       
 

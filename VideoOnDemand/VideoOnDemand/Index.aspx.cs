@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -21,6 +22,10 @@ namespace VideoOnDemand.Setup
             //setup2_Exists = IsAlreadyActiveDirectorySettingsExists();
             //setup3_Exists = IsAlreadyVODConfigurationSettingsExists();
             //setup4_Exists = IsAlreadySuperAdminDetailsExists();
+
+            CheckingActiveDirectoryCredetials();
+
+
 
             if (CheckConnectionStringExists())
             {
@@ -62,19 +67,38 @@ namespace VideoOnDemand.Setup
             }
         }
 
+        private void CheckingActiveDirectoryCredetials()
+        {
+            PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
+
+            // find current user
+            UserPrincipal user = UserPrincipal.Current;
+
+            if (user != null)
+            {
+                string loginName = user.SamAccountName; // or whatever you mean by "login name"
+
+            }    
+        }
+
 
         private bool CheckConnectionStringExists()
         {
+            clsDBSetup obj=new clsDBSetup();
             System.Configuration.Configuration rootWebConfig =
-                 System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("/MyWebSiteRoot");
+                 System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
             System.Configuration.ConnectionStringSettings connString;
             if (rootWebConfig.ConnectionStrings.ConnectionStrings.Count > 0)
             {
                 connString =
                     rootWebConfig.ConnectionStrings.ConnectionStrings["VODConnection"];
                 if (connString != null && connString.ConnectionString != string.Empty)
-                    return true;
-
+                {
+                    if (obj.GetValidConnectionString(connString.ConnectionString) != string.Empty)
+                        return true;
+                    else
+                        return false;
+                }
                 else
                     return false;
 

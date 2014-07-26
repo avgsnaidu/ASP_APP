@@ -11,7 +11,7 @@ namespace VideoOnDemand
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect(@"~/Setup/Index.aspx");
+            Response.Redirect(@"~/Index.aspx");
         }
     }
 }
