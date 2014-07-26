@@ -19,8 +19,8 @@ namespace VideoOnDemand
 
                 string linkButtonID = Request.RawUrl;
 
-                if (-1 < linkButtonID.IndexOf("UserManagement") || -1 < linkButtonID.IndexOf("GroupManagement") || -1 < linkButtonID.IndexOf("VideoManagement")
-                    || -1 < linkButtonID.IndexOf("Search") || -1 < linkButtonID.IndexOf("ArchiveListing") || -1 < linkButtonID.IndexOf("Configuration"))
+                if (-1 < linkButtonID.IndexOf("Users") || -1 < linkButtonID.IndexOf("GroupManagement") || -1 < linkButtonID.IndexOf("VideoManagement")
+                    || -1 < linkButtonID.IndexOf("Search") || -1 < linkButtonID.IndexOf("Archived") || -1 < linkButtonID.IndexOf("Configuration"))
                 {
                     lnkDDMUserName.Visible = true;
                 }
@@ -38,7 +38,7 @@ namespace VideoOnDemand
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            Response.Redirect(@"~/Account/Login.aspx");
+            Response.Redirect(@"~/Admin/Login.aspx");
         }
 
 

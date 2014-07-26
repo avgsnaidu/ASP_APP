@@ -363,10 +363,15 @@ namespace VideoOnDemand.VODManage
         protected void gvVideoManagement_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvVideoManagement.PageIndex = e.NewPageIndex;
+            BindVideosBasedOnSelection();
+
+        }
+
+        private void BindVideosBasedOnSelection()
+        {
             char status = (ddlStatus.SelectedItem.Value.ToString() != string.Empty) ? Convert.ToChar(ddlStatus.SelectedItem.Value) : '0';
             int groupSelected = (ddlGroupsFilter.SelectedItem != null && ddlGroupsFilter.SelectedValue.ToString() != string.Empty) ? Convert.ToInt32(ddlGroupsFilter.SelectedItem.Value) : 0;
             BindVideos(status, groupSelected);
-
         }
 
         protected override void OnPreRender(EventArgs e)
@@ -385,6 +390,7 @@ namespace VideoOnDemand.VODManage
             bool updateSucess = repository.UpdateVideoTags(Convert.ToInt32(Session["VideoId"].ToString()), txtCommunityTag.Text.Trim(), txtDistrictTag.Text.Trim(), txtRoadTag.Text.Trim());
             if (updateSucess)
             {
+                BindVideosBasedOnSelection();
                 lblMessage.Text = "Successfully video tags updated.";
                 sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
@@ -392,6 +398,7 @@ namespace VideoOnDemand.VODManage
                 sb.Append("$('#editTagsModal').modal('hide');");
                 sb.Append(@"</script>");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
+
             }
             else
             {

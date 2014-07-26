@@ -33,7 +33,7 @@ namespace VideoOnDemand.Setup
                         {
                             if (IsAlreadySuperAdminDetailsExists())
                             {
-                                Response.Redirect(@"~/VODManage/UserManagement.aspx");
+                                Response.Redirect(@"~/Users.aspx");
                             }
                             else
                             {
@@ -72,7 +72,7 @@ namespace VideoOnDemand.Setup
             {
                 connString =
                     rootWebConfig.ConnectionStrings.ConnectionStrings["VODConnection"];
-                if (connString != null)
+                if (connString != null && connString.ConnectionString != string.Empty)
                     return true;
 
                 else

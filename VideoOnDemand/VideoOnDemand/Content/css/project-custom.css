@@ -238,7 +238,7 @@ a#lnkDropDownMenu.btn {
 
 .buttonColor {
     background-color: #ec3140;
-    color:white;
+    color: white;
 }
 
 
@@ -258,41 +258,70 @@ a#lnkDropDownMenu.btn {
 }
 
 .modal-footer input[type="submit"].btn {
-    width: 55px;
+    width: auto;
 }
 
 /*.modal-body{overflow-y:visible;}*/
 
 
 
-.modal-body .input-holder { width:100% !important;}
-.modal-body .col-sm-7 {
-width: 68%;
+.modal-body .input-holder {
+    width: 100% !important;
 }
-.modal-body .form-horizontal .control-label { width:169px;}
-.label1.float-l{text-align: left;
-padding: 5px 10px 5px 0;}
+
+.modal-body .col-sm-7 {
+    width: 68%;
+}
+
+.modal-body .form-horizontal .control-label {
+    width: 169px;
+}
+
+.label1.float-l {
+    text-align: left;
+    padding: 5px 10px 5px 0;
+}
 
 
 
 /*======= Grid paging css======*/
 
-.gridpager, .gridpager td{ 
-text-align: right;
-
-font-weight: bold;
-text-decoration: none;
+.gridpager, .gridpager td {
+    text-align: right;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-.gridpager Table
-{
-width: 5%;
-float:right;
+    .gridpager Table {
+        width: 5%;
+        float: right;
+    }
+
+.timeIntr {
+    width: 27%;
+}
+
+.statusDropDown {
+    border-bottom: 1px solid #ec3240;
+    border-left: 0 none;
+    border-right: 0 none;
+    border-radius: 0 !important;
+    border-top: 1px solid #ec3240;
+}
+
+.spritePlay {
+    background-image: url(../images/vplay.png);
+    background-repeat: no-repeat;
 }
 
 
+.playicon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin: 0 3px;
+}
 
-
-
-
-
+.pdLeft0 span {
+    padding-left: 0px !important;
+}

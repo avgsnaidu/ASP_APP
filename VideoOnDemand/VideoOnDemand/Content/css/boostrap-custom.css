@@ -951,3 +951,14 @@ body { /* Margin bottom by footer height */
     padding-left: 0;
 }
 .configuration-wrap .table-block { padding:0;}
+
+.padLR10 {
+    padding-right:10px !important;
+    padding-left:10px !important;
+}
+.bgClrAsh {
+    background:#eee !important;
+}
+.padL15 tr td{
+    padding-left:15px !important;
+}

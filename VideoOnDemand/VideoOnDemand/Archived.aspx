@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManage/VODManagement.master" AutoEventWireup="true" CodeBehind="ArchiveListing.aspx.cs" Inherits="VideoOnDemand.VODManage.ArchiveListing" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManagement.master" AutoEventWireup="true" CodeBehind="Archived.aspx.cs" Inherits="VideoOnDemand.VODManage.ArchiveListing" %>
 
 <asp:Content ID="ArchiveContent" ContentPlaceHolderID="VODMangContentPlaceHolder" runat="server">
 

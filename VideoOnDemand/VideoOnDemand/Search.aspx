@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManage/VODManagement.master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="VideoOnDemand.VODManage.Search" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManagement.master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="VideoOnDemand.VODManage.Search" %>
 
-<%@ MasterType VirtualPath="~/VODManage/VODManagement.master" %>
+<%@ MasterType VirtualPath="~/VODManagement.master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="VODMangContentPlaceHolder" runat="server">
 

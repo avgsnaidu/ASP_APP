@@ -47,7 +47,7 @@ namespace VideoOnDemand.Setup
             {
                 repository = null;
             }
-            Response.Redirect("~/VODManage/UserManagement.aspx");
+            Response.Redirect("~/Users.aspx");
         }
     }
 }
