@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using VideoOnDemand.Model.BAL;
@@ -23,9 +25,6 @@ namespace VideoOnDemand.Setup
             //setup3_Exists = IsAlreadyVODConfigurationSettingsExists();
             //setup4_Exists = IsAlreadySuperAdminDetailsExists();
 
-            CheckingActiveDirectoryCredetials();
-
-
 
             if (CheckConnectionStringExists())
             {
@@ -38,7 +37,10 @@ namespace VideoOnDemand.Setup
                         {
                             if (IsAlreadySuperAdminDetailsExists())
                             {
-                                Response.Redirect(@"~/Users.aspx");
+                                if (ValidateActiveDirectoryCredetials())
+                                {
+                                    Response.Redirect(@"~/Users.aspx");
+                                }
                             }
                             else
                             {
@@ -67,24 +69,57 @@ namespace VideoOnDemand.Setup
             }
         }
 
-        private void CheckingActiveDirectoryCredetials()
+        private bool ValidateActiveDirectoryCredetials()
         {
             PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
 
             // find current user
             UserPrincipal user = UserPrincipal.Current;
+            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            string DomainName = Environment.UserDomainName;
+            //string UName = Environment.UserName;
 
             if (user != null)
             {
                 string loginName = user.SamAccountName; // or whatever you mean by "login name"
+                if (loginName != string.Empty)
+                {
+                    DataSet ds = AuthenticateWidowsUserWithDB(loginName, DomainName);
+                    if (ds != null && ds.Tables[0].Rows.Count > 0)
+                    {
+                        //SELECT USER_ID AS USERID,NAME AS LOGINNAME,DOMAIN,FULL_NAME AS FULLNAME,GROUP_ID AS LOGINGroupID
 
-            }    
+                        Session["LoginUserName"] = ds.Tables[0].Rows[0]["LOGINNAME"].ToString();
+                        Session["UserFullName"] = ds.Tables[0].Rows[0]["FULLNAME"].ToString();
+                        Session["LOGINGroupId"] = ds.Tables[0].Rows[0]["LOGINGroupID"].ToString();
+                        Session["IsAdmin"] = false;
+
+                        FormsAuthentication.RedirectFromLoginPage(Session["LoginUserName"].ToString(), true);
+
+                        return true;
+                    }
+                    else
+                        return false;
+                }
+                else
+                    return false;
+            }
+            else
+                return false;
+        }
+
+        private DataSet AuthenticateWidowsUserWithDB(string loginName, string domain)
+        {
+            clsUserManagement repository = new clsUserManagement();
+            DataSet userData = null;
+            repository.IsAuthenticateLoginUser(loginName, domain, ref userData);
+            return userData;
         }
 
 
         private bool CheckConnectionStringExists()
         {
-            clsDBSetup obj=new clsDBSetup();
+            clsDBSetup obj = new clsDBSetup();
             System.Configuration.Configuration rootWebConfig =
                  System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
             System.Configuration.ConnectionStringSettings connString;

@@ -225,7 +225,7 @@
                         <div id="user-info">
                             <div class="dropdown">
                                 <asp:LinkButton runat="server" ID="lnkDDMUserName" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                      Welcome, Username
+                                     
                     <span class="caret"></span>
                                 </asp:LinkButton>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="lnkDDMUserName">

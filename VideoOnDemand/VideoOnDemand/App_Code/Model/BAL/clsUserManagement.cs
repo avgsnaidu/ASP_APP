@@ -68,6 +68,28 @@ namespace VideoOnDemand.Model.BAL
         }
 
 
+        public bool IsAuthenticateLoginUser(string userName, string domain, ref DataSet userSet)
+        {
+            string strSql = string.Empty;
+
+            SqlParameter[] paramList = new SqlParameter[2];
+            paramList[0] = new SqlParameter("@UserName", SqlDbType.NVarChar);
+            paramList[0].Value = userName;
+
+            paramList[1] = new SqlParameter("@Domain", SqlDbType.NVarChar);
+            paramList[1].Value = domain;
+            strSql = "SELECT USER_ID AS USERID,NAME AS LOGINNAME,DOMAIN,FULL_NAME AS FULLNAME,GROUP_ID AS LOGINGroupID from USERS WHERE NAME=@UserName AND DOMAIN=@Domain";
+
+            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql,paramList);
+
+            if (ds.Tables[0].Rows.Count > 0)
+                userSet = ds;
+            else
+                return false;
+
+            return true;
+        }
+
 
 
     }
