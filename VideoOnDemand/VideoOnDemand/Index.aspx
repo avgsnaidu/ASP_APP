@@ -8,9 +8,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-    
-    </div>
+        <div>
+            <script>
+                alert('reached');
+            </script>
+        </div>
     </form>
 </body>
 </html>

@@ -16,8 +16,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -105,6 +105,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\Model\BAL\clsLogin.cs" />
+    <Compile Include="VODUserManagement.master.cs">
+      <DependentUpon>VODUserManagement.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VODUserManagement.master.designer.cs">
+      <DependentUpon>VODUserManagement.master</DependentUpon>
+    </Compile>
     <Content Include="Admin\Login.aspx" />
     <Compile Include="Admin\Configuration.aspx.cs">
       <DependentUpon>Configuration.aspx</DependentUpon>
@@ -164,6 +172,7 @@
     <Content Include="Site.Mobile.Master" />
     <Content Include="VODManagement.master" />
     <Content Include="VODMain.Master" />
+    <Content Include="VODUserManagement.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -194,6 +203,9 @@
     <Compile Include="App_Code\Model\DAL\clsDbConnector.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -327,7 +339,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>65467</DevelopmentServerPort>
           <DevelopmentServerVPath>/VODWEB/</DevelopmentServerVPath>

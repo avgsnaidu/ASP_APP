@@ -10,7 +10,7 @@ using VideoOnDemand.Model.BAL;
 
 namespace VideoOnDemand.VODManage
 {
-    public partial class UserManagement : System.Web.UI.Page
+    public partial class UserManagement : BasePage
     {
         clsUserManagement repository = new clsUserManagement();
         clsGroupManagement groupRepository = new clsGroupManagement();

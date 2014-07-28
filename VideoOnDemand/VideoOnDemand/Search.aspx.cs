@@ -9,7 +9,7 @@ using VideoOnDemand.Model.BAL;
 
 namespace VideoOnDemand.VODManage
 {
-    public partial class Search : System.Web.UI.Page
+    public partial class Search : BasePage
     {
         clsSearch repository = new clsSearch();
         protected void Page_Load(object sender, EventArgs e)

@@ -9,7 +9,7 @@ using VideoOnDemand.Model.BAL;
 
 namespace VideoOnDemand.VODManage
 {
-    public partial class ArchiveListing : System.Web.UI.Page
+    public partial class ArchiveListing : BasePage
     {
         clsArchive repository = new clsArchive();
 

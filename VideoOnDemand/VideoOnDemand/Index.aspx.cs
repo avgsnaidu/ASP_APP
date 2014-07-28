@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.DirectoryServices.AccountManagement;
 using System.Linq;
+using System.Security.Principal;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -39,7 +40,13 @@ namespace VideoOnDemand.Setup
                             {
                                 if (ValidateActiveDirectoryCredetials())
                                 {
-                                    Response.Redirect(@"~/Users.aspx");
+                                    if (Request.IsAuthenticated)
+                                    {
+                                        if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
+                                            Response.Redirect(@"~/Users.aspx");
+                                        else
+                                            Response.Redirect(@"~/VideoManagement.aspx");
+                                    }
                                 }
                             }
                             else
@@ -73,16 +80,27 @@ namespace VideoOnDemand.Setup
         {
             PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
 
-            // find current user
-            UserPrincipal user = UserPrincipal.Current;
-            string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            string DomainName = Environment.UserDomainName;
-            //string UName = Environment.UserName;
+            //UserPrincipal qbeUser = new UserPrincipal(ctx);           
+            //UserPrincipal qbeUser = UserPrincipal.FindByIdentity(ctx, IdentityType.SamAccountName, HttpContext.Current.User.Identity.Name);
 
-            if (user != null)
+            //// find current user
+            //System.DirectoryServices.AccountManagement.UserPrincipal user = System.DirectoryServices.AccountManagement.UserPrincipal.Current;
+            ////UserPrincipal user = HttpContext.Current.User;
+            //string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            string DomainName = Environment.UserDomainName;
+            ////string usersss = HttpContext.Current.User;
+            ////string UName = Environment.UserName;
+            string loginName = GetLogin(HttpContext.Current.User.Identity);
+            //Response.Write("<script>alert('reached');</script>");
+            //string alert = string.Format("<script>alert('{0}');</script>", loginName);
+            //Response.Write(alert);
+            //Response.End();
+            if (!string.IsNullOrEmpty(loginName))
             {
-                string loginName = user.SamAccountName; // or whatever you mean by "login name"
-                if (loginName != string.Empty)
+                //string loginName = qbeUser.SamAccountName; // or whatever you mean by "login name"
+
+
+                if (loginName != null && loginName != string.Empty)
                 {
                     DataSet ds = AuthenticateWidowsUserWithDB(loginName, DomainName);
                     if (ds != null && ds.Tables[0].Rows.Count > 0)
@@ -106,6 +124,10 @@ namespace VideoOnDemand.Setup
             }
             else
                 return false;
+
+            //ctx.Dispose();
+            //if (qbeUser != null)
+            //    qbeUser.Dispose();
         }
 
         private DataSet AuthenticateWidowsUserWithDB(string loginName, string domain)
@@ -116,7 +138,12 @@ namespace VideoOnDemand.Setup
             return userData;
         }
 
-
+        public string GetLogin(IIdentity identity)
+        {
+            string s = identity.Name;
+            int stop = s.IndexOf("\\");
+            return (stop > -1) ? s.Substring(stop + 1, s.Length - stop - 1) : string.Empty;
+        }
         private bool CheckConnectionStringExists()
         {
             clsDBSetup obj = new clsDBSetup();

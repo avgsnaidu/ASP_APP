@@ -14,7 +14,7 @@ namespace VideoOnDemand.VODManage
         {
             if (Request.IsAuthenticated)
             {
-                if (!Convert.ToBoolean(Session["IsAdmin"].ToString()))
+                if (Convert.ToBoolean(Session["IsAdmin"].ToString()))
                 {
                     string linkButtonID = Request.RawUrl;
 

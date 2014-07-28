@@ -40,6 +40,15 @@ namespace VideoOnDemand {
         protected global::System.Web.UI.ScriptManager ScriptManagerUserManage;
         
         /// <summary>
+        /// lnkHome control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkHome;
+        
+        /// <summary>
         /// lnkEnglish control.
         /// </summary>
         /// <remarks>
@@ -65,6 +74,15 @@ namespace VideoOnDemand {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkDDMUserName;
+        
+        /// <summary>
+        /// ulDropDown control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ulDropDown;
         
         /// <summary>
         /// lnkConfiguration control.

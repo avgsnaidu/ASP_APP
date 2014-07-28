@@ -1,0 +1,39 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="VODUserManagement.master.cs" Inherits="VideoOnDemand.VODUserManagement" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainHeadContent" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="VODContentPlaceHolder" runat="server">
+
+    <script src="Scripts/bootstrap-select.js"></script>
+    <link href="Content/css/bootstrap-select.css" rel="stylesheet" />
+
+
+    <div id="management-top">
+        <div class="container">
+            <ul id="ulManageTop" runat="server">
+
+
+                <li id="Li3" runat="server" style="padding-right: 50px;">
+                    <asp:LinkButton runat="server" ID="lnkVideoMang" OnClick="SelectedTheCurrentItem">Video Management<span class="sprite ic-videomanagement"></span><small class="sprite arrow-down"></small></asp:LinkButton>
+                </li>
+
+                <li id="Li5" runat="server">
+                    <asp:LinkButton runat="server" ID="lnkSearch" OnClick="SelectedTheCurrentItem">Search<span class="sprite ic-search"></span><small class="sprite arrow-down"></small></asp:LinkButton>
+                </li>
+
+
+            </ul>
+        </div>
+
+    </div>
+    <div class="container">
+
+        <asp:ContentPlaceHolder ID="VODMangContentPlaceHolder" runat="server">
+
+            <!--container-->
+
+        </asp:ContentPlaceHolder>
+
+    </div>
+
+</asp:Content>
