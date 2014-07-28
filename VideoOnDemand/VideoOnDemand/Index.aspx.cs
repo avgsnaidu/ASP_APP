@@ -78,7 +78,7 @@ namespace VideoOnDemand.Setup
 
         private bool ValidateActiveDirectoryCredetials()
         {
-            PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
+            //PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
 
             //UserPrincipal qbeUser = new UserPrincipal(ctx);           
             //UserPrincipal qbeUser = UserPrincipal.FindByIdentity(ctx, IdentityType.SamAccountName, HttpContext.Current.User.Identity.Name);
