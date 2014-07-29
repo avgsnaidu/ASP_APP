@@ -111,12 +111,21 @@
                                 <ContentTemplate>
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
+
+                                            <div class="form-group">
+                                                <label for="lblVideoName" class="col-sm-4 control-label">
+                                                    Video&nbsp;Name :</label>
+                                                <div class="col-sm-7">
+                                                    <asp:Label runat="server" class="form-control" ID="lblVideoName" data-trigger="manual" />
+                                                </div>
+                                            </div>
+
                                             <div class="form-group">
                                                 <label for="txtCommunityTag" class="col-sm-4 control-label">
                                                     Community&nbsp;Tags :</label>
                                                 <div class="col-sm-7">
                                                     <asp:TextBox type="text" runat="server" class="form-control textboxFormat"
-                                                        ID="txtCommunityTag" placeholder="Community Tag" data-placement="top" data-trigger="manual" />
+                                                        ID="txtCommunityTag" placeholder="Enter Community Tag" data-placement="top" data-trigger="manual" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -124,7 +133,7 @@
                                                     District Tags :</label>
                                                 <div class="col-sm-7">
                                                     <asp:TextBox type="text" ID="txtDistrictTag" runat="server" class="form-control textboxFormat "
-                                                        placeholder="District Tag" data-placement="bottom" data-trigger="manual" />
+                                                        placeholder="Enter District Tag" data-placement="bottom" data-trigger="manual" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -132,7 +141,7 @@
                                                     Road Tags :</label>
                                                 <div class="col-sm-7">
                                                     <asp:TextBox type="text" runat="server" ID="txtRoadTag" class="form-control textboxFormat"
-                                                        name="" placeholder="Road Tags" data-placement="bottom" data-trigger="manual"></asp:TextBox>
+                                                        name="" placeholder="Enter Road Tags" data-placement="bottom" data-trigger="manual"></asp:TextBox>
                                                 </div>
                                             </div>
 
@@ -152,12 +161,12 @@
                     </div>
                 </div>
 
-                
+
                 <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dlg-top">
                         <div class="modal-content">
                             <div class="modal-header">
-                                
+
                                 <h4 class="modal-title" id="myModalLabel">Assign Videos to Group</h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
@@ -185,13 +194,13 @@
                             <div class="modal-footer">
                                 <asp:Button ID="btnAssign" runat="server" class="btn btn-primary" Text="Assign" OnClick="btnAssign_Click" />
                                 <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
-                                                              
+
                             </div>
                         </div>
                     </div>
                 </div>
 
-                 
+
 
                 <div class="modal fade" id="alertMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" data-dismiss="modal">
                     <div class="modal-dialog modal-dlg-top">
@@ -243,7 +252,7 @@
                         <HeaderStyle CssClass="gridheader" />
                         <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
                         <Columns>
-                            <asp:TemplateField HeaderText="Roles">
+                            <asp:TemplateField ItemStyle-Width="30px">
                                 <HeaderTemplate>
                                     <asp:CheckBox ID="chkAll" ClientIDMode="Static" runat="server" AutoPostBack="true" OnCheckedChanged="chkAll_CheckedChanged" />
                                     <%--<asp:CheckBox ID="chkAll" ClientIDMode="Static" onclick="javascript:SelectAllCheckboxesSpecific(this);" runat="server" AutoPostBack="true" OnCheckedChanged="chkAll_CheckedChanged" />--%>
@@ -255,23 +264,23 @@
                             </asp:TemplateField>
 
                             <asp:BoundField DataField="VIDEOID" Visible="false" />
-                            <asp:BoundField DataField="FILENAME" HeaderText="Video Name" />
-                            <asp:BoundField DataField="STATUS" HeaderText="Status" />
+                            <asp:BoundField DataField="FILENAME" HeaderText="Video Name" ItemStyle-Width="27%" />
+                            <asp:BoundField DataField="STATUS" HeaderText="Status" ItemStyle-Width="12%" />
                             <asp:BoundField DataField="TAG" HeaderText="TAG" />
                             <%--<asp:BoundField DataField="GroupName" HeaderText="Group Name" />--%>
-                            <asp:TemplateField HeaderText="Edit">
+                            <asp:TemplateField HeaderText="Edit" ItemStyle-Width="60px">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("VIDEOID") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderText="Play">
+                            <asp:TemplateField HeaderText="Play" ItemStyle-Width="60px">
                                 <ItemTemplate>
                                     <%--<asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="glyphicon glyphicon-play-circle" CommandArgument='<%#Eval("VIDEOID")%>' />--%>
                                     <asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="spritePlay playicon" CommandArgument='<%#Eval("VIDEOID")%>' />
 
 
-                                    
+
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

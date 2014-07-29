@@ -154,8 +154,8 @@ a#lnkDropDownMenu.btn {
 
     .searchborder .btn-default:hover, .searchborder .btn-default:focus, .searchborder .btn-default:active, .searchborder .btn-default.active,
     .searchborder .open .dropdown-toggle.btn-default {
-        background-color: #ec3140 !important;
-        color: white !important;
+        /*background-color: #ec3140 !important;
+        color: white !important;*/
     }
 
 
@@ -175,8 +175,9 @@ a#lnkDropDownMenu.btn {
 }
 
 .searchTextPadingExist {
-    padding: 6px 6px !important;
+    /*padding: 5px 5px !important;*/
     padding-left: 15px !important;
+    height: 34px !important;
 }
 
 .labelNoBold label {
@@ -324,4 +325,36 @@ a#lnkDropDownMenu.btn {
 
 .pdLeft0 span {
     padding-left: 0px !important;
+}
+
+/*========== For reducting the select-dropdown margin===========*/
+.bootstrap-select.btn-group:not(.input-group-btn), .bootstrap-select.btn-group[class*="span"] {
+    margin-bottom: 1px !important;
+}
+
+.btn-default.active {
+    background-color: yellow;
+    border-color: Green;
+}
+
+
+.btn-default {
+    background-color: #ec3240 !important;
+    border-color: #e47e31 !important;
+    color: #fff !important;
+}
+
+    .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+        background-color: #ec3240 !important;
+        border-color: #e47e31 !important;
+        color: #dadada !important;
+        /*background-color: #ebebeb;
+    border-color: #adadad;
+    color: #333;*/
+    }
+
+
+ 
+.bootstrap-select.btn-group .dropdown-menu.inner li.selected a {
+    background-color: #fa611d !important;
 }

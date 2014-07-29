@@ -1,8 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManagement.master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="VideoOnDemand.VODManage.UserManagement" %>
 
 <asp:Content ID="UserManagementContent" ContentPlaceHolderID="VODMangContentPlaceHolder" runat="server">
-    
-<%--    <script src="../Scripts/bootstrap-select.js"></script>
+
+    <%--    <script src="../Scripts/bootstrap-select.js"></script>
     <link href="../Content/css/bootstrap-select.css" rel="stylesheet" />--%>
     <style>
       
@@ -162,6 +162,8 @@
 
             if (!isValid) {
                 var label = document.getElementById('<%= lblMessage.ClientID %>');
+                var labelHeader = document.getElementById('<%= lblAlertHeader.ClientID %>');
+                labelHeader.innerHTML = 'Select User';
                 label.innerHTML = 'Please select minimum one user';
                 $('#alertMessageModal').modal('show');
                 //alert("Please select atleast one user");
@@ -176,6 +178,108 @@
         //        $(".modal").modal("show");
         //    });
         //});
+
+
+
+
+        //var CONST_COLOR_BACKCOLOR = '#F7BE81';
+        //var Const_LastCol_Index = 6;
+
+        //// I am calling a Javascript function to change the selected row color on page load
+        //var browserName = navigator.appName;
+        //if (browserName == "Microsoft Internet Explorer") {
+        //    window.onload = SelectGridOnLoad;
+        //}
+        //else {
+        //    if (browserName == "Netscape") //google chrome app.Name
+        //    {
+        //        setTimeout("SelectGridOnLoad()", 500);
+        //    }
+        //    else {
+        //        window.onload = SelectGridOnLoad; // helps with Opera
+        //    }
+        //}
+
+
+        //function SelectGridOnLoad() {
+        //    alert('kdkdkd');
+
+        //    // Looping all the row (Here - 1 is used as I have footer in the Grid View and starting from 1 Row (0 is Header)
+        //    // So if you dont have Footer required to loop till end of the row (ie., no -1).
+        //    for (var intRow = 1; intRow < document.getElementById('%= gvUserManagement.ClientID %>').rows.length - 1; intRow++) {
+
+        //        // Declaring variable for Holding Values
+        //        var vHiddenControlId = 0;
+        //        var vCheckById = '';
+
+        //        // Getting the GridView Row
+        //        var gridRow = document.getElementById('%= gvUserManagement.ClientID %>').rows[intRow];
+
+        //        for (var intCell = 0; intCell < gridRow.cells[Const_LastCol_Index].childNodes.length; intCell++) // Looping the Row cell
+        //        {
+        //            if (gridRow.cells[Const_LastCol_Index].childNodes[intCell].id.indexOf("hndRowBackColor") != -1)
+        //                if (gridRow.cells[Const_LastCol_Index].childNodes[intCell].id != null) {
+
+        //                    // Getting the Hidden Control Id (for storing current row background color
+        //                    vHiddenControlId = gridRow.cells[Const_LastCol_Index].childNodes[intCell].id;
+
+        //                    // Getting Check box Id (to know the check box selected)
+        //                    if (gridRow.cells[Const_LastCol_Index].childNodes[intCell].id.indexOf("chkSelectUser") != -1)
+        //                        vCheckById = gridRow.cells[Const_LastCol_Index].childNodes[intCell].id;
+        //                }
+        //        }
+        //        if (document.getElementById(vCheckById).checked == true) {
+        //            document.getElementById(vHiddenControlId).value = gridRow.style.backgroundColor;
+        //            gridRow.style.backgroundColor = CONST_COLOR_BACKCOLOR;
+        //        }
+        //    }
+        //}
+
+        ////function SelectRow(Id) {
+
+        ////    // Declaring variable for Holding Values
+        ////    var vHiddenControlId = 0;
+
+        ////    // Getting the GridView Row
+        ////    var gridRow = document.getElementById(Id).parentNode.parentNode;
+
+        ////    if (document.getElementById(Id).checked == true) // If Selected
+        ////    {
+
+        ////        for (var intCell = 0; intCell < gridRow.cells[Const_LastCol_Index].childNodes.length; intCell++) // Looping the Row cell
+        ////        {
+        ////            if (gridRow.cells[Const_LastCol_Index].childNodes[intCell].id != null) {
+
+        ////                // Getting the Hidden Control Id (for storing current row background color
+        ////                if (gridRow.cells[Const_LastCol_Index].childNodes[intCell].id.indexOf("hndRowBackColor") != -1)
+        ////                    vHiddenControlId = gridRow.cells[Const_LastCol_Index].childNodes[intCell].id;
+        ////            }
+        ////        }
+
+        ////        // Storing the color already was there to the hidden control for future replacement
+        ////        document.getElementById(vHiddenControlId).value = gridRow.style.backgroundColor;
+
+        ////        // Chanding the color
+        ////        gridRow.style.backgroundColor = CONST_COLOR_BACKCOLOR;
+        ////    }
+        ////    else // If unselected - Replace the color back
+        ////    {
+        ////        for (var intCell = 0; intCell < gridRow.cells[Const_LastCol_Index].childNodes.length; intCell++) {
+
+        ////            if (gridRow.cells[Const_LastCol_Index].childNodes[intCell].id != null) {
+
+        ////                // Getting the Hidden Control Id (for storing current row background color
+        ////                if (gridRow.cells[Const_LastCol_Index].childNodes[intCell].id.indexOf("hndRowBackColor") != -1)
+        ////                    vHiddenControlId = gridRow.cells[Const_LastCol_Index].childNodes[intCell].id;
+        ////            }
+        ////        }
+
+        ////        // Restoring color back
+        ////        gridRow.style.backgroundColor = document.getElementById(vHiddenControlId).value;
+        ////    }
+        ////}
+
+
 
     </script>
 
@@ -330,14 +434,15 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h4 class="modal-title" id="alertHeader">Alert !</h4>
+                                <h4 class="modal-title" id="alertHeader">
+                                    <asp:Label runat="server" ID="lblAlertHeader">Alert !</asp:Label></h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                                 <ContentTemplate>
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
-                                                <asp:Label ID="lblMessage" runat="server" class="col-sm- control-label" Style="width: 320px;"></asp:Label>
+                                                <asp:Label ID="lblMessage" runat="server" class="col-sm- control-label padL15" Style="width: 320px;"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -368,24 +473,28 @@
                         <HeaderStyle CssClass="gridheader" />
                         <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
                         <Columns>
-                            <asp:TemplateField HeaderText="Roles">
+                            <asp:TemplateField ItemStyle-Width="30px">
                                 <HeaderTemplate>
+
                                     <asp:CheckBox ID="chkAll" ClientIDMode="Static" runat="server" AutoPostBack="true" OnCheckedChanged="chkAll_CheckedChanged" />
                                     <%--<asp:CheckBox ID="chkAll" ClientIDMode="Static" onclick="javascript:SelectAllCheckboxesSpecific(this);" runat="server" AutoPostBack="true" OnCheckedChanged="chkAll_CheckedChanged" />--%>
                                 </HeaderTemplate>
                                 <ItemTemplate>
+
                                     <%--<asp:CheckBox onclick="javascript:HighlightRow(this);" ID="chkSelectUser" runat="server" EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />--%>
                                     <asp:CheckBox ID="chkSelectUser" runat="server" EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />
+                                    <asp:HiddenField runat="server" ID="hndRowBackColor" Value="" />
+
                                 </ItemTemplate>
                             </asp:TemplateField>
 
 
-                            <asp:BoundField DataField="UserID" Visible="false" />
+                            <asp:BoundField DataField="UserID" Visible="false"  />
                             <asp:BoundField DataField="UserName" HeaderText="User Name" />
-                            <asp:BoundField DataField="FullName" HeaderText="Full Name" />
-                            <asp:BoundField DataField="Domain" HeaderText="Domain Name" />
-                            <asp:BoundField DataField="GroupName" HeaderText="Group Name" />
-                            <asp:TemplateField HeaderText="Actions">
+                            <asp:BoundField DataField="FullName" HeaderText="Full Name" ItemStyle-Width="25%"/>
+                            <asp:BoundField DataField="Domain" HeaderText="Domain Name" ItemStyle-Width="18%"/>
+                            <asp:BoundField DataField="GroupName" HeaderText="Group Name" ItemStyle-Width="18%"/>
+                            <asp:TemplateField HeaderText="Actions" ItemStyle-Width="100px">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("UserId")+ ";"+ Eval("GroupId")%>' />
                                     <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("UserId")+ ";"+ Eval("GroupId")%>' />

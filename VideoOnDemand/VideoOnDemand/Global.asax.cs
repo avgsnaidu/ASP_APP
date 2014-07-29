@@ -28,5 +28,10 @@ namespace VideoOnDemand
             // Code that runs when an unhandled error occurs
 
         }
+
+        void Session_End(object sender, EventArgs e)
+        {
+            Session.Abandon();
+        }
     }
 }

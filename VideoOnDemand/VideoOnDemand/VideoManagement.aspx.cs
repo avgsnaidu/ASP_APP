@@ -137,6 +137,8 @@ namespace VideoOnDemand.VODManage
                 if (index > 0)
                 {
                     DataSet ds = GetVideoTagsDetails(index);
+
+                    lblVideoName.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["VIDEONAME"].ToString());
                     txtCommunityTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["COMMUNITY_TAG"].ToString());
                     txtDistrictTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["DISTRICT_TAG"].ToString());
                     txtRoadTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["ROAD_TAG"].ToString());

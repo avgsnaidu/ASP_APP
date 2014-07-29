@@ -43,16 +43,17 @@
                             <!-- <button type="button" class="close"  data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
                             <h4 class="modal-title" id="myModalLabel">Database Connection Details</h4>
                         </div>
+                         <asp:HiddenField ID="hdConfigId" runat="server" />
+
                         <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>
                                 <div class="modal-body">
                                     <div class="form-horizontal" role="form">
-                                        <div class="form-group">
-                                            <asp:HiddenField ID="hdConfigId" runat="server" />
+                                        <div class="form-group">                                           
                                             <label for="txtIpAddress" class="col-sm-4 control-label">
                                                 Ip&nbsp;Address<span class="required"> *</span></label>
                                             <div class="col-sm-7">
-                                                <asp:TextBox type="text" runat="server" class="form-control required NoEmpty ipformat"
+                                                <asp:TextBox type="text" runat="server" class="form-control required textboxFormat"
                                                     ID="txtIpAddress" placeholder="Ip Address" data-placement="top" data-trigger="manual"
                                                     data-content="Enter Valid IpAddress" />
                                                 <asp:RequiredFieldValidator runat="server" ID="rfvTxtIPAddress" ControlToValidate="txtIPAddress" ValidationGroup="DbSetup" ErrorMessage="* Please Enter IP Address" ForeColor="Red" Display="Dynamic" />
@@ -77,7 +78,7 @@
                                                 <asp:TextBox type="text" runat="server" ID="txtDatabase" class="form-control textboxFormat required NoEmpty onlynumbers"
                                                     name="" placeholder="Database Name" data-placement="bottom" data-trigger="manual"
                                                     data-content="Enter Valid Database"></asp:TextBox>
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvDatabaseName" ControlToValidate="txtDatabase" ValidationGroup="DbSetup" ErrorMessage="* Please Enter Database" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvDatabaseName" ControlToValidate="txtDatabase" ValidationGroup="DbSetup" ErrorMessage="* Please Enter Database" ForeColor="#E2351D" Display="Dynamic" ></asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
@@ -87,7 +88,7 @@
                                             <div class="col-sm-7">
                                                 <asp:TextBox type="text" ID="txtUserId" runat="server" class="form-control textboxFormat required NoEmpty"
                                                     name="" placeholder="User Id" data-placement="bottom" data-trigger="manual" data-content="Enter Valid UserId"></asp:TextBox>
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvUserId" ControlToValidate="txtUserId" ValidationGroup="DbSetup" ErrorMessage="* Please Enter UserId" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvUserId" ControlToValidate="txtUserId" ValidationGroup="DbSetup" ErrorMessage="* Please Enter UserId" ForeColor="#E2351D" Display="Dynamic" ></asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
@@ -98,7 +99,7 @@
                                                 <asp:TextBox type="text" TextMode="Password" ID="txtADPassword" runat="server" class="form-control textboxFormat required NoEmpty"
                                                     name="" placeholder="Password" data-placement="bottom" data-trigger="manual"
                                                     data-content="Enter Valid Password"></asp:TextBox>
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtADPassword" ValidationGroup="DbSetup" ErrorMessage="* Please Enter Password" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtADPassword" ValidationGroup="DbSetup" ErrorMessage="* Please Enter Password" ForeColor="#E2351D" Display="Dynamic" ></asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
@@ -269,7 +270,7 @@
                                                 <asp:TextBox type="text" runat="server" class="form-control textboxFormat required NoEmpty"
                                                     ID="txtServerId" placeholder="Server Id" data-placement="top" data-trigger="manual"
                                                     data-content="Enter Valid ServerId" />
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtADServerId" ControlToValidate="txtServerId" ValidationGroup="ADInfo" ErrorMessage="* Please Enter ServerId" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtADServerId" ControlToValidate="txtServerId" ValidationGroup="ADInfo" ErrorMessage="* Please Enter ServerId" ForeColor="#E2351D"  Display="Dynamic"></asp:RequiredFieldValidator>
                                                 <asp:RegularExpressionValidator runat="server" ID="rfvServerId" ValidationGroup="ADInfo" ValidationExpression="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" ForeColor="Red" ControlToValidate="txtServerId" ErrorMessage="* Invalid Ip Address" Display="Dynamic" />
 
                                             </div>
@@ -280,7 +281,7 @@
                                             <div class="col-sm-7">
                                                 <asp:TextBox type="text" ID="txtUsername" runat="server" class="form-control textboxFormat required NoEmpty"
                                                     placeholder="Username" data-placement="bottom" data-trigger="manual" data-content="Enter Valid Username" />
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtADUserName" ControlToValidate="txtUsername" ValidationGroup="ADInfo" ErrorMessage="* Please Enter Username" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtADUserName" ControlToValidate="txtUsername" ValidationGroup="ADInfo" ErrorMessage="* Please Enter Username" ForeColor="#E2351D"  Display="Dynamic"> </asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
@@ -291,7 +292,7 @@
                                                 <asp:TextBox type="text" TextMode="Password" runat="server" ID="txtDBPassword" class="form-control textboxFormat required NoEmpty"
                                                     name="" placeholder="Password" data-placement="bottom" data-trigger="manual"
                                                     data-content="Enter Valid Password"></asp:TextBox>
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtADPassword" ControlToValidate="txtDBPassword" ValidationGroup="ADInfo" ErrorMessage="* Please Enter Password" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtADPassword" ControlToValidate="txtDBPassword" ValidationGroup="ADInfo" ErrorMessage="* Please Enter Password" ForeColor="#E2351D"  Display="Dynamic"> </asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
@@ -302,7 +303,7 @@
                                                 <asp:TextBox type="text" ID="txtDomain" runat="server" class="form-control textboxFormat required NoEmpty"
                                                     name="" placeholder="Domain Name" data-placement="bottom" data-trigger="manual"
                                                     data-content="Enter Valid Domain Name"></asp:TextBox>
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtDomain" ControlToValidate="txtDomain" ValidationGroup="ADInfo" ErrorMessage="* Please Enter Domain Name" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtDomain" ControlToValidate="txtDomain" ValidationGroup="ADInfo" ErrorMessage="* Please Enter Domain Name" ForeColor="#E2351D"  Display="Dynamic"></asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
@@ -435,7 +436,7 @@
                                                 <asp:TextBox type="text" runat="server" class="form-control textboxFormat required NoEmpty"
                                                     ID="txtSrcFold" placeholder="Source Folder" data-placement="top" data-trigger="manual"
                                                     data-content="Enter Valid Source Folder" />
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtSourceFolder" ControlToValidate="txtSrcFold" ValidationGroup="VODInfo" ErrorMessage="* Please Enter Source Folder" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtSourceFolder" ControlToValidate="txtSrcFold" ValidationGroup="VODInfo" ErrorMessage="* Please Enter Source Folder" ForeColor="#E2351D"  Display="Dynamic"> </asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
@@ -446,7 +447,7 @@
                                                 <asp:TextBox type="text" ID="txtDstFold" runat="server" class="form-control textboxFormat required NoEmpty"
                                                     placeholder="Destination Folder" data-placement="bottom" data-trigger="manual"
                                                     data-content="Enter Valid Destination Folder" />
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtDestFolder" ControlToValidate="txtDstFold" ValidationGroup="VODInfo" ErrorMessage="* Please Enter Destination Folder" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtDestFolder" ControlToValidate="txtDstFold" ValidationGroup="VODInfo" ErrorMessage="* Please Enter Destination Folder" ForeColor="#E2351D"  Display="Dynamic"> </asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
@@ -457,7 +458,7 @@
                                                 <asp:TextBox type="text" runat="server" ID="txtArchiveFold" class="form-control textboxFormat required NoEmpty"
                                                     name="" placeholder="Archive Folder" data-placement="bottom" data-trigger="manual"
                                                     data-content="Enter Valid Archive Folder"></asp:TextBox>
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtArchiveFolder" ControlToValidate="txtArchiveFold" ValidationGroup="VODInfo" ErrorMessage="* Please Enter Archive Folder" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtArchiveFolder" ControlToValidate="txtArchiveFold" ValidationGroup="VODInfo" ErrorMessage="* Please Enter Archive Folder" ForeColor="#E2351D"  Display="Dynamic"></asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
@@ -468,7 +469,7 @@
                                                 <asp:TextBox type="text" ID="txtBackupFold" runat="server" class="form-control textboxFormat required NoEmpty"
                                                     name="" placeholder="Backup Folder" data-placement="bottom" data-trigger="manual"
                                                     data-content="Enter Valid Backup Folder"></asp:TextBox>
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtBackUpFolder" ControlToValidate="txtBackupFold" ValidationGroup="VODInfo" ErrorMessage="* Please Enter Backup Folder" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtBackUpFolder" ControlToValidate="txtBackupFold" ValidationGroup="VODInfo" ErrorMessage="* Please Enter Backup Folder" ForeColor="#E2351D"  Display="Dynamic"> </asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
@@ -518,7 +519,7 @@
                                                         <asp:ListItem Text="5" Value="5" />
                                                     </asp:DropDownList>
                                                     <asp:RequiredFieldValidator runat="server" ID="rfvddlSimultaneous" ControlToValidate="ddlSimultaneous"
-                                                        ValidationGroup="VODInfo" ErrorMessage="* Please Select Video Conversion" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                                                        ValidationGroup="VODInfo" ErrorMessage="* Please Select Video Conversion" ForeColor="#E2351D"  Display="Dynamic"></asp:RequiredFieldValidator>
                                                 </div>
                                             </div>
                                         </div>
@@ -614,7 +615,7 @@
                                                 <asp:TextBox type="text" runat="server" class="form-control textboxFormat required NoEmpty"
                                                     ID="txtSuperUsername" placeholder="User Name" data-placement="top" data-trigger="manual"
                                                     data-content="Enter Valid Username" />
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtUserName" ControlToValidate="txtSuperUsername" ValidationGroup="SuperAdminInfo" ErrorMessage="* Please Enter Username" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtUserName" ControlToValidate="txtSuperUsername" ValidationGroup="SuperAdminInfo" ErrorMessage="* Please Enter Username" ForeColor="#E2351D"  Display="Dynamic"></asp:RequiredFieldValidator>
 
                                             </div>
                                         </div>
@@ -624,7 +625,7 @@
                                             <div class="col-sm-7">
                                                 <asp:TextBox type="text" ID="txtSupPassword" runat="server" class="form-control textboxFormat required NoEmpty"
                                                     placeholder="Password" data-placement="bottom" data-trigger="manual" data-content="Enter Valid Password" />
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtPassword" ControlToValidate="txtSupPassword" ValidationGroup="SuperAdminInfo" ErrorMessage="* Please Enter Password" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtPassword" ControlToValidate="txtSupPassword" ValidationGroup="SuperAdminInfo" ErrorMessage="* Please Enter Password" ForeColor="#E2351D"  Display="Dynamic"></asp:RequiredFieldValidator>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -645,8 +646,8 @@
                                             <div class="col-sm-7">
                                                 <asp:TextBox type="text" ID="txtSuperEmail" runat="server" class="form-control textboxFormat required NoEmpty"
                                                     name="" placeholder="Email" data-placement="bottom" data-trigger="manual" data-content="Enter Valid Email"></asp:TextBox>
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtMail" ControlToValidate="txtSuperEmail" ValidationGroup="ADInfo" ErrorMessage="* Please Enter Email" ForeColor="#E2351D"></asp:RequiredFieldValidator>
-                                                <asp:RegularExpressionValidator runat="server" ID="revtxtMail" ValidationGroup="SuperAdminInfo" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtSuperEmail" ErrorMessage="* Invalid Email Address" />
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtMail" ControlToValidate="txtSuperEmail" ValidationGroup="ADInfo" ErrorMessage="* Please Enter Email" ForeColor="#E2351D"  Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator runat="server" ID="revtxtMail" ValidationGroup="SuperAdminInfo" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtSuperEmail" ErrorMessage="* Invalid Email Address"  Display="Dynamic"/>
 
                                             </div>
                                         </div>

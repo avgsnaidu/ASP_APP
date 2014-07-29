@@ -71,7 +71,7 @@ namespace VideoOnDemand.Model.BAL
         public DataSet GetVideoTagDetails(int videoID)
         {
             string strSql = string.Empty;
-            strSql = "SELECT VOD_ID AS VIDEOID,COMMUNITY_TAG_ENG AS COMMUNITY_TAG,DISTRICT_TAG_ENG DISTRICT_TAG,ROAD_TAG_ENG AS ROAD_TAG FROM VOD_VIDEOS WHERE VOD_ID=" + videoID;
+            strSql = "SELECT VOD_ID AS VIDEOID,FILE_NAME AS VIDEONAME,COMMUNITY_TAG_ENG AS COMMUNITY_TAG,DISTRICT_TAG_ENG DISTRICT_TAG,ROAD_TAG_ENG AS ROAD_TAG FROM VOD_VIDEOS WHERE VOD_ID=" + videoID;
             DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
             return ds;
 

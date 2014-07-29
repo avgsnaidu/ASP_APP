@@ -34,7 +34,7 @@ namespace VideoOnDemand.Model.BAL
             p[2].Value = DateTime.Now;
 
 
-            string strSql = "INSERT INTO VODWEB.dbo.GROUPS(GROUP_NAME,DESCRIPTION,DATE_CREATED)VALUES(@GroupName,@Description,@CreatedDate)";
+            string strSql = "INSERT INTO GROUPS(GROUP_NAME,DESCRIPTION,DATE_CREATED)VALUES(@GroupName,@Description,@CreatedDate)";
             int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
             if (value > 0)
                 return true;

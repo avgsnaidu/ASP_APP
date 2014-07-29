@@ -45,13 +45,13 @@
                                             <div class="form-group">
                                                 <label for="txtGroupName" class="col-sm-4 control-label">Group&nbsp;Name<span class="required"> *</span></label>
                                                 <div class="col-sm-7">
-                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtGroupName" placeholder="Group Name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />
+                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtGroupName" placeholder="Enter Group Name here" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="txtDescription" class="col-sm-4 control-label">Description<span class="required"> *</span></label>
                                                 <div class="col-sm-7">
-                                                    <asp:TextBox runat="server" ID="txtDescription" class="form-control required NoEmpty" name="" placeholder="Description" TextMode="MultiLine" data-placement="bottom" data-trigger="manual" data-content="Fields must not be empty."></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtDescription" class="form-control required NoEmpty" name="" placeholder="Enter Description here" TextMode="MultiLine" data-placement="bottom" data-trigger="manual" data-content="Fields must not be empty."></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -258,9 +258,9 @@
                         <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
                 <Columns>
                     <asp:BoundField DataField="GroupId" Visible="false" />
-                    <asp:BoundField DataField="GroupName" HeaderText="Group Name" />
-                    <asp:BoundField DataField="Description" HeaderText="Description" />
-                    <asp:TemplateField HeaderText="Actions">
+                    <asp:BoundField DataField="GroupName" HeaderText="Group Name" ItemStyle-Width="35%"/>
+                    <asp:BoundField DataField="Description" HeaderText="Description"/>
+                    <asp:TemplateField HeaderText="Actions" ItemStyle-Width="150px">
                         <ItemTemplate>
                             <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("GroupId")%>' />
                             <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("GroupId")%>' />

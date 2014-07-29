@@ -99,6 +99,7 @@ namespace VideoOnDemand.VODManage
             if (!atLeastOneSelected)
             {
                 sb = new System.Text.StringBuilder();
+                lblAlertHeader.Text = "Select User";
                 lblMessage.Text = "Please select at least one user.";
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
@@ -172,6 +173,7 @@ namespace VideoOnDemand.VODManage
                 System.Text.StringBuilder sb;
 
                 sb = new System.Text.StringBuilder();
+                lblAlertHeader.Text = "No Groups";
                 lblMessage.Text = "There is no groups avaliable.";
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
@@ -275,7 +277,7 @@ namespace VideoOnDemand.VODManage
             {
 
                 sb = new System.Text.StringBuilder();
-
+                lblAlertHeader.Text = "Select Group";
                 lblMessage.Text = "Please select valid group Name.";
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
@@ -302,8 +304,12 @@ namespace VideoOnDemand.VODManage
             {
                 repository.AssignUsersToGroup(Convert.ToInt32(ddlGroupList.SelectedItem.Value), Session["SelectedUsersToAddGroup"].ToString());
                 BindUsers();
+
                 lblMessage.Text = "Successfully users assigned to group ";
+                lblAlertHeader.Text = "Users Assigned";
                 sb = new System.Text.StringBuilder();
+
+
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append("$('#myModal1').modal('hide');");
@@ -321,7 +327,7 @@ namespace VideoOnDemand.VODManage
             {
 
                 sb = new System.Text.StringBuilder();
-
+                lblAlertHeader.Text = "Select Group";
                 lblMessage.Text = "Please select valid group Name.";
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
@@ -334,6 +340,7 @@ namespace VideoOnDemand.VODManage
             var returnValue = repository.UpdateUserGroup(Convert.ToInt32(ddlGroupsEdit.SelectedItem.Value), Convert.ToInt32(Session["UserID"].ToString()));
             if (returnValue)
                 BindUsers();
+            lblAlertHeader.Text = "Group Updated";
             lblMessage.Text = "Group Updated Successfully";
             sb = new System.Text.StringBuilder();
             sb.Append(@"<script type='text/javascript'>");
@@ -352,6 +359,7 @@ namespace VideoOnDemand.VODManage
             var returnValue = repository.UpdateUserGroup(0, Convert.ToInt32(Session["UserID"].ToString()));
             if (returnValue)
                 BindUsers();
+            lblAlertHeader.Text = "Group Delete";
             lblMessage.Text = "Group deleted successfully";
             System.Text.StringBuilder sb = new System.Text.StringBuilder();
             sb.Append(@"<script type='text/javascript'>");

@@ -76,7 +76,7 @@
                         <Columns>
 
                             <asp:BoundField DataField="VIDEOID" Visible="false" />
-                            <asp:BoundField DataField="VideoName" HeaderText="VideoName" />
+                            <asp:BoundField DataField="VideoName" HeaderText="VideoName" ItemStyle-Width="30%"/>
                             <asp:BoundField DataField="TAG" HeaderText="TAG" />
 
                             <%--   <asp:TemplateField HeaderText="Play">
