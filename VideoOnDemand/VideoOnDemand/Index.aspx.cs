@@ -93,7 +93,9 @@ namespace VideoOnDemand.Setup
 
             //string loginName = GetLogin(HttpContext.Current.User.Identity);
             string loginName = GetLogin(User.Identity);
-            
+            //string loginName = GetLoginSplit(System.Security.Principal.WindowsIdentity.GetCurrent().Name);
+
+
             //Response.Write("<script>alert('reached');</script>");
             //string alert = string.Format("<script>alert('{0}');</script>", loginName);
             //Response.Write(alert);
@@ -114,6 +116,7 @@ namespace VideoOnDemand.Setup
                         Session["UserFullName"] = ds.Tables[0].Rows[0]["FULLNAME"].ToString();
                         Session["LOGINGroupId"] = ds.Tables[0].Rows[0]["LOGINGroupID"].ToString();
                         Session["IsAdmin"] = false;
+                        Session["IsUser"] = true;
 
                         FormsAuthentication.RedirectFromLoginPage(Session["LoginUserName"].ToString(), true);
 
@@ -131,6 +134,12 @@ namespace VideoOnDemand.Setup
             //ctx.Dispose();
             //if (qbeUser != null)
             //    qbeUser.Dispose();
+        }
+
+        private string GetLoginSplit(string s)
+        {
+            int stop = s.IndexOf("\\");
+            return (stop > -1) ? s.Substring(stop + 1, s.Length - stop - 1) : string.Empty;
         }
 
         private DataSet AuthenticateWidowsUserWithDB(string loginName, string domain)

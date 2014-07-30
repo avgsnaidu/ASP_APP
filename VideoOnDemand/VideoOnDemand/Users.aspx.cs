@@ -18,10 +18,23 @@ namespace VideoOnDemand.VODManage
         protected void Page_Load(object sender, EventArgs e)
         {
             //ViewState["SelectedUsersToAddGroup"] = "";
-            if (!IsPostBack)
+            if (Request.IsAuthenticated)
             {
-                BindUsers();
-                BindGroups(false);
+                if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
+                {
+
+                    if (!IsPostBack)
+                    {
+                        BindUsers();
+                        BindGroups(false);
+                    }
+                }
+                else
+                    Response.Redirect("Error.aspx");
+            }
+            else
+            {
+                Response.Redirect("Error.aspx");
             }
         }
 

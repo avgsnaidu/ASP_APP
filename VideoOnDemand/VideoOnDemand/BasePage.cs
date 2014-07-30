@@ -19,6 +19,10 @@ namespace VideoOnDemand
                 else
                     MasterPageFile = "~/VODUserManagement.master";
             }
+            else
+            {
+                Response.Redirect("Error.aspx");
+            }
         }
     }
 }

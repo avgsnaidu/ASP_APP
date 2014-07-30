@@ -1,8 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManagement.master" AutoEventWireup="true" CodeBehind="VideoManagement.aspx.cs" Inherits="VideoOnDemand.VODManage.VideoManagement" %>
 
 <asp:Content ID="VideoManagementContent" ContentPlaceHolderID="VODMangContentPlaceHolder" runat="server">
-    <script src="../Scripts/bootstrap-select.js"></script>
-    <link href="../Content/css/bootstrap-select.css" rel="stylesheet" />
+    <%--  <script src="../Scripts/bootstrap-select.js"></script>
+    <link href="../Content/css/bootstrap-select.css" rel="stylesheet" />--%>
+
+
+    <script src="jwplayer.js"></script>
 
     <script type="text/javascript">
 
@@ -166,7 +169,6 @@
                     <div class="modal-dialog modal-dlg-top">
                         <div class="modal-content">
                             <div class="modal-header">
-
                                 <h4 class="modal-title" id="myModalLabel">Assign Videos to Group</h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
@@ -235,6 +237,35 @@
                 </div>
 
 
+                <div class="modal fade" id="mdlPlayVideo" tabindex="-1" role="dialog" aria-labelledby="modalVideoLabel" aria-hidden="true" data-dismiss="modal">
+                    <div class="modal-dialog modal-dlg-top">
+                        <div class="modal-content" style="width:510px; padding-left:0px !important;">
+                            <%-- <div class="modal-header">
+                                <h4 class="modal-title" id="modalVideoLabel">Alert !</h4>
+                            </div>--%>
+                            <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                                <ContentTemplate>
+                                    <div class="modal-body">
+                                        <div class="form-horizontal" role="form">
+                                            <div class="form-group">
+
+                                                <div id='player'></div>
+
+                                                <br />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ContentTemplate>
+
+                            </asp:UpdatePanel>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
             </div>
 
 
@@ -277,7 +308,7 @@
                             <asp:TemplateField HeaderText="Play" ItemStyle-Width="60px">
                                 <ItemTemplate>
                                     <%--<asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="glyphicon glyphicon-play-circle" CommandArgument='<%#Eval("VIDEOID")%>' />--%>
-                                    <asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="spritePlay playicon" CommandArgument='<%#Eval("VIDEOID")+ ";"+ Eval("FILENAME")%>'/>
+                                    <asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="spritePlay playicon" CommandArgument='<%#Eval("VIDEOID")+ ";"+ Eval("FILENAME")%>' />
 
 
 

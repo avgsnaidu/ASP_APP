@@ -15,9 +15,22 @@ namespace VideoOnDemand.VODManage
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            if (Request.IsAuthenticated)
             {
-                BindArchiveList();
+                if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
+                {
+
+                    if (!IsPostBack)
+                    {
+                        BindArchiveList();
+                    }
+                }
+                else
+                    Response.Redirect("Error.aspx");
+            }
+            else
+            {
+                Response.Redirect("Error.aspx");
             }
         }
         private void BindArchiveList()

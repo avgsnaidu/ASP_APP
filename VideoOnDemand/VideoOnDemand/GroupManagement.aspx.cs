@@ -18,7 +18,20 @@ namespace VideoOnDemand.VODManage
         {
             //if (!IsPostBack)
             //{
-            BindGroupsDetails();
+            if (Request.IsAuthenticated)
+            {
+                if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
+                {
+
+                    BindGroupsDetails();
+                }
+                else
+                    Response.Redirect("Error.aspx");
+            }
+            else
+            {
+                Response.Redirect("Error.aspx");
+            }
             //}
         }
 

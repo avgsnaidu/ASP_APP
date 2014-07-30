@@ -39,6 +39,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="RoleBasedFormAuthentication">
+      <HintPath>D:\Project Related\VGSN\Asp.net\Authentication Related\RoleBasedFormsAuthentication\bin\Release\RoleBasedFormAuthentication.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
@@ -147,6 +150,9 @@
     <Content Include="Content\Images\login.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\step2_o.gif" />
+    <Content Include="jwplayer.flash.swf" />
+    <Content Include="jwplayer.html5.js" />
+    <Content Include="jwplayer.js" />
     <Content Include="packages.config" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -340,6 +346,18 @@
     <Folder Include="App_Data\" />
     <Folder Include="VODManage\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\VODMain.Master.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\VODMain.Master.ar.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Users.aspx.en-US.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_LocalResources\Users.aspx.ar.resx" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -351,7 +369,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>65467</DevelopmentServerPort>
           <DevelopmentServerVPath>/VODWEB/</DevelopmentServerVPath>

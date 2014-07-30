@@ -14,26 +14,38 @@ namespace VideoOnDemand.VODManage
         clsSearch repository = new clsSearch();
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            if (!IsPostBack)
+            if (Request.IsAuthenticated)
             {
-                DataSet ds = new DataSet();
-                ds = null;
-                gvSearch.DataSource = ds;
-                gvSearch.DataBind();
+                if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Session["IsUser"] != null)
+                {
 
-                DataTable dtSearch = new DataTable();
-                dtSearch.Columns.Add("VIDEOID");
-                dtSearch.Columns.Add("VideoName");
-                dtSearch.Columns.Add("TAG");
-                dtSearch.Rows.Add(dtSearch.NewRow());
+                    if (!IsPostBack)
+                    {
+                        DataSet ds = new DataSet();
+                        ds = null;
+                        gvSearch.DataSource = ds;
+                        gvSearch.DataBind();
 
-                gvSearch.DataSource = dtSearch;
-                gvSearch.DataBind();
-                gvSearch.Rows[0].Visible = false;
+                        DataTable dtSearch = new DataTable();
+                        dtSearch.Columns.Add("VIDEOID");
+                        dtSearch.Columns.Add("VideoName");
+                        dtSearch.Columns.Add("TAG");
+                        dtSearch.Rows.Add(dtSearch.NewRow());
 
+                        gvSearch.DataSource = dtSearch;
+                        gvSearch.DataBind();
+                        gvSearch.Rows[0].Visible = false;
+
+                    }
+
+                }
+                else
+                    Response.Redirect("Error.aspx");
             }
-
+            else
+            {
+                Response.Redirect("Error.aspx");
+            }
         }
 
         protected void gvSearch_RowCommand(object sender, GridViewCommandEventArgs e)

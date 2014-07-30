@@ -216,16 +216,16 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <asp:LinkButton ID="lnkHome" CssClass="navbar-brand" runat="server" OnClick="lnkHome_Click" />
+                        <asp:LinkButton ID="lnkHome" CssClass="navbar-brand" runat="server" OnClick="lnkHome_Click" meta:resourcekey="lnkHomeResource1" />
                         <%--<a class="navbar-brand" href="../Users.aspx"></a>--%>
                         <h1>Video on Demand</h1>
                         <div id="language">
-                            <asp:LinkButton runat="server" ID="lnkEnglish">English</asp:LinkButton>
-                            <asp:LinkButton runat="server" ID="lnkArabic">Arabic </asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lnkEnglish" meta:resourcekey="lnkEnglishResource1">English</asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lnkArabic" meta:resourcekey="lnkArabicResource1">Arabic </asp:LinkButton>
                         </div>
                         <div id="user-info">
                             <div class="dropdown">
-                                <asp:LinkButton runat="server" ID="lnkDDMUserName" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <asp:LinkButton runat="server" ID="lnkDDMUserName" class="btn btn-default dropdown-toggle" data-toggle="dropdown" meta:resourcekey="lnkDDMUserNameResource1">
                                      
                     <span class="caret"></span>
                                 </asp:LinkButton>
@@ -244,11 +244,11 @@
                                     </li>--%>
                                     <li role="presentation" class="divider"></li>
                                     <li role="presentation">
-                                        <asp:LinkButton runat="server" ID="lnkConfiguration" UseSubmitBehavior="true" role="menuitem" OnClick="btnConfiguration_Click" TabIndex="-1"><span class="sprite ic-logout"></span>Configuration</asp:LinkButton>
+                                        <asp:LinkButton runat="server" ID="lnkConfiguration" UseSubmitBehavior="true" role="menuitem" OnClick="btnConfiguration_Click" TabIndex="-1" meta:resourcekey="lnkConfigurationResource1"><span class="sprite ic-logout"></span>Configuration</asp:LinkButton>
                                     </li>
                                     <li role="presentation" class="divider"></li>
                                     <li role="presentation">
-                                        <asp:LinkButton runat="server" ID="btnLogout" UseSubmitBehavior="true" role="menuitem" TabIndex="-1" OnClick="btnLogout_Click"><span class="sprite ic-logout"></span>Logout</asp:LinkButton>
+                                        <asp:LinkButton runat="server" ID="btnLogout" UseSubmitBehavior="true" role="menuitem" TabIndex="-1" OnClick="btnLogout_Click" meta:resourcekey="btnLogoutResource1"><span class="sprite ic-logout"></span>Logout</asp:LinkButton>
                                     </li>
                                 </ul>
                             </div>
