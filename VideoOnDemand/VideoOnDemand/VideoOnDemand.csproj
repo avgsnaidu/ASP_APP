@@ -106,6 +106,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Model\BAL\clsLogin.cs" />
+    <Compile Include="Player\VideoPlayer.aspx.cs">
+      <DependentUpon>VideoPlayer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Player\VideoPlayer.aspx.designer.cs">
+      <DependentUpon>VideoPlayer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="VODUserManagement.master.cs">
       <DependentUpon>VODUserManagement.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -147,6 +154,11 @@
     <None Include="Properties\PublishProfiles\VODWeb.pubxml" />
     <None Include="Properties\PublishProfiles\VODWebTwo.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Player\jwplayer.flash.swf" />
+    <Content Include="Player\jwplayer.html5.js" />
+    <Content Include="Player\jwplayer.js" />
+    <Content Include="Player\VideoPlayer.aspx" />
+    <Content Include="Player\VideoSample.mp4" />
     <Content Include="Scripts\bootstrap-select.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />

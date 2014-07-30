@@ -90,7 +90,10 @@ namespace VideoOnDemand.Setup
             string DomainName = Environment.UserDomainName;
             ////string usersss = HttpContext.Current.User;
             ////string UName = Environment.UserName;
-            string loginName = GetLogin(HttpContext.Current.User.Identity);
+
+            //string loginName = GetLogin(HttpContext.Current.User.Identity);
+            string loginName = GetLogin(User.Identity);
+            
             //Response.Write("<script>alert('reached');</script>");
             //string alert = string.Format("<script>alert('{0}');</script>", loginName);
             //Response.Write(alert);

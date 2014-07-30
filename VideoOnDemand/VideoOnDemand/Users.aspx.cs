@@ -100,7 +100,7 @@ namespace VideoOnDemand.VODManage
             {
                 sb = new System.Text.StringBuilder();
                 lblAlertHeader.Text = "Select User";
-                lblMessage.Text = "Please select at least one user.";
+                lblMessage.Text = "Please select at least one user";
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append(@"</script>");
@@ -174,7 +174,7 @@ namespace VideoOnDemand.VODManage
 
                 sb = new System.Text.StringBuilder();
                 lblAlertHeader.Text = "No Groups";
-                lblMessage.Text = "There is no groups avaliable.";
+                lblMessage.Text = "There is no groups avaliable";
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append(@"</script>");
@@ -278,7 +278,7 @@ namespace VideoOnDemand.VODManage
 
                 sb = new System.Text.StringBuilder();
                 lblAlertHeader.Text = "Select Group";
-                lblMessage.Text = "Please select valid group Name.";
+                lblMessage.Text = "Please select valid group name";
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append(@"</script>");
@@ -328,7 +328,7 @@ namespace VideoOnDemand.VODManage
 
                 sb = new System.Text.StringBuilder();
                 lblAlertHeader.Text = "Select Group";
-                lblMessage.Text = "Please select valid group Name.";
+                lblMessage.Text = "Please select valid group name";
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append(@"</script>");

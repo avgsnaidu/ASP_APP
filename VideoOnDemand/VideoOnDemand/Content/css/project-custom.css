@@ -250,8 +250,8 @@ a#lnkDropDownMenu.btn {
 }
 
 #alertMessageModal .modal-content {
-    width: 425px;
-    height: 200px;
+    width: 435px;
+    height: 230px;
 }
 
 #alertMessageModal .modal-header {
@@ -332,11 +332,7 @@ a#lnkDropDownMenu.btn {
     margin-bottom: 1px !important;
 }
 
-.btn-default.active {
-    background-color: yellow;
-    border-color: Green;
-}
-
+ 
 
 .btn-default {
     background-color: #ec3240 !important;

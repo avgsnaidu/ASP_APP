@@ -84,7 +84,7 @@ namespace VideoOnDemand.VODManage
                 if (returnValue)
                 {
                     BindGroupsDetails();
-                    lblMessage.Text = "Group saved sucessfully.";
+                    lblMessage.Text = "Group saved sucessfully";
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
@@ -109,12 +109,20 @@ namespace VideoOnDemand.VODManage
                 bool returnValue = repository.UpdateGroupDetails(Convert.ToInt32(Session["GroupID"]), txtEditGroupName.Text.Trim(), txtEditDescription.Text.Trim());
                 if (returnValue)
                 {
-                    lblMessage.Text = "Group updated successfully.";
+                    lblMessage.Text = "Group updated successfully";
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+                    //sb.Append(@"<script type='text/javascript'>");
+                    //sb.Append("showGroupUpdateMsg();");
+                    //sb.Append(@"</script>");
+
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
                     sb.Append("$('#myModalUpdate').modal('hide');");
                     sb.Append(@"</script>");
+
+
+
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "UpdateHideModalScript", sb.ToString(), false);
                     BindGroupsDetails();
 
@@ -143,7 +151,7 @@ namespace VideoOnDemand.VODManage
                 sb = new System.Text.StringBuilder();
                 if (ex.Number == 547)
                 {
-                    lblMessage.Text = "Group not deleted.as it is assigned to another user/video.";
+                    lblMessage.Text = "Group not deleted,as it is assigned to another user/video";
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
                     sb.Append("$('#deleteWarning').modal('hide');");
@@ -151,7 +159,7 @@ namespace VideoOnDemand.VODManage
                 }
                 else
                 {
-                    lblMessage.Text = "Group not deleted as it is assigned to another.";
+                    lblMessage.Text = "Group not deleted as it is assigned to another";
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
                     sb.Append("$('#deleteWarning').modal('hide');");

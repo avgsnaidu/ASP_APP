@@ -8,6 +8,12 @@
             }).show();
         });
 
+        $(document).ready(function () {
+            var showGroupUpdateMsg = function () {
+                $('#alertMessageModal').modal('show');
+                $('#myModalUpdate').modal('hide');
+            };
+        });
 
 
     </script>
@@ -79,12 +85,12 @@
                     </div>
                 </div>
 
-                <div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" id="myModalUpdate" tabindex="-1" role="dialog" aria-labelledby="editGroupLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dlg-top">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close"  data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h4 class="modal-title" id="H1">Create Group</h4>
+                                <h4 class="modal-title" id="editGroupLabel">Edit Group</h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
@@ -141,7 +147,7 @@
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
-                                                <label class="col-sm- control-label" style="width: 320px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp?.</label>
+                                                <label class="col-sm- control-label" style="width: 320px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp?</label>
                                             </div>
                                         </div>
 
@@ -175,7 +181,7 @@
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
                                                 <%--<label   class="col-sm- control-label" style="width: 320px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp?.</label>--%>
-                                                <asp:Label ID="lblMessage" runat="server" class="col-sm- control-label" Style="width: 320px;"></asp:Label>
+                                                <asp:Label ID="lblMessage" runat="server" class="col-sm- control-label" Style="width: 320px; text-align: left; padding-left: 25px;"></asp:Label>
 
                                             </div>
                                         </div>
@@ -187,7 +193,7 @@
                                 </Triggers>
                             </asp:UpdatePanel>
                             <div class="modal-footer">
-                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary"  Text=" OK " />
+                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text=" OK " />
                             </div>
                         </div>
                     </div>
@@ -250,16 +256,16 @@
             <%-- <asp:UpdatePanel ID="UpdatePanelGroupMang" runat="server">
                 <ContentTemplate>--%>
             <asp:GridView ID="gvGroupManagement" runat="server" AutoGenerateColumns="False" GridLines="None"
-                 DataKeyNames="GroupId" AllowPaging="true" PagerSettings-Mode="Numeric"  OnPageIndexChanging="gvGroupManagement_PageIndexChanging"
+                DataKeyNames="GroupId" AllowPaging="true" PagerSettings-Mode="Numeric" OnPageIndexChanging="gvGroupManagement_PageIndexChanging"
                 OnRowEditing="gvGroupManagement_RowEditing" ShowHeaderWhenEmpty="true"
                 OnRowCommand="gvGroupManagement_RowCommand" EmptyDataText="No groups found" EmptyDataRowStyle-HorizontalAlign="Center">
-                 <AlternatingRowStyle BackColor="#DEDEDE" />
-                        <HeaderStyle CssClass="gridheader" />
-                        <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
+                <AlternatingRowStyle BackColor="#DEDEDE" />
+                <HeaderStyle CssClass="gridheader" />
+                <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
                 <Columns>
                     <asp:BoundField DataField="GroupId" Visible="false" />
-                    <asp:BoundField DataField="GroupName" HeaderText="Group Name" ItemStyle-Width="35%"/>
-                    <asp:BoundField DataField="Description" HeaderText="Description"/>
+                    <asp:BoundField DataField="GroupName" HeaderText="Group Name" ItemStyle-Width="35%" />
+                    <asp:BoundField DataField="Description" HeaderText="Description" />
                     <asp:TemplateField HeaderText="Actions" ItemStyle-Width="150px">
                         <ItemTemplate>
                             <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("GroupId")%>' />
@@ -271,8 +277,6 @@
             </asp:GridView>
             <%-- </ContentTemplate>
             </asp:UpdatePanel>--%>
-
- 
         </div>
 
         <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="delModalLabel" aria-hidden="true">

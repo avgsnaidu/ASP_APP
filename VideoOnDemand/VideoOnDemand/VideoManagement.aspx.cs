@@ -104,7 +104,7 @@ namespace VideoOnDemand.VODManage
             if (!atLeastOneSelected)
             {
                 StringBuilder sb = new System.Text.StringBuilder();
-                lblMessage.Text = "Please select at least one video.";
+                lblMessage.Text = "Please select at least one video";
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append(@"</script>");
@@ -200,7 +200,7 @@ namespace VideoOnDemand.VODManage
                 System.Text.StringBuilder sb;
 
                 sb = new System.Text.StringBuilder();
-                lblMessage.Text = "There is no groups avaliable.";
+                lblMessage.Text = "There is no groups avaliable";
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append(@"</script>");
@@ -323,7 +323,7 @@ namespace VideoOnDemand.VODManage
             {
                 sb = new System.Text.StringBuilder();
 
-                lblMessage.Text = "Please select valid group Name.";
+                lblMessage.Text = "Please select valid group Name";
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append(@"</script>");
@@ -351,7 +351,7 @@ namespace VideoOnDemand.VODManage
                 repository.AssignVideosToGroup(Convert.ToInt32(ddlGroupList.SelectedItem.Value), Session["SelectedVideosToAddGroup"].ToString());
                 BindVideos();
 
-                lblMessage.Text = "Successfully videos assigned to group.";
+                lblMessage.Text = "Successfully videos assigned to group";
                 sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
@@ -393,7 +393,7 @@ namespace VideoOnDemand.VODManage
             if (updateSucess)
             {
                 BindVideosBasedOnSelection();
-                lblMessage.Text = "Successfully video tags updated.";
+                lblMessage.Text = "Successfully video tags updated";
                 sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
@@ -404,7 +404,7 @@ namespace VideoOnDemand.VODManage
             }
             else
             {
-                lblMessage.Text = "Updations of video tags not completed.";
+                lblMessage.Text = "Updations of video tags not completed";
                 sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
