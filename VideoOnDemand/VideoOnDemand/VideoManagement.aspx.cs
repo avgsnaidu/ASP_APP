@@ -130,7 +130,11 @@ namespace VideoOnDemand.VODManage
 
         protected void gvVideoManagement_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int index = Convert.ToInt32(e.CommandArgument);
+            string commandNames = e.CommandArgument.ToString();
+            string[] commandArguments = commandNames.Split(';');
+
+            int index = Convert.ToInt32(commandArguments[0]);
+
             Session["VideoId"] = index;
             if (e.CommandName.Equals("Editing"))
             {
@@ -150,6 +154,24 @@ namespace VideoOnDemand.VODManage
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "AdddModalScript", sb.ToString(), false);
 
                 }
+            }
+            else if (e.CommandName.Equals("Play"))
+            {
+                string VideoName = commandArguments[1].ToString();
+
+                if (!string.IsNullOrEmpty(VideoName))
+                {
+                    string pageurl = "Player/VideoPlayer.aspx?videoName=" + VideoName;
+
+                    //Response.Write("<script> window.open( '" + pageurl + "','_blank' ); </script>");
+                    //Response.Write("<script> window.open( 'Error.aspx','_blank' ); </script>");
+
+
+                    String js = "window.open('" + pageurl + "', '_blank');";
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "OpenVideo", js, true);
+
+                }
+
             }
 
         }

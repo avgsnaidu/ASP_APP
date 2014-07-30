@@ -244,7 +244,7 @@
 
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="gvVideoManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="VIDEOID"
+                    <asp:GridView ID="gvVideoManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="VIDEOID,FILENAME"
                         ShowHeaderWhenEmpty="true" AllowPaging="true" OnRowDataBound="gvVideoManagement_RowDataBound"
                         OnRowCommand="gvVideoManagement_RowCommand" OnPageIndexChanging="gvVideoManagement_PageIndexChanging"
                         EmptyDataText="No videos to display." EmptyDataRowStyle-HorizontalAlign="Center">
@@ -277,7 +277,7 @@
                             <asp:TemplateField HeaderText="Play" ItemStyle-Width="60px">
                                 <ItemTemplate>
                                     <%--<asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="glyphicon glyphicon-play-circle" CommandArgument='<%#Eval("VIDEOID")%>' />--%>
-                                    <asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="spritePlay playicon" CommandArgument='<%#Eval("VIDEOID")%>' />
+                                    <asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="spritePlay playicon" CommandArgument='<%#Eval("VIDEOID")+ ";"+ Eval("FILENAME")%>'/>
 
 
 
