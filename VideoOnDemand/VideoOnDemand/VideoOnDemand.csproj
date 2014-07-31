@@ -109,8 +109,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Model\BAL\clsLogin.cs" />
-    <Compile Include="App_GlobalResources\VideoManagement.ar-QA.designer.cs">
-      <DependentUpon>VideoManagement.ar-QA.resx</DependentUpon>
+    <Compile Include="App_GlobalResources\GroupManage.ar.designer.cs">
+      <DependentUpon>GroupManage.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\GroupManage.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GroupManage.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\VideoManagement.ar.designer.cs">
+      <DependentUpon>VideoManagement.ar.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -376,9 +386,21 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\VideoManagement.ar-QA.resx">
+    <Content Include="App_GlobalResources\VideoManagement.ar.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>VideoManagement.ar-QA.designer.cs</LastGenOutput>
+      <LastGenOutput>VideoManagement.ar.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GroupManage.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GroupManage.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\GroupManage.ar.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GroupManage.ar.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>

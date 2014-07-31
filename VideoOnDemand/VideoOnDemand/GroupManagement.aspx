@@ -23,17 +23,17 @@
     </script>
     <div id="management-bottom" class="col-md-12">
         <div class="block1 clearfix">
-            <h2 class="col-md-3">Group Management</h2>
+            <h2 class="col-md-3">
+                <asp:Literal runat="server" Text="<%$ Resources:GroupManage, hdrGroupManagement %>" /></h2>
             <div class="col-md-9">
                 <ul>
-
                     <li>
-                        <asp:LinkButton ID="lnkCreateGroup" runat="server" PostBackUrl="#" data-toggle="modal" data-target="#myModal2"><span class="sprite ic-creategroup"></span>Create Group </asp:LinkButton>
+                        <asp:LinkButton ID="lnkCreateGroup" runat="server" PostBackUrl="#" data-toggle="modal" data-target="#myModal2">
+                            <span class="sprite ic-creategroup"></span>
+                            <asp:Literal ID="ltlcreateGrop" runat="server" Text="<%$ Resources:GroupManage, lnkCreateGroup_link %>" />
+                        </asp:LinkButton>
                     </li>
                 </ul>
-
-
-
 
 
                 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -41,7 +41,9 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close"  data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h4 class="modal-title" id="myModalLabel">Create Group</h4>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    <asp:Literal ID="ltlCreateGroup" runat="server" Text="<%$ Resources:GroupManage, MLCG_ltlCreateGroup %>" />
+                                </h4>
 
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
@@ -49,15 +51,17 @@
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
-                                                <label for="txtGroupName" class="col-sm-4 control-label">Group&nbsp;Name<span class="required"> *</span></label>
+                                                <label for="txtGroupName" class="col-sm-4 control-label">
+                                                    <asp:Literal ID="ltlMCG_groupName" runat="server" Text="<%$ Resources:GroupManage, MLCG_GroupName %>" /><span class="required"> *</span></label>
                                                 <div class="col-sm-7">
-                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtGroupName" placeholder="Enter Group Name here" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />
+                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtGroupName" placeholder="<%$ Resources:GroupManage, mdl2_gn_PlaceHolder %>" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtDescription" class="col-sm-4 control-label">Description<span class="required"> *</span></label>
+                                                <label for="txtDescription" class="col-sm-4 control-label">
+                                                    <asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:GroupManage, mdl2_Description%>" /><span class="required"> *</span></label>
                                                 <div class="col-sm-7">
-                                                    <asp:TextBox runat="server" ID="txtDescription" class="form-control required NoEmpty" name="" placeholder="Enter Description here" TextMode="MultiLine" data-placement="bottom" data-trigger="manual" data-content="Fields must not be empty."></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtDescription" class="form-control required NoEmpty" name="" placeholder="<%$ Resources:GroupManage, mdl2_Desc_PlaceHolder%> " TextMode="MultiLine" data-placement="bottom" data-trigger="manual" data-content="Fields must not be empty."></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -73,10 +77,10 @@
                             <div class="modal-footer">
                                 <%-- <button type="submit" class="btn btn-primary" >Save</button>--%>
 
-                                <asp:Button ID="btnSave" runat="server" class="btn btn-primary" Text="Save" OnClick="btnSave_Click" />
+                                <asp:Button ID="btnSave" runat="server" class="btn btn-primary" Text="<%$ Resources:GroupManage, btnSave_button%>" OnClick="btnSave_Click" />
                                 <%--<asp:LinkButton ID="btnSave" runat="server" class="btn btn-primary submit-link" Text="Save" />--%>
                                 <%--<asp:ImageButton ID="btnSave" runat="server" UseSubmitBehavior="true" class="btn btn-primary" Text="Save" />--%>
-                                <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
+                                <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="<%$ Resources:GroupManage, btnCancel_Text%>" />
 
                                 <%--  <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button> --%>
@@ -90,23 +94,27 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close"  data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h4 class="modal-title" id="editGroupLabel">Edit Group</h4>
+                                <h4 class="modal-title" id="editGroupLabel">
+                                    <asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:GroupManage, UPMDL_EditGroup %>" /></h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                 <ContentTemplate>
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-4 control-label">Group&nbsp;Name<span class="required"> *</span></label>
+                                                <asp:Label runat="server" ID="lblgroupNText" for="txtEditGroupName" class="col-sm-4 control-label">
+                                                    <asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:GroupManage, UPMDL_GroupName_Text %>" /><span class="required"> *</span></asp:Label>
                                                 <div class="col-sm-7">
-                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtEditGroupName" placeholder="Group Name" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />
+                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtEditGroupName" placeholder="<%$ Resources:GroupManage, UPMDL_GroupName_placeHolder %>" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />
 
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="inputPassword3" class="col-sm-4 control-label">Description<span class="required"> *</span></label>
+                                                <label for="inputPassword3" class="col-sm-4 control-label">
+                                                    <asp:Literal ID="Literal4" runat="server" Text="<%$ Resources:GroupManage, UPMDL_txtEditDescription_text %>" />
+                                                    <span class="required">*</span></label>
                                                 <div class="col-sm-7">
-                                                    <asp:TextBox runat="server" ID="txtEditDescription" class="form-control required NoEmpty" name="" placeholder="Description" TextMode="MultiLine" data-placement="bottom" data-trigger="manual" data-content="Fields must not be empty."></asp:TextBox>
+                                                    <asp:TextBox runat="server" ID="txtEditDescription" class="form-control required NoEmpty" name="" placeholder="<%$ Resources:GroupManage, UPMDL_txtEditDescription_PHold %>" TextMode="MultiLine" data-placement="bottom" data-trigger="manual" data-content="Fields must not be empty."></asp:TextBox>
                                                 </div>
                                             </div>
                                         </div>
@@ -123,10 +131,10 @@
                             <div class="modal-footer">
                                 <%-- <button type="submit" class="btn btn-primary" >Save</button>--%>
 
-                                <asp:Button ID="btnSaveEdit" runat="server" class="btn btn-primary" Text="Save" OnClick="btnSaveEdit_Click" />
+                                <asp:Button ID="btnSaveEdit" runat="server" class="btn btn-primary" Text="<%$ Resources:GroupManage, UPMDL_btnSaveEdit_button %>" OnClick="btnSaveEdit_Click" />
                                 <%--<asp:LinkButton ID="btnSave" runat="server" class="btn btn-primary submit-link" Text="Save" />--%>
                                 <%--<asp:ImageButton ID="btnSave" runat="server" UseSubmitBehavior="true" class="btn btn-primary" Text="Save" />--%>
-                                <asp:Button ID="btnCanelEdit" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
+                                <asp:Button ID="btnCanelEdit" runat="server" class="btn btn-primary" data-dismiss="modal" Text="<%$ Resources:GroupManage, UPMDL_btnCanelEdit_button %>" />
 
                                 <%--  <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button> --%>
@@ -140,17 +148,17 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h4 class="modal-title" id="H2">Delete Warning</h4>
+                                <h4 class="modal-title" id="H2">
+                                    <asp:Literal ID="Literal5" runat="server" Text="<%$ Resources:GroupManage, DMdl_DeleteWarning%>" /></h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                                 <ContentTemplate>
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
-                                                <label class="col-sm- control-label" style="width: 320px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp?</label>
+                                                <asp:Label runat="server" ID="lbldeleteWrng" class="col-sm- control-label" Style="width: 320px;" Text="<%$ Resources:GroupManage, DMdl_lblDeleteWrang_Text %> "> </asp:Label>
                                             </div>
                                         </div>
-
                                     </div>
                                 </ContentTemplate>
                                 <Triggers>
@@ -159,8 +167,8 @@
                                 </Triggers>
                             </asp:UpdatePanel>
                             <div class="modal-footer">
-                                <asp:Button ID="btnDeleteConform" runat="server" class="btn btn-primary" OnClick="btnDeleteConform_Click" Text="Delete" />
-                                <asp:Button ID="btnDeleteCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
+                                <asp:Button ID="btnDeleteConform" runat="server" class="btn btn-primary" OnClick="btnDeleteConform_Click" Text="<%$ Resources:GroupManage, DMdl_btnDeleteConform_button %>" />
+                                <asp:Button ID="btnDeleteCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="<%$ Resources:GroupManage, DMdl_btnDeleteCancel_text %>" />
 
                             </div>
                         </div>
@@ -173,7 +181,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h3 class="modal-title" id="myModalLabel22">Alert !</h3>
+                                <h3 class="modal-title" id="myModalLabel22"> <asp:Literal ID="Literal6" runat="server" Text="<%$ Resources:GroupManage, AltMdl_Head %>" /></h3>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                                 <ContentTemplate>
@@ -193,7 +201,7 @@
                                 </Triggers>
                             </asp:UpdatePanel>
                             <div class="modal-footer">
-                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text=" OK " />
+                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text="<%$ Resources:GroupManage, AltMdl_Ok %>" />
                             </div>
                         </div>
                     </div>
@@ -207,7 +215,7 @@
 
 
 
-        <div id="editModal" class="modal  fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+      <%--  <div id="editModal" class="modal  fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h3 id="editModalLabel">Edit Record</h3>
@@ -217,23 +225,23 @@
                     <div class="modal-body">
                         <table class="table">
                             <tr>
-                                <td>Country Code : 
+                                <td><asp:Literal ID="Literal7" runat="server" Text="<%$ Resources:GroupManage, AltMdl_Head %>" /> 
                             <asp:Label ID="lblCountryCode" runat="server"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Population : 
+                                <td><asp:Literal ID="Literal8" runat="server" Text="<%$ Resources:GroupManage, AltMdl_Head %>" />Population : 
                             <asp:TextBox ID="txtPopulation" runat="server"></asp:TextBox>
                                     <asp:Label ID="Label1" runat="server" Text="Type Integer Value!" />
                                 </td>
                             </tr>
                             <tr>
-                                <td>Country Name:
+                                <td><asp:Literal ID="Literal9" runat="server" Text="<%$ Resources:GroupManage, AltMdl_Head %>" />Country Name:
                             <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Continent:
+                                <td><asp:Literal ID="Literal10" runat="server" Text="<%$ Resources:GroupManage, AltMdl_Head %>" /> Continent:
                             <asp:TextBox ID="txtContinent1" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
@@ -250,7 +258,7 @@
                     <asp:AsyncPostBackTrigger ControlID="btnSaveTwo" EventName="Click" />
                 </Triggers>
             </asp:UpdatePanel>
-        </div>
+        </div>--%>
 
         <div class="table-block clearfix col-md-12">
             <%-- <asp:UpdatePanel ID="UpdatePanelGroupMang" runat="server">
@@ -264,9 +272,9 @@
                 <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
                 <Columns>
                     <asp:BoundField DataField="GroupId" Visible="false" />
-                    <asp:BoundField DataField="GroupName" HeaderText="Group Name" ItemStyle-Width="35%" />
-                    <asp:BoundField DataField="Description" HeaderText="Description" />
-                    <asp:TemplateField HeaderText="Actions" ItemStyle-Width="150px">
+                    <asp:BoundField DataField="GroupName" HeaderText="<%$ Resources:GroupManage, gv_Hd_txtGroupName %>" ItemStyle-Width="35%" />
+                    <asp:BoundField DataField="Description" HeaderText="<%$ Resources:GroupManage, gv_Hd_Desct %>" />
+                    <asp:TemplateField HeaderText="<%$ Resources:GroupManage, gv_HD_Actions %>" ItemStyle-Width="150px">
                         <ItemTemplate>
                             <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("GroupId")%>' />
                             <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("GroupId")%>' />
@@ -282,7 +290,7 @@
         <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="delModalLabel" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="delModalLabel">Delete Record</h3>
+                <h3 id="delModalLabel">  <asp:Literal ID="Literal7" runat="server" Text="<%$ Resources:GroupManage, delModalLabel_h3 %>" /></h3>
             </div>
             <%-- <asp:UpdatePanel ID="upDel" runat="server">
                 <ContentTemplate>--%>
