@@ -17,6 +17,10 @@
 
     <!-- Custom styles for this template -->
     <link href="Content/css/project-custom.css" rel="stylesheet" />
+
+    <asp:Literal ID="StyleSheet" runat="Server" />
+
+
     <%--<link href="Content/css/bootstrap-select.css" rel="stylesheet" />--%>
 
 
@@ -220,8 +224,8 @@
                         <%--<a class="navbar-brand" href="../Users.aspx"></a>--%>
                         <h1>Video on Demand</h1>
                         <div id="language">
-                            <asp:LinkButton runat="server" ID="lnkEnglish" meta:resourcekey="lnkEnglishResource1">English</asp:LinkButton>
-                            <asp:LinkButton runat="server" ID="lnkArabic" meta:resourcekey="lnkArabicResource1">Arabic </asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lnkEnglish" meta:resourcekey="lnkEnglishResource1" CommandArgument="en-GB" OnClick="lnkEnglish_Click">English</asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lnkArabic" meta:resourcekey="lnkArabicResource1" CommandArgument="ar-QA" OnClick="lnkArabic_Click">Arabic </asp:LinkButton>
                         </div>
                         <div id="user-info">
                             <div class="dropdown">

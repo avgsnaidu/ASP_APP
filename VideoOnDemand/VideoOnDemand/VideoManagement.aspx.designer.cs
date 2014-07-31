@@ -13,6 +13,15 @@ namespace VideoOnDemand.VODManage {
     public partial class VideoManagement {
         
         /// <summary>
+        /// ltlVidMang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlVidMang;
+        
+        /// <summary>
         /// lnkAssignVidToGroup control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,24 @@ namespace VideoOnDemand.VODManage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkAssignVidToGroup;
+        
+        /// <summary>
+        /// ltlAssingVidGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlAssingVidGroup;
+        
+        /// <summary>
+        /// lblFilterBy control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFilterBy;
         
         /// <summary>
         /// ddlStatus control.
@@ -40,6 +67,15 @@ namespace VideoOnDemand.VODManage {
         protected global::System.Web.UI.WebControls.DropDownList ddlGroupsFilter;
         
         /// <summary>
+        /// ltlEditTagsDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlEditTagsDetails;
+        
+        /// <summary>
         /// UpdatePanel4 control.
         /// </summary>
         /// <remarks>
@@ -47,6 +83,15 @@ namespace VideoOnDemand.VODManage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel4;
+        
+        /// <summary>
+        /// lblVideoNameText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblVideoNameText;
         
         /// <summary>
         /// lblVideoName control.
@@ -58,6 +103,15 @@ namespace VideoOnDemand.VODManage {
         protected global::System.Web.UI.WebControls.Label lblVideoName;
         
         /// <summary>
+        /// lblCommunityTag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCommunityTag;
+        
+        /// <summary>
         /// txtCommunityTag control.
         /// </summary>
         /// <remarks>
@@ -67,6 +121,15 @@ namespace VideoOnDemand.VODManage {
         protected global::System.Web.UI.WebControls.TextBox txtCommunityTag;
         
         /// <summary>
+        /// lblDirstrictTag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDirstrictTag;
+        
+        /// <summary>
         /// txtDistrictTag control.
         /// </summary>
         /// <remarks>
@@ -74,6 +137,15 @@ namespace VideoOnDemand.VODManage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDistrictTag;
+        
+        /// <summary>
+        /// lblRoadTags control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRoadTags;
         
         /// <summary>
         /// txtRoadTag control.
@@ -103,6 +175,15 @@ namespace VideoOnDemand.VODManage {
         protected global::System.Web.UI.WebControls.Button btnCancelTag;
         
         /// <summary>
+        /// ltlAssignVidToGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlAssignVidToGroup;
+        
+        /// <summary>
         /// UpdatePanel2 control.
         /// </summary>
         /// <remarks>
@@ -110,6 +191,15 @@ namespace VideoOnDemand.VODManage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        
+        /// <summary>
+        /// lblselectGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblselectGroup;
         
         /// <summary>
         /// ddlGroupList control.
@@ -137,6 +227,15 @@ namespace VideoOnDemand.VODManage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// ltlalert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlalert;
         
         /// <summary>
         /// UpdatePanel3 control.

@@ -29,6 +29,13 @@ namespace VideoOnDemand
 
         }
 
+        void Session_Start(object sender, EventArgs e)
+        {
+            //set english as default startup language
+            Session["CurrentCulture"] = "en-GB";
+        }
+
+
         void Session_End(object sender, EventArgs e)
         {
             Session.Abandon();

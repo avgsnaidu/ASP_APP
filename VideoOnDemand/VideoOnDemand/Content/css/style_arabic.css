@@ -1,0 +1,31 @@
+﻿body { 
+    direction:rtl;
+}
+.table-block table tr th, .bootstrap-select.btn-group .btn .filter-option {
+direction: rtl;
+text-align: right !important;
+}
+
+.block1 ul li a span {
+    float:left;
+    margin:4px 10px 0 0
+}
+.block1 h2 {
+    float:right;
+}
+.block1 .col-md-9, .block1 ul {
+    float:left;
+}
+
+.form-search .input-append .btn {
+    border-radius: 14px 0 0 14px;
+}
+.form-search .input-append .search-query {
+    border-radius: 0 14px 14px 0;
+}
+.radiusNone button {
+    border-radius:  0 !important;
+}
+.pull-right {
+    float:left !important;
+}

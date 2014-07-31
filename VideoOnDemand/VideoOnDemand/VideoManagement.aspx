@@ -74,23 +74,24 @@
 
     <div id="management-bottom" class="col-md-12">
         <div class="block1 block2 clearfix">
-            <h2 class="col-md-3">Video Management</h2>
+            <h2 class="col-md-3">
+                <asp:Literal runat="server" ID="ltlVidMang" Text="<%$ Resources:VideoManagement, HDRVideoManagement %>"></asp:Literal></h2>
             <div class="col-md-9">
                 <ul>
                     <li>
-                        <asp:LinkButton ID="lnkAssignVidToGroup" runat="server" OnClick="lnkAssignVidToGroup_Click" OnClientClick="return CheckCheckBoxSelection();"> <span class="sprite ic-assignvideo"></span>Assign Videos to Group </asp:LinkButton>
-                    </li>
+                        <asp:LinkButton ID="lnkAssignVidToGroup" runat="server" OnClick="lnkAssignVidToGroup_Click" OnClientClick="return CheckCheckBoxSelection();">
+                            <span runat="server" class="sprite ic-assignvideo"></span>
+                            <asp:Literal ID="ltlAssingVidGroup" runat="server" Text="<%$ Resources:VideoManagement, lnkAssignVideostoGroup %>" />
+                        </asp:LinkButton></li>
                     <li class="last">
-                        <label>Filter By </label>
-                        <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                            <ContentTemplate>--%>
-                        <asp:DropDownList ID="ddlStatus" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
-                            OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
-                            <%--<asp:ListItem Text="All" Value="1" />
+                        <asp:Label runat="server" ID="lblFilterBy" Text="<%$ Resources:VideoManagement, lblFilterBy %>"></asp:Label><%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>--%><asp:DropDownList ID="ddlStatus" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
+                                OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
+                                <%--<asp:ListItem Text="All" Value="1" />
                             <asp:ListItem Text="Converted" Value="2" />
                             <asp:ListItem Text="Pending" Value="3" />
                             <asp:ListItem Text="Processing" Value="4" />--%>
-                        </asp:DropDownList>
+                            </asp:DropDownList>
 
                         <asp:DropDownList ID="ddlGroupsFilter" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
                             OnSelectedIndexChanged="ddlGroups_SelectedIndexChanged">
@@ -108,7 +109,9 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close"  data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h4 class="modal-title" id="myEditTabLabel">Edit Tags Details</h4>
+                                <h4 class="modal-title" id="myEditTabLabel">
+                                    <asp:Literal runat="server" ID="ltlEditTagsDetails" Text="<%$ Resources:VideoManagement, EditTags_Header %>" />
+                                </h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                                 <ContentTemplate>
@@ -116,38 +119,34 @@
                                         <div class="form-horizontal" role="form">
 
                                             <div class="form-group">
-                                                <label for="lblVideoName" class="col-sm-4 control-label">
-                                                    Video&nbsp;Name :</label>
-                                                <div class="col-sm-7">
+                                                <asp:Label for="lblVideoName" ID="lblVideoNameText" runat="server" class="col-sm-4 control-label" Font-Overline="False" Text="<%$ Resources:VideoManagement, ETM_VideoName %>">
+                                                </asp:Label><div class="col-sm-7">
                                                     <asp:Label runat="server" class="form-control" ID="lblVideoName" data-trigger="manual" />
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="txtCommunityTag" class="col-sm-4 control-label">
-                                                    Community&nbsp;Tags :</label>
-                                                <div class="col-sm-7">
+                                                <asp:Label for="txtCommunityTag" ID="lblCommunityTag" runat="server" class="col-sm-4 control-label" Text="<%$ Resources:VideoManagement, ETM_txtCommunityTagText %>"></asp:Label><div class="col-sm-7">
                                                     <asp:TextBox type="text" runat="server" class="form-control textboxFormat"
                                                         ID="txtCommunityTag" placeholder="Enter Community Tag" data-placement="top" data-trigger="manual" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtDistrictTag" class="col-sm-4 control-label">
-                                                    District Tags :</label>
+                                                <asp:Label runat="server" ID="lblDirstrictTag" for="txtDistrictTag" class="col-sm-4 control-label" Text="<%$ Resources:VideoManagement, ETM_txtDistrictTagText %>">
+                                                </asp:Label>
                                                 <div class="col-sm-7">
                                                     <asp:TextBox type="text" ID="txtDistrictTag" runat="server" class="form-control textboxFormat "
                                                         placeholder="Enter District Tag" data-placement="bottom" data-trigger="manual" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="txtRoadTag" class="col-sm-4 control-label">
-                                                    Road Tags :</label>
+                                                <asp:Label runat="server" ID="lblRoadTags" for="txtRoadTag" class="col-sm-4 control-label" Text="<%$ Resources:VideoManagement, ETM_txtRoadTagText %>">
+                                                </asp:Label>
                                                 <div class="col-sm-7">
                                                     <asp:TextBox type="text" runat="server" ID="txtRoadTag" class="form-control textboxFormat"
                                                         name="" placeholder="Enter Road Tags" data-placement="bottom" data-trigger="manual"></asp:TextBox>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </ContentTemplate>
@@ -157,8 +156,8 @@
                                 </Triggers>
                             </asp:UpdatePanel>
                             <div class="modal-footer">
-                                <asp:Button ID="btnSaveTag" runat="server" class="btn btn-primary" Text="Save" OnClick="btnSaveTag_Click" />
-                                <asp:Button ID="btnCancelTag" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
+                                <asp:Button ID="btnSaveTag" runat="server" class="btn btn-primary" Text="<%$ Resources:VideoManagement, ETM_btnSaveTag_Text %>" OnClick="btnSaveTag_Click" />
+                                <asp:Button ID="btnCancelTag" runat="server" class="btn btn-primary" data-dismiss="modal" Text="<%$ Resources:VideoManagement, ETM_btnCancelTag_Text %>" />
                             </div>
                         </div>
                     </div>
@@ -169,19 +168,19 @@
                     <div class="modal-dialog modal-dlg-top">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title" id="myModalLabel">Assign Videos to Group</h4>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    <asp:Literal runat="server" ID="ltlAssignVidToGroup" Text="<%$ Resources:VideoManagement, GroupSelectModal_Header %>"></asp:Literal></h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                 <ContentTemplate>
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-4 control-label">Select&nbsp;Group<span class="required"> *</span></label>
+                                                <asp:Label runat="server" ID="lblselectGroup" for="ddlGroupList" class="col-sm-4 control-label">
+                                                    <asp:Literal runat="server" Text="<%$ Resources:VideoManagement,  GSM_ddlGroupListText %>" /><span class="required"> *</span></asp:Label>
                                                 <div class="col-sm-7">
                                                     <asp:DropDownList ID="ddlGroupList" runat="server" CssClass="form-control">
                                                     </asp:DropDownList>
-
-
                                                 </div>
                                             </div>
                                         </div>
@@ -194,8 +193,8 @@
                                 </Triggers>
                             </asp:UpdatePanel>
                             <div class="modal-footer">
-                                <asp:Button ID="btnAssign" runat="server" class="btn btn-primary" Text="Assign" OnClick="btnAssign_Click" />
-                                <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" />
+                                <asp:Button ID="btnAssign" runat="server" class="btn btn-primary" Text="<%$ Resources:VideoManagement, GSM_btnAssign_Text %>" OnClick="btnAssign_Click" />
+                                <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="<%$ Resources:VideoManagement, GSM_btnCancel_Text %>" />
 
                             </div>
                         </div>
@@ -209,7 +208,9 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h4 class="modal-title" id="myModalLabel2">Alert !</h4>
+                                <h4 class="modal-title" id="myModalLabel2">
+                                    <asp:Literal ID="ltlalert" runat="server" Text="<%$ Resources:VideoManagement, AlertMsgModal_Header %>" />
+                                </h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                                 <ContentTemplate>
@@ -218,7 +219,6 @@
                                             <div class="form-group">
                                                 <%--<label   class="col-sm- control-label" style="width: 320px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp?.</label>--%>
                                                 <asp:Label ID="lblMessage" runat="server" class="col-sm- control-label" Style="width: 320px;"></asp:Label>
-
                                             </div>
                                         </div>
                                     </div>
@@ -230,7 +230,7 @@
                             </asp:UpdatePanel>
 
                             <div class="modal-footer">
-                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text=" OK " />
+                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text=" <%$ Resources:VideoManagement, ALM_btnOK_Text %> " />
                             </div>
                         </div>
                     </div>
@@ -239,7 +239,7 @@
 
                 <div class="modal fade" id="mdlPlayVideo" tabindex="-1" role="dialog" aria-labelledby="modalVideoLabel" aria-hidden="true" data-dismiss="modal">
                     <div class="modal-dialog modal-dlg-top">
-                        <div class="modal-content" style="width:510px; padding-left:0px !important;">
+                        <div class="modal-content" style="width: 510px; padding-left: 0px !important;">
                             <%-- <div class="modal-header">
                                 <h4 class="modal-title" id="modalVideoLabel">Alert !</h4>
                             </div>--%>
@@ -295,17 +295,17 @@
                             </asp:TemplateField>
 
                             <asp:BoundField DataField="VIDEOID" Visible="false" />
-                            <asp:BoundField DataField="FILENAME" HeaderText="Video Name" ItemStyle-Width="27%" />
-                            <asp:BoundField DataField="STATUS" HeaderText="Status" ItemStyle-Width="12%" />
-                            <asp:BoundField DataField="TAG" HeaderText="TAG" />
+                            <asp:BoundField DataField="FILENAME" HeaderText="<%$ Resources:VideoManagement, grd_Hd_VideoName %>" ItemStyle-Width="27%" />
+                            <asp:BoundField DataField="STATUS" HeaderText="<%$ Resources:VideoManagement, grd_Hd_Status %>" ItemStyle-Width="12%" />
+                            <asp:BoundField DataField="TAG" HeaderText="<%$ Resources:VideoManagement, grd_Hd_Tag %>" />
                             <%--<asp:BoundField DataField="GroupName" HeaderText="Group Name" />--%>
-                            <asp:TemplateField HeaderText="Edit" ItemStyle-Width="60px">
+                            <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Tag %>"  ItemStyle-Width="60px">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("VIDEOID") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderText="Play" ItemStyle-Width="60px">
+                            <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Tag %>"  ItemStyle-Width="60px">
                                 <ItemTemplate>
                                     <%--<asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="glyphicon glyphicon-play-circle" CommandArgument='<%#Eval("VIDEOID")%>' />--%>
                                     <asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="spritePlay playicon" CommandArgument='<%#Eval("VIDEOID")+ ";"+ Eval("FILENAME")%>' />

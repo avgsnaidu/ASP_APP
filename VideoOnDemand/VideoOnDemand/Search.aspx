@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManagement.master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="VideoOnDemand.VODManage.Search" %>
+﻿        <%@ Page Title="" Language="C#" MasterPageFile="~/VODManagement.master" AutoEventWireup="true" CodeBehind="Search.aspx.cs" Inherits="VideoOnDemand.VODManage.Search" %>
 
 <%@ MasterType VirtualPath="~/VODManagement.master" %>
 
@@ -33,7 +33,7 @@
                     <div class="input-append">
                         <asp:TextBox type="text" ID="txtSearchKey" runat="server" class="span2 search-query searchBorder searchTextPadingExist" Style="height: inherit; min-width: 350px;" placeholder="Enter search keywords.." />
 
-                        <asp:DropDownList ID="ddlSearchOn" runat="server" CssClass="selectpicker searchBorder input-prepend" AutoPostBack="true" Width="100px" Height="35px">
+                        <asp:DropDownList ID="ddlSearchOn" runat="server" CssClass="selectpicker searchBorder input-prepend  radiusNone" AutoPostBack="true" Width="100px" Height="35px">
                             <asp:ListItem Text="All" Value="1" />
                             <asp:ListItem Text="Community" Value="2" />
                             <asp:ListItem Text="District" Value="3" />

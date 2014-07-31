@@ -109,6 +109,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Model\BAL\clsLogin.cs" />
+    <Compile Include="App_GlobalResources\VideoManagement.ar-QA.designer.cs">
+      <DependentUpon>VideoManagement.ar-QA.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\VideoManagement.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VideoManagement.resx</DependentUpon>
+    </Compile>
     <Compile Include="Player\VideoPlayer.aspx.cs">
       <DependentUpon>VideoPlayer.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -137,6 +147,7 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\combined-bootstrap.min.css" />
     <Content Include="Content\css\project-custom.css" />
+    <Content Include="Content\css\style_arabic.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\Images\sprite.png" />
     <Content Include="Content\Images\step2.gif" />
@@ -356,7 +367,19 @@
     <Content Include="App_LocalResources\Users.aspx.en-US.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\Users.aspx.ar.resx" />
+    <Content Include="App_LocalResources\Users.aspx.ar-QA.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\VideoManagement.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>VideoManagement.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\VideoManagement.ar-QA.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>VideoManagement.ar-QA.designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
