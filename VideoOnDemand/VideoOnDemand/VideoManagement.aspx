@@ -299,13 +299,13 @@
                             <asp:BoundField DataField="STATUS" HeaderText="<%$ Resources:VideoManagement, grd_Hd_Status %>" ItemStyle-Width="12%" />
                             <asp:BoundField DataField="TAG" HeaderText="<%$ Resources:VideoManagement, grd_Hd_Tag %>" />
                             <%--<asp:BoundField DataField="GroupName" HeaderText="Group Name" />--%>
-                            <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Tag %>"  ItemStyle-Width="60px">
+                            <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Edit %>"  ItemStyle-Width="60px">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("VIDEOID") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Tag %>"  ItemStyle-Width="60px">
+                            <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Play %>"  ItemStyle-Width="60px">
                                 <ItemTemplate>
                                     <%--<asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="glyphicon glyphicon-play-circle" CommandArgument='<%#Eval("VIDEOID")%>' />--%>
                                     <asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="spritePlay playicon" CommandArgument='<%#Eval("VIDEOID")+ ";"+ Eval("FILENAME")%>' />

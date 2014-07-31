@@ -109,6 +109,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Model\BAL\clsLogin.cs" />
+    <Compile Include="App_GlobalResources\Archived.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Archived.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Archived.ar.designer.cs">
+      <DependentUpon>Archived.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\GroupManage.ar.designer.cs">
       <DependentUpon>GroupManage.ar.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -119,15 +129,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>GroupManage.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Search.ar.designer.cs">
+      <DependentUpon>Search.ar.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="App_GlobalResources\Search.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Search.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\VideoManagement.ar.designer.cs">
       <DependentUpon>VideoManagement.ar.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="App_GlobalResources\VideoManagement.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>VideoManagement.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Player\VideoPlayer.aspx.cs">
       <DependentUpon>VideoPlayer.aspx</DependentUpon>
@@ -152,6 +172,14 @@
       <DependentUpon>Configuration.aspx</DependentUpon>
     </Compile>
     <Content Include="Admin\Configuration.aspx" />
+    <Content Include="App_GlobalResources\Search.ar.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Search.ar.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\VideoManagement.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>VideoManagement.designer.cs</LastGenOutput>
+    </Content>
     <Content Include="Content\css\boostrap-custom.css" />
     <Content Include="Content\css\bootstrap-select.css" />
     <Content Include="Content\css\bootstrap.min.css" />
@@ -380,12 +408,6 @@
     <Content Include="App_LocalResources\Users.aspx.ar-QA.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_GlobalResources\VideoManagement.resx">
-      <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>VideoManagement.designer.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_GlobalResources\VideoManagement.ar.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>VideoManagement.ar.designer.cs</LastGenOutput>
@@ -401,6 +423,24 @@
     <Content Include="App_GlobalResources\GroupManage.ar.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>GroupManage.ar.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Search.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Search.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Archived.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Archived.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Archived.ar.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Archived.ar.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>
