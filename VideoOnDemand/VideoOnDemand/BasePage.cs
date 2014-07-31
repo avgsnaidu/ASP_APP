@@ -14,14 +14,7 @@ namespace VideoOnDemand
         {
             base.OnPreInit(e);
 
-            if (Request.IsAuthenticated)
-            {
-                if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
-                    MasterPageFile = "~/VODManagement.master";
-                else
-                    MasterPageFile = "~/VODUserManagement.master";
-            }
-            else
+            if (!Request.IsAuthenticated)
             {
                 Response.Redirect("Error.aspx");
             }

@@ -10,7 +10,7 @@ using VideoOnDemand.Model.BAL;
 
 namespace VideoOnDemand.VODManage
 {
-    public partial class UserManagement : BasePage
+    public partial class UserManagement : ChildBasePage
     {
         clsUserManagement repository = new clsUserManagement();
         clsGroupManagement groupRepository = new clsGroupManagement();
@@ -123,7 +123,7 @@ namespace VideoOnDemand.VODManage
             {
                 sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$('#myModal1').modal('show');");
+                sb.Append("$('#mdlAssignGroup').modal('show');");
                 sb.Append(@"</script>");
                 //ClientScript.RegisterStartupScript(this.GetType(), "SelectGroup", sb.ToString()); //(0r)
 
@@ -325,7 +325,7 @@ namespace VideoOnDemand.VODManage
 
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
-                sb.Append("$('#myModal1').modal('hide');");
+                sb.Append("$('#mdlAssignGroup').modal('hide');");
                 sb.Append(@"</script>");
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
 

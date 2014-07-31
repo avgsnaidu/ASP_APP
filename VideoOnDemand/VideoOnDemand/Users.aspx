@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManagement.master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="VideoOnDemand.VODManage.UserManagement" culture="auto" meta:resourcekey="PageResource1" uiculture="auto" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManagement.master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="VideoOnDemand.VODManage.UserManagement" Culture="auto" meta:resourcekey="PageResource1" UICulture="auto" %>
 
 <asp:Content ID="UserManagementContent" ContentPlaceHolderID="VODMangContentPlaceHolder" runat="server">
 
@@ -288,16 +288,19 @@
     <div id="management-bottom" class="col-md-12">
 
         <div class="block1 block2 clearfix">
-            <h2 class="col-md-3">User Management</h2>
+            <h2 class="col-md-3"> <asp:Literal ID="Literal7" runat="server" Text="<%$ Resources:Users, hd_UserManagement %>" /></h2>
             <div class="col-md-9">
                 <ul>
-                    <!--<li><a href="#"><span class="sprite ic-assignvideo"></span>Assign Videos to Group </a></li>-->
+
                     <li>
-                        <%--                        <asp:LinkButton runat="server" data-toggle="modal" data-target="#myModal1" ID="LinkButton1" OnClientClick="javascript:validateCheckBoxes()"> <span class="sprite ic-assignvideo"></span>Assign Users to Group </asp:LinkButton></li>--%>
-                        <asp:LinkButton runat="server" ID="lnkAssignUserGroup" OnClick="lnkAssignUserGroup_Click" OnClientClick="return CheckCheckBoxSelection();" meta:resourcekey="lnkAssignUserGroupResource1"> <span class="sprite ic-assignvideo"></span>Assign Users to Group </asp:LinkButton></li>
-                    <!--<li><a href="#"><span class="sprite ic-creategroup"></span>Create Group </a></li>-->
+                        <asp:LinkButton runat="server" ID="lnkAssignUserGroup" OnClick="lnkAssignUserGroup_Click" OnClientClick="return CheckCheckBoxSelection();">
+                            <span class="sprite ic-assignvideo"></span>
+                            <asp:Literal ID="ltlAssingusersGroup" runat="server" Text="<%$ Resources:Users, lnkAssignUserstoGroup %>" />
+                            
+                        </asp:LinkButton></li>
+
                     <li class="last">
-                        <label>Filter By </label>
+                        <asp:Label runat="server" Text="<%$ Resources:Users, lblFilterBy %>">Filter By </asp:Label>
                         <%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>--%>
                         <asp:DropDownList ID="ddlGroupsFilter" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="True"
@@ -309,19 +312,23 @@
                     </li>
                 </ul>
 
-                <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-dismiss="modal">
+                <div class="modal fade" id="mdlAssignGroup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-dismiss="modal">
                     <div class="modal-dialog modal-dlg-top">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h4 class="modal-title" id="myModalLabel">Assign Users to Group</h4>
+                                <h4 class="modal-title" id="myModalLabel">
+                                    <asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:Users, mdlAG_AssingUsers %>" />
+                                   </h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                                 <ContentTemplate>
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm-4 control-label">Select&nbsp;Group<span class="required"> *</span></label>
+                                                <label for="ddlGroupList" class="col-sm-4 control-label">
+                                                    <asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:Users, mdlAG_SelectGrp %>" />
+                                                    <span class="required"> *</span></label>
                                                 <div class="col-sm-7">
                                                     <asp:DropDownList ID="ddlGroupList" runat="server" CssClass="form-control" meta:resourcekey="ddlGroupListResource1">
                                                     </asp:DropDownList>
@@ -338,8 +345,8 @@
                                 </Triggers>
                             </asp:UpdatePanel>
                             <div class="modal-footer">
-                                <asp:Button ID="btnAssign" runat="server" class="btn btn-primary" OnClick="btnAssign_Click" Text="Assign" meta:resourcekey="btnAssignResource1" />
-                                <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" meta:resourcekey="btnCancelResource1" />
+                                <asp:Button ID="btnAssign" runat="server" class="btn btn-primary" OnClick="btnAssign_Click" Text="<%$ Resources:Users, mdlAG_Assign %>" />
+                                <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="<%$ Resources:Users, mdlAG_Cancel %>" />
 
                             </div>
                         </div>
@@ -351,7 +358,9 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h4 class="modal-title" id="H1">Modify User Group</h4>
+                                <h4 class="modal-title" id="H1">
+                                    <asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:Users, mdlEUP_ModfyGroup %>" />
+                                    </h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                                 <ContentTemplate>
@@ -360,16 +369,20 @@
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
 
-                                                <label for="lblUserName" class="col-sm-4 control-label">Description<span class="required"> *</span></label>
+                                                <label for="lblUserName" class="col-sm-4 control-label">
+                                                    <asp:Literal ID="Literal4" runat="server" Text="<%$ Resources:Users, mdlEUP_UserName %>" />
+                                                    <span class="required"> *</span></label>
                                                 <div class="col-sm-7">
-                                                    <asp:Label runat="server" ID="lblUserName" class="form-control" name="" meta:resourcekey="lblUserNameResource1"></asp:Label>
+                                                    <asp:Label runat="server" ID="lblUserName" class="form-control" name="" ></asp:Label>
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="ddlGroups" class="col-sm-4 control-label">Select&nbsp;Group<span class="required"> *</span></label>
+                                                <label for="ddlGroups" class="col-sm-4 control-label">
+                                                    <asp:Literal ID="Literal5" runat="server" Text="<%$ Resources:Users, mdlEUP_SelectGroup %>" />
+                                                    <span class="required"> *</span></label>
                                                 <div class="col-sm-7">
-                                                    <asp:DropDownList ID="ddlGroupsEdit" runat="server" CssClass="form-control" meta:resourcekey="ddlGroupsEditResource1">
+                                                    <asp:DropDownList ID="ddlGroupsEdit" runat="server" CssClass="form-control">
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
@@ -383,8 +396,8 @@
                                 </Triggers>
                             </asp:UpdatePanel>
                             <div class="modal-footer">
-                                <asp:Button ID="btnSaveEdit" runat="server" class="btn btn-primary" OnClick="btnSaveEdit_Click" Text="Assign" meta:resourcekey="btnSaveEditResource1" />
-                                <asp:Button ID="btnCancelEdit" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" meta:resourcekey="btnCancelEditResource1" />
+                                <asp:Button ID="btnSaveEdit" runat="server" class="btn btn-primary" OnClick="btnSaveEdit_Click" Text="<%$ Resources:Users, mdlEUP_Assign %>"  />
+                                <asp:Button ID="btnCancelEdit" runat="server" class="btn btn-primary" data-dismiss="modal" Text="<%$ Resources:Users, mdlEUP_Cancel%>"  />
 
                                 <%-- <button type="button" class="btn btn-primary" data-dismiss="modal">Assign</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>--%>
@@ -399,14 +412,16 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h4 class="modal-title" id="H2">Delete Warning</h4>
+                                <h4 class="modal-title" id="H2">
+                                     <asp:Literal ID="Literal6" runat="server" Text="<%$ Resources:Users, mdlDel_Header %>" />
+                                    </h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel4" runat="server">
                                 <ContentTemplate>
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
-                                                <label for="inputEmail3" class="col-sm- control-label" style="width: 370px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp;from&nbsp;user ?.</label>
+                                                <asp:Label runat="server" class="col-sm- control-label" style="width: 370px;" Text="<%$ Resources:Users, mdlDel_DelWarText %>"></asp:Label>
                                             </div>
                                         </div>
 
@@ -418,8 +433,8 @@
                                 </Triggers>
                             </asp:UpdatePanel>
                             <div class="modal-footer">
-                                <asp:Button ID="btnDeleteConform" runat="server" class="btn btn-primary" OnClick="btnDeleteConform_Click" Text="Delete" meta:resourcekey="btnDeleteConformResource1" />
-                                <asp:Button ID="btnDeleteCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="Cancel" meta:resourcekey="btnDeleteCancelResource1" />
+                                <asp:Button ID="btnDeleteConform" runat="server" class="btn btn-primary" OnClick="btnDeleteConform_Click" Text="<%$ Resources:Users, mdlDel_Delete %>" />
+                                <asp:Button ID="btnDeleteCancel" runat="server" class="btn btn-primary" data-dismiss="modal" Text="<%$ Resources:Users, mdlDel_Delete_Cancel %>" />
 
                                 <%-- <button type="button" class="btn btn-primary" data-dismiss="modal">Assign</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>--%>
@@ -435,14 +450,14 @@
                             <div class="modal-header">
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
                                 <h4 class="modal-title" id="alertHeader">
-                                    <asp:Label runat="server" ID="lblAlertHeader" meta:resourcekey="lblAlertHeaderResource1">Alert !</asp:Label></h4>
+                                    <asp:Label runat="server" ID="lblAlertHeader" Text="<%$ Resources:Users, mdlAlt_Head %>"></asp:Label></h4>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                                 <ContentTemplate>
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
-                                                <asp:Label ID="lblMessage" runat="server" class="col-sm- control-label padL15" Style="width: 320px;" meta:resourcekey="lblMessageResource1"></asp:Label>
+                                                <asp:Label ID="lblMessage" runat="server" class="col-sm- control-label padL15" Style="width: 320px;" ></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -453,7 +468,7 @@
                                 </Triggers>
                             </asp:UpdatePanel>
                             <div class="modal-footer">
-                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text=" OK " meta:resourcekey="btnOkResource1" />
+                                <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text="<%$ Resources:Users, mdlAlt_Ok %>" />
                             </div>
                         </div>
                     </div>
@@ -467,19 +482,18 @@
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
                     <asp:GridView ID="gvUserManagement" runat="server" AutoGenerateColumns="False" ShowHeaderWhenEmpty="True" AllowPaging="True"
-                        GridLines="None" DataKeyNames="UserId,GroupId" OnRowCommand="gvUserManagement_RowCommand" EmptyDataText="No users to display in selected group." OnPageIndexChanging="gvUserManagement_PageIndexChanging" meta:resourcekey="gvUserManagementResource1">
+                        GridLines="None" DataKeyNames="UserId,GroupId" OnRowCommand="gvUserManagement_RowCommand"
+                         EmptyDataText="<%$ Resources:Users, gv_EmtpyData %> " OnPageIndexChanging="gvUserManagement_PageIndexChanging" meta:resourcekey="gvUserManagementResource1">
                         <AlternatingRowStyle BackColor="#DEDEDE" />
                         <EmptyDataRowStyle HorizontalAlign="Center" />
                         <HeaderStyle CssClass="gridheader" />
                         <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
                         <Columns>
-                            <asp:TemplateField meta:resourcekey="TemplateFieldResource1">
-                                <HeaderTemplate>
-
+                            <asp:TemplateField >
+                                <HeaderTemplate> 
                                     <asp:CheckBox ID="chkAll" ClientIDMode="Static" runat="server" AutoPostBack="True" OnCheckedChanged="chkAll_CheckedChanged" meta:resourcekey="chkAllResource1" />
                                 </HeaderTemplate>
-                                <ItemTemplate>
-
+                                <ItemTemplate> 
                                     <asp:CheckBox ID="chkSelectUser" runat="server" AutoPostBack="True" OnCheckedChanged="chkSelectUser_CheckedChanged" meta:resourcekey="chkSelectUserResource1" />
                                     <asp:HiddenField runat="server" ID="hndRowBackColor" />
 
@@ -488,21 +502,21 @@
                             </asp:TemplateField>
 
 
-                            <asp:BoundField DataField="UserID" Visible="False" meta:resourcekey="BoundFieldResource1"  />
-                            <asp:BoundField DataField="UserName" HeaderText="User Name" meta:resourcekey="BoundFieldResource2" />
-                            <asp:BoundField DataField="FullName" HeaderText="Full Name" meta:resourcekey="BoundFieldResource3">
-                            <ItemStyle Width="25%" />
+                            <asp:BoundField DataField="UserID" Visible="False"  />
+                            <asp:BoundField DataField="UserName" HeaderText="<%$ Resources:Users, gv_hd_Username %> " />
+                            <asp:BoundField DataField="FullName" HeaderText="<%$ Resources:Users, gv_hd_fullname %> " >
+                                <ItemStyle Width="25%" />
                             </asp:BoundField>
-                            <asp:BoundField DataField="Domain" HeaderText="Domain Name" meta:resourcekey="BoundFieldResource4">
-                            <ItemStyle Width="18%" />
+                            <asp:BoundField DataField="Domain" HeaderText="<%$ Resources:Users, gv_hd_Domain %> "  >
+                                <ItemStyle Width="18%" />
                             </asp:BoundField>
-                            <asp:BoundField DataField="GroupName" HeaderText="Group Name" meta:resourcekey="BoundFieldResource5">
-                            <ItemStyle Width="18%" />
+                            <asp:BoundField DataField="GroupName" HeaderText="<%$ Resources:Users, gv_hd_groupName %> "  >
+                                <ItemStyle Width="18%" />
                             </asp:BoundField>
-                            <asp:TemplateField HeaderText="Actions" meta:resourcekey="TemplateFieldResource2">
+                            <asp:TemplateField HeaderText="<%$ Resources:Users, gv_hd_Actions %>" >
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%# Eval("UserId")+ ";"+ Eval("GroupId") %>' meta:resourcekey="lnkEditResource1" />
-                                    <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%# Eval("UserId")+ ";"+ Eval("GroupId") %>' meta:resourcekey="lnkDeleteResource1" />
+                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%# Eval("UserId")+ ";"+ Eval("GroupId") %>' />
+                                    <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%# Eval("UserId")+ ";"+ Eval("GroupId") %>'  />
                                 </ItemTemplate>
                                 <ItemStyle Width="100px" />
                             </asp:TemplateField>

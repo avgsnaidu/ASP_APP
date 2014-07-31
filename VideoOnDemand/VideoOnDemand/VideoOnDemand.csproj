@@ -119,6 +119,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="App_GlobalResources\Config.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Config.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Users.ar.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Users.ar.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\GroupManage.ar.designer.cs">
       <DependentUpon>GroupManage.ar.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -139,6 +149,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Search.resx</DependentUpon>
     </Compile>
+    <Compile Include="App_GlobalResources\Users.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Users.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\VideoManagement.ar.designer.cs">
       <DependentUpon>VideoManagement.ar.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -148,6 +163,9 @@
       <DependentUpon>VideoManagement.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="ChildBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Player\VideoPlayer.aspx.cs">
       <DependentUpon>VideoPlayer.aspx</DependentUpon>
@@ -441,6 +459,24 @@
     <Content Include="App_GlobalResources\Archived.ar.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Archived.ar.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Users.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Users1.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Users.ar.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Users.ar.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Config.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Config.Designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>
