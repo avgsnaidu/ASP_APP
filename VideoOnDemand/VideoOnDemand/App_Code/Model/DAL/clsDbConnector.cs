@@ -97,6 +97,7 @@ namespace VideoOnDemand.App_Code
             dbConnection.Close();
         }
 
+      
         public Boolean BatchTransaction(string[] strSql)
         {
 

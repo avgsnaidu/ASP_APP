@@ -32,7 +32,8 @@ namespace VideoOnDemand
         void Session_Start(object sender, EventArgs e)
         {
             //set english as default startup language
-            Session["CurrentCulture"] = "en-GB";
+            //Session["CurrentCulture"] = "en-GB";
+            Session["CurrentCulture"] = "ar";
         }
 
 

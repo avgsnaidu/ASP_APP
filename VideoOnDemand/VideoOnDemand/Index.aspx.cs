@@ -96,10 +96,7 @@ namespace VideoOnDemand.Setup
             //string loginName = GetLoginSplit(System.Security.Principal.WindowsIdentity.GetCurrent().Name);
 
 
-            //Response.Write("<script>alert('reached');</script>");
-            //string alert = string.Format("<script>alert('{0}');</script>", loginName);
-            //Response.Write(alert);
-            //Response.End();
+            
             if (!string.IsNullOrEmpty(loginName))
             {
                 //string loginName = qbeUser.SamAccountName; // or whatever you mean by "login name"

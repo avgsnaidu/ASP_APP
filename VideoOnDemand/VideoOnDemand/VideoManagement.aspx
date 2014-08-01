@@ -3,17 +3,24 @@
 <asp:Content ID="VideoManagementContent" ContentPlaceHolderID="VODMangContentPlaceHolder" runat="server">
     <%--  <script src="../Scripts/bootstrap-select.js"></script>
     <link href="../Content/css/bootstrap-select.css" rel="stylesheet" />--%>
-
+    <style type="text/css">
+     
+    </style>
 
     <script src="jwplayer.js"></script>
 
     <script type="text/javascript">
 
         $(document).ready(function () {
+            $(".closeX").click(function () {
+                $(".tranceBg").hide();
+                $(".videoPopup").hide();
+                $("#mdlPlayVideo").hide();
+                $("#mdlPlayVideo").hide();
 
-            $(".selectpicker").selectpicker();
-
+            });
         });
+
 
         $(document).ready(function () {
 
@@ -127,24 +134,30 @@
 
                                             <div class="form-group">
                                                 <asp:Label for="txtCommunityTag" ID="lblCommunityTag" runat="server" class="col-sm-4 control-label" Text="<%$ Resources:VideoManagement, ETM_txtCommunityTagText %>"></asp:Label><div class="col-sm-7">
-                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat"
-                                                        ID="txtCommunityTag" placeholder="Enter Community Tag" data-placement="top" data-trigger="manual" />
+                                                    <asp:DropDownList runat="server" ID="ddlCommunityTag" CssClass="selectpicker minHeightControl" AutoPostBack="true" Width="100%" />
+
+                                                    <%--                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat"
+                                                        ID="txtCommunityTag" placeholder="Enter Community Tag" data-placement="top" data-trigger="manual" />--%>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <asp:Label runat="server" ID="lblDirstrictTag" for="txtDistrictTag" class="col-sm-4 control-label" Text="<%$ Resources:VideoManagement, ETM_txtDistrictTagText %>">
                                                 </asp:Label>
                                                 <div class="col-sm-7">
-                                                    <asp:TextBox type="text" ID="txtDistrictTag" runat="server" class="form-control textboxFormat "
-                                                        placeholder="Enter District Tag" data-placement="bottom" data-trigger="manual" />
+                                                    <asp:DropDownList runat="server" ID="ddlDistrictTag" CssClass="selectpicker minHeightControl" AutoPostBack="true" Width="100%"/>
+
+                                                    <%--                                                    <asp:TextBox type="text" ID="txtDistrictTag" runat="server" class="form-control textboxFormat "
+                                                        placeholder="Enter District Tag" data-placement="bottom" data-trigger="manual" />--%>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <asp:Label runat="server" ID="lblRoadTags" for="txtRoadTag" class="col-sm-4 control-label" Text="<%$ Resources:VideoManagement, ETM_txtRoadTagText %>">
                                                 </asp:Label>
                                                 <div class="col-sm-7">
-                                                    <asp:TextBox type="text" runat="server" ID="txtRoadTag" class="form-control textboxFormat"
-                                                        name="" placeholder="Enter Road Tags" data-placement="bottom" data-trigger="manual"></asp:TextBox>
+                                                    <asp:DropDownList runat="server" ID="ddlRoadTag" CssClass="selectpicker minHeightControl" AutoPostBack="true" Width="100%"/>
+
+                                                    <%--                                                    <asp:TextBox type="text" runat="server" ID="txtRoadTag" class="form-control textboxFormat"
+                                                        name="" placeholder="Enter Road Tags" data-placement="bottom" data-trigger="manual"></asp:TextBox>--%>
                                                 </div>
                                             </div>
                                         </div>
@@ -201,8 +214,6 @@
                     </div>
                 </div>
 
-
-
                 <div class="modal fade" id="alertMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" data-dismiss="modal">
                     <div class="modal-dialog modal-dlg-top">
                         <div class="modal-content">
@@ -237,22 +248,20 @@
                 </div>
 
 
-                <div class="modal fade" id="mdlPlayVideo" tabindex="-1" role="dialog" aria-labelledby="modalVideoLabel" aria-hidden="true" data-dismiss="modal">
+                <div class="modal fade" id="mdlPlayVideo" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" aria-labelledby="modalVideoLabel" aria-hidden="true" data-dismiss="modal">
                     <div class="modal-dialog modal-dlg-top">
-                        <div class="modal-content" style="width: 510px; padding-left: 0px !important;">
-                            <%-- <div class="modal-header">
-                                <h4 class="modal-title" id="modalVideoLabel">Alert !</h4>
-                            </div>--%>
+                        <a href="#" class="closeX close" data-dismiss="modal">X</a>
+                        <div class="modal-content">
+
                             <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                                 <ContentTemplate>
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
 
-                                                <div id='player'></div>
+                                                <div id='player' class="player_wrapper_Custom"></div>
 
                                                 <br />
-
                                             </div>
                                         </div>
                                     </div>
@@ -265,7 +274,16 @@
 
 
 
+                <%-- <div class="tranceBg" id="mdlPlayVideo"></div>--%>
+                <%-- <div class="videoPopup" id="mdlPlayVideo" style="visibility: hidden;">
+                    <a href="#" class="closeX">X</a>
 
+                     <iframe width="100%" height="350px" src="http://www.youtube.com/embed/LRARHtMzZQE" frameborder="0" allowfullscreen></iframe> 
+                    <div id='player'></div>
+
+                    <br />
+
+                </div>--%>
             </div>
 
 
@@ -299,13 +317,13 @@
                             <asp:BoundField DataField="STATUS" HeaderText="<%$ Resources:VideoManagement, grd_Hd_Status %>" ItemStyle-Width="12%" />
                             <asp:BoundField DataField="TAG" HeaderText="<%$ Resources:VideoManagement, grd_Hd_Tag %>" />
                             <%--<asp:BoundField DataField="GroupName" HeaderText="Group Name" />--%>
-                            <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Edit %>"  ItemStyle-Width="60px">
+                            <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Edit %>" ItemStyle-Width="60px">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("VIDEOID") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
-                            <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Play %>"  ItemStyle-Width="60px">
+                            <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Play %>" ItemStyle-Width="60px">
                                 <ItemTemplate>
                                     <%--<asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="glyphicon glyphicon-play-circle" CommandArgument='<%#Eval("VIDEOID")%>' />--%>
                                     <asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="spritePlay playicon" CommandArgument='<%#Eval("VIDEOID")+ ";"+ Eval("FILENAME")%>' />

@@ -14,10 +14,10 @@ namespace VideoOnDemand
         {
             base.OnPreInit(e);
 
-            if (!Request.IsAuthenticated)
-            {
-                Response.Redirect("Error.aspx");
-            }
+            //if (!Request.IsAuthenticated)
+            //{
+            //    Response.Redirect("Error.aspx");
+            //}
         }
 
 
@@ -40,28 +40,7 @@ namespace VideoOnDemand
             base.InitializeCulture();
         }
 
-
-        //protected override void InitializeCulture()
-        //{
-        //    if (Session["CurrentLanguage"] != null)
-        //    {
-        //        UICulture = Session["CurrentLanguage"].ToString();
-        //        Culture = Session["CurrentLanguage"].ToString();
-        //    }
-        //    else
-        //        Session["CurrentLanguage"] = "Auto";
-
-
-        //    if (Session["CurrentLanguage"].ToString() != "Auto")
-        //    {
-        //        System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo(Session["CurrentLanguage"].ToString());
-        //        System.Threading.Thread.CurrentThread.CurrentCulture = ci;
-        //        System.Threading.Thread.CurrentThread.CurrentUICulture = ci;
-        //    }
-
-
-        //    base.InitializeCulture();
-        //}
+ 
 
     }
 }

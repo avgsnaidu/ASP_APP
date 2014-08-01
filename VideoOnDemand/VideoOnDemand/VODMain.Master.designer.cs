@@ -49,6 +49,15 @@ namespace VideoOnDemand {
         protected global::System.Web.UI.WebControls.LinkButton lnkHome;
         
         /// <summary>
+        /// ltlAssingVidGroup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlAssingVidGroup;
+        
+        /// <summary>
         /// lnkEnglish control.
         /// </summary>
         /// <remarks>
@@ -58,6 +67,15 @@ namespace VideoOnDemand {
         protected global::System.Web.UI.WebControls.LinkButton lnkEnglish;
         
         /// <summary>
+        /// Literal1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal1;
+        
+        /// <summary>
         /// lnkArabic control.
         /// </summary>
         /// <remarks>
@@ -65,6 +83,15 @@ namespace VideoOnDemand {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkArabic;
+        
+        /// <summary>
+        /// Literal2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal2;
         
         /// <summary>
         /// lnkDDMUserName control.
@@ -94,6 +121,15 @@ namespace VideoOnDemand {
         protected global::System.Web.UI.WebControls.LinkButton lnkConfiguration;
         
         /// <summary>
+        /// Literal3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal3;
+        
+        /// <summary>
         /// btnLogout control.
         /// </summary>
         /// <remarks>
@@ -101,6 +137,15 @@ namespace VideoOnDemand {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnLogout;
+        
+        /// <summary>
+        /// Literal4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal4;
         
         /// <summary>
         /// VODContentPlaceHolder control.

@@ -40,6 +40,15 @@ namespace VideoOnDemand {
         protected global::System.Web.UI.WebControls.LinkButton lnkVideoMang;
         
         /// <summary>
+        /// ltlVideoManag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlVideoManag;
+        
+        /// <summary>
         /// Li5 control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace VideoOnDemand {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkSearch;
+        
+        /// <summary>
+        /// ltlSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlSearch;
         
         /// <summary>
         /// VODMangContentPlaceHolder control.

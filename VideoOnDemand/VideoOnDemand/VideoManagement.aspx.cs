@@ -14,6 +14,8 @@ namespace VideoOnDemand.VODManage
     {
         clsGroupManagement groupRepository = new clsGroupManagement();
         clsVideoManagement repository = new clsVideoManagement();
+        clsVideoTags repositoryVdTag = new clsVideoTags();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.IsAuthenticated)
@@ -154,12 +156,17 @@ namespace VideoOnDemand.VODManage
             {
                 if (index > 0)
                 {
+                    BindCommunitiesList();
+                    BindDistrictList();
+                    BindRoadDistrict();
+
                     DataSet ds = GetVideoTagsDetails(index);
 
+
                     lblVideoName.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["VIDEONAME"].ToString());
-                    txtCommunityTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["COMMUNITY_TAG"].ToString());
-                    txtDistrictTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["DISTRICT_TAG"].ToString());
-                    txtRoadTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["ROAD_TAG"].ToString());
+                    //txtCommunityTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["COMMUNITY_TAG"].ToString());
+                    //txtDistrictTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["DISTRICT_TAG"].ToString());
+                    //txtRoadTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["ROAD_TAG"].ToString());
 
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
@@ -191,6 +198,49 @@ namespace VideoOnDemand.VODManage
 
             }
 
+        }
+
+        private void BindRoadDistrict()
+        {
+            DataSet ds = null;
+            ds = repositoryVdTag.GetRoadsList('E');
+            if (ds != null)
+            {
+
+                ddlRoadTag.DataValueField = "ROADNO";
+                ddlRoadTag.DataTextField = "ROADNAME";
+
+                ddlRoadTag.DataSource = ds;
+                ddlRoadTag.DataBind();
+            }
+        }
+
+        private void BindDistrictList()
+        {
+            DataSet ds = null;
+            ds = repositoryVdTag.GetDistrictList('E');
+            if (ds != null)
+            {
+                ddlDistrictTag.DataValueField = "DISTNO";
+                ddlDistrictTag.DataTextField = "DISTRICTNAME";
+                ddlDistrictTag.DataSource = ds;
+                ddlDistrictTag.DataBind();
+
+            }
+        }
+
+        private void BindCommunitiesList()
+        {
+            DataSet ds = null;
+            ds = repositoryVdTag.GetCommunityList('E');
+            if (ds != null)
+            {
+                ddlCommunityTag.DataValueField = "COMMUNITYNO";
+                ddlCommunityTag.DataTextField = "COMMUNITYNAME";
+                ddlCommunityTag.DataSource = ds;
+                ddlCommunityTag.DataBind();
+
+            }
         }
 
         private void playVideosss()
@@ -243,14 +293,14 @@ namespace VideoOnDemand.VODManage
             }
             else
             {
-                System.Text.StringBuilder sb;
+                //System.Text.StringBuilder sb;
 
-                sb = new System.Text.StringBuilder();
-                lblMessage.Text = "There is no groups avaliable";
-                sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$('#alertMessageModal').modal('show');");
-                sb.Append(@"</script>");
-                ClientScript.RegisterStartupScript(GetType(), "NoGroups", sb.ToString(), false);
+                //sb = new System.Text.StringBuilder();
+                //lblMessage.Text = "There is no groups avaliable";
+                //sb.Append(@"<script type='text/javascript'>");
+                //sb.Append("$('#alertMessageModal').modal('show');");
+                //sb.Append(@"</script>");
+                //ClientScript.RegisterStartupScript(GetType(), "NoGroups", sb.ToString(), false);
                 groupBinded = false;
             }
             return groupBinded;
@@ -435,7 +485,8 @@ namespace VideoOnDemand.VODManage
         protected void btnSaveTag_Click(object sender, EventArgs e)
         {
             StringBuilder sb;
-            bool updateSucess = repository.UpdateVideoTags(Convert.ToInt32(Session["VideoId"].ToString()), txtCommunityTag.Text.Trim(), txtDistrictTag.Text.Trim(), txtRoadTag.Text.Trim());
+            bool updateSucess = false;
+            //repository.UpdateVideoTags(Convert.ToInt32(Session["VideoId"].ToString()), txtCommunityTag.Text.Trim(), txtDistrictTag.Text.Trim(), txtRoadTag.Text.Trim());
             if (updateSucess)
             {
                 BindVideosBasedOnSelection();
@@ -497,8 +548,11 @@ namespace VideoOnDemand.VODManage
                 cstext1.Append("<script type='text/javascript'> ");
                 cstext1.Append(" jwplayer('player').setup({ ");
                 cstext1.Append(" flashplayer: 'jwplayer.flash.swf',");
+                cstext1.Append(" width:'1000px',");
+                cstext1.Append(" height:'800px',");
                 cstext1.Append(" primary: 'flash', ");
                 cstext1.Append(" mute: 'true',");
+
                 cstext1.Append(" stretching: 'exactfit', ");
                 cstext1.Append(" playlist: [{ sources: [{ file: '");
                 cstext1.Append(playerUrl);

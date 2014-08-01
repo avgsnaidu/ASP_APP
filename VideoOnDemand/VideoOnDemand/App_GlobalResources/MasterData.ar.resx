@@ -117,79 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="gv_EmtpyData" xml:space="preserve">
-    <value>No users to display in selected group</value>
+  <data name="chMa_Ad_Archive_Text" xml:space="preserve">
+    <value>Archive Listing_AR</value>
   </data>
-  <data name="gv_hd_Actions" xml:space="preserve">
-    <value>Actions</value>
+  <data name="chMa_Ad_GroupManage_Text" xml:space="preserve">
+    <value>Group Management_AR</value>
   </data>
-  <data name="gv_hd_Domain" xml:space="preserve">
-    <value>Domain</value>
+  <data name="chMa_Ad_Search_Text" xml:space="preserve">
+    <value>Search_AR</value>
   </data>
-  <data name="gv_hd_fullname" xml:space="preserve">
-    <value>FullName</value>
+  <data name="chMa_Ad_Usermange_Text" xml:space="preserve">
+    <value>User Management_AR</value>
   </data>
-  <data name="gv_hd_groupName" xml:space="preserve">
-    <value>GroupName</value>
+  <data name="chMa_Ad_VideoManage_Text" xml:space="preserve">
+    <value>Video Management_AR</value>
   </data>
-  <data name="gv_hd_Username" xml:space="preserve">
-    <value>UserName</value>
+  <data name="chMa_User_Search_Text" xml:space="preserve">
+    <value>Search_AR</value>
   </data>
-  <data name="hd_UserManagement" xml:space="preserve">
-    <value>User Management</value>
+  <data name="chMa_User_VideoManage_Text" xml:space="preserve">
+    <value>Video Management_AR</value>
   </data>
-  <data name="hndRowBackColor_hiddenfield" xml:space="preserve">
-    <value>Back Color</value>
+  <data name="drp_Configuration_text" xml:space="preserve">
+    <value>Configuration_AR</value>
   </data>
-  <data name="lblFilterBy" xml:space="preserve">
-    <value>Filter By</value>
+  <data name="drp_LogOut_Text" xml:space="preserve">
+    <value>Logout_AR</value>
   </data>
-  <data name="lnkAssignUserstoGroup" xml:space="preserve">
-    <value>Assign Users to Group</value>
+  <data name="hd_Arb_lnk_Text" xml:space="preserve">
+    <value>Arabic_AR</value>
   </data>
-  <data name="mdlAG_Assign" xml:space="preserve">
-    <value>Assign</value>
+  <data name="hd_Eng_lnk_Text" xml:space="preserve">
+    <value>English_AR</value>
   </data>
-  <data name="mdlAG_AssingUsers" xml:space="preserve">
-    <value>Assign Users to Group</value>
-  </data>
-  <data name="mdlAG_Cancel" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="mdlAG_SelectGrp" xml:space="preserve">
-    <value>Select Group</value>
-  </data>
-  <data name="mdlAlt_Head" xml:space="preserve">
-    <value>Alert !</value>
-  </data>
-  <data name="mdlAlt_Ok" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="mdlDel_Delete" xml:space="preserve">
-    <value>Delete</value>
-  </data>
-  <data name="mdlDel_Delete_Cancel" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="mdlDel_DelWarText" xml:space="preserve">
-    <value>Are&amp;nbsp;you&amp;nbsp;sure&amp;nbsp;to&amp;nbsp;delete&amp;nbsp;group&amp;nbsp;from&amp;nbsp;user ?</value>
-  </data>
-  <data name="mdlDel_Header" xml:space="preserve">
-    <value>Delete Warning</value>
-  </data>
-  <data name="mdlEUP_Assign" xml:space="preserve">
-    <value>Assign</value>
-  </data>
-  <data name="mdlEUP_Cancel" xml:space="preserve">
-    <value>Cancel</value>
-  </data>
-  <data name="mdlEUP_ModfyGroup" xml:space="preserve">
-    <value>Modify User Group</value>
-  </data>
-  <data name="mdlEUP_SelectGroup" xml:space="preserve">
-    <value>Select Group</value>
-  </data>
-  <data name="mdlEUP_UserName" xml:space="preserve">
-    <value>UserName</value>
+  <data name="Hd_Title" xml:space="preserve">
+    <value>Video on Demand_AR</value>
   </data>
 </root>

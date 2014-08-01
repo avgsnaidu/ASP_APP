@@ -31,6 +31,15 @@ namespace VideoOnDemand.VODManage {
         protected global::System.Web.UI.WebControls.LinkButton lnkUserMang;
         
         /// <summary>
+        /// ltlUserMangement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlUserMangement;
+        
+        /// <summary>
         /// lnkGroupMang control.
         /// </summary>
         /// <remarks>
@@ -38,6 +47,15 @@ namespace VideoOnDemand.VODManage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkGroupMang;
+        
+        /// <summary>
+        /// ltlGroupManagement control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlGroupManagement;
         
         /// <summary>
         /// lnkVideoMang control.
@@ -49,6 +67,15 @@ namespace VideoOnDemand.VODManage {
         protected global::System.Web.UI.WebControls.LinkButton lnkVideoMang;
         
         /// <summary>
+        /// ltlVideoManag control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlVideoManag;
+        
+        /// <summary>
         /// lnkArchiveListen control.
         /// </summary>
         /// <remarks>
@@ -58,6 +85,15 @@ namespace VideoOnDemand.VODManage {
         protected global::System.Web.UI.WebControls.LinkButton lnkArchiveListen;
         
         /// <summary>
+        /// ltlArchiveList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlArchiveList;
+        
+        /// <summary>
         /// lnkSearch control.
         /// </summary>
         /// <remarks>
@@ -65,6 +101,15 @@ namespace VideoOnDemand.VODManage {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lnkSearch;
+        
+        /// <summary>
+        /// ltlSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlSearch;
         
         /// <summary>
         /// VODMangContentPlaceHolder control.

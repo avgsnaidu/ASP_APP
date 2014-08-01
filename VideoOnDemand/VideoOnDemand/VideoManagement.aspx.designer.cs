@@ -112,13 +112,13 @@ namespace VideoOnDemand.VODManage {
         protected global::System.Web.UI.WebControls.Label lblCommunityTag;
         
         /// <summary>
-        /// txtCommunityTag control.
+        /// ddlCommunityTag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCommunityTag;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCommunityTag;
         
         /// <summary>
         /// lblDirstrictTag control.
@@ -130,13 +130,13 @@ namespace VideoOnDemand.VODManage {
         protected global::System.Web.UI.WebControls.Label lblDirstrictTag;
         
         /// <summary>
-        /// txtDistrictTag control.
+        /// ddlDistrictTag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDistrictTag;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDistrictTag;
         
         /// <summary>
         /// lblRoadTags control.
@@ -148,13 +148,13 @@ namespace VideoOnDemand.VODManage {
         protected global::System.Web.UI.WebControls.Label lblRoadTags;
         
         /// <summary>
-        /// txtRoadTag control.
+        /// ddlRoadTag control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRoadTag;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRoadTag;
         
         /// <summary>
         /// btnSaveTag control.

@@ -14,21 +14,22 @@ namespace VideoOnDemand.Model.BAL
 
 
             string strSql = string.Empty;
-            strSql = "SELECT V.VOD_ID AS VIDEOID ,FILE_NAME AS FILENAME,vs.StatusName AS STATUS,Community_TAG_ENG+' , '+District_TAG_ENG+' , '+ROAD_TAG_ENG AS TAG FROM VOD_VIDEOS v LEFT JOIN VideoStatus vs On v.STATUS=vs.Statuscode ";
+            strSql = "SELECT VIDEOID ,VIDEONAME AS FILENAME,VD.STATUS AS STATUS,COMMUNITY+' , '+DISTRICT+' , '+ROAD AS TAG FROM VW_VIDEOS_WITH_TAGS VD";
+           
             if (status == '0')
             {
                 if (groupId > 0)
                 {
-                    strSql = strSql + " INNER JOIN VOD_GROUP VG ON v.VOD_ID= vg.VOD_ID where VG.GROUP_ID=" + groupId;
+                    strSql = strSql + " INNER JOIN VOD_GROUP VG ON VD.VIDEOID= VG.VIDEOID where VG.GROUP_ID=" + groupId;
                 }
             }
             else
             {
                 if (status != '0' && groupId > 0)
-                    strSql = strSql + " INNER JOIN VOD_GROUP VG ON v.VOD_ID= vg.VOD_ID where VG.GROUP_ID=" + groupId + " " + " AND v.Status='" + status + "'";
+                    strSql = strSql + " INNER JOIN VOD_GROUP VG ON VD.VIDEOID= vg.VOD_ID where VG.GROUP_ID=" + groupId + " " +" AND VD.STATUSCODE='" + status + "'";
 
                 else if (status != '0' && groupId == 0)
-                    strSql = strSql + " where v.Status='" + status + "'";
+                    strSql = strSql + " where VD.STATUSCODE='" + status + "'";
 
             }
 
@@ -74,29 +75,6 @@ namespace VideoOnDemand.Model.BAL
             strSql = "SELECT VOD_ID AS VIDEOID,FILE_NAME AS VIDEONAME,COMMUNITY_TAG_ENG AS COMMUNITY_TAG,DISTRICT_TAG_ENG DISTRICT_TAG,ROAD_TAG_ENG AS ROAD_TAG FROM VOD_VIDEOS WHERE VOD_ID=" + videoID;
             DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
             return ds;
-
-        }
-
-        public bool UpdateVideoTags(int videoID, string Community_Tag, string Dist_Tag, string Road_Tag)
-        {
-
-            SqlParameter[] paramList = new SqlParameter[4];
-            paramList[0] = new SqlParameter("@VideoId", SqlDbType.Int);
-            paramList[0].Value = videoID;
-            paramList[1] = new SqlParameter("@Commuity_Tag", SqlDbType.NVarChar);
-            paramList[1].Value = Community_Tag;
-            paramList[2] = new SqlParameter("@Dist_Tag", SqlDbType.NVarChar);
-            paramList[2].Value = Dist_Tag;
-            paramList[3] = new SqlParameter("@Road_Tag", SqlDbType.NVarChar);
-            paramList[3].Value = Road_Tag;
-
-            string strSql = "UPDATE VOD_VIDEOS SET COMMUNITY_TAG_ENG =@Commuity_Tag,DISTRICT_TAG_ENG=@Dist_Tag,ROAD_TAG_ENG =@Road_Tag WHERE VOD_ID=@VideoId";
-
-            int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, paramList);
-            if (value > 0)
-                return true;
-            else
-                return false;
 
         }
 

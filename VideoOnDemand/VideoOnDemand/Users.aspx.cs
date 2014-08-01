@@ -51,13 +51,13 @@ namespace VideoOnDemand.VODManage
             string[] commandArguments = commandNames.Split(';');
 
 
-            int userId = Convert.ToInt32(commandArguments[0]);
-            int GroupId = Convert.ToInt32(commandArguments[1]);
-
             Session["UserID"] = "";
 
             if (e.CommandName.Equals("Editing"))
             {
+                int userId = Convert.ToInt32(commandArguments[0]);
+                int GroupId = Convert.ToInt32(commandArguments[1]);
+
                 GridViewRow row = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 // row contains current Clicked Gridview Row
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
@@ -78,6 +78,9 @@ namespace VideoOnDemand.VODManage
             }
             else if (e.CommandName.Equals("Deleting"))
             {
+                int userId = Convert.ToInt32(commandArguments[0]);
+                int GroupId = Convert.ToInt32(commandArguments[1]);
+
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
                 Session["UserID"] = userId;
@@ -183,16 +186,16 @@ namespace VideoOnDemand.VODManage
             }
             else
             {
-                System.Text.StringBuilder sb;
+                //System.Text.StringBuilder sb;
 
-                sb = new System.Text.StringBuilder();
-                lblAlertHeader.Text = "No Groups";
-                lblMessage.Text = "There is no groups avaliable";
-                sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$('#alertMessageModal').modal('show');");
-                sb.Append(@"</script>");
-                ClientScript.RegisterStartupScript(GetType(), "NoGroups", sb.ToString(), false);
-                groupBinded = false;
+                //sb = new System.Text.StringBuilder();
+                //lblAlertHeader.Text = "No Groups";
+                //lblMessage.Text = "There is no groups avaliable";
+                //sb.Append(@"<script type='text/javascript'>");
+                //sb.Append("$('#alertMessageModal').modal('show');");
+                //sb.Append(@"</script>");
+                //ClientScript.RegisterStartupScript(GetType(), "NoGroups", sb.ToString(), false);
+                //groupBinded = false;
             }
             return groupBinded;
         }
@@ -395,7 +398,8 @@ namespace VideoOnDemand.VODManage
         protected void gvUserManagement_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvUserManagement.PageIndex = e.NewPageIndex;
-            var group = Convert.ToInt32(ddlGroupsFilter.SelectedItem.Value);
+
+            var group = Convert.ToInt32((ddlGroupsFilter.SelectedItem != null) ? ddlGroupsFilter.SelectedItem.Value : "0");
             BindUsers(group);
         }
 

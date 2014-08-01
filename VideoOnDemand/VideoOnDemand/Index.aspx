@@ -10,7 +10,7 @@
     <form id="form1" runat="server">
         <div>
             <script>
-                alert('reached');
+                alert('You are not autherized to access this web');
             </script>
         </div>
     </form>
