@@ -4,6 +4,11 @@
 </asp:Content>
 
 <asp:Content ID="DatabaseSetupContent" ContentPlaceHolderID="VODContentPlaceHolder" runat="server">
+   <%-- 
+    <asp:Literal ID="StyleSheet" runat="Server" />--%>
+
+
+
     <script type="text/javascript">
         $(document).ready(function () {
             $('form').find('a.submit-link').click(function () {

@@ -3,6 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainHeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="SuperAdminContent" ContentPlaceHolderID="VODContentPlaceHolder" runat="server">
+
+   <%-- <asp:Literal ID="StyleSheet" runat="Server" />--%>
+
+
     <div class="container">
         <!--container-->
 
@@ -48,8 +52,8 @@
                     <asp:TextBox runat="server" ID="txtMail" CssClass="form-control required email" MaxLength="25" data-placement="right" data-trigger="manual" data-content="Enter valid email format."></asp:TextBox>
                     <span class="sprite mail"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvtxtMail" ControlToValidate="txtMail"  ValidationGroup="ADInfo" ErrorMessage="* Please Enter Email" ForeColor="#E2351D"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator runat="server" ID="revtxtMail"  ValidationGroup="ADInfo"  ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtMail" ErrorMessage="* Invalid Email Address" />
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtMail" ControlToValidate="txtMail" ValidationGroup="ADInfo" ErrorMessage="* Please Enter Email" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator runat="server" ID="revtxtMail" ValidationGroup="ADInfo" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtMail" ErrorMessage="* Invalid Email Address" />
             </div>
 
 

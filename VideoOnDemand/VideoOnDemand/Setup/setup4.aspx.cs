@@ -13,7 +13,22 @@ namespace VideoOnDemand.Setup
         clsSuperAdmin repository = new clsSuperAdmin();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //if (!IsPostBack)
+            //{
+            //    string StyleSheetPath = string.Empty;
+            //    if (Session["CurrentCulture"].ToString() == "ar")
+            //        StyleSheetPath = "Content/css/style_arabic.css";
+            //    else
+            //        StyleSheetPath = "";
 
+            //    string styleFormat = "<LINK href='{0}' type='text/css' rel='stylesheet'>";
+
+            //    string linkText;
+            //    linkText = String.Format(styleFormat, StyleSheetPath);
+            //    StyleSheet.Text = linkText;
+
+
+            //}
         }
 
 

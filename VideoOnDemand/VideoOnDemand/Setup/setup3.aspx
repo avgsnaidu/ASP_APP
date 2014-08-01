@@ -3,6 +3,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainHeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="VODConfigurationContent" ContentPlaceHolderID="VODContentPlaceHolder" runat="server">
+      
+  <%--  <asp:Literal ID="StyleSheet" runat="Server" />--%>
+
+
     <div class="container">
         <!--container-->
 
