@@ -813,6 +813,254 @@
             </div>
 
 
+               <div class="modal fade" id="mdlStreamServer" tabindex="-1" role="dialog" aria-labelledby="mySSDModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dlg-top">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="mySSDModalLabel">
+                                <asp:Literal ID="Literal36" runat="server" Text="<%$Resources:Config,mdlSSD_Header %>" />
+                            </h4>
+                        </div>
+                        <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                            <ContentTemplate>
+                                <div class="modal-body">
+                                    <div class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <asp:HiddenField ID="HiddenField1" runat="server" />
+                                            <label for="txtSuperUsername" class="col-sm-4 control-label">
+                                                <asp:Literal ID="Literal37" runat="server" Text="<%$Resources:Config,mdlSSD_Username %>" />
+
+                                                <span class="required">*</span></label>
+                                            <div class="col-sm-7">
+                                                <asp:TextBox type="text" runat="server" class="form-control textboxFormat required NoEmpty"
+                                                    ID="TextBox1" placeholder="User Name" data-placement="top" data-trigger="manual"
+                                                    data-content="Enter Valid Username" />
+                                                <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator1" ControlToValidate="txtSuperUsername"
+                                                    ValidationGroup="StreamingServer" ErrorMessage="<%$Resources:Config,mdlSsD_Username_need %> " ForeColor="#E2351D"
+                                                    Display="Dynamic"></asp:RequiredFieldValidator>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtSupPassword" class="col-sm-4 control-label">
+                                                <asp:Literal ID="Literal38" runat="server" Text="<%$Resources:Config,mdlSSD_password %>" />
+                                                <span class="required">*</span></label>
+                                            <div class="col-sm-7">
+                                                <asp:TextBox type="text" ID="TextBox2" runat="server" class="form-control textboxFormat required NoEmpty"
+                                                    placeholder="Password" data-placement="bottom" data-trigger="manual" data-content="Enter Valid Password" />
+                                                <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator2" ControlToValidate="txtSupPassword" ValidationGroup="StreamingServer"
+                                                    ErrorMessage="<%$Resources:Config,mdlSSD_password_need %>" ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtSupRetypePassword" class="col-sm-4 control-label">
+                                                <asp:Literal ID="Literal39" runat="server" Text="<%$Resources:Config,mdlSSD_retyPwd %>" />
+                                                <span class="required">*</span></label>
+                                            <div class="col-sm-7">
+                                                <asp:TextBox type="text" runat="server" ID="TextBox3" class="form-control textboxFormat required NoEmpty"
+                                                    name="" placeholder="Retype Password" data-placement="bottom" data-trigger="manual"
+                                                    data-content="Enter Valid Password"></asp:TextBox>
+                                                <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator3" ControlToValidate="txtSupRetypePassword" ValidationGroup="StreamingServer"
+                                                    ErrorMessage="<%$Resources:Config,mdlSAD_retyPwd_need %>" Display="Dynamic" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                                                <asp:CompareValidator runat="server" ID="CompareValidator1" ControlToValidate="txtSupRetypePassword" ValidationGroup="StreamingServer"
+                                                    ControlToCompare="txtSupPassword" Operator="Equal" Type="String" ForeColor="Red" Display="Dynamic" ErrorMessage="<%$Resources:Config,mdlSSD_retyPwd_valid %>" />
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtSuperEmail" class="col-sm-4 control-label">
+                                                <asp:Literal ID="Literal40" runat="server" Text="<%$Resources:Config,mdlSSD_Email %>" />
+                                                <span class="required">*</span></label>
+                                            <div class="col-sm-7">
+                                                <asp:TextBox type="text" ID="TextBox4" runat="server" class="form-control textboxFormat required NoEmpty"
+                                                    name="" placeholder="Email" data-placement="bottom" data-trigger="manual" data-content="Enter Valid Email"></asp:TextBox>
+                                                <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator4" ControlToValidate="txtSuperEmail" ValidationGroup="StreamingServer"
+                                                    ErrorMessage="<%$Resources:Config,mdlSSD_Email_need %>" ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator1" ValidationGroup="StreamingServer"
+                                                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtSuperEmail"
+                                                    ErrorMessage="<%$Resources:Config,mdlSSD_Email_valid %> " Display="Dynamic" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="btnSuperAdminSave" EventName="Click" />
+                            </Triggers>
+                        </asp:UpdatePanel>
+                        <div class="modal-footer">
+                            <asp:Button ID="Button1" runat="server" ValidationGroup="StreamingServer" class="btn btn-primary" Text="<%$Resources:Config,mdlSsD_Save %> "
+                                OnClick="btnSaveSuperAdmin_Click" />
+                            <asp:Button ID="Button3" runat="server" class="btn btn-primary" data-dismiss="modal"
+                                Text="<%$Resources:Config,mdlSsD_Cancel %>" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            
+
+            <%--Email Server Details--%>
+
+
+            <div class="block1 clearfix">
+                <table class="col-md-12 title1">
+                    <tr>
+                        <td width="93%">
+                            <h2 class="col-md-12 title1">
+                                <asp:Literal ID="Literal34" runat="server" Text="<%$Resources:Config,hd_EmailServeDetails %>" />
+                            </h2>
+                        </td>
+                        <td width="7%">
+                            <div class="col-md-12 title1">
+                                <asp:LinkButton runat="server" ID="LinkButton1" Font-Size="14px" PostBackUrl="#"
+                                    data-toggle="modal" data-target="">
+                                    <span class="sprite ic-creategroup"></span>
+                                    <asp:Literal ID="Literal35" runat="server" Text="<%$Resources:Config,hd_EmalSD_Edit_Text%>" />
+                                </asp:LinkButton>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+
+            <div class="table-block clearfix col-md-12">
+                <table style="background: #dcdbdb">
+                    <tr>
+                        <td width="50%">
+                            <div class="table-block clearfix col-md-8">
+                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                    <asp:Label ID="Label1" runat="server" Text="<%$Resources:Config,ESD_ServerName%> " Width="170"></asp:Label>
+                                </div>
+                                <div class="middle-rightchild">
+                                    <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+                                </div>
+                            </div>
+                        </td>
+                        <td width="50%">
+                            <div class="table-block clearfix col-md-8">
+                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                    <asp:Label ID="Label3" runat="server" Text="<%$Resources:Config,ESD_Pwd%> " Width="170"></asp:Label>
+                                </div>
+                                <div class="middle-rightchild">
+                                    <asp:Label ID="Label4" runat="server" Text=""></asp:Label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="50%">
+                            <div class="table-block clearfix col-md-8">
+                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                    <asp:Label ID="Label5" runat="server" Text="<%$Resources:Config,ESD_Port%> " Width="170"></asp:Label>
+                                </div>
+                                <div class="middle-rightchild">
+                                    <asp:Label ID="Label6" runat="server" Text=""></asp:Label>
+                                </div>
+                            </div>
+                        </td>
+                        <td width="50%">&nbsp;
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            
+               <div class="modal fade" id="mdlEmailServer" tabindex="-1" role="dialog" aria-labelledby="myESDModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dlg-top">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myESDModalLabel">
+                                <asp:Literal ID="Literal41" runat="server" Text="<%$Resources:Config,mdlESD_Header %>" />
+                            </h4>
+                        </div>
+                        <asp:UpdatePanel ID="UpdatePanel6" runat="server">
+                            <ContentTemplate>
+                                <div class="modal-body">
+                                    <div class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <asp:HiddenField ID="HiddenField2" runat="server" />
+                                            <label for="txtSuperUsername" class="col-sm-4 control-label">
+                                                <asp:Literal ID="Literal42" runat="server" Text="<%$Resources:Config,mdlESD_Username %>" />
+
+                                                <span class="required">*</span></label>
+                                            <div class="col-sm-7">
+                                                <asp:TextBox type="text" runat="server" class="form-control textboxFormat required NoEmpty"
+                                                    ID="TextBox5" placeholder="User Name" data-placement="top" data-trigger="manual"
+                                                    data-content="Enter Valid Username" />
+                                                <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator5" ControlToValidate="txtSuperUsername"
+                                                    ValidationGroup="StreamingServer" ErrorMessage="<%$Resources:Config,mdlEsD_Username_need %> " ForeColor="#E2351D"
+                                                    Display="Dynamic"></asp:RequiredFieldValidator>
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtSupPassword" class="col-sm-4 control-label">
+                                                <asp:Literal ID="Literal43" runat="server" Text="<%$Resources:Config,mdlESD_password %>" />
+                                                <span class="required">*</span></label>
+                                            <div class="col-sm-7">
+                                                <asp:TextBox type="text" ID="TextBox6" runat="server" class="form-control textboxFormat required NoEmpty"
+                                                    placeholder="Password" data-placement="bottom" data-trigger="manual" data-content="Enter Valid Password" />
+                                                <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator6" ControlToValidate="txtSupPassword" ValidationGroup="StreamingServer"
+                                                    ErrorMessage="<%$Resources:Config,mdlESD_password_need %>" ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtSupRetypePassword" class="col-sm-4 control-label">
+                                                <asp:Literal ID="Literal44" runat="server" Text="<%$Resources:Config,mdlESD_retyPwd %>" />
+                                                <span class="required">*</span></label>
+                                            <div class="col-sm-7">
+                                                <asp:TextBox type="text" runat="server" ID="TextBox7" class="form-control textboxFormat required NoEmpty"
+                                                    name="" placeholder="Retype Password" data-placement="bottom" data-trigger="manual"
+                                                    data-content="Enter Valid Password"></asp:TextBox>
+                                                <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator7" ControlToValidate="txtSupRetypePassword" ValidationGroup="StreamingServer"
+                                                    ErrorMessage="<%$Resources:Config,mdlEAD_retyPwd_need %>" Display="Dynamic" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                                                <asp:CompareValidator runat="server" ID="CompareValidator2" ControlToValidate="txtSupRetypePassword" ValidationGroup="StreamingServer"
+                                                    ControlToCompare="txtSupPassword" Operator="Equal" Type="String" ForeColor="Red" Display="Dynamic" ErrorMessage="<%$Resources:Config,mdlESD_retyPwd_valid %>" />
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="txtSuperEmail" class="col-sm-4 control-label">
+                                                <asp:Literal ID="Literal45" runat="server" Text="<%$Resources:Config,mdlESD_Email %>" />
+                                                <span class="required">*</span></label>
+                                            <div class="col-sm-7">
+                                                <asp:TextBox type="text" ID="TextBox8" runat="server" class="form-control textboxFormat required NoEmpty"
+                                                    name="" placeholder="Email" data-placement="bottom" data-trigger="manual" data-content="Enter Valid Email"></asp:TextBox>
+                                                <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator8" ControlToValidate="txtSuperEmail" ValidationGroup="StreamingServer"
+                                                    ErrorMessage="<%$Resources:Config,mdlESD_Email_need %>" ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                <asp:RegularExpressionValidator runat="server" ID="RegularExpressionValidator2" ValidationGroup="StreamingServer"
+                                                    ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ControlToValidate="txtSuperEmail"
+                                                    ErrorMessage="<%$Resources:Config,mdlESD_Email_valid %> " Display="Dynamic" />
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="btnSuperAdminSave" EventName="Click" />
+                            </Triggers>
+                        </asp:UpdatePanel>
+                        <div class="modal-footer">
+                            <asp:Button ID="Button4" runat="server" ValidationGroup="StreamingServer" class="btn btn-primary" Text="<%$Resources:Config,mdlEsD_Save %> "
+                                OnClick="btnSaveSuperAdmin_Click" />
+                            <asp:Button ID="Button5" runat="server" class="btn btn-primary" data-dismiss="modal"
+                                Text="<%$Resources:Config,mdlEsD_Cancel %>" />
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
 

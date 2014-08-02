@@ -24,7 +24,7 @@ namespace VideoOnDemand.Model.BAL
         public bool AddVODConfigurationDetails()
         {
             string strSql = string.Empty;
-            strSql = string.Format("INSERT INTO VOD_CONFIG (SOURCE_FOLDER,TARGET_FOLDER,ARCHIVE_FOLDER,BACKUP_FOLDER,SCHEDULER_FLAG,SCHEDULER_HOURS_INTERVAL,DATE_CREATED,DATE_UPDATED)VALUES('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
+            strSql = string.Format("INSERT INTO VOD_CONFIG (SOURCE_FOLDER,TARGET_FOLDER,ARCHIVE_FOLDER,BACKUP_FOLDER,SCHEDULER_FLAG,SCHEDULER_HOURS_INTERVAL,DATE_CREATED,DATE_UPDATED)VALUES('N{0}','N{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}',N'{7}')",
                 SourceFolder, TargetFolder, ArchiveFolder, BackupFolder, SchedulerFlag, SchedulerHours, DateTime.Now, (DateTime?)null);
             int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
             if (returnVal > 0)
@@ -47,7 +47,7 @@ namespace VideoOnDemand.Model.BAL
             p[3].Value = configid;
             p[4] = new SqlParameter("@Backup", SqlDbType.NVarChar);
             p[4].Value = Backup;
-            p[5] = new SqlParameter("@SchedulFlag", SqlDbType.Char);
+            p[5] = new SqlParameter("@SchedulFlag", SqlDbType.NChar);
             p[5].Value = SchedulFlag;
             p[6] = new SqlParameter("@Schedulehrs", SqlDbType.Float);
             p[6].Value = Schedulehrs;

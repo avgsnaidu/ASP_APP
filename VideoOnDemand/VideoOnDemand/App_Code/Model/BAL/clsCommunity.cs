@@ -9,20 +9,25 @@ namespace VideoOnDemand.Model.BAL
 {
     public class clsCommunity
     {
-        public string Name_Eng { get; set; }
-        public string Name_Arb { get; set; }
+        public string CommunityName { get; set; }
         public int DistrictNo { get; set; }
         public int CommunityNo { get; set; }
 
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        public bool AddCommunityDetails()
+        public bool AddCommunityDetails(char language)
         {
             string strSql = string.Empty;
-            strSql = string.Format("Insert into Community (NAME_ENG,NAME_ARB,DISTRICT_NO,DATE_CREATED,DATE_UPDATED)VALUES('{0}','{1}','{2}','{3}','{4}')",
-                Name_Eng, Name_Arb, DistrictNo, DateTime.Now, (DateTime?)null);
+            if (language == 'A')
+                strSql = string.Format("INSERT INTO [COMMUNITY]([COMMUNITY_NO],[NAME_ARB],[DISTRICT_NO],[DATE_CREATED]) VALUES('{0}',N'{1}',{2},'{3}')",
+                   CommunityNo, CommunityName, DistrictNo, DateTime.Now);
+            else
+                strSql = string.Format("INSERT INTO [COMMUNITY]([COMMUNITY_NO],[NAME_ENG],[DISTRICT_NO],[DATE_CREATED]) VALUES('{0}',N'{1}',{2},'{3}')",
+                                  CommunityNo, CommunityName, DistrictNo, DateTime.Now);
+
             int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
+
             if (returnVal > 0)
                 return true;
             else
@@ -30,16 +35,16 @@ namespace VideoOnDemand.Model.BAL
 
         }
 
-        public bool UpdateCommunityDetails(int CommunityNo, string NameEng, string NameArb, int DistrictNo)
+        public bool UpdateCommunityDetails(int CommunityNo, string NameEng, string NameArb, int DistrictNo, char language)
         {
             SqlParameter[] p = new SqlParameter[4];
             p[0] = new SqlParameter("@CommunityNo", SqlDbType.Int);
             p[0].Value = CommunityNo;
-            p[1] = new SqlParameter("@NameEng", SqlDbType.NVarChar);
+            p[1] = new SqlParameter("@CommunityName", SqlDbType.NVarChar);
             p[1].Value = NameEng;
-            p[2] = new SqlParameter("@NameArb", SqlDbType.NVarChar);
+            p[2] = new SqlParameter("@DistrictNo", SqlDbType.Int);
             p[2].Value = NameArb;
-            p[3] = new SqlParameter("@DistrictNo", SqlDbType.Int);
+            p[3] = new SqlParameter("@lang", SqlDbType.Char);
             p[3].Value = DistrictNo;
 
             string strSql = "UPDATE Community SET NAME_ENG=@NameEng, NAME_ARB=@NameArb, DISTRICT_NO=@DistrictNo, DATE_UPDATED=GETDATE() where Community_No=@CommunityNo";
@@ -50,7 +55,7 @@ namespace VideoOnDemand.Model.BAL
 
         }
 
-        public DataSet GetCommunityDetails()
+        public DataSet GetCommunityDetails(char language)
         {
             string strSql = string.Empty;
             strSql = string.Format("SELECT C.Community_No,C.Name_Eng,C.Name_Arb,D.Name_Eng AS DISTRICT_NO FROM Community C Join District D ON C.District_No = D.District_No");

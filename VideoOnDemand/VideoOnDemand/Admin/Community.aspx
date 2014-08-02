@@ -1,18 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManagement.master" AutoEventWireup="true" CodeBehind="Community.aspx.cs" Inherits="VideoOnDemand.Community" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="Community.aspx.cs" Inherits="VideoOnDemand.Community" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="VODMangContentPlaceHolder" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="VODContentPlaceHolder" runat="server">
     <script type="text/javascript">
          
     </script>
 
     <script type="text/javascript"> 
     </script>
-    <div id="management-bottom" class="col-md-12">
-        <div class="block1 clearfix">
-            <h2 class="col-md-3">
-                <asp:Literal runat="server" ID="ltlCommnuityHeader" Text="<%$Resources:Community,Hd_Community_Text %>"></asp:Literal></h2>
+    <div class="container">
+        <div id="management-bottom" class="col-md-12">
+            <div class="block1 clearfix">
+                <h2 class="col-md-3">
+                    <asp:Literal runat="server" ID="ltlCommnuityHeader" Text="<%$Resources:Community,Hd_Community_Text %>"></asp:Literal></h2>
 
-            </h2>
+                </h2>
             <div class="col-md-9">
                 <ul>
 
@@ -194,45 +195,32 @@
                     </div>
                 </div>
             </div>
+            </div>
+
+            <div class="table-block clearfix col-md-12">
+                <asp:GridView ID="gvCommunity" runat="server" AutoGenerateColumns="False" GridLines="None"
+                    AllowPaging="true" PagerSettings-Mode="Numeric" OnPageIndexChanging="gvCommunity_PageIndexChanging"
+                    ShowHeaderWhenEmpty="true" OnRowCommand="gvCommunity_RowCommand" OnRowEditing="gvCommunity_RowEditing"
+                    EmptyDataText="<%$Resources:Community,gvComm_EmptyData_Text %> " EmptyDataRowStyle-HorizontalAlign="Center">
+                    <AlternatingRowStyle BackColor="#DEDEDE" />
+                    <HeaderStyle CssClass="gridheader" />
+                    <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
+                    <Columns>
+                        <asp:BoundField DataField="COMMUNITY_NO" Visible="false" />
+                        <asp:BoundField DataField="NAME_ENG" HeaderText="<%$Resources:Community,gvComm_Hd_CommnName %> " />
+                        <asp:BoundField DataField="DISTRICT_NO" HeaderText="<%$Resources:Community,gvComm_Hd_District %>" ItemStyle-Width="35%"  />
+                        <asp:TemplateField HeaderText="<%$Resources:Community,gvComm_Hd_Actions %> " ItemStyle-Width="150px">
+                            <ItemTemplate>
+                                <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("COMMUNITY_NO")%>' />
+                                <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("COMMUNITY_NO")%>' />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                    <EditRowStyle BorderStyle="None" BorderWidth="0px" />
+                </asp:GridView>
+            </div>
+
+       
         </div>
-
-        <div class="table-block clearfix col-md-12">
-            <asp:GridView ID="gvCommunity" runat="server" AutoGenerateColumns="False" GridLines="None"
-                AllowPaging="true" PagerSettings-Mode="Numeric" OnPageIndexChanging="gvCommunity_PageIndexChanging"
-                ShowHeaderWhenEmpty="true" OnRowCommand="gvCommunity_RowCommand" OnRowEditing="gvCommunity_RowEditing"
-                EmptyDataText="<%$Resources:Community,gvComm_EmptyData_Text %> " EmptyDataRowStyle-HorizontalAlign="Center">
-                <AlternatingRowStyle BackColor="#DEDEDE" />
-                <HeaderStyle CssClass="gridheader" />
-                <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
-                <Columns>
-                    <asp:BoundField DataField="COMMUNITY_NO" Visible="false" />
-                    <asp:BoundField DataField="NAME_ENG" HeaderText="<%$Resources:Community,gvComm_Hd_CommnName %> " ItemStyle-Width="35%" />
-                    <asp:BoundField DataField="DISTRICT_NO" HeaderText="<%$Resources:Community,gvComm_Hd_District %> " />
-                    <asp:TemplateField HeaderText="<%$Resources:Community,gvComm_Hd_Actions %> " ItemStyle-Width="150px">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("COMMUNITY_NO")%>' />
-                            <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("COMMUNITY_NO")%>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <EditRowStyle BorderStyle="None" BorderWidth="0px" />
-            </asp:GridView>
-        </div>
-
-        <%-- <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="delModalLabel" aria-hidden="true">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="delModalLabel">Delete Record</h3>
-            </div>
-            <div class="modal-body">
-                Are you sure you want to delete the record?
-                            <asp:HiddenField ID="hfCode" runat="server" />
-            </div>
-            <div class="modal-footer">
-                <asp:Button ID="btnDelete" runat="server" Text="Delete" CssClass="btn btn-info" />
-                <button class="btn btn-info" data-dismiss="modal" aria-hidden="true">Cancel</button>
-            </div>
-
-        </div>--%>
     </div>
 </asp:Content>

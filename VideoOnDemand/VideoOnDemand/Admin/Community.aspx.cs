@@ -22,7 +22,7 @@ namespace VideoOnDemand
         }
         private void BindCommunityDetails()
         {
-            DataSet ds = repository.GetCommunityDetails();
+            DataSet ds = repository.GetCommunityDetails(BasePage.CurrentLanguage);
             gvCommunity.DataSource = ds;
             gvCommunity.DataBind();
         }
@@ -106,10 +106,10 @@ namespace VideoOnDemand
         {
             if (txtEditNameEng.Text.Trim() != string.Empty && ddlDistrictEdit.SelectedItem.Value.ToString() != string.Empty && Session["COMMUNITY_NO"] != null)
             {
-                repository.Name_Eng = txtEditNameEng.Text.Trim();
+                repository.CommunityName = txtEditNameEng.Text.Trim();
                 repository.DistrictNo = Convert.ToInt32(ddlDistrictEdit.SelectedItem.Value.ToString());
 
-                bool returnValue = repository.UpdateCommunityDetails(Convert.ToInt32(Session["COMMUNITY_NO"]), txtEditNameEng.Text.Trim(), txtEditNameEng.Text.Trim(), Convert.ToInt32(ddlDistrictEdit.SelectedItem.Value.ToString()));
+                bool returnValue = repository.UpdateCommunityDetails(Convert.ToInt32(Session["COMMUNITY_NO"]), txtEditNameEng.Text.Trim(), txtEditNameEng.Text.Trim(), Convert.ToInt32(ddlDistrictEdit.SelectedItem.Value.ToString()),BasePage.CurrentLanguage);
                 if (returnValue)
                 {
                     lblMessage.Text = "Community updated successfully";
@@ -129,12 +129,12 @@ namespace VideoOnDemand
         {
             if (txtCommunity.Text.Trim() != string.Empty && ddlDistrict.SelectedItem.Value.ToString() != string.Empty)
             {
-                repository.Name_Eng = txtCommunity.Text.Trim();
+                repository.CommunityName = txtCommunity.Text.Trim();
                 repository.DistrictNo = Convert.ToInt32(ddlDistrict.SelectedItem.Value.ToString());                
                 repository.CreatedDate = DateTime.Now;
                 repository.ModifiedDate = DateTime.Now;
 
-                bool returnValue = repository.AddCommunityDetails();
+                bool returnValue = repository.AddCommunityDetails(BasePage.CurrentLanguage);
 
                 if (returnValue)
                 {
