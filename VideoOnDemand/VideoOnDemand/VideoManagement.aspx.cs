@@ -191,12 +191,7 @@ namespace VideoOnDemand.VODManage
                 {
                     string pageurl = "Player/VideoPlayer.aspx?videoName=" + VideoName;
 
-                    //Response.Write("<script> window.open( '" + pageurl + "','_blank' ); </script>");
-                    //Response.Write("<script> window.open( 'Error.aspx','_blank' ); </script>");
 
-
-                    //String js = "window.open('" + pageurl + "', '_blank','scrollbars=no, resizable=no, width=600, height=450,location=no,menubar=no,left=10,directories=no,titlebar=no');";
-                    //ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "OpenVideo", js, true);
                     LoadVideoFile(VideoName);
 
                     //playVideosss();
@@ -219,7 +214,7 @@ namespace VideoOnDemand.VODManage
 
                 ddlRoadTag.DataSource = ds;
                 ddlRoadTag.DataBind();
-                ddlRoadTag.Items.Insert(0, new ListItem(Resources.VideoManagement.mdlTagEdit_RoadSelect_Text));
+                ddlRoadTag.Items.Insert(0, new ListItem(Resources.VideoManagement.mdlTagEdit_RoadSelect_Text, "0"));
             }
         }
 
@@ -233,7 +228,7 @@ namespace VideoOnDemand.VODManage
                 ddlDistrictTag.DataTextField = "DISTRICTNAME";
                 ddlDistrictTag.DataSource = ds;
                 ddlDistrictTag.DataBind();
-                ddlDistrictTag.Items.Insert(0, new ListItem(Resources.VideoManagement.mdlTagEdit_DistSelect_Text));
+                ddlDistrictTag.Items.Insert(0, new ListItem(Resources.VideoManagement.mdlTagEdit_DistSelect_Text, "0"));
             }
         }
 
@@ -247,7 +242,7 @@ namespace VideoOnDemand.VODManage
                 ddlCommunityTag.DataTextField = "COMMUNITYNAME";
                 ddlCommunityTag.DataSource = ds;
                 ddlCommunityTag.DataBind();
-                ddlCommunityTag.Items.Insert(0, new ListItem(Resources.VideoManagement.mdlTagEdit_CommnitySelect_Text));
+                ddlCommunityTag.Items.Insert(0, new ListItem(Resources.VideoManagement.mdlTagEdit_CommnitySelect_Text, "0"));
             }
         }
 
@@ -263,7 +258,7 @@ namespace VideoOnDemand.VODManage
 
         private DataSet GetVideoTagsDetails(int vidoeId)
         {
-            return repository.GetVideoTagDetails(vidoeId, 'E');
+            return repository.GetVideoTagDetails(vidoeId, BasePage.CurrentLanguage);
         }
 
 
@@ -276,26 +271,22 @@ namespace VideoOnDemand.VODManage
             {
                 if (fromLoad)
                 {
-                    DataRow drow = ds.Tables[0].NewRow();
-                    drow["GroupId"] = 0;
-                    drow["GroupName"] = "Select Group";
-                    ds.Tables[0].Rows.InsertAt(drow, 0);
-                    ddlGroupsFilter.DataTextField = "GroupName";
-                    ddlGroupsFilter.DataValueField = "GroupId";
-                    ddlGroupsFilter.DataSource = ds;
-                    ddlGroupsFilter.DataBind();
+                    //DataRow drow = ds.Tables[0].NewRow();
+                    //drow["GroupId"] = 0;
+                    //drow["GroupName"] = Resources.VideoManagement.ddlFilterGroup_EmptySelect_Text;
+                    //ds.Tables[0].Rows.InsertAt(drow, 0);
                     groupBinded = true;
                 }
                 if (bindPopUp)
                 {
-                    DataRow dr = ds.Tables[0].NewRow();
-                    dr["GroupId"] = 0;
-                    dr["GroupName"] = "Select Group";
-                    ds.Tables[0].Rows.InsertAt(dr, 0);
-                    ddlGroupList.DataTextField = "GroupName";
-                    ddlGroupList.DataValueField = "GroupId";
-                    ddlGroupList.DataSource = ds;
-                    ddlGroupList.DataBind();
+                    //DataRow dr = ds.Tables[0].NewRow();
+                    //dr["GroupId"] = 0;
+                    //dr["GroupName"] = Resources.VideoManagement.ddlGroupsList_EmtpySelect_Text;
+                    //ds.Tables[0].Rows.InsertAt(dr, 0);
+                    //ddlGroupList.DataTextField = "GroupName";
+                    //ddlGroupList.DataValueField = "GroupId";
+                    //ddlGroupList.DataSource = ds;
+                    //ddlGroupList.DataBind();
                     groupBinded = true;
                 }
             }
@@ -309,8 +300,21 @@ namespace VideoOnDemand.VODManage
                 //sb.Append("$('#alertMessageModal').modal('show');");
                 //sb.Append(@"</script>");
                 //ClientScript.RegisterStartupScript(GetType(), "NoGroups", sb.ToString(), false);
+
+
                 groupBinded = false;
             }
+
+            ddlGroupsFilter.DataTextField = "GroupName";
+            ddlGroupsFilter.DataValueField = "GroupId";
+            ddlGroupsFilter.DataSource = ds;
+            ddlGroupsFilter.DataBind();
+            if (groupBinded)
+                ddlGroupsFilter.Items.Insert(0, new ListItem(Resources.VideoManagement.ddlGroupsList_EmtpySelect_Text, "0"));
+            else
+                ddlGroupsFilter.Items.Insert(0, new ListItem(Resources.VideoManagement.ddlGroupsList_NoGroups_Text, "0"));
+
+
             return groupBinded;
         }
 
@@ -494,7 +498,7 @@ namespace VideoOnDemand.VODManage
         {
             StringBuilder sb;
             bool updateSucess = false;
-            //repository.UpdateVideoTags(Convert.ToInt32(Session["VideoId"].ToString()), txtCommunityTag.Text.Trim(), txtDistrictTag.Text.Trim(), txtRoadTag.Text.Trim());
+            updateSucess = repositoryVdTag.UpdateVideoTags(Convert.ToInt32(Session["VideoId"].ToString()), Convert.ToInt16(ddlCommunityTag.SelectedValue), Convert.ToInt16(ddlDistrictTag.SelectedValue), Convert.ToInt16(ddlRoadTag.SelectedValue));
             if (updateSucess)
             {
                 BindVideosBasedOnSelection();
@@ -530,13 +534,6 @@ namespace VideoOnDemand.VODManage
 
         private void LoadVideoFile(string videoName)
         {
-            //System.Text.StringBuilder sb = new System.Text.StringBuilder();
-            //sb.Append(@"<script type='text/javascript'>");
-            //sb.Append("$('#editTagsModal').modal('show');");
-            //sb.Append(@"</script>");
-            //ScriptManager.RegisterStartupScript(this, this.GetType(), "AdddModalScript", sb.ToString(), false);
-
-
             // Define the name and type of the client scripts on the page.
             String csname1 = "PopupScript";
             Type cstype = this.GetType();
@@ -548,8 +545,6 @@ namespace VideoOnDemand.VODManage
             if (!cs.IsStartupScriptRegistered(cstype, csname1))
             {
                 StringBuilder cstext1 = new StringBuilder();
-                //cstext1.Append("<script type=text/javascript> alert('Hello World!') </");
-                //cstext1.Append("script>");
 
                 string playerUrl = string.Format("http://172.16.1.201:1935/vod/smil:{0}.smil/jwplayer.smil", videoName);
 

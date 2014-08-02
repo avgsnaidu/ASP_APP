@@ -156,4 +156,13 @@
   <data name="logedUserWelcome_Text" xml:space="preserve">
     <value>Welcome</value>
   </data>
+  <data name="drp_Commnity_text" xml:space="preserve">
+    <value>Communitys</value>
+  </data>
+  <data name="drp_District_text" xml:space="preserve">
+    <value>Districts</value>
+  </data>
+  <data name="drp_Road_text" xml:space="preserve">
+    <value>Roads</value>
+  </data>
 </root>

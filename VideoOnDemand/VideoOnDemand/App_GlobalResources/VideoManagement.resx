@@ -198,4 +198,13 @@
   <data name="mdlTagEdit_RoadSelect_Text" xml:space="preserve">
     <value>Select Road</value>
   </data>
+  <data name="ddlFilterGroup_EmptySelect_Text" xml:space="preserve">
+    <value>Select Group</value>
+  </data>
+  <data name="ddlGroupsList_EmtpySelect_Text" xml:space="preserve">
+    <value>Select Group</value>
+  </data>
+  <data name="ddlGroupsList_NoGroups_Text" xml:space="preserve">
+    <value>No Groups to select</value>
+  </data>
 </root>

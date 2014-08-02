@@ -145,21 +145,23 @@ namespace VideoOnDemand.VODManage
             {
                 if (fromLoad)
                 {
-                    DataRow drow = ds.Tables[0].NewRow();
-                    drow["GroupId"] = 0;
-                    drow["GroupName"] = "Select Group";
-                    ds.Tables[0].Rows.InsertAt(drow, 0);
+                    //DataRow drow = ds.Tables[0].NewRow();
+                    //drow["GroupId"] = 0;
+                    //drow["GroupName"] = "Select Group";
+                    //ds.Tables[0].Rows.InsertAt(drow, 0);
                     ddlGroupsFilter.DataTextField = "GroupName";
                     ddlGroupsFilter.DataValueField = "GroupId";
                     ddlGroupsFilter.DataSource = ds;
                     ddlGroupsFilter.DataBind();
+                    ddlGroupsFilter.Items.Insert(0, new ListItem(Resources.Users.ddlGroupsList_SelectGroup_Text, "0"));
+
                     groupBinded = true;
                 }
 
-                DataRow dr = ds.Tables[0].NewRow();
-                dr["GroupId"] = 0;
-                dr["GroupName"] = "Select";
-                ds.Tables[0].Rows.InsertAt(dr, 0);
+                //DataRow dr = ds.Tables[0].NewRow();
+                //dr["GroupId"] = 0;
+                //dr["GroupName"] = "Select";
+                //ds.Tables[0].Rows.InsertAt(dr, 0);
                 if (bindPopUp)
                 {
                     if (!isEdit)
@@ -168,6 +170,8 @@ namespace VideoOnDemand.VODManage
                         ddlGroupList.DataValueField = "GroupId";
                         ddlGroupList.DataSource = ds;
                         ddlGroupList.DataBind();
+                        ddlGroupList.Items.Insert(0, new ListItem(Resources.Users.ddlGroupsList_SelectGroup_Text, "0"));
+
                         groupBinded = true; ;
                     }
                     else
@@ -180,8 +184,11 @@ namespace VideoOnDemand.VODManage
                         ddlGroupsEdit.DataValueField = "GroupId";
                         ddlGroupsEdit.DataSource = ds;
                         ddlGroupsEdit.DataBind();
-                        groupBinded = true; ;
+                        groupBinded = true;
+                        ddlGroupsEdit.Items.Insert(0, new ListItem(Resources.Users.ddlGroupsList_SelectGroup_Text, "0"));
                     }
+
+
                 }
             }
             else
@@ -195,7 +202,20 @@ namespace VideoOnDemand.VODManage
                 //sb.Append("$('#alertMessageModal').modal('show');");
                 //sb.Append(@"</script>");
                 //ClientScript.RegisterStartupScript(GetType(), "NoGroups", sb.ToString(), false);
-                //groupBinded = false;
+
+                if (fromLoad)
+                    ddlGroupsFilter.Items.Insert(0, new ListItem(Resources.Users.ddlGroupsList_NoGroup_Text, "0"));
+                if (bindPopUp)
+                {
+                    if (!isEdit)
+                        ddlGroupList.Items.Insert(0, new ListItem(Resources.Users.ddlGroupsList_NoGroup_Text, "0"));
+
+                    else
+                        ddlGroupsEdit.Items.Insert(0, new ListItem(Resources.Users.ddlGroupsList_NoGroup_Text, "0"));
+                }
+
+                groupBinded = false;
+
             }
             return groupBinded;
         }

@@ -50,20 +50,20 @@ namespace VideoOnDemand.Model.BAL
         }
 
 
-        public bool UpdateVideoTags(int videoID, string Community_Tag, string Dist_Tag, string Road_Tag)
+        public bool UpdateVideoTags(int videoID, int Community_Tag, int Dist_Tag, int Road_Tag)
         {
 
             SqlParameter[] paramList = new SqlParameter[4];
             paramList[0] = new SqlParameter("@VideoId", SqlDbType.Int);
             paramList[0].Value = videoID;
-            paramList[1] = new SqlParameter("@Commuity_Tag", SqlDbType.NVarChar);
+            paramList[1] = new SqlParameter("@Commuity_Tag", SqlDbType.Int);
             paramList[1].Value = Community_Tag;
-            paramList[2] = new SqlParameter("@Dist_Tag", SqlDbType.NVarChar);
+            paramList[2] = new SqlParameter("@Dist_Tag", SqlDbType.Int);
             paramList[2].Value = Dist_Tag;
-            paramList[3] = new SqlParameter("@Road_Tag", SqlDbType.NVarChar);
+            paramList[3] = new SqlParameter("@Road_Tag", SqlDbType.Int);
             paramList[3].Value = Road_Tag;
 
-            string strSql = "UPDATE VOD_VIDEOS SET COMMUNITY_TAG_ENG =@Commuity_Tag,DISTRICT_TAG_ENG=@Dist_Tag,ROAD_TAG_ENG =@Road_Tag WHERE VOD_ID=@VideoId";
+            string strSql = "UPDATE VOD_VIDEOS SET COMMUNITY_TAG =Case when @Commuity_Tag=0 then NULL else @Commuity_Tag end ,DISTRICT_TAG=case when @Dist_Tag=0 then NULL else @Dist_Tag end, ROAD_TAG=CASE when @Road_Tag=0 then NULL else @Road_Tag  end WHERE VOD_ID= @VideoId";
 
             int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, paramList);
             if (value > 0)

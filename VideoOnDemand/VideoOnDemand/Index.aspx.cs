@@ -25,44 +25,65 @@ namespace VideoOnDemand.Setup
             //setup2_Exists = IsAlreadyActiveDirectorySettingsExists();
             //setup3_Exists = IsAlreadyVODConfigurationSettingsExists();
             //setup4_Exists = IsAlreadySuperAdminDetailsExists();
-
-
-            if (CheckConnectionStringExists())
+            if (!IsPostBack)
             {
 
-                if (IsAlreadyDBSetupExists())
+                if (CheckConnectionStringExists())
                 {
-                    if (IsAlreadyActiveDirectorySettingsExists())
+
+                    if (IsAlreadyDBSetupExists())
                     {
-                        if (IsAlreadyVODConfigurationSettingsExists())
+                        if (IsAlreadyActiveDirectorySettingsExists())
                         {
-                            if (IsAlreadySuperAdminDetailsExists())
+                            if (IsAlreadyVODConfigurationSettingsExists())
                             {
-                                if (ValidateActiveDirectoryCredetials())
+                                if (IsAlreadySuperAdminDetailsExists())
                                 {
-                                    if (Request.IsAuthenticated)
+                                    if (!(Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString())))
                                     {
-                                        if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
-                                            Response.Redirect(@"~/Users.aspx");
-                                        else
-                                            Response.Redirect(@"~/VideoManagement.aspx");
+                                        if (ValidateActiveDirectoryCredetials())
+                                        {
+                                            if (Request.IsAuthenticated)
+                                            {
+                                                if (Response.IsClientConnected)
+                                                {
+
+                                                    if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
+                                                        Response.Redirect(@"~/Users.aspx", true);
+                                                    else
+                                                        Response.Redirect(@"~/VideoManagement.aspx", true);
+                                                }
+                                                else
+                                                {
+                                                    // If the browser is not connected
+                                                    // stop all response processing.
+                                                    Response.End();
+                                                }
+
+                                            }
+                                        }
                                     }
+                                }
+                                else
+                                {
+                                    Response.Redirect(@"~/Setup/setup4.aspx");
                                 }
                             }
                             else
                             {
-                                Response.Redirect(@"~/Setup/setup4.aspx");
+                                Response.Redirect(@"~/Setup/setup3.aspx");
                             }
                         }
                         else
                         {
-                            Response.Redirect(@"~/Setup/setup3.aspx");
+                            Response.Redirect(@"~/Setup/setup2.aspx");
                         }
                     }
                     else
                     {
-                        Response.Redirect(@"~/Setup/setup2.aspx");
+                        Response.Redirect(@"~/Setup/setup1.aspx");
                     }
+
                 }
                 else
                 {
@@ -70,12 +91,7 @@ namespace VideoOnDemand.Setup
                 }
 
             }
-            else
-            {
-                Response.Redirect(@"~/Setup/setup1.aspx");
-            }
         }
-
         private bool ValidateActiveDirectoryCredetials()
         {
             //PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
@@ -96,7 +112,7 @@ namespace VideoOnDemand.Setup
             //string loginName = GetLoginSplit(System.Security.Principal.WindowsIdentity.GetCurrent().Name);
 
 
-            
+
             if (!string.IsNullOrEmpty(loginName))
             {
                 //string loginName = qbeUser.SamAccountName; // or whatever you mean by "login name"

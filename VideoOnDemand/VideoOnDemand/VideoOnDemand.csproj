@@ -108,7 +108,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Community.aspx" />
+    <Content Include="Admin\District.aspx" />
+    <Content Include="Admin\Road.aspx" />
+    <Compile Include="App_Code\Model\BAL\clsCommunity.cs" />
+    <Compile Include="App_Code\Model\BAL\clsDistrict.cs" />
+    <Compile Include="Admin\Community.aspx.cs">
+      <DependentUpon>Community.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Community.aspx.designer.cs">
+      <DependentUpon>Community.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\District.aspx.cs">
+      <DependentUpon>District.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\District.aspx.designer.cs">
+      <DependentUpon>District.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Road.aspx.cs">
+      <DependentUpon>Road.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Road.aspx.designer.cs">
+      <DependentUpon>Road.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Code\Model\BAL\clsLogin.cs" />
+    <Compile Include="App_Code\Model\BAL\clsRoad.cs" />
     <Compile Include="App_Code\Model\BAL\clsVideoTags.cs" />
     <Compile Include="App_GlobalResources\Archived.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -120,6 +147,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="App_GlobalResources\Community.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Community.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\Config.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,6 +162,26 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="App_GlobalResources\Community.ar.designer.cs">
+      <DependentUpon>Community.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\District.ar.designer.cs">
+      <DependentUpon>District.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Road.ar.designer.cs">
+      <DependentUpon>Road.ar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\District.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>District.resx</DependentUpon>
+    </Compile>
     <Compile Include="App_GlobalResources\MasterData.ar.designer.cs">
       <DependentUpon>MasterData.ar.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -139,6 +191,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>MasterData.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Road.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Road.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\Users.ar.designer.cs">
       <AutoGen>True</AutoGen>
@@ -165,7 +222,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Search.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Users.Designer.cs">
+    <Compile Include="App_GlobalResources\Users1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Users.resx</DependentUpon>
@@ -430,18 +487,6 @@
     <Folder Include="VODManage\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_LocalResources\VODMain.Master.en-US.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\VODMain.Master.ar.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\Users.aspx.en-US.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="App_LocalResources\Users.aspx.ar-QA.resx" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_GlobalResources\VideoManagement.ar.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>VideoManagement.ar.designer.cs</LastGenOutput>
@@ -511,6 +556,42 @@
     <Content Include="App_GlobalResources\MasterData.ar.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>MasterData.ar.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Community.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Community.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\District.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>District.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Road.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Road.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Community.ar.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Community.ar.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Road.ar.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Road.ar.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\District.ar.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>District.ar.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>

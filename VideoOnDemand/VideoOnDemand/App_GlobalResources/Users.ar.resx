@@ -192,4 +192,10 @@
   <data name="mdlEUP_UserName" xml:space="preserve">
     <value>UserName_AR</value>
   </data>
+  <data name="ddlGroupsList_NoGroup_Text" xml:space="preserve">
+    <value>No Groups _AR</value>
+  </data>
+  <data name="ddlGroupsList_SelectGroup_Text" xml:space="preserve">
+    <value>Select Group_AR</value>
+  </data>
 </root>

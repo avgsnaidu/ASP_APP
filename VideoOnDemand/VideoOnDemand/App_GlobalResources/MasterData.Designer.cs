@@ -124,6 +124,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Communitys.
+        /// </summary>
+        internal static string drp_Commnity_text {
+            get {
+                return ResourceManager.GetString("drp_Commnity_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Configuration.
         /// </summary>
         internal static string drp_Configuration_text {
@@ -133,11 +142,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Districts.
+        /// </summary>
+        internal static string drp_District_text {
+            get {
+                return ResourceManager.GetString("drp_District_text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Logout.
         /// </summary>
         internal static string drp_LogOut_Text {
             get {
                 return ResourceManager.GetString("drp_LogOut_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Roads.
+        /// </summary>
+        internal static string drp_Road_text {
+            get {
+                return ResourceManager.GetString("drp_Road_text", resourceCulture);
             }
         }
         

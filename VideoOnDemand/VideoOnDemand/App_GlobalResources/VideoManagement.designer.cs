@@ -88,6 +88,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Group.
+        /// </summary>
+        internal static string ddlFilterGroup_EmptySelect_Text {
+            get {
+                return ResourceManager.GetString("ddlFilterGroup_EmptySelect_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Group.
+        /// </summary>
+        internal static string ddlGroupsList_EmtpySelect_Text {
+            get {
+                return ResourceManager.GetString("ddlGroupsList_EmtpySelect_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Groups to select.
+        /// </summary>
+        internal static string ddlGroupsList_NoGroups_Text {
+            get {
+                return ResourceManager.GetString("ddlGroupsList_NoGroups_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select Status.
         /// </summary>
         internal static string ddlStatus_Select_Text {

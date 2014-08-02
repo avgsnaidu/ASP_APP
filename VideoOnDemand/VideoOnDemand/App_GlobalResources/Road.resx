@@ -117,52 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="chMa_Ad_Archive_Text" xml:space="preserve">
-    <value>Archive Listing_AR</value>
+  <data name="gvRoad_EmptyData_Text" xml:space="preserve">
+    <value>No Road details found</value>
   </data>
-  <data name="chMa_Ad_GroupManage_Text" xml:space="preserve">
-    <value>Group Management_AR</value>
+  <data name="gvRoad_Hd_Actions" xml:space="preserve">
+    <value>ACTIONS</value>
   </data>
-  <data name="chMa_Ad_Search_Text" xml:space="preserve">
-    <value>Search_AR</value>
+  <data name="gvRoad_Head_RoadName" xml:space="preserve">
+    <value>ROAD NAME</value>
   </data>
-  <data name="chMa_Ad_Usermange_Text" xml:space="preserve">
-    <value>User Management_AR</value>
+  <data name="Head_Road" xml:space="preserve">
+    <value>Road</value>
   </data>
-  <data name="chMa_Ad_VideoManage_Text" xml:space="preserve">
-    <value>Video Management_AR</value>
+  <data name="lnk_Create_Road_text" xml:space="preserve">
+    <value>Create Road</value>
   </data>
-  <data name="chMa_User_Search_Text" xml:space="preserve">
-    <value>Search_AR</value>
+  <data name="mdlAlrt_Head" xml:space="preserve">
+    <value>Alert !</value>
   </data>
-  <data name="chMa_User_VideoManage_Text" xml:space="preserve">
-    <value>Video Management_AR</value>
+  <data name="mdlAlrt_Ok" xml:space="preserve">
+    <value>OK</value>
   </data>
-  <data name="drp_Configuration_text" xml:space="preserve">
-    <value>Configuration_AR</value>
+  <data name="mdlCR_Cancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="drp_LogOut_Text" xml:space="preserve">
-    <value>Logout_AR</value>
+  <data name="mdlCR_Head_CretRoad" xml:space="preserve">
+    <value>Create Road</value>
   </data>
-  <data name="hd_Arb_lnk_Text" xml:space="preserve">
-    <value>Arabic_AR</value>
+  <data name="mdlCR_Road_Name_label" xml:space="preserve">
+    <value>Road Name :</value>
   </data>
-  <data name="hd_Eng_lnk_Text" xml:space="preserve">
-    <value>English_AR</value>
+  <data name="mdlCR_Road_Name_placeHolder" xml:space="preserve">
+    <value>Enter road name here..</value>
   </data>
-  <data name="Hd_Title" xml:space="preserve">
-    <value>Video on Demand_AR</value>
+  <data name="mdlCR_Save" xml:space="preserve">
+    <value>Save</value>
   </data>
-  <data name="logedUserWelcome_Text" xml:space="preserve">
-    <value>Welcome_AR</value>
+  <data name="mdlDel_Cancel" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="drp_Commnity_text" xml:space="preserve">
-    <value>Communitys_AR</value>
+  <data name="mdlDel_DelConfim_Text" xml:space="preserve">
+    <value>Are&amp;nbsp;you&amp;nbsp;sure&amp;nbsp;to&amp;nbsp;delete&amp;nbsp;road&amp;nbsp?</value>
   </data>
-  <data name="drp_District_text" xml:space="preserve">
-    <value>Districts_AR</value>
+  <data name="mdlDel_Delete" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="drp_Road_text" xml:space="preserve">
-    <value>Roads_AR</value>
+  <data name="mdlDel_DelWarning" xml:space="preserve">
+    <value>Delete Warning</value>
+  </data>
+  <data name="mdlUR_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="mdlUR_Head_Road" xml:space="preserve">
+    <value>Edit Road</value>
+  </data>
+  <data name="mdlUR_Road_Name_label" xml:space="preserve">
+    <value>Road Name :</value>
+  </data>
+  <data name="mdlUR_Road_Name_Placeholder" xml:space="preserve">
+    <value>Enter road name here..</value>
+  </data>
+  <data name="mdlUR_Save" xml:space="preserve">
+    <value>Save</value>
   </data>
 </root>

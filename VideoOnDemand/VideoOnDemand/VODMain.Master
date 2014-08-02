@@ -230,6 +230,30 @@
                                         </asp:LinkButton>
                                     </li>
                                     <li role="presentation" class="divider"></li>
+
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="lnkCommunity" role="menuitem" TabIndex="-1" OnClick="lnkCommunity_Click">
+                                            <span class="sprite ic-myaccount"></span>
+                                            <asp:Literal ID="Literal5" runat="server" Text="<%$ Resources:MasterData, drp_Commnity_text%>" />
+                                        </asp:LinkButton>
+
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="lnkDistrict" role="menuitem" TabIndex="-1" OnClick="lnkDistrict_Click">
+                                            <span class="sprite ic-myvideos"></span>
+                                            <asp:Literal ID="Literal6" runat="server" Text="<%$ Resources:MasterData, drp_District_text%>" />
+                                        </asp:LinkButton>
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="lnkRoads" role="menuitem" TabIndex="-1" OnClick="lnkRoads_Click">
+                                            <span class="sprite ic-settings"></span>
+                                            <asp:Literal ID="Literal7" runat="server" Text="<%$ Resources:MasterData, drp_Road_text%>" />
+                                        </asp:LinkButton>
+                                    </li>
+
+
                                     <li role="presentation">
                                         <asp:LinkButton runat="server" ID="btnLogout" UseSubmitBehavior="true" role="menuitem" TabIndex="-1" OnClick="btnLogout_Click">
                                             <span class="sprite ic-logout"></span>

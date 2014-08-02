@@ -61,110 +61,74 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cancel.
+        ///   Looks up a localized string similar to No Groups .
         /// </summary>
-        internal static string btnDeleteCancel_button {
+        internal static string ddlGroupsList_NoGroup_Text {
             get {
-                return ResourceManager.GetString("btnDeleteCancel_button", resourceCulture);
+                return ResourceManager.GetString("ddlGroupsList_NoGroup_Text", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete.
+        ///   Looks up a localized string similar to Select Group.
         /// </summary>
-        internal static string btnDeleteConform_button {
+        internal static string ddlGroupsList_SelectGroup_Text {
             get {
-                return ResourceManager.GetString("btnDeleteConform_button", resourceCulture);
+                return ResourceManager.GetString("ddlGroupsList_SelectGroup_Text", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to OK.
+        ///   Looks up a localized string similar to No users to display in selected group.
         /// </summary>
-        internal static string btnOk_button {
+        internal static string gv_EmtpyData {
             get {
-                return ResourceManager.GetString("btnOk_button", resourceCulture);
+                return ResourceManager.GetString("gv_EmtpyData", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select All.
+        ///   Looks up a localized string similar to Actions.
         /// </summary>
-        internal static string chkAll_checkbox {
+        internal static string gv_hd_Actions {
             get {
-                return ResourceManager.GetString("chkAll_checkbox", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select.
-        /// </summary>
-        internal static string chkSelectUser_checkbox {
-            get {
-                return ResourceManager.GetString("chkSelectUser_checkbox", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Group List.
-        /// </summary>
-        internal static string ddlGroupList_dropdown {
-            get {
-                return ResourceManager.GetString("ddlGroupList_dropdown", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Groups Edit.
-        /// </summary>
-        internal static string ddlGroupsEdit_dropdown {
-            get {
-                return ResourceManager.GetString("ddlGroupsEdit_dropdown", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Groups Filter.
-        /// </summary>
-        internal static string ddlGroupsFilter_dropdown {
-            get {
-                return ResourceManager.GetString("ddlGroupsFilter_dropdown", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Groups.
-        /// </summary>
-        internal static string ddlGroups_label {
-            get {
-                return ResourceManager.GetString("ddlGroups_label", resourceCulture);
+                return ResourceManager.GetString("gv_hd_Actions", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Domain.
         /// </summary>
-        internal static string Domain_headertext {
+        internal static string gv_hd_Domain {
             get {
-                return ResourceManager.GetString("Domain_headertext", resourceCulture);
+                return ResourceManager.GetString("gv_hd_Domain", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to FullName.
         /// </summary>
-        internal static string FullName_headetext {
+        internal static string gv_hd_fullname {
             get {
-                return ResourceManager.GetString("FullName_headetext", resourceCulture);
+                return ResourceManager.GetString("gv_hd_fullname", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Group Name.
+        ///   Looks up a localized string similar to GroupName.
         /// </summary>
-        internal static string GroupName_headertext {
+        internal static string gv_hd_groupName {
             get {
-                return ResourceManager.GetString("GroupName_headertext", resourceCulture);
+                return ResourceManager.GetString("gv_hd_groupName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserName.
+        /// </summary>
+        internal static string gv_hd_Username {
+            get {
+                return ResourceManager.GetString("gv_hd_Username", resourceCulture);
             }
         }
         
@@ -196,47 +160,11 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Message.
-        /// </summary>
-        internal static string lblMessage_label {
-            get {
-                return ResourceManager.GetString("lblMessage_label", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Username.
-        /// </summary>
-        internal static string lblUserName_label {
-            get {
-                return ResourceManager.GetString("lblUserName_label", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Assign Users to Group.
         /// </summary>
         internal static string lnkAssignUserstoGroup {
             get {
                 return ResourceManager.GetString("lnkAssignUserstoGroup", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Delete.
-        /// </summary>
-        internal static string lnkDelete_link {
-            get {
-                return ResourceManager.GetString("lnkDelete_link", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit.
-        /// </summary>
-        internal static string lnkEdit_link {
-            get {
-                return ResourceManager.GetString("lnkEdit_link", resourceCulture);
             }
         }
         
@@ -273,6 +201,42 @@ namespace Resources {
         internal static string mdlAG_SelectGrp {
             get {
                 return ResourceManager.GetString("mdlAG_SelectGrp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alert !.
+        /// </summary>
+        internal static string mdlAlt_Head {
+            get {
+                return ResourceManager.GetString("mdlAlt_Head", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string mdlAlt_Ok {
+            get {
+                return ResourceManager.GetString("mdlAlt_Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        internal static string mdlDel_Delete {
+            get {
+                return ResourceManager.GetString("mdlDel_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string mdlDel_Delete_Cancel {
+            get {
+                return ResourceManager.GetString("mdlDel_Delete_Cancel", resourceCulture);
             }
         }
         
@@ -336,24 +300,6 @@ namespace Resources {
         internal static string mdlEUP_UserName {
             get {
                 return ResourceManager.GetString("mdlEUP_UserName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UserID.
-        /// </summary>
-        internal static string UserID_headertext {
-            get {
-                return ResourceManager.GetString("UserID_headertext", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to UserName.
-        /// </summary>
-        internal static string UserName_headertext {
-            get {
-                return ResourceManager.GetString("UserName_headertext", resourceCulture);
             }
         }
     }

@@ -117,52 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="chMa_Ad_Archive_Text" xml:space="preserve">
-    <value>Archive Listing_AR</value>
+  <data name="gvDist_EmtpyDataText" xml:space="preserve">
+    <value>No District found</value>
   </data>
-  <data name="chMa_Ad_GroupManage_Text" xml:space="preserve">
-    <value>Group Management_AR</value>
+  <data name="gvDist_Hd_Actions" xml:space="preserve">
+    <value>Actions</value>
   </data>
-  <data name="chMa_Ad_Search_Text" xml:space="preserve">
-    <value>Search_AR</value>
+  <data name="gvDist_Hd_DistName" xml:space="preserve">
+    <value>District Name</value>
   </data>
-  <data name="chMa_Ad_Usermange_Text" xml:space="preserve">
-    <value>User Management_AR</value>
+  <data name="Head_Create_Dist" xml:space="preserve">
+    <value>Create District</value>
   </data>
-  <data name="chMa_Ad_VideoManage_Text" xml:space="preserve">
-    <value>Video Management_AR</value>
+  <data name="Head_district" xml:space="preserve">
+    <value>District</value>
   </data>
-  <data name="chMa_User_Search_Text" xml:space="preserve">
-    <value>Search_AR</value>
+  <data name="mdlAlrt_Head" xml:space="preserve">
+    <value>Alert !</value>
   </data>
-  <data name="chMa_User_VideoManage_Text" xml:space="preserve">
-    <value>Video Management_AR</value>
+  <data name="mdlAlrt_Ok_btn" xml:space="preserve">
+    <value>OK</value>
   </data>
-  <data name="drp_Configuration_text" xml:space="preserve">
-    <value>Configuration_AR</value>
+  <data name="mdlCD_Cancel_btn" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="drp_LogOut_Text" xml:space="preserve">
-    <value>Logout_AR</value>
+  <data name="mdlCD_Dist_Name_Label" xml:space="preserve">
+    <value>District Name :</value>
   </data>
-  <data name="hd_Arb_lnk_Text" xml:space="preserve">
-    <value>Arabic_AR</value>
+  <data name="mdlCD_Dist_Name_Placeholder" xml:space="preserve">
+    <value>Enter District Name here</value>
   </data>
-  <data name="hd_Eng_lnk_Text" xml:space="preserve">
-    <value>English_AR</value>
+  <data name="mdlCD_Hd_CreateDist" xml:space="preserve">
+    <value>Create District</value>
   </data>
-  <data name="Hd_Title" xml:space="preserve">
-    <value>Video on Demand_AR</value>
+  <data name="mdlCD_Save_btnText" xml:space="preserve">
+    <value>Save</value>
   </data>
-  <data name="logedUserWelcome_Text" xml:space="preserve">
-    <value>Welcome_AR</value>
+  <data name="mdlDel_cancel_btn" xml:space="preserve">
+    <value>Cancel</value>
   </data>
-  <data name="drp_Commnity_text" xml:space="preserve">
-    <value>Communitys_AR</value>
+  <data name="mdlDel_DelConfirm_Text" xml:space="preserve">
+    <value>Are&amp;nbsp;you&amp;nbsp;sure&amp;nbsp;to&amp;nbsp;delete&amp;nbsp;district&amp;nbsp?</value>
   </data>
-  <data name="drp_District_text" xml:space="preserve">
-    <value>Districts_AR</value>
+  <data name="mdlDel_Delete_btn" xml:space="preserve">
+    <value>Delete</value>
   </data>
-  <data name="drp_Road_text" xml:space="preserve">
-    <value>Roads_AR</value>
+  <data name="mdlDel_Head_Delwar" xml:space="preserve">
+    <value>Delete Warning</value>
+  </data>
+  <data name="mdlUD_Cancel_text" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="mdlUD_DistName_label" xml:space="preserve">
+    <value>District Name :</value>
+  </data>
+  <data name="mdlUD_DistName_placeHolder" xml:space="preserve">
+    <value>Enter District Name here</value>
+  </data>
+  <data name="mdlUD_Head_EditDist" xml:space="preserve">
+    <value>Edit District</value>
+  </data>
+  <data name="mdlUD_Save_text" xml:space="preserve">
+    <value>Save</value>
   </data>
 </root>

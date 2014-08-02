@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="VideoOnDemand.Setup.Index" %>
+﻿<%@ Page Language="C#"   CodeBehind="Index.aspx.cs" Inherits="VideoOnDemand.Setup.Index" %>
 
 <!DOCTYPE html>
 

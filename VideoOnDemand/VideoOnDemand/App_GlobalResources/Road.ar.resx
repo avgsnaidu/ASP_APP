@@ -117,178 +117,67 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="BoundFieldResource1.AccessibleHeaderText" xml:space="preserve">
-    <value />
+  <data name="gvRoad_EmptyData_Text" xml:space="preserve">
+    <value>No Road details found_AR</value>
   </data>
-  <data name="BoundFieldResource1.FooterText" xml:space="preserve">
-    <value />
+  <data name="gvRoad_Hd_Actions" xml:space="preserve">
+    <value>ACTIONS_AR</value>
   </data>
-  <data name="BoundFieldResource1.HeaderText" xml:space="preserve">
-    <value />
+  <data name="gvRoad_Head_RoadName" xml:space="preserve">
+    <value>ROAD NAME_AR</value>
   </data>
-  <data name="BoundFieldResource2.AccessibleHeaderText" xml:space="preserve">
-    <value />
+  <data name="Head_Road" xml:space="preserve">
+    <value>Road_AR</value>
   </data>
-  <data name="BoundFieldResource2.FooterText" xml:space="preserve">
-    <value />
+  <data name="lnk_Create_Road_text" xml:space="preserve">
+    <value>Create Road_AR</value>
   </data>
-  <data name="BoundFieldResource2.HeaderText" xml:space="preserve">
-    <value>اسم المستخدم</value>
+  <data name="mdlAlrt_Head" xml:space="preserve">
+    <value>Alert_AR !</value>
   </data>
-  <data name="BoundFieldResource3.AccessibleHeaderText" xml:space="preserve">
-    <value />
+  <data name="mdlAlrt_Ok" xml:space="preserve">
+    <value>OK_AR</value>
   </data>
-  <data name="BoundFieldResource3.FooterText" xml:space="preserve">
-    <value />
+  <data name="mdlCR_Cancel" xml:space="preserve">
+    <value>Cancel_AR</value>
   </data>
-  <data name="BoundFieldResource3.HeaderText" xml:space="preserve">
-    <value>الاسم الكامل</value>
+  <data name="mdlCR_Head_CretRoad" xml:space="preserve">
+    <value>Create Road_AR</value>
   </data>
-  <data name="BoundFieldResource4.AccessibleHeaderText" xml:space="preserve">
-    <value />
+  <data name="mdlCR_Road_Name_label" xml:space="preserve">
+    <value>Road Name_AR :</value>
   </data>
-  <data name="BoundFieldResource4.FooterText" xml:space="preserve">
-    <value />
+  <data name="mdlCR_Road_Name_placeHolder" xml:space="preserve">
+    <value>Enter road name here_AR..</value>
   </data>
-  <data name="BoundFieldResource4.HeaderText" xml:space="preserve">
-    <value>الاسم الكامل</value>
+  <data name="mdlCR_Save" xml:space="preserve">
+    <value>Save_AR</value>
   </data>
-  <data name="BoundFieldResource5.AccessibleHeaderText" xml:space="preserve">
-    <value />
+  <data name="mdlDel_Cancel" xml:space="preserve">
+    <value>Cancel_AR</value>
   </data>
-  <data name="BoundFieldResource5.FooterText" xml:space="preserve">
-    <value />
+  <data name="mdlDel_DelConfim_Text" xml:space="preserve">
+    <value>Are&amp;nbsp;you&amp;nbsp;sure&amp;nbsp;to&amp;nbsp;delete&amp;nbsp;road&amp;nbsp_AR?</value>
   </data>
-  <data name="BoundFieldResource5.HeaderText" xml:space="preserve">
-    <value>اسم المجموعة</value>
+  <data name="mdlDel_Delete" xml:space="preserve">
+    <value>Delete_AR</value>
   </data>
-  <data name="btnAssignResource1.Text" xml:space="preserve">
-    <value>عين</value>
+  <data name="mdlDel_DelWarning" xml:space="preserve">
+    <value>Delete Warning_AR</value>
   </data>
-  <data name="btnAssignResource1.ToolTip" xml:space="preserve">
-    <value />
+  <data name="mdlUR_Cancel" xml:space="preserve">
+    <value>Cancel_AR</value>
   </data>
-  <data name="btnCancelEditResource1.Text" xml:space="preserve">
-    <value>إلغاء</value>
+  <data name="mdlUR_Head_Road" xml:space="preserve">
+    <value>Edit Road_AR</value>
   </data>
-  <data name="btnCancelEditResource1.ToolTip" xml:space="preserve">
-    <value />
+  <data name="mdlUR_Road_Name_label" xml:space="preserve">
+    <value>Road Name _AR:</value>
   </data>
-  <data name="btnCancelResource1.Text" xml:space="preserve">
-    <value>إلغاء</value>
+  <data name="mdlUR_Road_Name_Placeholder" xml:space="preserve">
+    <value>Enter road name here_AR..</value>
   </data>
-  <data name="btnCancelResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btnDeleteCancelResource1.Text" xml:space="preserve">
-    <value>إلغاء</value>
-  </data>
-  <data name="btnDeleteCancelResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btnDeleteConformResource1.Text" xml:space="preserve">
-    <value>إلغاء</value>
-  </data>
-  <data name="btnDeleteConformResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btnOkResource1.Text" xml:space="preserve">
-    <value>عين</value>
-  </data>
-  <data name="btnOkResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btnSaveEditResource1.Text" xml:space="preserve">
-    <value>عين</value>
-  </data>
-  <data name="btnSaveEditResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkAllResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkAllResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkSelectUserResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="chkSelectUserResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ddlGroupListResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ddlGroupsEditResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="ddlGroupsFilterResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="gvUserManagementResource1.Caption" xml:space="preserve">
-    <value />
-  </data>
-  <data name="gvUserManagementResource1.EmptyDataText" xml:space="preserve">
-    <value>لا مستخدمين عرض في المجموعة المحددة.</value>
-  </data>
-  <data name="gvUserManagementResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lblAlertHeaderResource1.Text" xml:space="preserve">
-    <value>تنبيه!</value>
-  </data>
-  <data name="lblAlertHeaderResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lblMessageResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lblMessageResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lblUserNameResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lblUserNameResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lnkAssignUserGroupResource1.Text" xml:space="preserve">
-    <value> &lt;span class="sprite ic-assignvideo"&gt;&lt;/span&gt;تعيين المستخدمين إلى المجموعة</value>
-  </data>
-  <data name="lnkAssignUserGroupResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lnkDeleteResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lnkDeleteResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lnkEditResource1.Text" xml:space="preserve">
-    <value />
-  </data>
-  <data name="lnkEditResource1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="PageResource1.Title" xml:space="preserve">
-    <value>:: بلدية مدينة العين ::</value>
-  </data>
-  <data name="TemplateFieldResource1.AccessibleHeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="TemplateFieldResource1.FooterText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="TemplateFieldResource1.HeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="TemplateFieldResource2.AccessibleHeaderText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="TemplateFieldResource2.FooterText" xml:space="preserve">
-    <value />
-  </data>
-  <data name="TemplateFieldResource2.HeaderText" xml:space="preserve">
-    <value>الإجراءات</value>
+  <data name="mdlUR_Save" xml:space="preserve">
+    <value>Save_AR</value>
   </data>
 </root>
