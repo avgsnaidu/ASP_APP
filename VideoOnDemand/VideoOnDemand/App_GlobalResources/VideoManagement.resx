@@ -186,4 +186,16 @@
   <data name="grd_Hd_VideoName" xml:space="preserve">
     <value>Video Name</value>
   </data>
+  <data name="ddlStatus_Select_Text" xml:space="preserve">
+    <value>Select Status</value>
+  </data>
+  <data name="mdlTagEdit_CommnitySelect_Text" xml:space="preserve">
+    <value>Select Commnity</value>
+  </data>
+  <data name="mdlTagEdit_DistSelect_Text" xml:space="preserve">
+    <value>Select District</value>
+  </data>
+  <data name="mdlTagEdit_RoadSelect_Text" xml:space="preserve">
+    <value>Select Road</value>
+  </data>
 </root>

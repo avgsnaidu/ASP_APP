@@ -9,13 +9,19 @@ namespace VideoOnDemand.Model.BAL
 {
     public class clsVideoManagement
     {
-        public DataSet GetVideosList(char status, int groupId)
+        public DataSet GetVideosList(char status, int groupId, char lanugage)
         {
 
 
+
             string strSql = string.Empty;
-            strSql = "SELECT VIDEOID ,VIDEONAME AS FILENAME,VD.STATUS AS STATUS,COMMUNITY+' , '+DISTRICT+' , '+ROAD AS TAG FROM VW_VIDEOS_WITH_TAGS VD";
-           
+
+            if (lanugage == 'A')
+                strSql = "SELECT VIDEOID ,VIDEONAME AS FILENAME,VD.STATUS AS STATUS,COMMUNITY+' , '+DISTRICT+' , '+ROAD AS TAG FROM VW_VIDEOS_WITH_TAGS_ARB VD";
+            else
+                strSql = "SELECT VIDEOID ,VIDEONAME AS FILENAME,VD.STATUS AS STATUS,COMMUNITY+' , '+DISTRICT+' , '+ROAD AS TAG FROM VW_VIDEOS_WITH_TAGS VD";
+
+
             if (status == '0')
             {
                 if (groupId > 0)
@@ -26,11 +32,10 @@ namespace VideoOnDemand.Model.BAL
             else
             {
                 if (status != '0' && groupId > 0)
-                    strSql = strSql + " INNER JOIN VOD_GROUP VG ON VD.VIDEOID= vg.VOD_ID where VG.GROUP_ID=" + groupId + " " +" AND VD.STATUSCODE='" + status + "'";
+                    strSql = strSql + " INNER JOIN VOD_GROUP VG ON VD.VIDEOID= vg.VOD_ID where VG.GROUP_ID=" + groupId + " " + " AND VD.STATUSCODE='" + status + "'";
 
                 else if (status != '0' && groupId == 0)
                     strSql = strSql + " where VD.STATUSCODE='" + status + "'";
-
             }
 
             //strSql = "SELECT VOD_ID AS VIDEOID ,FILE_NAME AS FILENAME,vs.StatusName AS STATUS,TAGS_ENG AS TAG FROM VOD_VIDEOS v LEFT JOIN VideoStatus vs On v.STATUS=vs.Statuscode where v.Status='" + status + "'";
@@ -63,16 +68,24 @@ namespace VideoOnDemand.Model.BAL
 
         public DataSet GetVideoStatus()
         {
+            SqlParameter[] paramList = new SqlParameter[1];
+            paramList[0] = new SqlParameter("@Lang", SqlDbType.Char);
+            paramList[0].Value = BasePage.CurrentLanguage;
+
             string strSql = string.Empty;
-            strSql = " Select Statuscode,statusName from VideoStatus";
-            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+            strSql = "Select Statuscode,case when @lang='A' then STATUSNAME_ARB when @lang='E' then STATUSNAME END STATUSNAME from VideoStatus";
+            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, paramList);
             return ds;
         }
 
-        public DataSet GetVideoTagDetails(int videoID)
+        public DataSet GetVideoTagDetails(int videoID, char language)
         {
+            //SqlParameter[] paramList = new SqlParameter[1];
+            //paramList[0] = new SqlParameter("@Lang", SqlDbType.Char);
+            //paramList[0].Value = language;
+
             string strSql = string.Empty;
-            strSql = "SELECT VOD_ID AS VIDEOID,FILE_NAME AS VIDEONAME,COMMUNITY_TAG_ENG AS COMMUNITY_TAG,DISTRICT_TAG_ENG DISTRICT_TAG,ROAD_TAG_ENG AS ROAD_TAG FROM VOD_VIDEOS WHERE VOD_ID=" + videoID;
+            strSql = "SELECT VIDEOID,VIDEONAME,COMMUNITY_TAG,DISTRICT_TAG,ROAD_TAG FROM VW_VIDEOS_WITH_TAGS WHERE VIDEOID=" + videoID;
             DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
             return ds;
 

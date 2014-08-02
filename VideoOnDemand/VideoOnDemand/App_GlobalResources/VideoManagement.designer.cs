@@ -88,6 +88,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select Status.
+        /// </summary>
+        internal static string ddlStatus_Select_Text {
+            get {
+                return ResourceManager.GetString("ddlStatus_Select_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit Tags Details.
         /// </summary>
         internal static string EditTags_Header {
@@ -264,6 +273,33 @@ namespace Resources {
         internal static string lnkAssignVideostoGroup {
             get {
                 return ResourceManager.GetString("lnkAssignVideostoGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Commnity.
+        /// </summary>
+        internal static string mdlTagEdit_CommnitySelect_Text {
+            get {
+                return ResourceManager.GetString("mdlTagEdit_CommnitySelect_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select District.
+        /// </summary>
+        internal static string mdlTagEdit_DistSelect_Text {
+            get {
+                return ResourceManager.GetString("mdlTagEdit_DistSelect_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Road.
+        /// </summary>
+        internal static string mdlTagEdit_RoadSelect_Text {
+            get {
+                return ResourceManager.GetString("mdlTagEdit_RoadSelect_Text", resourceCulture);
             }
         }
     }

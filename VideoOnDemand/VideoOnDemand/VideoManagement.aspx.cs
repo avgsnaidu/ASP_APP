@@ -51,7 +51,7 @@ namespace VideoOnDemand.VODManage
             {
                 DataRow dr = ds.Tables[0].NewRow();
                 dr["StatusCode"] = 0;
-                dr["StatusName"] = "Select Status";
+                dr["StatusName"] = Resources.VideoManagement.ddlStatus_Select_Text;
                 ds.Tables[0].Rows.InsertAt(dr, 0);
 
                 ddlStatus.DataTextField = "StatusName";
@@ -68,7 +68,7 @@ namespace VideoOnDemand.VODManage
                 dt.Columns.Add("StatusName");
                 DataRow dr = dt.NewRow();
                 dr["StatusCode"] = '0';
-                dr["StatusName"] = "Select Status";
+                dr["StatusName"] = Resources.VideoManagement.ddlStatus_Select_Text;
                 dt.Rows.InsertAt(dr, 0);
                 dr = dt.NewRow();
                 dr["StatusCode"] = 'D';
@@ -98,7 +98,7 @@ namespace VideoOnDemand.VODManage
 
         private void BindVideos(char status = '0', int selectedGroup = 0)
         {
-            DataSet ds = repository.GetVideosList(Convert.ToChar(status), selectedGroup);
+            DataSet ds = repository.GetVideosList(Convert.ToChar(status), selectedGroup, BasePage.CurrentLanguage);
             gvVideoManagement.DataSource = ds;
             gvVideoManagement.DataBind();
 
@@ -164,6 +164,13 @@ namespace VideoOnDemand.VODManage
 
 
                     lblVideoName.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["VIDEONAME"].ToString());
+                    if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["COMMUNITY_TAG"].ToString()))
+                        ddlCommunityTag.Items.FindByValue(ds.Tables[0].Rows[0]["COMMUNITY_TAG"].ToString()).Selected = true;
+                    if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["DISTRICT_TAG"].ToString()))
+                        ddlDistrictTag.Items.FindByValue(ds.Tables[0].Rows[0]["DISTRICT_TAG"].ToString()).Selected = true;
+                    if (!string.IsNullOrEmpty(ds.Tables[0].Rows[0]["ROAD_TAG"].ToString()))
+                        ddlRoadTag.Items.FindByValue(ds.Tables[0].Rows[0]["ROAD_TAG"].ToString()).Selected = true;
+
                     //txtCommunityTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["COMMUNITY_TAG"].ToString());
                     //txtDistrictTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["DISTRICT_TAG"].ToString());
                     //txtRoadTag.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["ROAD_TAG"].ToString());
@@ -212,6 +219,7 @@ namespace VideoOnDemand.VODManage
 
                 ddlRoadTag.DataSource = ds;
                 ddlRoadTag.DataBind();
+                ddlRoadTag.Items.Insert(0, new ListItem(Resources.VideoManagement.mdlTagEdit_RoadSelect_Text));
             }
         }
 
@@ -225,7 +233,7 @@ namespace VideoOnDemand.VODManage
                 ddlDistrictTag.DataTextField = "DISTRICTNAME";
                 ddlDistrictTag.DataSource = ds;
                 ddlDistrictTag.DataBind();
-
+                ddlDistrictTag.Items.Insert(0, new ListItem(Resources.VideoManagement.mdlTagEdit_DistSelect_Text));
             }
         }
 
@@ -239,7 +247,7 @@ namespace VideoOnDemand.VODManage
                 ddlCommunityTag.DataTextField = "COMMUNITYNAME";
                 ddlCommunityTag.DataSource = ds;
                 ddlCommunityTag.DataBind();
-
+                ddlCommunityTag.Items.Insert(0, new ListItem(Resources.VideoManagement.mdlTagEdit_CommnitySelect_Text));
             }
         }
 
@@ -255,7 +263,7 @@ namespace VideoOnDemand.VODManage
 
         private DataSet GetVideoTagsDetails(int vidoeId)
         {
-            return repository.GetVideoTagDetails(vidoeId);
+            return repository.GetVideoTagDetails(vidoeId, 'E');
         }
 
 

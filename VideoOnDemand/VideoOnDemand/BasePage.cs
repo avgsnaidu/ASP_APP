@@ -10,6 +10,7 @@ namespace VideoOnDemand
 {
     public class BasePage : Page
     {
+        public static char CurrentLanguage { get; set; }
         protected override void OnPreInit(EventArgs e)
         {
             base.OnPreInit(e);
@@ -28,6 +29,11 @@ namespace VideoOnDemand
             //retrieve culture information from session
             string culture = Convert.ToString(Session["CurrentCulture"]);
 
+            if (culture == "ar")
+                CurrentLanguage = 'A';
+            else
+                CurrentLanguage = 'E';
+
             //check whether a culture is stored in the session
             if (!string.IsNullOrEmpty(culture)) Culture = culture;
             else Culture = m_DefaultCulture;
@@ -40,7 +46,7 @@ namespace VideoOnDemand
             base.InitializeCulture();
         }
 
- 
+
 
     }
 }
