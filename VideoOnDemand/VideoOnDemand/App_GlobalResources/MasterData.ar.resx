@@ -165,4 +165,31 @@
   <data name="drp_Road_text" xml:space="preserve">
     <value>الطرق</value>
   </data>
+  <data name="Login_btnSubmit" xml:space="preserve">
+    <value>تسجيل الدخول</value>
+  </data>
+  <data name="Login_ForgotPassword" xml:space="preserve">
+    <value>نسيت كلمة المرور؟</value>
+  </data>
+  <data name="Login_Hd_SuperAdminLogin" xml:space="preserve">
+    <value>السوبر المشرف الدخول</value>
+  </data>
+  <data name="Login_lblError_Text" xml:space="preserve">
+    <value>* يرجى تقديم اسم المستخدم وكلمة المرور صالحة.</value>
+  </data>
+  <data name="Login_RememeberMe" xml:space="preserve">
+    <value>حفظ البيانات</value>
+  </data>
+  <data name="Login_txtPwd_PlaceHolder" xml:space="preserve">
+    <value>أدخل كلمة المرور هنا</value>
+  </data>
+  <data name="Login_txtPwd_Req_Error" xml:space="preserve">
+    <value>* الرجاء إدخال كلمة المرور</value>
+  </data>
+  <data name="Login_txtUser_PlaceHolder" xml:space="preserve">
+    <value>ادخل اسم المستخدم هنا</value>
+  </data>
+  <data name="Login_txtUser_Req_Error" xml:space="preserve">
+    <value>* الرجاء إدخال هوية المستخدم</value>
+  </data>
 </root>

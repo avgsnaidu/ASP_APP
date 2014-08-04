@@ -165,4 +165,31 @@
   <data name="drp_Road_text" xml:space="preserve">
     <value>Roads</value>
   </data>
+  <data name="Login_btnSubmit" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Login_ForgotPassword" xml:space="preserve">
+    <value>Forgot Password ?</value>
+  </data>
+  <data name="Login_Hd_SuperAdminLogin" xml:space="preserve">
+    <value>Super Admin Login</value>
+  </data>
+  <data name="Login_lblError_Text" xml:space="preserve">
+    <value>* Please provide valid username and password.</value>
+  </data>
+  <data name="Login_RememeberMe" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="Login_txtPwd_PlaceHolder" xml:space="preserve">
+    <value>Enter password here</value>
+  </data>
+  <data name="Login_txtPwd_Req_Error" xml:space="preserve">
+    <value>* Please Enter Password</value>
+  </data>
+  <data name="Login_txtUser_PlaceHolder" xml:space="preserve">
+    <value>Enter user name here</value>
+  </data>
+  <data name="Login_txtUser_Req_Error" xml:space="preserve">
+    <value>* Please Enter UserId</value>
+  </data>
 </root>

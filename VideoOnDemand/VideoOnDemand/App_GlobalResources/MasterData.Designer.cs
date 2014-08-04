@@ -203,5 +203,86 @@ namespace Resources {
                 return ResourceManager.GetString("logedUserWelcome_Text", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        internal static string Login_btnSubmit {
+            get {
+                return ResourceManager.GetString("Login_btnSubmit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot Password ?.
+        /// </summary>
+        internal static string Login_ForgotPassword {
+            get {
+                return ResourceManager.GetString("Login_ForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Super Admin Login.
+        /// </summary>
+        internal static string Login_Hd_SuperAdminLogin {
+            get {
+                return ResourceManager.GetString("Login_Hd_SuperAdminLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Please provide valid username and password..
+        /// </summary>
+        internal static string Login_lblError_Text {
+            get {
+                return ResourceManager.GetString("Login_lblError_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remember Me.
+        /// </summary>
+        internal static string Login_RememeberMe {
+            get {
+                return ResourceManager.GetString("Login_RememeberMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter password here.
+        /// </summary>
+        internal static string Login_txtPwd_PlaceHolder {
+            get {
+                return ResourceManager.GetString("Login_txtPwd_PlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Please Enter Password.
+        /// </summary>
+        internal static string Login_txtPwd_Req_Error {
+            get {
+                return ResourceManager.GetString("Login_txtPwd_Req_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter user name here.
+        /// </summary>
+        internal static string Login_txtUser_PlaceHolder {
+            get {
+                return ResourceManager.GetString("Login_txtUser_PlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Please Enter UserId.
+        /// </summary>
+        internal static string Login_txtUser_Req_Error {
+            get {
+                return ResourceManager.GetString("Login_txtUser_Req_Error", resourceCulture);
+            }
+        }
     }
 }
