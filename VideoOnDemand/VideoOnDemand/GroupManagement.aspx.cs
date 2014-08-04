@@ -10,7 +10,7 @@ using VideoOnDemand.Model.BAL;
 
 namespace VideoOnDemand.VODManage
 {
-    public partial class GroupManagement : System.Web.UI.Page
+    public partial class GroupManagement : ChildBasePage
     {
         clsGroupManagement repository = new clsGroupManagement();
 
@@ -26,11 +26,11 @@ namespace VideoOnDemand.VODManage
                     BindGroupsDetails();
                 }
                 else
-                    Response.Redirect("Error.aspx");
+                    Response.Redirect("WindowsUser.aspx");
             }
             else
             {
-                Response.Redirect("Error.aspx");
+                Response.Redirect("WindowsUser.aspx");
             }
             //}
         }

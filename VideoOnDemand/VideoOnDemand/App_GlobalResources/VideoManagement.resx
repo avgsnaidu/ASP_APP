@@ -190,7 +190,7 @@
     <value>Select Status</value>
   </data>
   <data name="mdlTagEdit_CommnitySelect_Text" xml:space="preserve">
-    <value>Select Commnity</value>
+    <value>Select Community</value>
   </data>
   <data name="mdlTagEdit_DistSelect_Text" xml:space="preserve">
     <value>Select District</value>

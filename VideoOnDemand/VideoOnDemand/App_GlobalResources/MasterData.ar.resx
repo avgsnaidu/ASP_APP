@@ -118,51 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="chMa_Ad_Archive_Text" xml:space="preserve">
-    <value>Archive Listing_AR</value>
+    <value>قائمة الأرشيف</value>
   </data>
   <data name="chMa_Ad_GroupManage_Text" xml:space="preserve">
-    <value>Group Management_AR</value>
+    <value>إدارة المجموعة</value>
   </data>
   <data name="chMa_Ad_Search_Text" xml:space="preserve">
-    <value>Search_AR</value>
+    <value>البحث</value>
   </data>
   <data name="chMa_Ad_Usermange_Text" xml:space="preserve">
-    <value>User Management_AR</value>
+    <value>إدارة المستخدم</value>
   </data>
   <data name="chMa_Ad_VideoManage_Text" xml:space="preserve">
-    <value>Video Management_AR</value>
+    <value>إدارة الفيديو</value>
   </data>
   <data name="chMa_User_Search_Text" xml:space="preserve">
-    <value>Search_AR</value>
+    <value>البحث</value>
   </data>
   <data name="chMa_User_VideoManage_Text" xml:space="preserve">
-    <value>Video Management_AR</value>
+    <value>إدارة الفيديو</value>
   </data>
   <data name="drp_Configuration_text" xml:space="preserve">
-    <value>Configuration_AR</value>
+    <value>التكوين</value>
   </data>
   <data name="drp_LogOut_Text" xml:space="preserve">
-    <value>Logout_AR</value>
+    <value>تسجيل الخروج</value>
   </data>
   <data name="hd_Arb_lnk_Text" xml:space="preserve">
-    <value>Arabic_AR</value>
+    <value>العربية</value>
   </data>
   <data name="hd_Eng_lnk_Text" xml:space="preserve">
-    <value>English_AR</value>
+    <value>English</value>
   </data>
   <data name="Hd_Title" xml:space="preserve">
-    <value>Video on Demand_AR</value>
+    <value>الفيديو حسب الطلب</value>
   </data>
   <data name="logedUserWelcome_Text" xml:space="preserve">
-    <value>Welcome_AR</value>
+    <value>ترحيب</value>
   </data>
   <data name="drp_Commnity_text" xml:space="preserve">
-    <value>Communitys_AR</value>
+    <value>المجتمعات</value>
   </data>
   <data name="drp_District_text" xml:space="preserve">
-    <value>Districts_AR</value>
+    <value>المناطق</value>
   </data>
   <data name="drp_Road_text" xml:space="preserve">
-    <value>Roads_AR</value>
+    <value>الطرق</value>
   </data>
 </root>

@@ -903,6 +903,9 @@ body { /* Margin bottom by footer height */
     left: auto;
     right: 0;
 }
+.last span {
+    margin-right:5px;
+}
 
 .block2 .dropdown-menu li {
     float: none;

@@ -97,7 +97,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VideoName.
+        ///   Looks up a localized string similar to Video Name.
         /// </summary>
         internal static string gv_Hd_VideoName {
             get {

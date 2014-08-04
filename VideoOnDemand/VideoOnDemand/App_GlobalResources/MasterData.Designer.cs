@@ -124,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Communitys.
+        ///   Looks up a localized string similar to Communities.
         /// </summary>
         internal static string drp_Commnity_text {
             get {

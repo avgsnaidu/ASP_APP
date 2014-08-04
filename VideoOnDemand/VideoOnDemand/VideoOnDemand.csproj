@@ -108,10 +108,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="WindowsUser.aspx.cs">
+      <DependentUpon>WindowsUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WindowsUser.aspx.designer.cs">
+      <DependentUpon>WindowsUser.aspx</DependentUpon>
+    </Compile>
     <Content Include="Admin\Community.aspx" />
     <Content Include="Admin\District.aspx" />
     <Content Include="Admin\Road.aspx" />
     <Compile Include="App_Code\Model\BAL\clsCommunity.cs" />
+    <Compile Include="App_Code\Model\BAL\clsConfiguration.cs" />
     <Compile Include="App_Code\Model\BAL\clsDistrict.cs" />
     <Compile Include="Admin\Community.aspx.cs">
       <DependentUpon>Community.aspx</DependentUpon>
@@ -297,6 +305,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="WindowsUser.aspx" />
     <None Include="Properties\PublishProfiles\VODWeb.pubxml" />
     <None Include="Properties\PublishProfiles\VODWebTwo.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />

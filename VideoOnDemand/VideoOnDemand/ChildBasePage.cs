@@ -20,7 +20,7 @@ namespace VideoOnDemand
             }
             else
             {
-                Response.Redirect("Error.aspx");
+                Response.Redirect("WindowsUser.aspx");
             }
         }
     }

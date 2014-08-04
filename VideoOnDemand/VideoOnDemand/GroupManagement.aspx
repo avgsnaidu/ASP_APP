@@ -23,9 +23,9 @@
     </script>
     <div id="management-bottom" class="col-md-12">
         <div class="block1 clearfix">
-            <h2 class="col-md-3">
+            <h2 class="col-md-4">
                 <asp:Literal runat="server" Text="<%$ Resources:GroupManage, hdrGroupManagement %>" /></h2>
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <ul>
                     <li>
                         <asp:LinkButton ID="lnkCreateGroup" runat="server" PostBackUrl="#" data-toggle="modal" data-target="#myModal2">

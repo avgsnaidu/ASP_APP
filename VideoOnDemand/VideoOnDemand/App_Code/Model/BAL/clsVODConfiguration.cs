@@ -34,9 +34,9 @@ namespace VideoOnDemand.Model.BAL
 
         }
 
-        public bool UpdateVODDetails(int configid, string Src, string Dest, string Arch, string Backup, char SchedulFlag, double Schedulehrs)
+        public bool UpdateVODDetails(int configid, string Src, string Dest, string Arch, string Backup, char SchedulFlag, double Schedulehrs,int simultaneousConversions)
         {
-            SqlParameter[] p = new SqlParameter[7];
+            SqlParameter[] p = new SqlParameter[8];
             p[0] = new SqlParameter("@Source", SqlDbType.NVarChar);
             p[0].Value = Src;
             p[1] = new SqlParameter("@Dest", SqlDbType.NVarChar);
@@ -51,8 +51,11 @@ namespace VideoOnDemand.Model.BAL
             p[5].Value = SchedulFlag;
             p[6] = new SqlParameter("@Schedulehrs", SqlDbType.Float);
             p[6].Value = Schedulehrs;
+            p[7] = new SqlParameter("@SimultConversions", SqlDbType.Int);
+            p[7].Value = simultaneousConversions;
 
-            string strSql = "UPDATE VOD_CONFIG SET SOURCE_FOLDER=@Source ,TARGET_FOLDER=@Dest, ARCHIVE_FOLDER=@Archive, BACKUP_FOLDER=@Backup,SCHEDULER_FLAG=@SchedulFlag, SCHEDULER_HOURS_INTERVAL=@Schedulehrs,DATE_UPDATED=GETDATE() where CONFIG_ID=@configid";
+            string strSql = "UPDATE VOD_CONFIG SET SOURCE_FOLDER=@Source ,TARGET_FOLDER=@Dest, ARCHIVE_FOLDER=@Archive, BACKUP_FOLDER=@Backup,"+
+                " SCHEDULER_FLAG=@SchedulFlag, SCHEDULER_HOURS_INTERVAL=@Schedulehrs,SIMULT_CONVERSIONS=@SimultConversions, DATE_UPDATED=GETDATE() where CONFIG_ID=@configid";
             int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
             if (value > 0)
                 return true;
@@ -63,7 +66,7 @@ namespace VideoOnDemand.Model.BAL
         public DataSet GetVODConfigurationDetails()
         {
             string strSql = string.Empty;
-            strSql = string.Format("SELECT top 1  CONFIG_ID,SOURCE_FOLDER,TARGET_FOLDER,ARCHIVE_FOLDER,BACKUP_FOLDER,SCHEDULER_FLAG,SCHEDULER_HOURS_INTERVAL FROM VOD_CONFIG order by date_Created desc ");
+            strSql = string.Format("SELECT top 1 [CONFIG_ID] ,[SOURCE_FOLDER],[TARGET_FOLDER],[ARCHIVE_FOLDER],[BACKUP_FOLDER],[SCHEDULER_FLAG],[SCHEDULER_HOURS_INTERVAL] ,[SIMULT_CONVERSIONS]  FROM [VOD_CONFIG]order by date_Created desc ");
             DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
             return ds;
         }

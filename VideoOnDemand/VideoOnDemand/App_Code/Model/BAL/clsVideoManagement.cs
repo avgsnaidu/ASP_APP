@@ -33,7 +33,7 @@ namespace VideoOnDemand.Model.BAL
             {
                 if (groupId > 0)
                 {
-                    strSql = strSql + " INNER JOIN VOD_GROUP VG ON VD.VIDEOID= VG.VIDEOID where VG.GROUP_ID=" + groupId;
+                    strSql = strSql + " INNER JOIN VOD_GROUP VG ON VD.VIDEOID= VG.VOD_ID where VG.GROUP_ID=" + groupId;
                 }
             }
             else

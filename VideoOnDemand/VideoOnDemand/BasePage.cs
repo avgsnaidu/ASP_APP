@@ -17,7 +17,7 @@ namespace VideoOnDemand
 
             //if (!Request.IsAuthenticated)
             //{
-            //    Response.Redirect("Error.aspx");
+            //    Response.Redirect("WindowsUser.aspx");
             //}
         }
 

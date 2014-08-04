@@ -91,21 +91,16 @@
                             <asp:Literal ID="ltlAssingVidGroup" runat="server" Text="<%$ Resources:VideoManagement, lnkAssignVideostoGroup %>" />
                         </asp:LinkButton></li>
                     <li class="last">
-                        <asp:Label runat="server" ID="lblFilterBy" Text="<%$ Resources:VideoManagement, lblFilterBy %>"></asp:Label><%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                        <asp:Label runat="server" ID="lblFilterBy" Text="<%$ Resources:VideoManagement, lblFilterBy %>  "></asp:Label><%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>--%><asp:DropDownList ID="ddlStatus" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
                                 OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
-                                <%--<asp:ListItem Text="All" Value="1" />
-                            <asp:ListItem Text="Converted" Value="2" />
-                            <asp:ListItem Text="Pending" Value="3" />
-                            <asp:ListItem Text="Processing" Value="4" />--%>
+                                
                             </asp:DropDownList>
 
                         <asp:DropDownList ID="ddlGroupsFilter" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
                             OnSelectedIndexChanged="ddlGroups_SelectedIndexChanged">
                         </asp:DropDownList>
-
-                        <%--                            </ContentTemplate>
-                        </asp:UpdatePanel>--%>
+ 
  
                     </li>
                 </ul>

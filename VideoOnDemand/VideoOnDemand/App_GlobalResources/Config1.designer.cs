@@ -97,6 +97,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alert !.
+        /// </summary>
+        internal static string AlertMsgModal_Header {
+            get {
+                return ResourceManager.GetString("AlertMsgModal_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        internal static string ALM_btnOK_Text {
+            get {
+                return ResourceManager.GetString("ALM_btnOK_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Back.
         /// </summary>
         internal static string btnTopBack_Text {
@@ -1245,6 +1263,24 @@ namespace Resources {
         internal static string SAD_Username {
             get {
                 return ResourceManager.GetString("SAD_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily at  {0}  once.
+        /// </summary>
+        internal static string SchedularIntervalFixedText {
+            get {
+                return ResourceManager.GetString("SchedularIntervalFixedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Every  {0}  hours.
+        /// </summary>
+        internal static string SchedularIntervalRepeatText {
+            get {
+                return ResourceManager.GetString("SchedularIntervalRepeatText", resourceCulture);
             }
         }
         

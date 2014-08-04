@@ -462,7 +462,7 @@
                                     <asp:Label ID="lblVideoConversion" runat="server" Text="<%$Resources:Config,VOD_Videoconvertions%>"></asp:Label>
                                 </div>
                                 <div class="col-md-9 pdLeft0 pull-right">
-                                    <asp:Label ID="txtVideo" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblVideoConversionValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -545,7 +545,7 @@
                                                 <div class="input1">
                                                     <div class="select-holder">
                                                         <asp:DropDownList ID="ddlInterval" runat="server" CssClass="span12">
-                                                            <asp:ListItem Value="0" Text="Select" Selected="True" />
+                                                            <asp:ListItem Value="0" Text="Select" />
                                                             <asp:ListItem Value="1" Text="1 Hrs" />
                                                             <asp:ListItem Value="2" Text="2 Hrs" />
                                                             <asp:ListItem Value="3" Text="3 Hrs" />
@@ -579,7 +579,7 @@
                                             <div class="col-sm-7">
                                                 <div id="SimultaniousSelect" class="select-holder">
                                                     <asp:DropDownList ID="ddlSimultaneous" runat="server">
-                                                        <asp:ListItem Text="1" Value="1" Selected="True" />
+                                                        <asp:ListItem Text="1" Value="1" />
                                                         <asp:ListItem Text="2" Value="2" />
                                                         <asp:ListItem Text="3" Value="3" />
                                                         <asp:ListItem Text="4" Value="4" />
@@ -758,8 +758,6 @@
                 </div>
             </div>
 
-
-
             <div class="block1 clearfix">
                 <table class="col-md-12 title1">
                     <tr>
@@ -793,7 +791,7 @@
                                     <asp:Label ID="lblStreamingServerText" runat="server" Text="<%$Resources:Config,SSD_StremServer%> " Width="170"></asp:Label>
                                 </div>
                                 <div class="middle-rightchild">
-                                    <asp:Label ID="lblStreamingServer" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblSSDServerNameValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -803,7 +801,7 @@
                                     <asp:Label ID="lblSSDPortText" runat="server" Text="<%$Resources:Config,SSD_Port%> " Width="170"></asp:Label>
                                 </div>
                                 <div class="middle-rightchild">
-                                    <asp:Label ID="lblSSDPort" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblSSDPortValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -814,10 +812,10 @@
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
                                 <div style="float: left; font-weight: bold" class="middle-rightchild">
-                                    <asp:Label ID="lblSSDPwdText" runat="server" Text="<%$Resources:Config,SSD_UserName%> " Width="170"></asp:Label>
+                                    <asp:Label ID="lblSSDUserIdText" runat="server" Text="<%$Resources:Config,SSD_UserName%> " Width="170"></asp:Label>
                                 </div>
                                 <div class="middle-rightchild">
-                                    <asp:Label ID="lblSSDUserId" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblSSDUserIdValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -828,7 +826,7 @@
                                     <asp:Label ID="lblSSDPasswordText" runat="server" Text="<%$Resources:Config,SSD_Pwd%> " Width="170"></asp:Label>
                                 </div>
                                 <div class="middle-rightchild">
-                                    <asp:Label ID="lblSSDPassword" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblSSDPasswordValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -1178,9 +1176,9 @@
                                                 <span class="required">*</span></label>
                                             <div class="col-sm-7">
                                                 <asp:TextBox type="text" runat="server" class="form-control textboxFormat required NoEmpty"
-                                                    ID="TextBox1" placeholder="<%$Resources:Config,mdlESD_Sender_PlaceHolder %>" data-placement="top" data-trigger="manual"
+                                                    ID="txtEmailSenderName" placeholder="<%$Resources:Config,mdlESD_Sender_PlaceHolder %>" data-placement="top" data-trigger="manual"
                                                     data-content="Enter Valid Username" />
-                                                <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator10" ControlToValidate="txtEmailSerUsername"
+                                                <asp:RequiredFieldValidator runat="server" ID="RequiredFieldValidator10" ControlToValidate="txtEmailSenderName"
                                                     ValidationGroup="EmailServer" ErrorMessage="<%$Resources:Config,mdlESD_Sender_need %> " ForeColor="#E2351D"
                                                     Display="Dynamic"></asp:RequiredFieldValidator>
 
@@ -1200,7 +1198,7 @@
 
 
                                         <div class="form-group">
-                                            <label for="ddlESDMailType" class="col-sm-4 control-label">
+                                            <label for="chkTlsEnabled" class="col-sm-4 control-label">
                                                 <asp:Literal runat="server" ID="Literal49" Text="<%$Resources:Config,mdlESD_TLS_Enabled %>"></asp:Literal>
                                                 <span class="required">*</span></label>
                                             <div class="col-sm-7">
@@ -1218,7 +1216,7 @@
                             </Triggers>
                         </asp:UpdatePanel>
                         <div class="modal-footer">
-                            <asp:Button ID="btnEmailSerSave" runat="server" ValidationGroup="StreamingServer" class="btn btn-primary" Text="<%$Resources:Config,mdlEsD_Save %> "
+                            <asp:Button ID="btnEmailSerSave" runat="server" ValidationGroup="EmailServer" class="btn btn-primary" Text="<%$Resources:Config,mdlEsD_Save %> "
                                 OnClick="btnEmailSerSave_Click" />
                             <asp:Button ID="Button5" runat="server" class="btn btn-primary" data-dismiss="modal"
                                 Text="<%$Resources:Config,mdlEsD_Cancel %>" />
@@ -1227,13 +1225,13 @@
                 </div>
             </div>
 
-            <div class="modal fade" id="alertMessageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true" data-dismiss="modal">
+            <div class="modal fade" id="alertMessageModal" tabindex="-1" role="dialog" aria-labelledby="myAlertMsgModalLabel" aria-hidden="true" data-dismiss="modal">
                 <div class="modal-dialog modal-dlg-top">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                            <h4 class="modal-title" id="myModalLabel2">
-                                <asp:Literal ID="ltlalert" runat="server" Text="<%$ Resources:VideoManagement, AlertMsgModal_Header %>" />
+
+                            <h4 class="modal-title" id="myAlertMsgModalLabel">
+                                <asp:Literal ID="ltlalert" runat="server" Text="<%$ Resources:Config, AlertMsgModal_Header %>" />
                             </h4>
                         </div>
                         <asp:UpdatePanel ID="UpdatePanel7" runat="server">
@@ -1241,20 +1239,18 @@
                                 <div class="modal-body">
                                     <div class="form-horizontal" role="form">
                                         <div class="form-group">
-                                            <%--<label   class="col-sm- control-label" style="width: 320px;">Are&nbsp;you&nbsp;sure&nbsp;to&nbsp;delete&nbsp;group&nbsp?.</label>--%>
                                             <asp:Label ID="lblMessage" runat="server" class="col-sm- control-label" Style="width: 320px;"></asp:Label>
                                         </div>
                                     </div>
                                 </div>
                             </ContentTemplate>
                             <Triggers>
-
                                 <asp:AsyncPostBackTrigger ControlID="btnOk" EventName="Click" />
                             </Triggers>
                         </asp:UpdatePanel>
 
                         <div class="modal-footer">
-                            <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text=" <%$ Resources:VideoManagement, ALM_btnOK_Text %> " />
+                            <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text=" <%$ Resources:Config, ALM_btnOK_Text %> " />
                         </div>
                     </div>
                 </div>

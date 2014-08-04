@@ -35,11 +35,11 @@ namespace VideoOnDemand.VODManage
 
                 }
                 else
-                    Response.Redirect("Error.aspx");
+                    Response.Redirect("WindowsUser.aspx");
             }
             else
             {
-                Response.Redirect("Error.aspx");
+                Response.Redirect("WindowsUser.aspx");
             }
         }
 
@@ -275,18 +275,24 @@ namespace VideoOnDemand.VODManage
                     //drow["GroupId"] = 0;
                     //drow["GroupName"] = Resources.VideoManagement.ddlFilterGroup_EmptySelect_Text;
                     //ds.Tables[0].Rows.InsertAt(drow, 0);
+
+                    ddlGroupsFilter.DataTextField = "GroupName";
+                    ddlGroupsFilter.DataValueField = "GroupId";
+                    ddlGroupsFilter.DataSource = ds;
+                    ddlGroupsFilter.DataBind();
+
                     groupBinded = true;
                 }
                 if (bindPopUp)
                 {
-                    //DataRow dr = ds.Tables[0].NewRow();
-                    //dr["GroupId"] = 0;
-                    //dr["GroupName"] = Resources.VideoManagement.ddlGroupsList_EmtpySelect_Text;
-                    //ds.Tables[0].Rows.InsertAt(dr, 0);
-                    //ddlGroupList.DataTextField = "GroupName";
-                    //ddlGroupList.DataValueField = "GroupId";
-                    //ddlGroupList.DataSource = ds;
-                    //ddlGroupList.DataBind();
+                    DataRow dr = ds.Tables[0].NewRow();
+                    dr["GroupId"] = 0;
+                    dr["GroupName"] = Resources.VideoManagement.ddlGroupsList_EmtpySelect_Text;
+                    ds.Tables[0].Rows.InsertAt(dr, 0);
+                    ddlGroupList.DataTextField = "GroupName";
+                    ddlGroupList.DataValueField = "GroupId";
+                    ddlGroupList.DataSource = ds;
+                    ddlGroupList.DataBind();
                     groupBinded = true;
                 }
             }
@@ -305,10 +311,7 @@ namespace VideoOnDemand.VODManage
                 groupBinded = false;
             }
 
-            ddlGroupsFilter.DataTextField = "GroupName";
-            ddlGroupsFilter.DataValueField = "GroupId";
-            ddlGroupsFilter.DataSource = ds;
-            ddlGroupsFilter.DataBind();
+
             if (groupBinded)
                 ddlGroupsFilter.Items.Insert(0, new ListItem(Resources.VideoManagement.ddlGroupsList_EmtpySelect_Text, "0"));
             else

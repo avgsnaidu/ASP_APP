@@ -21,31 +21,49 @@ namespace VideoOnDemand.VODManage
 
                     if (!IsPostBack)
                     {
-                        DataSet ds = new DataSet();
-                        ds = null;
-                        gvSearch.DataSource = ds;
-                        gvSearch.DataBind();
-
-                        DataTable dtSearch = new DataTable();
-                        dtSearch.Columns.Add("VIDEOID");
-                        dtSearch.Columns.Add("VideoName");
-                        dtSearch.Columns.Add("TAG");
-                        dtSearch.Rows.Add(dtSearch.NewRow());
-
-                        gvSearch.DataSource = dtSearch;
-                        gvSearch.DataBind();
-                        gvSearch.Rows[0].Visible = false;
+                        AddEmtpyRowToGrid();
+                        BindSearchFilterTags();
 
                     }
 
                 }
                 else
-                    Response.Redirect("Error.aspx");
+                    Response.Redirect("WindowsUser.aspx");
             }
             else
             {
-                Response.Redirect("Error.aspx");
+                Response.Redirect("WindowsUser.aspx");
             }
+        }
+
+        private void BindSearchFilterTags()
+        {
+            DataSet ds = repository.GetSearchFilterTagsList();
+            
+            ddlSearchOn.DataTextField = "SEARCHTAG";
+            ddlSearchOn.DataValueField = "SearchTagCode";
+            
+            ddlSearchOn.DataSource = ds;
+            ddlSearchOn.DataBind();
+
+        }
+
+        private void AddEmtpyRowToGrid()
+        {
+            DataSet ds = new DataSet();
+            ds = null;
+            gvSearch.DataSource = ds;
+            gvSearch.DataBind();
+
+            DataTable dtSearch = new DataTable();
+            dtSearch.Columns.Add("VIDEOID");
+            dtSearch.Columns.Add("VideoName");
+            dtSearch.Columns.Add("TAG");
+            dtSearch.Rows.Add(dtSearch.NewRow());
+
+            gvSearch.DataSource = dtSearch;
+            gvSearch.DataBind();
+            gvSearch.Rows[0].Visible = false;
         }
 
         protected void gvSearch_RowCommand(object sender, GridViewCommandEventArgs e)

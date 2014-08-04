@@ -304,7 +304,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select Commnity.
+        ///   Looks up a localized string similar to Select Community.
         /// </summary>
         internal static string mdlTagEdit_CommnitySelect_Text {
             get {

@@ -44,7 +44,7 @@ namespace VideoOnDemand.VODManage
             }
             else
             {
-                Response.Redirect("~/Error.aspx");
+                Response.Redirect("~/WindowsUser.aspx");
             }
             if (!IsPostBack)
             {

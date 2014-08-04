@@ -118,93 +118,93 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AlertMsgModal_Header" xml:space="preserve">
-    <value>Alert_AR !</value>
+    <value>تنبيه!</value>
   </data>
   <data name="ALM_btnOK_Text" xml:space="preserve">
-    <value>Ok_AR</value>
+    <value>طيب</value>
   </data>
   <data name="ALM_lblMessage_Text" xml:space="preserve">
     <value />
   </data>
   <data name="ddlFilterGroup_EmptySelect_Text" xml:space="preserve">
-    <value>Select Group_AR</value>
+    <value>اختر المجموعة</value>
   </data>
   <data name="ddlGroupsList_EmtpySelect_Text" xml:space="preserve">
-    <value>Select Group_AR</value>
+    <value>اختر المجموعة</value>
   </data>
   <data name="ddlGroupsList_NoGroups_Text" xml:space="preserve">
-    <value>No Groups to select_AR</value>
+    <value>لا المجموعات لتحديد</value>
   </data>
   <data name="ddlStatus_Select_Text" xml:space="preserve">
-    <value>Select Status_AR</value>
+    <value>تحديد الحالة</value>
   </data>
   <data name="EditTags_Header" xml:space="preserve">
-    <value>Edit Tags Details_AR</value>
+    <value>تعديل الكلمات تفاصيل</value>
   </data>
   <data name="ETM_btnCancelTag_Text" xml:space="preserve">
-    <value>Cancel_AR</value>
+    <value>إلغاء</value>
   </data>
   <data name="ETM_btnSaveTag_Text" xml:space="preserve">
-    <value>Save_AR</value>
+    <value>حفظ</value>
   </data>
   <data name="ETM_lblVideoNameText" xml:space="preserve">
-    <value>Video&amp;nbsp;Name_AR :</value>
+    <value>اسم الفيديو:</value>
   </data>
   <data name="ETM_txtCommunityTagText" xml:space="preserve">
-    <value>Community&amp;nbsp;Tags_AR :</value>
+    <value>مجتمع الكلمات:</value>
   </data>
   <data name="ETM_txtDistrictTagText" xml:space="preserve">
-    <value>District Tags_AR :</value>
+    <value>حي الكلمات:</value>
   </data>
   <data name="ETM_txtRoadTagText" xml:space="preserve">
-    <value>Road Tags_AR :</value>
+    <value>طريق الكلمات:</value>
   </data>
   <data name="ETM_VideoName" xml:space="preserve">
-    <value>Video Name _AR: </value>
+    <value>اسم الفيديو:</value>
   </data>
   <data name="grd_Hd_Edit" xml:space="preserve">
-    <value>Edit_AR</value>
+    <value>تحرير</value>
   </data>
   <data name="grd_Hd_Play" xml:space="preserve">
-    <value>Play_AR</value>
+    <value>لعب</value>
   </data>
   <data name="grd_Hd_Status" xml:space="preserve">
-    <value>Status_AR</value>
+    <value>الوضع</value>
   </data>
   <data name="grd_Hd_Tag" xml:space="preserve">
-    <value>TAG_AR</value>
+    <value>الكلمات</value>
   </data>
   <data name="grd_Hd_VideoName" xml:space="preserve">
-    <value>Video Name_AR</value>
+    <value>اسم الفيديو</value>
   </data>
   <data name="GroupSelectModal_Header" xml:space="preserve">
-    <value>Assign Videos to Group_AR</value>
+    <value>تعيين فيديو لمجموعة</value>
   </data>
   <data name="GSM_btnAssign_Text" xml:space="preserve">
-    <value>Assign_AR</value>
+    <value>تعيين</value>
   </data>
   <data name="GSM_btnCancel_Text" xml:space="preserve">
-    <value>Cancel_AR</value>
+    <value>إلغاء</value>
   </data>
   <data name="GSM_ddlGroupListText" xml:space="preserve">
-    <value>Select&amp;nbsp;Group_AR</value>
+    <value>اختر المجموعة</value>
   </data>
   <data name="HDRVideoManagement" xml:space="preserve">
-    <value>Video Management_AR</value>
+    <value>إدارة الفيديو</value>
   </data>
   <data name="lblFilterBy" xml:space="preserve">
-    <value>Filter By_AR</value>
+    <value>تصفية حسب</value>
   </data>
   <data name="lnkAssignVideostoGroup" xml:space="preserve">
-    <value>Assign Videos to Group_AR</value>
+    <value>تعيين فيديو لمجموعة</value>
   </data>
   <data name="mdlTagEdit_CommnitySelect_Text" xml:space="preserve">
-    <value>Select Commnity_AR</value>
+    <value>حدد المجتمع</value>
   </data>
   <data name="mdlTagEdit_DistSelect_Text" xml:space="preserve">
-    <value>Select District_AR</value>
+    <value>اختر منطقة</value>
   </data>
   <data name="mdlTagEdit_RoadSelect_Text" xml:space="preserve">
-    <value>Select Road_AR</value>
+    <value>حدد الطريق</value>
   </data>
 </root>

@@ -543,4 +543,16 @@
   <data name="SSD_UserName" xml:space="preserve">
     <value>User Name :</value>
   </data>
+  <data name="AlertMsgModal_Header" xml:space="preserve">
+    <value>Alert !</value>
+  </data>
+  <data name="ALM_btnOK_Text" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="SchedularIntervalFixedText" xml:space="preserve">
+    <value>Daily at  {0}  once</value>
+  </data>
+  <data name="SchedularIntervalRepeatText" xml:space="preserve">
+    <value>Every  {0}  hours</value>
+  </data>
 </root>

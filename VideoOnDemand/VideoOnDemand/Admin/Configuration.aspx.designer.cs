@@ -751,13 +751,13 @@ namespace VideoOnDemand.Admin {
         protected global::System.Web.UI.WebControls.Label lblVideoConversion;
         
         /// <summary>
-        /// txtVideo control.
+        /// lblVideoConversionValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtVideo;
+        protected global::System.Web.UI.WebControls.Label lblVideoConversionValue;
         
         /// <summary>
         /// Literal17 control.
@@ -1282,13 +1282,13 @@ namespace VideoOnDemand.Admin {
         protected global::System.Web.UI.WebControls.Label lblStreamingServerText;
         
         /// <summary>
-        /// lblStreamingServer control.
+        /// lblSSDServerNameValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStreamingServer;
+        protected global::System.Web.UI.WebControls.Label lblSSDServerNameValue;
         
         /// <summary>
         /// lblSSDPortText control.
@@ -1300,31 +1300,31 @@ namespace VideoOnDemand.Admin {
         protected global::System.Web.UI.WebControls.Label lblSSDPortText;
         
         /// <summary>
-        /// lblSSDPort control.
+        /// lblSSDPortValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSSDPort;
+        protected global::System.Web.UI.WebControls.Label lblSSDPortValue;
         
         /// <summary>
-        /// lblSSDPwdText control.
+        /// lblSSDUserIdText control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSSDPwdText;
+        protected global::System.Web.UI.WebControls.Label lblSSDUserIdText;
         
         /// <summary>
-        /// lblSSDUserId control.
+        /// lblSSDUserIdValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSSDUserId;
+        protected global::System.Web.UI.WebControls.Label lblSSDUserIdValue;
         
         /// <summary>
         /// lblSSDPasswordText control.
@@ -1336,13 +1336,13 @@ namespace VideoOnDemand.Admin {
         protected global::System.Web.UI.WebControls.Label lblSSDPasswordText;
         
         /// <summary>
-        /// lblSSDPassword control.
+        /// lblSSDPasswordValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSSDPassword;
+        protected global::System.Web.UI.WebControls.Label lblSSDPasswordValue;
         
         /// <summary>
         /// Literal36 control.
@@ -1876,13 +1876,13 @@ namespace VideoOnDemand.Admin {
         protected global::System.Web.UI.WebControls.Literal Literal47;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtEmailSenderName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailSenderName;
         
         /// <summary>
         /// RequiredFieldValidator10 control.

@@ -330,6 +330,7 @@ a#lnkDropDownMenu.btn {
 /*========== For reducting the select-dropdown margin===========*/
 .bootstrap-select.btn-group:not(.input-group-btn), .bootstrap-select.btn-group[class*="span"] {
     margin-bottom: 1px !important;
+    text-align:left;
 }
 
 
@@ -356,7 +357,7 @@ a#lnkDropDownMenu.btn {
 }
 
 .minHeightControl {
-    min-height:33px !important;
+    min-height: 33px !important;
 }
 
 /*================= JW Player height and width addjustment ===================*/
@@ -376,7 +377,7 @@ a#lnkDropDownMenu.btn {
     height: 400px !important;
     padding-left: 15px !important;
     width: 580px !important;
-    background-color:transparent;
+    background-color: transparent;
 }
 
 #mdlPlayVideo .closeX {
@@ -427,6 +428,9 @@ a#lnkDropDownMenu.btn {
     top: -20px;
     z-index: 1000;
 }
+
 .fade {
-    opacity: 0.9 !important;
+    opacity: 0.8 !important;
 }
+
+ 

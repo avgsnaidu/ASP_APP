@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnsearch_text" xml:space="preserve">
-    <value>Search_ar</value>
+    <value>البحث</value>
   </data>
   <data name="ddlSearchOn_dropdown" xml:space="preserve">
-    <value>Search_AR</value>
+    <value>البحث</value>
   </data>
   <data name="gvSearch_gridview" xml:space="preserve">
-    <value>Search_AR</value>
+    <value>البحث</value>
   </data>
   <data name="gv_EmtpyData" xml:space="preserve">
-    <value>No search results to display__AR.</value>
+    <value>لا يوجد نتائج بحث لعرض</value>
   </data>
   <data name="gv_Hd_VideoName" xml:space="preserve">
-    <value>VideoName_AR</value>
+    <value>اسم الفيديو</value>
   </data>
   <data name="GV_TAG_headertext" xml:space="preserve">
-    <value>TAG_AR</value>
+    <value>الكلمات</value>
   </data>
   <data name="txtSearch_PlaceHolder" xml:space="preserve">
-    <value>Enter search keywords_AR..</value>
+    <value>أدخل كلمات البحث</value>
   </data>
 </root>
