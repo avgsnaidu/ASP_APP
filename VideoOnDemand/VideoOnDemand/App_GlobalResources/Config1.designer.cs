@@ -151,6 +151,78 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email Type :.
+        /// </summary>
+        internal static string ESD_EmailType {
+            get {
+                return ResourceManager.GetString("ESD_EmailType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Port :.
+        /// </summary>
+        internal static string ESD_Port {
+            get {
+                return ResourceManager.GetString("ESD_Port", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password :.
+        /// </summary>
+        internal static string ESD_Pwd {
+            get {
+                return ResourceManager.GetString("ESD_Pwd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reply To Email :.
+        /// </summary>
+        internal static string ESD_ReplyEmail {
+            get {
+                return ResourceManager.GetString("ESD_ReplyEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sender Name :.
+        /// </summary>
+        internal static string ESD_SenderName {
+            get {
+                return ResourceManager.GetString("ESD_SenderName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server Name :.
+        /// </summary>
+        internal static string ESD_ServerName {
+            get {
+                return ResourceManager.GetString("ESD_ServerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TLS Enabled :.
+        /// </summary>
+        internal static string ESD_TlsEnabled {
+            get {
+                return ResourceManager.GetString("ESD_TlsEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Name :.
+        /// </summary>
+        internal static string ESD_UserName {
+            get {
+                return ResourceManager.GetString("ESD_UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Active Directory Details.
         /// </summary>
         internal static string hd_ADDetails {
@@ -183,6 +255,24 @@ namespace Resources {
         internal static string hd_DBC_Edit_Text {
             get {
                 return ResourceManager.GetString("hd_DBC_Edit_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Server Details.
+        /// </summary>
+        internal static string hd_EmailServeDetails {
+            get {
+                return ResourceManager.GetString("hd_EmailServeDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        internal static string hd_EmalSD_Edit_Text {
+            get {
+                return ResourceManager.GetString("hd_EmalSD_Edit_Text", resourceCulture);
             }
         }
         
@@ -486,6 +576,249 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
+        internal static string mdlEsD_Cancel {
+            get {
+                return ResourceManager.GetString("mdlEsD_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reply To Email :.
+        /// </summary>
+        internal static string mdlESD_Email {
+            get {
+                return ResourceManager.GetString("mdlESD_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Type :.
+        /// </summary>
+        internal static string mdlESD_EmailType {
+            get {
+                return ResourceManager.GetString("mdlESD_EmailType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SMTP.
+        /// </summary>
+        internal static string mdlESD_EmailType_Text {
+            get {
+                return ResourceManager.GetString("mdlESD_EmailType_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SMTP.
+        /// </summary>
+        internal static string mdlESD_EmailType_Value {
+            get {
+                return ResourceManager.GetString("mdlESD_EmailType_Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to email required.
+        /// </summary>
+        internal static string mdlESD_Email_need {
+            get {
+                return ResourceManager.GetString("mdlESD_Email_need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter reply to eamil.
+        /// </summary>
+        internal static string mdlESD_Email_placeholder {
+            get {
+                return ResourceManager.GetString("mdlESD_Email_placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to enter valid email.
+        /// </summary>
+        internal static string mdlESD_Email_valid {
+            get {
+                return ResourceManager.GetString("mdlESD_Email_valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Server Details.
+        /// </summary>
+        internal static string mdlESD_Header {
+            get {
+                return ResourceManager.GetString("mdlESD_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server Name :.
+        /// </summary>
+        internal static string mdlESD_IPAddress {
+            get {
+                return ResourceManager.GetString("mdlESD_IPAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to server name required.
+        /// </summary>
+        internal static string mdlESD_IPAddress_Need {
+            get {
+                return ResourceManager.GetString("mdlESD_IPAddress_Need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to enter valid server name.
+        /// </summary>
+        internal static string mdlESD_IPAddress_Valid {
+            get {
+                return ResourceManager.GetString("mdlESD_IPAddress_Valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password :.
+        /// </summary>
+        internal static string mdlESD_password {
+            get {
+                return ResourceManager.GetString("mdlESD_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  required password.
+        /// </summary>
+        internal static string mdlESD_password_need {
+            get {
+                return ResourceManager.GetString("mdlESD_password_need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Port :.
+        /// </summary>
+        internal static string mdlESD_Port {
+            get {
+                return ResourceManager.GetString("mdlESD_Port", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to required port.
+        /// </summary>
+        internal static string mdlESD_Port_Need {
+            get {
+                return ResourceManager.GetString("mdlESD_Port_Need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter port.
+        /// </summary>
+        internal static string mdlESD_Port_PlaceHolder {
+            get {
+                return ResourceManager.GetString("mdlESD_Port_PlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to enter valid port .
+        /// </summary>
+        internal static string mdlESD_Port_Valid {
+            get {
+                return ResourceManager.GetString("mdlESD_Port_Valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string mdlEsD_Save {
+            get {
+                return ResourceManager.GetString("mdlEsD_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sender Name :.
+        /// </summary>
+        internal static string mdlESD_Sender_name {
+            get {
+                return ResourceManager.GetString("mdlESD_Sender_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to requried sender name.
+        /// </summary>
+        internal static string mdlESD_Sender_need {
+            get {
+                return ResourceManager.GetString("mdlESD_Sender_need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to enter sender name.
+        /// </summary>
+        internal static string mdlESD_Sender_PlaceHolder {
+            get {
+                return ResourceManager.GetString("mdlESD_Sender_PlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to enter server name .
+        /// </summary>
+        internal static string mdlESD_servername_PlaceHolder {
+            get {
+                return ResourceManager.GetString("mdlESD_servername_PlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TLS-Enabled :.
+        /// </summary>
+        internal static string mdlESD_TLS_Enabled {
+            get {
+                return ResourceManager.GetString("mdlESD_TLS_Enabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Name :.
+        /// </summary>
+        internal static string mdlESD_Username {
+            get {
+                return ResourceManager.GetString("mdlESD_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to required username.
+        /// </summary>
+        internal static string mdlESD_Username_need {
+            get {
+                return ResourceManager.GetString("mdlESD_Username_need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter user name.
+        /// </summary>
+        internal static string mdlESD_Username_PlaceHolder {
+            get {
+                return ResourceManager.GetString("mdlESD_Username_PlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
         internal static string mdlSAD_Cancel {
             get {
                 return ResourceManager.GetString("mdlSAD_Cancel", resourceCulture);
@@ -597,6 +930,159 @@ namespace Resources {
         internal static string mdlSAD_Username_need {
             get {
                 return ResourceManager.GetString("mdlSAD_Username_need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        internal static string mdlSsD_Cancel {
+            get {
+                return ResourceManager.GetString("mdlSsD_Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to email.
+        /// </summary>
+        internal static string mdlSSD_Email {
+            get {
+                return ResourceManager.GetString("mdlSSD_Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stereaming Server Details.
+        /// </summary>
+        internal static string mdlSSD_Header {
+            get {
+                return ResourceManager.GetString("mdlSSD_Header", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server Name :.
+        /// </summary>
+        internal static string mdlSsD_IPAddress {
+            get {
+                return ResourceManager.GetString("mdlSsD_IPAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to required server name.
+        /// </summary>
+        internal static string mdlSsD_IPAddress_Need {
+            get {
+                return ResourceManager.GetString("mdlSsD_IPAddress_Need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to enter valid server name.
+        /// </summary>
+        internal static string mdlSsD_IPAddress_Valid {
+            get {
+                return ResourceManager.GetString("mdlSsD_IPAddress_Valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password :.
+        /// </summary>
+        internal static string mdlSSD_password {
+            get {
+                return ResourceManager.GetString("mdlSSD_password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to password required.
+        /// </summary>
+        internal static string mdlSSD_password_need {
+            get {
+                return ResourceManager.GetString("mdlSSD_password_need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Port :.
+        /// </summary>
+        internal static string mdlSsD_Port {
+            get {
+                return ResourceManager.GetString("mdlSsD_Port", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to required port number.
+        /// </summary>
+        internal static string mdlSsD_Port_Need {
+            get {
+                return ResourceManager.GetString("mdlSsD_Port_Need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter port here.
+        /// </summary>
+        internal static string mdlSsD_Port_PlaceHolder {
+            get {
+                return ResourceManager.GetString("mdlSsD_Port_PlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to enter valid port number.
+        /// </summary>
+        internal static string mdlSsD_Port_Valid {
+            get {
+                return ResourceManager.GetString("mdlSsD_Port_Valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        internal static string mdlSsD_Save {
+            get {
+                return ResourceManager.GetString("mdlSsD_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter server name.
+        /// </summary>
+        internal static string mdlSsD_servername_PlaceHolder {
+            get {
+                return ResourceManager.GetString("mdlSsD_servername_PlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Name  :.
+        /// </summary>
+        internal static string mdlSSD_Username {
+            get {
+                return ResourceManager.GetString("mdlSSD_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Name required.
+        /// </summary>
+        internal static string mdlSsD_Username_need {
+            get {
+                return ResourceManager.GetString("mdlSsD_Username_need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter user name.
+        /// </summary>
+        internal static string mdlSsD_Username_PlaceHolder {
+            get {
+                return ResourceManager.GetString("mdlSsD_Username_PlaceHolder", resourceCulture);
             }
         }
         
@@ -781,11 +1267,20 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Streaming Server  :.
+        ///   Looks up a localized string similar to Server Name :.
         /// </summary>
         internal static string SSD_StremServer {
             get {
                 return ResourceManager.GetString("SSD_StremServer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Name :.
+        /// </summary>
+        internal static string SSD_UserName {
+            get {
+                return ResourceManager.GetString("SSD_UserName", resourceCulture);
             }
         }
         

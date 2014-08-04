@@ -358,7 +358,7 @@
     <value>Password :</value>
   </data>
   <data name="SSD_StremServer" xml:space="preserve">
-    <value>Streaming Server  :</value>
+    <value>Server Name :</value>
   </data>
   <data name="VOD_Archive" xml:space="preserve">
     <value>Archive     :</value>
@@ -377,5 +377,170 @@
   </data>
   <data name="VOD_Videoconvertions" xml:space="preserve">
     <value>Video Conversion :</value>
+  </data>
+  <data name="ESD_EmailType" xml:space="preserve">
+    <value>Email Type :</value>
+  </data>
+  <data name="ESD_Port" xml:space="preserve">
+    <value>Port :</value>
+  </data>
+  <data name="ESD_Pwd" xml:space="preserve">
+    <value>Password :</value>
+  </data>
+  <data name="ESD_ReplyEmail" xml:space="preserve">
+    <value>Reply To Email :</value>
+  </data>
+  <data name="ESD_SenderName" xml:space="preserve">
+    <value>Sender Name :</value>
+  </data>
+  <data name="ESD_ServerName" xml:space="preserve">
+    <value>Server Name :</value>
+  </data>
+  <data name="ESD_TlsEnabled" xml:space="preserve">
+    <value>TLS Enabled :</value>
+  </data>
+  <data name="ESD_UserName" xml:space="preserve">
+    <value>User Name :</value>
+  </data>
+  <data name="hd_EmailServeDetails" xml:space="preserve">
+    <value>Email Server Details</value>
+  </data>
+  <data name="hd_EmalSD_Edit_Text" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="mdlEsD_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="mdlESD_Email" xml:space="preserve">
+    <value>Reply To Email :</value>
+  </data>
+  <data name="mdlESD_EmailType" xml:space="preserve">
+    <value>Email Type :</value>
+  </data>
+  <data name="mdlESD_EmailType_Text" xml:space="preserve">
+    <value>SMTP</value>
+  </data>
+  <data name="mdlESD_EmailType_Value" xml:space="preserve">
+    <value>SMTP</value>
+  </data>
+  <data name="mdlESD_Email_need" xml:space="preserve">
+    <value>email required</value>
+  </data>
+  <data name="mdlESD_Email_placeholder" xml:space="preserve">
+    <value>Enter reply to eamil</value>
+  </data>
+  <data name="mdlESD_Email_valid" xml:space="preserve">
+    <value>enter valid email</value>
+  </data>
+  <data name="mdlESD_Header" xml:space="preserve">
+    <value>Email Server Details</value>
+  </data>
+  <data name="mdlESD_IPAddress" xml:space="preserve">
+    <value>Server Name :</value>
+  </data>
+  <data name="mdlESD_IPAddress_Need" xml:space="preserve">
+    <value>server name required</value>
+  </data>
+  <data name="mdlESD_IPAddress_Valid" xml:space="preserve">
+    <value>enter valid server name</value>
+  </data>
+  <data name="mdlESD_password" xml:space="preserve">
+    <value>Password :</value>
+  </data>
+  <data name="mdlESD_password_need" xml:space="preserve">
+    <value> required password</value>
+  </data>
+  <data name="mdlESD_Port" xml:space="preserve">
+    <value>Port :</value>
+  </data>
+  <data name="mdlESD_Port_Need" xml:space="preserve">
+    <value>required port</value>
+  </data>
+  <data name="mdlESD_Port_PlaceHolder" xml:space="preserve">
+    <value>Enter port</value>
+  </data>
+  <data name="mdlESD_Port_Valid" xml:space="preserve">
+    <value>enter valid port </value>
+  </data>
+  <data name="mdlEsD_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="mdlESD_Sender_name" xml:space="preserve">
+    <value>Sender Name :</value>
+  </data>
+  <data name="mdlESD_Sender_need" xml:space="preserve">
+    <value>requried sender name</value>
+  </data>
+  <data name="mdlESD_Sender_PlaceHolder" xml:space="preserve">
+    <value>enter sender name</value>
+  </data>
+  <data name="mdlESD_servername_PlaceHolder" xml:space="preserve">
+    <value>enter server name </value>
+  </data>
+  <data name="mdlESD_TLS_Enabled" xml:space="preserve">
+    <value>TLS-Enabled :</value>
+  </data>
+  <data name="mdlESD_Username" xml:space="preserve">
+    <value>User Name :</value>
+  </data>
+  <data name="mdlESD_Username_need" xml:space="preserve">
+    <value>required username</value>
+  </data>
+  <data name="mdlESD_Username_PlaceHolder" xml:space="preserve">
+    <value>Enter user name</value>
+  </data>
+  <data name="mdlSsD_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="mdlSSD_Email" xml:space="preserve">
+    <value>email</value>
+  </data>
+  <data name="mdlSSD_Header" xml:space="preserve">
+    <value>Stereaming Server Details</value>
+  </data>
+  <data name="mdlSsD_IPAddress" xml:space="preserve">
+    <value>Server Name :</value>
+  </data>
+  <data name="mdlSsD_IPAddress_Need" xml:space="preserve">
+    <value>required server name</value>
+  </data>
+  <data name="mdlSsD_IPAddress_Valid" xml:space="preserve">
+    <value>enter valid server name</value>
+  </data>
+  <data name="mdlSSD_password" xml:space="preserve">
+    <value>Password :</value>
+  </data>
+  <data name="mdlSSD_password_need" xml:space="preserve">
+    <value>password required</value>
+  </data>
+  <data name="mdlSsD_Port" xml:space="preserve">
+    <value>Port :</value>
+  </data>
+  <data name="mdlSsD_Port_Need" xml:space="preserve">
+    <value>required port number</value>
+  </data>
+  <data name="mdlSsD_Port_PlaceHolder" xml:space="preserve">
+    <value>Enter port here</value>
+  </data>
+  <data name="mdlSsD_Port_Valid" xml:space="preserve">
+    <value>enter valid port number</value>
+  </data>
+  <data name="mdlSsD_Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="mdlSsD_servername_PlaceHolder" xml:space="preserve">
+    <value>Enter server name</value>
+  </data>
+  <data name="mdlSSD_Username" xml:space="preserve">
+    <value>User Name  :</value>
+  </data>
+  <data name="mdlSsD_Username_need" xml:space="preserve">
+    <value>User Name required</value>
+  </data>
+  <data name="mdlSsD_Username_PlaceHolder" xml:space="preserve">
+    <value>Enter user name</value>
+  </data>
+  <data name="SSD_UserName" xml:space="preserve">
+    <value>User Name :</value>
   </data>
 </root>

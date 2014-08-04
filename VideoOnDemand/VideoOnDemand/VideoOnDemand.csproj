@@ -152,11 +152,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Community.resx</DependentUpon>
     </Compile>
-    <Compile Include="App_GlobalResources\Config.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Config.resx</DependentUpon>
-    </Compile>
     <Compile Include="App_GlobalResources\Config.ar.designer.cs">
       <DependentUpon>Config.ar.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -166,6 +161,11 @@
       <DependentUpon>Community.ar.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Config1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Config.resx</DependentUpon>
     </Compile>
     <Compile Include="App_GlobalResources\District.ar.designer.cs">
       <DependentUpon>District.ar.resx</DependentUpon>
@@ -537,7 +537,7 @@
   <ItemGroup>
     <Content Include="App_GlobalResources\Config.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Config.Designer.cs</LastGenOutput>
+      <LastGenOutput>Config1.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
