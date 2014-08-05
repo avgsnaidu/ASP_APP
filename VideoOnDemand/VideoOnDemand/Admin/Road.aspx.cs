@@ -76,7 +76,7 @@ namespace VideoOnDemand
                 bool returnValue = road.UpdateRoadDetails(Convert.ToInt32(Session["ROAD_NO"]), txtEditNameEng.Text.Trim(), txtEditNameEng.Text.Trim());
                 if (returnValue)
                 {
-                    lblMessage.Text = "Road updated successfully";
+                    lblMessage.Text = Resources.Road.MSG_Road_Upadate_Sucess;
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
@@ -100,7 +100,7 @@ namespace VideoOnDemand
                 if (returnValue)
                 {
                     BindRoad();
-                    lblMessage.Text = "Road saved sucessfully";
+                    lblMessage.Text = Resources.Road.MSG_ROAD_SAVE_Sucess;
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
@@ -122,7 +122,7 @@ namespace VideoOnDemand
                 var returnValue = road.DeleteRoad(Convert.ToInt32(Session["Road_NO"]));
                 if (returnValue)
                     BindRoad();
-                lblMessage.Text = "Road deleted successfully";
+                lblMessage.Text = Resources.Road.MSG_ROAD_DELETE_SUCESS;
                 sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
@@ -135,7 +135,7 @@ namespace VideoOnDemand
                 sb = new System.Text.StringBuilder();
                 if (ex.Number == 547)
                 {
-                    lblMessage.Text = "Road not deleted,as it is assigned to another user";
+                    lblMessage.Text = Resources.Road.MSG_ROAD_Delete_Failed;
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
                     sb.Append("$('#deleteWarning').modal('hide');");
@@ -143,7 +143,7 @@ namespace VideoOnDemand
                 }
                 else
                 {
-                    lblMessage.Text = "Road not deleted as it is assigned to another";
+                    lblMessage.Text = Resources.Road.MSG_ROAD_Delete_Failed;
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
                     sb.Append("$('#deleteWarning').modal('hide');");
@@ -152,7 +152,7 @@ namespace VideoOnDemand
             }
             catch (Exception ex)
             {
-                lblMessage.Text = "Another object is depends on this Road";
+                lblMessage.Text = Resources.Road.MSG_ROAD_Delete_Failed;
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append("$('#deleteWarning').modal('hide');");

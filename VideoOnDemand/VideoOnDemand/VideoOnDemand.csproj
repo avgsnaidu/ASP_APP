@@ -128,6 +128,13 @@
     <Compile Include="Setup\setup3.aspx.designer.cs">
       <DependentUpon>setup3.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Setup\setup4.aspx.cs">
+      <DependentUpon>setup4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Setup\setup4.aspx.designer.cs">
+      <DependentUpon>setup4.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WindowsUser.aspx.cs">
       <DependentUpon>WindowsUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -327,6 +334,7 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Setup\setup2.aspx" />
     <Content Include="Setup\setup3.aspx" />
+    <Content Include="Setup\setup4.aspx" />
     <Content Include="WindowsUser.aspx" />
     <None Include="Properties\PublishProfiles\VODWeb.pubxml" />
     <None Include="Properties\PublishProfiles\VODWebTwo.pubxml" />
@@ -346,7 +354,6 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Index.aspx" />
     <Content Include="Setup\setup1.aspx" />
-    <Content Include="Setup\setup4.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Archived.aspx" />
     <Content Include="GroupManagement.aspx" />
@@ -424,13 +431,6 @@
     </Compile>
     <Compile Include="Setup\setup1.aspx.designer.cs">
       <DependentUpon>setup1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Setup\setup4.aspx.cs">
-      <DependentUpon>setup4.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Setup\setup4.aspx.designer.cs">
-      <DependentUpon>setup4.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>

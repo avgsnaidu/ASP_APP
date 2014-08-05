@@ -228,4 +228,19 @@
   <data name="UPMDL_txtEditDescription_text" xml:space="preserve">
     <value>Description</value>
   </data>
+  <data name="MSG_Group_Delete_Failed" xml:space="preserve">
+    <value>Group not deleted,as it is assigned to another user/video</value>
+  </data>
+  <data name="MSG_Group_Delete_Failed_Depends" xml:space="preserve">
+    <value>Another object is depends on this group</value>
+  </data>
+  <data name="MSG_Group_Delete_Sucess" xml:space="preserve">
+    <value>Group deleted successfully</value>
+  </data>
+  <data name="MSG_Group_Save_Sucess" xml:space="preserve">
+    <value>Group saved sucessfully</value>
+  </data>
+  <data name="MSG_Group_Update_Sucess" xml:space="preserve">
+    <value>Group updated successfully</value>
+  </data>
 </root>

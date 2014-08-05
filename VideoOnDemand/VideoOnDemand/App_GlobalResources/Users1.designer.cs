@@ -302,5 +302,50 @@ namespace Resources {
                 return ResourceManager.GetString("mdlEUP_UserName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group deleted successfully.
+        /// </summary>
+        internal static string MSG_Group_Delete_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_Group_Delete_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group Updated Successfully.
+        /// </summary>
+        internal static string MSG_Group_Updated_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_Group_Updated_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select at least one user.
+        /// </summary>
+        internal static string MSG_SelectAtleastOne {
+            get {
+                return ResourceManager.GetString("MSG_SelectAtleastOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select valid group name.
+        /// </summary>
+        internal static string MSG_Select_ValidGroupName {
+            get {
+                return ResourceManager.GetString("MSG_Select_ValidGroupName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully users assigned to group.
+        /// </summary>
+        internal static string MSG_UserAssined_ToGroup_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_UserAssined_ToGroup_Sucess", resourceCulture);
+            }
+        }
     }
 }

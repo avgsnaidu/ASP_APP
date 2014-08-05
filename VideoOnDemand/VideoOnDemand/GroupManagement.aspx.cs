@@ -97,7 +97,7 @@ namespace VideoOnDemand.VODManage
                 if (returnValue)
                 {
                     BindGroupsDetails();
-                    lblMessage.Text = "Group saved sucessfully";
+                    lblMessage.Text = Resources.GroupManage.MSG_Group_Save_Sucess;
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
@@ -122,7 +122,7 @@ namespace VideoOnDemand.VODManage
                 bool returnValue = repository.UpdateGroupDetails(Convert.ToInt32(Session["GroupID"]), txtEditGroupName.Text.Trim(), txtEditDescription.Text.Trim());
                 if (returnValue)
                 {
-                    lblMessage.Text = "Group updated successfully";
+                    lblMessage.Text = Resources.GroupManage.MSG_Group_Update_Sucess;
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
                     //sb.Append(@"<script type='text/javascript'>");
@@ -151,7 +151,7 @@ namespace VideoOnDemand.VODManage
                 var returnValue = repository.DeleteGroup(Convert.ToInt32(Session["GroupID"]));
                 if (returnValue)
                     BindGroupsDetails();
-                lblMessage.Text = "Group deleted successfully";
+                lblMessage.Text = Resources.GroupManage.MSG_Group_Delete_Sucess;
                 sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
@@ -164,7 +164,7 @@ namespace VideoOnDemand.VODManage
                 sb = new System.Text.StringBuilder();
                 if (ex.Number == 547)
                 {
-                    lblMessage.Text = "Group not deleted,as it is assigned to another user/video";
+                    lblMessage.Text = Resources.GroupManage.MSG_Group_Delete_Failed;
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
                     sb.Append("$('#deleteWarning').modal('hide');");
@@ -172,7 +172,7 @@ namespace VideoOnDemand.VODManage
                 }
                 else
                 {
-                    lblMessage.Text = "Group not deleted as it is assigned to another";
+                    lblMessage.Text = Resources.GroupManage.MSG_Group_Delete_Failed;
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
                     sb.Append("$('#deleteWarning').modal('hide');");
@@ -181,7 +181,7 @@ namespace VideoOnDemand.VODManage
             }
             catch (Exception ex)
             {
-                lblMessage.Text = "Another object is depends on this group";
+                lblMessage.Text = Resources.GroupManage.MSG_Group_Delete_Failed_Depends;
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append("$('#deleteWarning').modal('hide');");

@@ -329,5 +329,41 @@ namespace Resources {
                 return ResourceManager.GetString("mdlTagEdit_RoadSelect_Text", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select at least one video.
+        /// </summary>
+        internal static string MSG_Select_Atleast_One {
+            get {
+                return ResourceManager.GetString("MSG_Select_Atleast_One", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully videos assigned to group.
+        /// </summary>
+        internal static string MSG_Videos_AssingedToGroup_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_Videos_AssingedToGroup_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Updations of video tags not completed.
+        /// </summary>
+        internal static string MSG_VideoTags_Update_Failed {
+            get {
+                return ResourceManager.GetString("MSG_VideoTags_Update_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully video tags updated.
+        /// </summary>
+        internal static string MSG_Video_Tags_Updated {
+            get {
+                return ResourceManager.GetString("MSG_Video_Tags_Updated", resourceCulture);
+            }
+        }
     }
 }

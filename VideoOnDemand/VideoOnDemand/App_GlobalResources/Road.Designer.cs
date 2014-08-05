@@ -248,5 +248,41 @@ namespace Resources {
                 return ResourceManager.GetString("mdlUR_Save", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Road not deleted,as it is assigned to another.
+        /// </summary>
+        internal static string MSG_ROAD_Delete_Failed {
+            get {
+                return ResourceManager.GetString("MSG_ROAD_Delete_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Road deleted successfully.
+        /// </summary>
+        internal static string MSG_ROAD_DELETE_SUCESS {
+            get {
+                return ResourceManager.GetString("MSG_ROAD_DELETE_SUCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Road saved sucessfully.
+        /// </summary>
+        internal static string MSG_ROAD_SAVE_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_ROAD_SAVE_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Road updated successfully.
+        /// </summary>
+        internal static string MSG_Road_Upadate_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_Road_Upadate_Sucess", resourceCulture);
+            }
+        }
     }
 }

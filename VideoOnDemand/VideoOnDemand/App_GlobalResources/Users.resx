@@ -198,4 +198,19 @@
   <data name="ddlGroupsList_SelectGroup_Text" xml:space="preserve">
     <value>Select Group</value>
   </data>
+  <data name="MSG_Group_Delete_Sucess" xml:space="preserve">
+    <value>Group deleted successfully</value>
+  </data>
+  <data name="MSG_Group_Updated_Sucess" xml:space="preserve">
+    <value>Group Updated Successfully</value>
+  </data>
+  <data name="MSG_SelectAtleastOne" xml:space="preserve">
+    <value>Please select at least one user</value>
+  </data>
+  <data name="MSG_Select_ValidGroupName" xml:space="preserve">
+    <value>Please select valid group name</value>
+  </data>
+  <data name="MSG_UserAssined_ToGroup_Sucess" xml:space="preserve">
+    <value>Successfully users assigned to group</value>
+  </data>
 </root>

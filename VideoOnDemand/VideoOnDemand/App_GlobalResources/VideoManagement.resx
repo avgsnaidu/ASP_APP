@@ -207,4 +207,16 @@
   <data name="ddlGroupsList_NoGroups_Text" xml:space="preserve">
     <value>No Groups to select</value>
   </data>
+  <data name="MSG_Select_Atleast_One" xml:space="preserve">
+    <value>Please select at least one video</value>
+  </data>
+  <data name="MSG_Videos_AssingedToGroup_Sucess" xml:space="preserve">
+    <value>Successfully videos assigned to group</value>
+  </data>
+  <data name="MSG_VideoTags_Update_Failed" xml:space="preserve">
+    <value>Updations of video tags not completed</value>
+  </data>
+  <data name="MSG_Video_Tags_Updated" xml:space="preserve">
+    <value>Successfully video tags updated</value>
+  </data>
 </root>

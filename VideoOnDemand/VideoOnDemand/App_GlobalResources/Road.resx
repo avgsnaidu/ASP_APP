@@ -180,4 +180,16 @@
   <data name="mdlUR_Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="MSG_ROAD_Delete_Failed" xml:space="preserve">
+    <value>Road not deleted,as it is assigned to another</value>
+  </data>
+  <data name="MSG_ROAD_DELETE_SUCESS" xml:space="preserve">
+    <value>Road deleted successfully</value>
+  </data>
+  <data name="MSG_ROAD_SAVE_Sucess" xml:space="preserve">
+    <value>Road saved sucessfully</value>
+  </data>
+  <data name="MSG_Road_Upadate_Sucess" xml:space="preserve">
+    <value>Road updated successfully</value>
+  </data>
 </root>

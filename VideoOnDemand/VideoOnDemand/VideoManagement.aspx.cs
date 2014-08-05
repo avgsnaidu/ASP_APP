@@ -6,6 +6,7 @@ using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using VideoOnDemand.Model;
 using VideoOnDemand.Model.BAL;
 
 namespace VideoOnDemand.VODManage
@@ -120,7 +121,7 @@ namespace VideoOnDemand.VODManage
             if (!atLeastOneSelected)
             {
                 StringBuilder sb = new System.Text.StringBuilder();
-                lblMessage.Text = "Please select at least one video";
+                lblMessage.Text = Resources.VideoManagement.MSG_Select_Atleast_One;
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append(@"</script>");
@@ -434,7 +435,7 @@ namespace VideoOnDemand.VODManage
             {
                 sb = new System.Text.StringBuilder();
 
-                lblMessage.Text = "Please select valid group Name";
+                lblMessage.Text = Resources.Users.MSG_Select_ValidGroupName;
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append(@"</script>");
@@ -462,7 +463,7 @@ namespace VideoOnDemand.VODManage
                 repository.AssignVideosToGroup(Convert.ToInt32(ddlGroupList.SelectedItem.Value), Session["SelectedVideosToAddGroup"].ToString());
                 BindVideos();
 
-                lblMessage.Text = "Successfully videos assigned to group";
+                lblMessage.Text = Resources.VideoManagement.MSG_Videos_AssingedToGroup_Sucess;
                 sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
@@ -505,7 +506,7 @@ namespace VideoOnDemand.VODManage
             if (updateSucess)
             {
                 BindVideosBasedOnSelection();
-                lblMessage.Text = "Successfully video tags updated";
+                lblMessage.Text = Resources.VideoManagement.MSG_Video_Tags_Updated;
                 sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
@@ -516,7 +517,7 @@ namespace VideoOnDemand.VODManage
             }
             else
             {
-                lblMessage.Text = "Updations of video tags not completed";
+                lblMessage.Text = Resources.VideoManagement.MSG_VideoTags_Update_Failed;
                 sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
@@ -549,7 +550,7 @@ namespace VideoOnDemand.VODManage
             {
                 StringBuilder cstext1 = new StringBuilder();
 
-                string playerUrl = string.Format("http://172.16.1.201:1935/vod/smil:{0}.smil/jwplayer.smil", videoName);
+                string playerUrl = string.Format(ClsConnectionString.getVideosServerPath(), videoName);
 
                 cstext1.Append("<script type='text/javascript'> ");
                 cstext1.Append(" jwplayer('player').setup({ ");
