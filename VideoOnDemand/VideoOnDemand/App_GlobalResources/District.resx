@@ -180,4 +180,19 @@
   <data name="mdlUD_Save_text" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="MSG_Distrct_Update_Sucess" xml:space="preserve">
+    <value>District updated successfully</value>
+  </data>
+  <data name="MSG_District_Delete_Failed" xml:space="preserve">
+    <value>District not deleted,as it is assigned to another user</value>
+  </data>
+  <data name="MSG_District_Delete_Failed_Depends" xml:space="preserve">
+    <value>Another object is depends on this District</value>
+  </data>
+  <data name="MSG_District_Delete_Sucess" xml:space="preserve">
+    <value>District deleted successfully</value>
+  </data>
+  <data name="MSG_District_Save_Sucess" xml:space="preserve">
+    <value>District saved sucessfully</value>
+  </data>
 </root>

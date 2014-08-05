@@ -189,4 +189,19 @@
   <data name="mdlUC_Save" xml:space="preserve">
     <value>Save_AR</value>
   </data>
+  <data name="MSG_Community_Delete_failed" xml:space="preserve">
+    <value>Community not deleted,as it is assigned to another user_AR</value>
+  </data>
+  <data name="MSG_Community_Delete_failed_UserbyAnother" xml:space="preserve">
+    <value>Another object is depends on this Community_AR</value>
+  </data>
+  <data name="MSG_Community_Delete_Sucess" xml:space="preserve">
+    <value>Community deleted successfully_AR</value>
+  </data>
+  <data name="MSG_Community_Save_Sucess" xml:space="preserve">
+    <value>Community saved successfully_AR</value>
+  </data>
+  <data name="MSG_Community_Update_Sucess" xml:space="preserve">
+    <value>Community updated successfully_AR</value>
+  </data>
 </root>

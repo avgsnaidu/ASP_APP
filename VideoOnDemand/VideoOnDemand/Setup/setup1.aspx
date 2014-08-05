@@ -4,7 +4,7 @@
 </asp:Content>
 
 <asp:Content ID="DatabaseSetupContent" ContentPlaceHolderID="VODContentPlaceHolder" runat="server">
-   <%-- 
+    <%-- 
     <asp:Literal ID="StyleSheet" runat="Server" />--%>
 
 
@@ -46,72 +46,107 @@
         <div class="col-md-12 full-width">
             <div class="navigation">
                 <ul>
-                    <li class="first-child completed edit-s"><a href="#"><span>1</span>Database Setup</a></li>
-                    <li class="middle-leftchild"><a href="#"><span>2</span>Active Directory Details </a></li>
-                    <li class="middle-rightchild"><a href="#"><span>3</span>VOD Configuration Details </a></li>
-                    <li class="last-child"><a href="#"><span>4</span>Super Admin Info</a></li>
+                    <li class="first-child completed edit-s"><a href="#">
+                        <span>
+                            <asp:Literal runat="server" ID="ltlVidMang" Text="<%$ Resources:Setup, HD_Step1_Number%>" /></span>
+                        <asp:Literal runat="server" ID="Literal1" Text="<%$ Resources:Setup, HD_Step1_DatabaseSetup%>" />
+                    </a></li>
+                    <li class="middle-leftchild"><a href="#">
+                        <span>
+                            <asp:Literal runat="server" ID="Literal2" Text="<%$ Resources:Setup, HD_Step2_Number%>" /></span>
+                        <asp:Literal runat="server" ID="Literal3" Text="<%$ Resources:Setup, HD_Step2_Active_Directory_Details%>" />
+                    </a></li>
+                    <li class="middle-rightchild"><a href="#">
+                        <span>
+                            <asp:Literal runat="server" ID="Literal4" Text="<%$ Resources:Setup, HD_Step3_Number%>" /></span>
+                        <asp:Literal runat="server" ID="Literal5" Text="<%$ Resources:Setup, HD_Step3_VOD_Configuration_Details%>" />
+
+                    </a></li>
+                    <li class="last-child"><a href="#">
+                        <span>
+                            <asp:Literal runat="server" ID="Literal6" Text="<%$ Resources:Setup, HD_Step4_Number%>" /></span>
+                        <asp:Literal runat="server" ID="Literal7" Text="<%$ Resources:Setup, HD_Step4_Super_Admin_Info%>" />
+                    </a></li>
                 </ul>
             </div>
-            <div class="column1">Enter database connecton details.</div>
+            <div class="column1">
+                <asp:Literal runat="server" ID="Literal8" Text="<%$ Resources:Setup, DBS_Hd_enterDBDetails%>" />
+            </div>
             <!--Step1-->
             <div class="column2">
-                <label>IP Address<span class="required"> *</span></label>
+                <label>
+                    <asp:Literal runat="server" ID="Literal9" Text="<%$ Resources:Setup, DBS_lbl_IPAddress%>" />
+                    <span class="required">*</span></label>
                 <div class="input-holder">
                     <asp:TextBox runat="server" ID="txtIPAddress" ClientIDMode="Static" CssClass="form-control required NoEmpty ipformat" data-placement="right" data-trigger="manual" MaxLength="25" data-content="Enter valid ip address"></asp:TextBox>
                     <span class="sprite ip"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvTxtIPAddress" ControlToValidate="txtIPAddress" ValidationGroup="DbSetup" ErrorMessage="* Please Enter IP Address" ForeColor="Red" Display="Dynamic" />
-                <asp:RegularExpressionValidator runat="server" ID="revTxtIPAddress" ValidationGroup="DbSetup" ValidationExpression="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" ForeColor="Red" ControlToValidate="txtIPAddress" ErrorMessage="* Invalid Ip Address" Display="Dynamic" />
+                <asp:RequiredFieldValidator runat="server" ID="rfvTxtIPAddress" ControlToValidate="txtIPAddress" ValidationGroup="DbSetup" ErrorMessage="<%$ Resources:Setup, DBS_Req_IPAddress%>" ForeColor="Red" Display="Dynamic" />
+                <asp:RegularExpressionValidator runat="server" ID="revTxtIPAddress" ValidationGroup="DbSetup" ValidationExpression="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+                    ForeColor="Red" ControlToValidate="txtIPAddress" ErrorMessage="<%$ Resources:Setup, DBS_Valid_IPAddress%>" Display="Dynamic" />
             </div>
             <div class="column2">
-                <label>Port<span class="required"> *</span></label>
+                <label>
+                    <asp:Literal runat="server" ID="Literal10" Text="<%$ Resources:Setup, DBS_lbl_Port%>" />
+                    <span class="required">*</span></label>
                 <div class="input-holder">
                     <asp:TextBox runat="server" ID="txtPort" ClientIDMode="Static" CssClass="form-control required NoEmpty portnumber" data-placement="right" data-trigger="manual" MaxLength="6" data-content="Enter valid port number"></asp:TextBox>
                     <span class="sprite port"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvport" ControlToValidate="txtPort" ValidationGroup="DbSetup" ErrorMessage="* Please Enter Port" ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator runat="server" ID="revPort" ValidationGroup="DbSetup" ValidationExpression="^(102[0-4]|10[0-1]\d|[1-9][0-9]{0,3}|0)$" ForeColor="Red" ControlToValidate="txtPort" Display="Dynamic" ErrorMessage="* Invalid Port" />
+                <asp:RequiredFieldValidator runat="server" ID="rfvport" ControlToValidate="txtPort" ValidationGroup="DbSetup" ErrorMessage="<%$ Resources:Setup, DBS_Req_PORT%>" ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator runat="server" ID="revPort" ValidationGroup="DbSetup" ValidationExpression="^(102[0-4]|10[0-1]\d|[1-9][0-9]{0,3}|0)$" ForeColor="Red"
+                    ControlToValidate="txtPort" Display="Dynamic" ErrorMessage="<%$ Resources:Setup, DBS_Valid_Port%>" />
 
             </div>
             <div class="column2">
-                <label>Database Name<span class="required"> *</span></label>
+                <label>
+                    <asp:Literal runat="server" ID="Literal11" Text="<%$ Resources:Setup, DBS_lbl_DBName%>" />
+                    <span class="required">*</span></label>
                 <div class="input-holder">
                     <asp:TextBox runat="server" ID="txtDatabaseName" CssClass="form-control required NoEmpty " data-placement="right" data-trigger="manual" MaxLength="25" data-content="Enter Valid Database"></asp:TextBox>
                     <span class="sprite database"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvDatabaseName" ControlToValidate="txtDatabaseName" ValidationGroup="DbSetup" ErrorMessage="* Please Enter Database" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ID="rfvDatabaseName" ControlToValidate="txtDatabaseName" ValidationGroup="DbSetup"
+                    ErrorMessage="<%$ Resources:Setup, DBS_REq_DBName%>" ForeColor="#E2351D"></asp:RequiredFieldValidator>
             </div>
 
             <div class="column2">
-                <label>User ID<span class="required"> *</span></label>
+                <label>
+                    <asp:Literal runat="server" ID="Literal12" Text="<%$ Resources:Setup, DBS_lbl_UserID%>" /><span class="required"> *</span></label>
                 <div class="input-holder">
                     <asp:TextBox runat="server" ID="txtUserId" CssClass="form-control required NoEmpty " data-placement="right" data-trigger="manual" MaxLength="15" data-content="Enter Valid UserId"></asp:TextBox>
                     <span class="sprite username"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvUserId" ControlToValidate="txtUserId" ValidationGroup="DbSetup" ErrorMessage="* Please Enter UserId" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ID="rfvUserId" ControlToValidate="txtUserId" ValidationGroup="DbSetup"
+                    ErrorMessage="<%$ Resources:Setup, DBS_Req_UserId%> " ForeColor="#E2351D"></asp:RequiredFieldValidator>
             </div>
             <div class="column2">
-                <label>Password<span class="required"> *</span></label>
+                <label>
+                    <asp:Literal runat="server" ID="Literal13" Text="<%$ Resources:Setup, DBS_lbl_Password%>" />
+                    <span class="required">*</span></label>
                 <div class="input-holder">
                     <asp:TextBox runat="server" ID="txtPassword" TextMode="Password" CssClass="form-control required NoEmpty" data-placement="right" data-trigger="manual" MaxLength="15" data-content="Enter Password"></asp:TextBox>
                     <span class="sprite password"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtPassword" ValidationGroup="DbSetup" ErrorMessage="* Please Enter Password" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtPassword" ValidationGroup="DbSetup" ErrorMessage="<%$ Resources:Setup, DBS_Req_PWD%> " ForeColor="#E2351D"></asp:RequiredFieldValidator>
 
 
             </div>
 
             <div class="bottom-container clearfix">
                 <p class="pull-left">
-                    <span class="required required-font">*</span> Indicates mandatory fields
-                    <br>
-                    If you are not sure about database details, please contact your host.
+                    <span class="required required-font">*</span>
+                    <asp:Literal runat="server" ID="Literal14" Text="<%$ Resources:Setup, DBS_Fot_IndicatesMadatory%>" /><br />
+                    <asp:Literal runat="server" ID="Literal15" Text="<%$ Resources:Setup, DBS_Fot_DbDetailsSureMessage%>" />
                 </p>
                 <p class="pull-right">
 
                     <asp:Button runat="server" ID="btnNext" ClientIDMode="Static" Width="0" Height="0" CausesValidation="true" BackColor="Transparent"
                         ValidationGroup="DbSetup" BorderWidth="0" OnClick="btnNext_ServerClick" OnClientClick="myApp.showPleaseWait()" />
-                    <label runat="server" id="lblClickButton" for="btnNext" class="labelButton">Next<span class="sprite ic-arrow"></span></label>
+                    <label runat="server" id="lblClickButton" for="btnNext" class="labelButton">
+                        <asp:Literal runat="server" ID="Literal16" Mode="PassThrough" Text="<%$ Resources:Setup, DBS_Fot_btnNext %>" ></asp:Literal>
+                        <span class="sprite ic-arrow"></span>
+                    </label>
                 </p>
             </div>
         </div>
@@ -122,7 +157,9 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                        <h4 class="modal-title" id="alertHeader">Alert !</h4>
+                        <h4 class="modal-title" id="alertHeader">
+                            <asp:Literal runat="server" ID="Literal17" Text="<%$ Resources:Setup, DBS_mdlAlt_HdText%>" />
+                        </h4>
                     </div>
                     <asp:UpdatePanel ID="UpdatePanel5" runat="server">
                         <ContentTemplate>
@@ -135,12 +172,11 @@
                             </div>
                         </ContentTemplate>
                         <Triggers>
-
                             <asp:AsyncPostBackTrigger ControlID="btnOk" EventName="Click" />
                         </Triggers>
                     </asp:UpdatePanel>
                     <div class="modal-footer">
-                        <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text=" OK " />
+                        <asp:Button ID="btnOk" runat="server" data-dismiss="modal" class="btn btn-primary" Text="<%$ Resources:Setup, DBS_mdlAlt_Ok%> " />
                     </div>
                 </div>
             </div>
@@ -148,7 +184,7 @@
 
     </div>
 
-  <%--  <div class="modal fade hide" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="alertHeader" aria-hidden="true" data-dismiss="modal">
+    <%--  <div class="modal fade hide" id="pleaseWaitDialog" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="alertHeader" aria-hidden="true" data-dismiss="modal">
         <div class="modal-header">
             <h1>Processing...</h1>
         </div>
@@ -163,7 +199,4 @@
 
         </asp:UpdatePanel>
     </div>--%>
-
-
-
 </asp:Content>

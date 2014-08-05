@@ -58,7 +58,7 @@ namespace VideoOnDemand.VODManage
         protected void gvArchiveListing_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvArchiveListing.PageIndex = e.NewPageIndex;
-            BindSearchedList();
+            BindArchiveList();
         }
 
         protected override void OnPreRender(EventArgs e)

@@ -1240,6 +1240,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Streaming Email Details Not Saved.
+        /// </summary>
+        internal static string MSG_EmailServer_Save_Failed {
+            get {
+                return ResourceManager.GetString("MSG_EmailServer_Save_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully Email Server Details Saved.
+        /// </summary>
+        internal static string MSG_EmailServer_Save_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_EmailServer_Save_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Successfully Streaming Server Details Saved.
+        /// </summary>
+        internal static string MSG_SteramingServer_Saved_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_SteramingServer_Saved_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Streaming Server Details Not Saved.
+        /// </summary>
+        internal static string MSG_StreamingServer_Save_Failed {
+            get {
+                return ResourceManager.GetString("MSG_StreamingServer_Save_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email  :.
         /// </summary>
         internal static string SAD_Email {

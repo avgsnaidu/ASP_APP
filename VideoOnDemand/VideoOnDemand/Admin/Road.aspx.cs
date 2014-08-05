@@ -16,7 +16,13 @@ namespace VideoOnDemand
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindRoad();
+            if (Request.IsAuthenticated && Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
+            {
+                if (!IsPostBack)
+                    BindRoad();
+            }
+            else
+                Response.Redirect("~/WindowsUser.aspx");
         }
 
         private void BindRoad()

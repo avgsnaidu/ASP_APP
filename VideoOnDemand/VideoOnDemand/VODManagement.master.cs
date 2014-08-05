@@ -16,29 +16,29 @@ namespace VideoOnDemand.VODManage
             {
                 if (Convert.ToBoolean(Session["IsAdmin"].ToString()))
                 {
-                    string linkButtonID = Request.RawUrl;
+                    //string linkButtonID = Request.RawUrl;
 
-                    if (-1 < linkButtonID.IndexOf("Users"))
-                    {
-                        ((HtmlGenericControl)lnkUserMang.Parent).Style.Add("disyplay", "none !important");
-                    }
-                    if (-1 < linkButtonID.IndexOf("GroupManagement"))
-                    {
-                        ((HtmlGenericControl)lnkGroupMang.Parent).Attributes.Add("class", "active");
-                    }
-                    else if (-1 < linkButtonID.IndexOf("VideoManagement"))
-                    {
-                        ((HtmlGenericControl)lnkVideoMang.Parent).Attributes.Add("class", "active");
-                    }
-                    else if (-1 < linkButtonID.IndexOf("Search"))
-                    {
-                        ((HtmlGenericControl)lnkSearch.Parent).Attributes.Add("class", "active");
-                    }
-                    else if (-1 < linkButtonID.IndexOf("Archived"))
-                    {
-                        ((HtmlGenericControl)lnkArchiveListen.Parent).Attributes.Add("class", "active");
+                    //if (-1 < linkButtonID.IndexOf("Users"))
+                    //{
+                    //    ((HtmlGenericControl)lnkUserMang.Parent).Style.Add("disyplay", "none !important");
+                    //}
+                    //if (-1 < linkButtonID.IndexOf("GroupManagement"))
+                    //{
+                    //    ((HtmlGenericControl)lnkGroupMang.Parent).Attributes.Add("class", "active");
+                    //}
+                    //else if (-1 < linkButtonID.IndexOf("VideoManagement"))
+                    //{
+                    //    ((HtmlGenericControl)lnkVideoMang.Parent).Attributes.Add("class", "active");
+                    //}
+                    //else if (-1 < linkButtonID.IndexOf("Search"))
+                    //{
+                    //    ((HtmlGenericControl)lnkSearch.Parent).Attributes.Add("class", "active");
+                    //}
+                    //else if (-1 < linkButtonID.IndexOf("Archived"))
+                    //{
+                    //    ((HtmlGenericControl)lnkArchiveListen.Parent).Attributes.Add("class", "active");
 
-                    }
+                    //}
 
                 }
             }

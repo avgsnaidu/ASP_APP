@@ -14,18 +14,18 @@ namespace VideoOnDemand.Model.BAL
         public string TargetFolder { get; set; }
         public string ArchiveFolder { get; set; }
         public string BackupFolder { get; set; }
-        public string SchedulerFlag { get; set; }
-        public int SchedulerHours { get; set; }
+        public char SchedulerFlag { get; set; }
+        public double SchedulerHours { get; set; }
         public int ConfigId { get; set; }
-
+        public int SimultaneousConversions { get; set; }
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
 
         public bool AddVODConfigurationDetails()
         {
             string strSql = string.Empty;
-            strSql = string.Format("INSERT INTO VOD_CONFIG (SOURCE_FOLDER,TARGET_FOLDER,ARCHIVE_FOLDER,BACKUP_FOLDER,SCHEDULER_FLAG,SCHEDULER_HOURS_INTERVAL,DATE_CREATED,DATE_UPDATED)VALUES('N{0}','N{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}',N'{7}')",
-                SourceFolder, TargetFolder, ArchiveFolder, BackupFolder, SchedulerFlag, SchedulerHours, DateTime.Now, (DateTime?)null);
+            strSql = string.Format("INSERT INTO VOD_CONFIG (SOURCE_FOLDER,TARGET_FOLDER,ARCHIVE_FOLDER,BACKUP_FOLDER,SCHEDULER_FLAG,SCHEDULER_HOURS_INTERVAL,SIMULT_CONVERSIONS,DATE_CREATED)VALUES('N{0}','N{1}',N'{2}',N'{3}',N'{4}',N'{5}',N'{6}',N'{7}')",
+                SourceFolder, TargetFolder, ArchiveFolder, BackupFolder, SchedulerFlag, SchedulerHours, SimultaneousConversions, DateTime.Now);
             int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
             if (returnVal > 0)
                 return true;
@@ -34,7 +34,7 @@ namespace VideoOnDemand.Model.BAL
 
         }
 
-        public bool UpdateVODDetails(int configid, string Src, string Dest, string Arch, string Backup, char SchedulFlag, double Schedulehrs,int simultaneousConversions)
+        public bool UpdateVODDetails(int configid, string Src, string Dest, string Arch, string Backup, char SchedulFlag, double Schedulehrs, int simultaneousConversions)
         {
             SqlParameter[] p = new SqlParameter[8];
             p[0] = new SqlParameter("@Source", SqlDbType.NVarChar);
@@ -54,7 +54,7 @@ namespace VideoOnDemand.Model.BAL
             p[7] = new SqlParameter("@SimultConversions", SqlDbType.Int);
             p[7].Value = simultaneousConversions;
 
-            string strSql = "UPDATE VOD_CONFIG SET SOURCE_FOLDER=@Source ,TARGET_FOLDER=@Dest, ARCHIVE_FOLDER=@Archive, BACKUP_FOLDER=@Backup,"+
+            string strSql = "UPDATE VOD_CONFIG SET SOURCE_FOLDER=@Source ,TARGET_FOLDER=@Dest, ARCHIVE_FOLDER=@Archive, BACKUP_FOLDER=@Backup," +
                 " SCHEDULER_FLAG=@SchedulFlag, SCHEDULER_HOURS_INTERVAL=@Schedulehrs,SIMULT_CONVERSIONS=@SimultConversions, DATE_UPDATED=GETDATE() where CONFIG_ID=@configid";
             int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
             if (value > 0)

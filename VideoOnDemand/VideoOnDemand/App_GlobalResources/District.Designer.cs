@@ -248,5 +248,50 @@ namespace Resources {
                 return ResourceManager.GetString("mdlUD_Save_text", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to District updated successfully.
+        /// </summary>
+        internal static string MSG_Distrct_Update_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_Distrct_Update_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to District not deleted,as it is assigned to another user.
+        /// </summary>
+        internal static string MSG_District_Delete_Failed {
+            get {
+                return ResourceManager.GetString("MSG_District_Delete_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Another object is depends on this District.
+        /// </summary>
+        internal static string MSG_District_Delete_Failed_Depends {
+            get {
+                return ResourceManager.GetString("MSG_District_Delete_Failed_Depends", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to District deleted successfully.
+        /// </summary>
+        internal static string MSG_District_Delete_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_District_Delete_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to District saved sucessfully.
+        /// </summary>
+        internal static string MSG_District_Save_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_District_Save_Sucess", resourceCulture);
+            }
+        }
     }
 }

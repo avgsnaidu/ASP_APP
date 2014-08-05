@@ -433,4 +433,19 @@ a#lnkDropDownMenu.btn {
     opacity: 0.8 !important;
 }
 
- 
+ .ic-arrow {
+margin: 12px 0 0 13px !important;
+
+}
+.configDataTable .leftField {
+    float:left;
+    font-weight:bold;
+    width:55%;
+}
+.configDataTable .rightField {
+    float:right;
+    width:40%;
+}
+.configDataTable tr td:first-child {
+    border-right:1px solid #cdcdcd;
+}

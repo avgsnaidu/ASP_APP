@@ -275,5 +275,50 @@ namespace Resources {
                 return ResourceManager.GetString("mdlUC_Save", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Community not deleted,as it is assigned to another user.
+        /// </summary>
+        internal static string MSG_Community_Delete_failed {
+            get {
+                return ResourceManager.GetString("MSG_Community_Delete_failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Another object is depends on this Community.
+        /// </summary>
+        internal static string MSG_Community_Delete_failed_UserbyAnother {
+            get {
+                return ResourceManager.GetString("MSG_Community_Delete_failed_UserbyAnother", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Community deleted successfully.
+        /// </summary>
+        internal static string MSG_Community_Delete_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_Community_Delete_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Community saved successfully.
+        /// </summary>
+        internal static string MSG_Community_Save_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_Community_Save_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Community updated successfully.
+        /// </summary>
+        internal static string MSG_Community_Update_Sucess {
+            get {
+                return ResourceManager.GetString("MSG_Community_Update_Sucess", resourceCulture);
+            }
+        }
     }
 }

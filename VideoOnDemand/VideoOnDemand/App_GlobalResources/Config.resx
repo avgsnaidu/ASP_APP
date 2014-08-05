@@ -555,4 +555,16 @@
   <data name="SchedularIntervalRepeatText" xml:space="preserve">
     <value>Every  {0}  hours</value>
   </data>
+  <data name="MSG_EmailServer_Save_Failed" xml:space="preserve">
+    <value>Streaming Email Details Not Saved</value>
+  </data>
+  <data name="MSG_EmailServer_Save_Sucess" xml:space="preserve">
+    <value>Successfully Email Server Details Saved</value>
+  </data>
+  <data name="MSG_SteramingServer_Saved_Sucess" xml:space="preserve">
+    <value>Successfully Streaming Server Details Saved</value>
+  </data>
+  <data name="MSG_StreamingServer_Save_Failed" xml:space="preserve">
+    <value>Streaming Server Details Not Saved</value>
+  </data>
 </root>

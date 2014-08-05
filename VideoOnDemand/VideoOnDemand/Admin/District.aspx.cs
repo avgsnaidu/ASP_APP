@@ -16,7 +16,13 @@ namespace VideoOnDemand
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            BindDistrict();
+            if (Request.IsAuthenticated && Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
+            {
+                if (!IsPostBack)
+                    BindDistrict();
+            }
+            else
+                Response.Redirect("~/WindowsUser.aspx");
         }
 
         private void BindDistrict()
@@ -70,7 +76,7 @@ namespace VideoOnDemand
                 bool returnValue = district.UpdateDistrictDetails(Convert.ToInt32(Session["DISTRICT_NO"]), txtEditNameEng.Text.Trim(), txtEditNameEng.Text.Trim());
                 if (returnValue)
                 {
-                    lblMessage.Text = "District updated successfully";
+                    lblMessage.Text = Resources.District.MSG_Distrct_Update_Sucess;
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
@@ -94,7 +100,7 @@ namespace VideoOnDemand
                 if (returnValue)
                 {
                     BindDistrict();
-                    lblMessage.Text = "District saved sucessfully";
+                    lblMessage.Text = Resources.District.MSG_District_Save_Sucess;
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
@@ -116,7 +122,7 @@ namespace VideoOnDemand
                 var returnValue = district.DeleteDistrict(Convert.ToInt32(Session["DISTRICT_NO"]));
                 if (returnValue)
                     BindDistrict();
-                lblMessage.Text = "District deleted successfully";
+                lblMessage.Text = Resources.District.MSG_District_Delete_Sucess;
                 sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
@@ -129,7 +135,7 @@ namespace VideoOnDemand
                 sb = new System.Text.StringBuilder();
                 if (ex.Number == 547)
                 {
-                    lblMessage.Text = "District not deleted,as it is assigned to another user";
+                    lblMessage.Text = Resources.District.MSG_District_Delete_Failed;
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
                     sb.Append("$('#deleteWarning').modal('hide');");
@@ -137,7 +143,7 @@ namespace VideoOnDemand
                 }
                 else
                 {
-                    lblMessage.Text = "District not deleted as it is assigned to another";
+                    lblMessage.Text = Resources.District.MSG_District_Delete_Failed;
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
                     sb.Append("$('#deleteWarning').modal('hide');");
@@ -146,7 +152,7 @@ namespace VideoOnDemand
             }
             catch (Exception ex)
             {
-                lblMessage.Text = "Another object is depends on this District";
+                lblMessage.Text = Resources.District.MSG_District_Delete_Failed_Depends;
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#alertMessageModal').modal('show');");
                 sb.Append("$('#deleteWarning').modal('hide');");

@@ -146,14 +146,14 @@
 
             <div class="table-block clearfix col-md-12">
                 <div>
-                    <table style="background: #dcdbdb">
+                    <table style="background: #dcdbdb" class="configDataTable">
                         <tr>
                             <td width="50%">
                                 <div class="table-block clearfix col-md-8">
-                                    <div style="float: left; font-weight: bold" class="middle-rightchild">
-                                        <asp:Label ID="lblIpAddress" runat="server" Text="<%$Resources:Config,DB_IPAdderess%>" Width="170"></asp:Label>
+                                    <div class="leftField">
+                                        <asp:Label ID="lblIpAddress" runat="server" Text="<%$Resources:Config,DB_IPAdderess%>"></asp:Label>
                                     </div>
-                                    <div class="middle-rightchild">
+                                    <div class="rightField">
                                         <asp:Label ID="txtAddress" runat="server" Text=""></asp:Label>
                                     </div>
                                 </div>

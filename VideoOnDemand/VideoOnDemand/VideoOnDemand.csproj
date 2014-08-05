@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
@@ -108,6 +108,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\Model\TimeConverters.cs" />
+    <Compile Include="App_GlobalResources\Setup.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Setup.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\setup2.aspx.cs">
+      <DependentUpon>setup2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Setup\setup2.aspx.designer.cs">
+      <DependentUpon>setup2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\setup3.aspx.cs">
+      <DependentUpon>setup3.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Setup\setup3.aspx.designer.cs">
+      <DependentUpon>setup3.aspx</DependentUpon>
+    </Compile>
     <Compile Include="WindowsUser.aspx.cs">
       <DependentUpon>WindowsUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -245,7 +265,7 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Compile Include="ChildBasePage.cs">
+    <Compile Include="App_Code\Model\ChildBasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Player\VideoPlayer.aspx.cs">
@@ -305,6 +325,8 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Setup\setup2.aspx" />
+    <Content Include="Setup\setup3.aspx" />
     <Content Include="WindowsUser.aspx" />
     <None Include="Properties\PublishProfiles\VODWeb.pubxml" />
     <None Include="Properties\PublishProfiles\VODWebTwo.pubxml" />
@@ -323,10 +345,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Index.aspx" />
-    <Content Include="Setup\setup2.aspx" />
     <Content Include="Setup\setup1.aspx" />
     <Content Include="Setup\setup4.aspx" />
-    <Content Include="Setup\setup3.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Archived.aspx" />
     <Content Include="GroupManagement.aspx" />
@@ -370,7 +390,7 @@
     <Compile Include="App_Code\Model\DAL\clsDbConnector.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="BasePage.cs">
+    <Compile Include="App_Code\Model\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -398,13 +418,6 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Setup\setup2.aspx.cs">
-      <DependentUpon>setup2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Setup\setup2.aspx.designer.cs">
-      <DependentUpon>setup2.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Setup\setup1.aspx.cs">
       <DependentUpon>setup1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -418,13 +431,6 @@
     </Compile>
     <Compile Include="Setup\setup4.aspx.designer.cs">
       <DependentUpon>setup4.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Setup\setup3.aspx.cs">
-      <DependentUpon>setup3.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Setup\setup3.aspx.designer.cs">
-      <DependentUpon>setup3.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
@@ -601,6 +607,12 @@
     <Content Include="App_GlobalResources\District.ar.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>District.ar.designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Setup.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Setup.Designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <PropertyGroup>

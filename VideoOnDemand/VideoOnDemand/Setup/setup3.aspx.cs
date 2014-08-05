@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using VideoOnDemand.Model;
 using VideoOnDemand.Model.BAL;
 
 namespace VideoOnDemand.Setup
@@ -39,19 +40,93 @@ namespace VideoOnDemand.Setup
             }
             bool intResult = true;
 
+
+
+            //clsVODConfiguration vod = new clsVODConfiguration();
+
+            ////vod.ConfigId = Convert.ToInt32(hdVODConfig.Value);
+            //int configId = Convert.ToInt32(hdVODConfig.Value);
+            //string source = txtSrcFold.Text.Trim();
+            //string archive = txtArchiveFold.Text.Trim();
+            //string target = txtDestFolder.Text.Trim();
+            //string backUp = txtBackupFold.Text.Trim();
+            //double interval = 0.00;
+
+            //char schedularFlag;
+            //if (ddlInterval.SelectedItem.Value != "0")
+            //{
+            //    schedularFlag = 'R';
+            //    interval = Convert.ToDouble(ddlInterval.SelectedItem.Value);
+            //}
+            //else
+            //{
+            //    schedularFlag = 'F';
+            //    interval = Convert.ToDateTime(txtScheduleInterval.Text.Trim()).ToOADate() / 10000.0;
+            //    //var span = DateTime.ParseExact(.ToString(),"yyyy.MM.dd HH:mm:ss.fff",
+            //    //           CultureInfo.InvariantCulture).ToOADate(); 
+
+            //}
+
+            //int simultaneousConvertions = Convert.ToInt32(ddlSimultaneous.SelectedItem.Value);
+
+            //try
+            //{
+            //    intResult = vod.UpdateVODDetails(configId, source, target, archive, backUp, schedularFlag, interval, simultaneousConvertions);
+
+            //}
+            //catch (Exception ee)
+            //{
+            //    ee.Message.ToString();
+            //}
+
+
+
             clsVODConfiguration repository = new clsVODConfiguration();
 
-            repository.SourceFolder = txtSourceFolder.Text;
-            repository.TargetFolder = txtDestFolder.Text;
-            repository.ArchiveFolder = txtArchiveFolder.Text;
-            repository.BackupFolder = txtBackUpFolder.Text;
-            repository.SchedulerFlag = ddlInterval.Text;
-            repository.SchedulerHours = Convert.ToInt32(ddlInterval.SelectedItem.Value);
-            repository.CreatedDate = DateTime.Now;
-            repository.ModifiedDate = DateTime.Now;
+            repository.SourceFolder = HttpUtility.HtmlEncode(txtSourceFolder.Text.Trim());
+            repository.TargetFolder = HttpUtility.HtmlEncode(txtDestFolder.Text.Trim());
+            repository.ArchiveFolder = HttpUtility.HtmlEncode(txtArchiveFolder.Text.Trim());
+            repository.BackupFolder = HttpUtility.HtmlEncode(txtBackUpFolder.Text.Trim());
+
+
 
             try
             {
+
+
+
+                char schedularFlag;
+                double interval = 0.00;
+                if (ddlInterval.SelectedItem.Value != "0")
+                {
+                    schedularFlag = 'R';
+                    interval = Convert.ToDouble(ddlInterval.SelectedItem.Value);
+                }
+                else
+                {
+                    schedularFlag = 'F';
+                    interval = (double)DecimalToTimeConverters.ToDecimal(Convert.ToDateTime(txtScheduleInterval.Text.Trim()));
+                    //var span = DateTime.ParseExact(.ToString(),"yyyy.MM.dd HH:mm:ss.fff",
+                    //           CultureInfo.InvariantCulture).ToOADate(); 
+
+                }
+
+
+                repository.SchedulerFlag = schedularFlag;
+                repository.SchedulerHours = interval;
+                 
+
+
+                if (!string.IsNullOrEmpty(ddlSimultaneous.SelectedValue))
+                    repository.SimultaneousConversions = Convert.ToInt16(ddlSimultaneous.SelectedValue);
+                else
+                    repository.SimultaneousConversions = default(int) + 1;
+
+                repository.CreatedDate = DateTime.Now;
+                //repository.ModifiedDate = DateTime.Now;
+
+
+
                 intResult = repository.AddVODConfigurationDetails();
 
             }
