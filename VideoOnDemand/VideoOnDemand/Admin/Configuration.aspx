@@ -160,10 +160,10 @@
                             </td>
                             <td width="50%">
                                 <div class="table-block clearfix col-md-8">
-                                    <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                    <div class="leftField">
                                         <asp:Label ID="lblPort" runat="server" Text="<%$Resources:Config,DB_Port%> " Width="170"></asp:Label>
                                     </div>
-                                    <div class="middle-rightchild">
+                                    <div class="rightField">
                                         <asp:Label ID="lblDataPort" runat="server" Text=""></asp:Label>
                                     </div>
                                 </div>
@@ -172,20 +172,20 @@
                         <tr>
                             <td width="50%">
                                 <div class="table-block clearfix col-md-8">
-                                    <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                    <div class="leftField">
                                         <asp:Label ID="lblDatabase" runat="server" Text="<%$Resources:Config,DB_Database%> " Width="170"></asp:Label>
                                     </div>
-                                    <div class="middle-rightchild">
+                                    <div class="rightField">
                                         <asp:Label ID="lbltxtDatabase" runat="server" Text=""></asp:Label>
                                     </div>
                                 </div>
                             </td>
                             <td width="50%">
                                 <div class="table-block clearfix col-md-8">
-                                    <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                    <div class="leftField">
                                         <asp:Label ID="lblUserId" runat="server" Text="<%$Resources:Config,DB_UserId%>" Width="170"></asp:Label>
                                     </div>
-                                    <div class="middle-rightchild">
+                                    <div class="rightField">
                                         <asp:Label ID="txtUser" runat="server" Text=""></asp:Label>
                                     </div>
                                 </div>
@@ -194,10 +194,10 @@
                         <tr>
                             <td width="50%">
                                 <div class="table-block clearfix col-md-8">
-                                    <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                    <div class="leftField">
                                         <asp:Label ID="lblPassword" runat="server" Text="<%$Resources:Config,DB_Password%> " Width="170"></asp:Label>
                                     </div>
-                                    <div class="middle-rightchild">
+                                    <div class="rightField">
                                         <asp:Label ID="lblDataPassword" runat="server" Text=""></asp:Label>
                                     </div>
                                 </div>
@@ -235,24 +235,24 @@
             </div>
 
             <div class="table-block clearfix col-md-12">
-                <table style="background: #dcdbdb">
+                <table style="background: #dcdbdb" class="configDataTable">
                     <tr>
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblServerId" runat="server" Text="<%$Resources:Config,AD_ServerId%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="txtServer" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblADUserName" runat="server" Text="<%$Resources:Config,AD_username%>" Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="txtADUser" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
@@ -261,20 +261,20 @@
                     <tr>
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblADPassword" runat="server" Text="<%$Resources:Config,AD_Password%>" Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="txtPassword" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblDomain" runat="server" Text="<%$Resources:Config,AD_Domain%>  " Width="170"></asp:Label>
                                 </div>
-                                <div style="float: right;" class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblDataDomain" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
@@ -394,7 +394,7 @@
             </div>
 
             <div class="table-block clearfix col-md-12">
-                <table style="background: #dcdbdb">
+                <table style="background: #dcdbdb" class="configDataTable">
                     <tr>
                         <td>
                             <div class="table-block clearfix col-md-12">
@@ -631,24 +631,24 @@
             </div>
 
             <div class="table-block clearfix col-md-12">
-                <table style="background: #dcdbdb">
+                <table style="background: #dcdbdb" class="configDataTable">
                     <tr>
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblSuperUser" runat="server" Text="<%$Resources:Config,SAD_Username%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="txtSuperUser" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblAdminPassword" runat="server" Text="<%$Resources:Config,SAD_Pwd%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="txtAdminPassword" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
@@ -657,10 +657,10 @@
                     <tr>
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblEmail" runat="server" Text="<%$Resources:Config,SAD_Email%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="txtEmail" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
@@ -783,24 +783,24 @@
             </div>
 
             <div class="table-block clearfix col-md-12">
-                <table style="background: #dcdbdb">
+                <table style="background: #dcdbdb" class="configDataTable">
                     <tr>
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblStreamingServerText" runat="server" Text="<%$Resources:Config,SSD_StremServer%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblSSDServerNameValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblSSDPortText" runat="server" Text="<%$Resources:Config,SSD_Port%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblSSDPortValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
@@ -811,10 +811,10 @@
 
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblSSDUserIdText" runat="server" Text="<%$Resources:Config,SSD_UserName%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblSSDUserIdValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
@@ -822,10 +822,10 @@
 
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblSSDPasswordText" runat="server" Text="<%$Resources:Config,SSD_Pwd%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblSSDPasswordValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
@@ -925,12 +925,7 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
+             
 
             <%--Email Server Details--%>
 
@@ -962,24 +957,24 @@
 
 
             <div class="table-block clearfix col-md-12">
-                <table style="background: #dcdbdb">
+                <table style="background: #dcdbdb" class="configDataTable">
                     <tr>
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblesdServerNametext" runat="server" Text="<%$Resources:Config,ESD_ServerName%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblEsdServernameValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblESDPort" runat="server" Text="<%$Resources:Config,ESD_Port%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblESDPortValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
@@ -990,10 +985,10 @@
                         <td width="50%">
 
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblESDUserName" runat="server" Text="<%$Resources:Config,ESD_UserName%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblESDUserNameValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
@@ -1002,28 +997,22 @@
                         <td width="50%">
 
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblESDPwd" runat="server" Text="<%$Resources:Config,ESD_Pwd%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblESDPwdValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
                     </tr>
-
-
-
-
-
                     <tr>
                         <td width="50%">
-
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div class="leftField">
                                     <asp:Label ID="lblESDEmailType" runat="server" Text="<%$Resources:Config,ESD_EmailType%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblESDEmailTypeValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
@@ -1032,26 +1021,24 @@
                         <td width="50%">
 
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div  class="leftField">
                                     <asp:Label ID="lblESDTlsEnabled" runat="server" Text="<%$Resources:Config,ESD_TlsEnabled%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblESDTlsEnabledValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
                     </tr>
-
-
-
+                     
                     <tr>
                         <td width="50%">
 
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div   class="leftField">
                                     <asp:Label ID="lblESDReplyEmail" runat="server" Text="<%$Resources:Config,ESD_ReplyEmail%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblESDReplyEmailValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
@@ -1060,10 +1047,10 @@
                         <td width="50%">
 
                             <div class="table-block clearfix col-md-8">
-                                <div style="float: left; font-weight: bold" class="middle-rightchild">
+                                <div  class="leftField">
                                     <asp:Label ID="lblESDSenderName" runat="server" Text="<%$Resources:Config,ESD_SenderName%> " Width="170"></asp:Label>
                                 </div>
-                                <div class="middle-rightchild">
+                                <div class="rightField">
                                     <asp:Label ID="lblESDSenderNameValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
@@ -1074,8 +1061,7 @@
 
                 </table>
             </div>
-
-
+             
 
             <div class="modal fade" id="mdlEmailServer" tabindex="-1" role="dialog" aria-labelledby="myESDModalLabel"
                 aria-hidden="true">
@@ -1255,9 +1241,7 @@
                     </div>
                 </div>
             </div>
-
-
-
+             
 
             <div style="float: right; padding-right: 30px;">
                 <br />
