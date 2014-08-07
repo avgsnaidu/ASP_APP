@@ -322,6 +322,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter Valid Database Name.
+        /// </summary>
+        internal static string DBS_Valid_DatabaseName {
+            get {
+                return ResourceManager.GetString("DBS_Valid_DatabaseName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to * Invalid Ip Address.
         /// </summary>
         internal static string DBS_Valid_IPAddress {
@@ -538,6 +547,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to * Enter Valid Archive Folder Path.
+        /// </summary>
+        internal static string VOD_aRchiveFold_Valid {
+            get {
+                return ResourceManager.GetString("VOD_aRchiveFold_Valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Enter Valid Backup Folder Path.
+        /// </summary>
+        internal static string VOD_BackupFolder_Valid {
+            get {
+                return ResourceManager.GetString("VOD_BackupFolder_Valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Enter Valid Destinatio Folder Path.
+        /// </summary>
+        internal static string VOD_DestinationFold_Valid {
+            get {
+                return ResourceManager.GetString("VOD_DestinationFold_Valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to If you are not sure about database details, please contact your host..
         /// </summary>
         internal static string VOD_Fot_DbDetailsSureMessage {
@@ -570,6 +606,15 @@ namespace Resources {
         internal static string VOD_Hd_VODDetails {
             get {
                 return ResourceManager.GetString("VOD_Hd_VODDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Enter Either Interval or Time.
+        /// </summary>
+        internal static string VOD_IntervalOrTime_Valid {
+            get {
+                return ResourceManager.GetString("VOD_IntervalOrTime_Valid", resourceCulture);
             }
         }
         
@@ -678,6 +723,24 @@ namespace Resources {
         internal static string VOD_Req_Simul_VideoConversion {
             get {
                 return ResourceManager.GetString("VOD_Req_Simul_VideoConversion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Enter Valid Source Folder Path.
+        /// </summary>
+        internal static string VOD_SourceFold_Valid {
+            get {
+                return ResourceManager.GetString("VOD_SourceFold_Valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to *Enter Valid Time (HH:MM) format.
+        /// </summary>
+        internal static string VOD_Time_Valid {
+            get {
+                return ResourceManager.GetString("VOD_Time_Valid", resourceCulture);
             }
         }
     }

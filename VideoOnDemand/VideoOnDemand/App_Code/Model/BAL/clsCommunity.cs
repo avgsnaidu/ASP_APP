@@ -35,19 +35,19 @@ namespace VideoOnDemand.Model.BAL
 
         }
 
-        public bool UpdateCommunityDetails(int CommunityNo, string NameEng, string NameArb, int DistrictNo, char language)
+        public bool UpdateCommunityDetails(int Community_Dist_Id, string NameEng, int DistrictNo, char language)
         {
             SqlParameter[] p = new SqlParameter[4];
-            p[0] = new SqlParameter("@CommunityNo", SqlDbType.Int);
-            p[0].Value = CommunityNo;
+            p[0] = new SqlParameter("@CommunityId", SqlDbType.Int);
+            p[0].Value = Community_Dist_Id;
             p[1] = new SqlParameter("@CommunityName", SqlDbType.NVarChar);
             p[1].Value = NameEng;
             p[2] = new SqlParameter("@DistrictNo", SqlDbType.Int);
-            p[2].Value = NameArb;
+            p[2].Value = DistrictNo;
             p[3] = new SqlParameter("@lang", SqlDbType.Char);
-            p[3].Value = DistrictNo;
+            p[3].Value = language;
 
-            string strSql = "UPDATE Community SET NAME_ENG=@NameEng, NAME_ARB=@NameArb, DISTRICT_NO=@DistrictNo, DATE_UPDATED=GETDATE() where Community_No=@CommunityNo";
+            string strSql = "UPDATE Community SET  NAME_ARB=CASE WHEN @lang='A' then @CommunityName END,NAME_ENG=CASE when  @lang='E' then @CommunityName END, DISTRICT_NO=@DistrictNo , DATE_UPDATED=GETDATE() where COM_DIST_ID=@CommunityId";
             int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
             if (value > 0)
                 return true;
@@ -58,14 +58,22 @@ namespace VideoOnDemand.Model.BAL
         public DataSet GetCommunityDetails(char language)
         {
             string strSql = string.Empty;
-            strSql = string.Format("SELECT C.Community_No,C.Name_Eng,C.Name_Arb,D.Name_Eng AS DISTRICT_NO FROM Community C Join District D ON C.District_No = D.District_No");
-            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+
+            SqlParameter[] p = new SqlParameter[1];
+            p[0] = new SqlParameter("@lang", SqlDbType.Char);
+            p[0].Value = language;
+
+            strSql = string.Format("SELECT [COM_DIST_ID] AS CommunityUniqID,[COMMUNITY_NO],CASE WHEN @lang='A' THEN CM.[NAME_ARB] WHEN @lang='E' THEN CM.[NAME_ENG] END COMMUNITYNAME,CM.[DISTRICT_NO], " +
+ "CASE WHEN @lang='A' THEN DS.[NAME_ARB] WHEN @lang='E' THEN DS.[NAME_ENG] END AS DISTRICTNAME " +
+  "FROM [COMMUNITY] CM  INNER JOIN DISTRICT DS ON CM.DISTRICT_NO=DS.DISTRICT_NO ");
+             
+            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
             return ds;
         }
 
-        public bool DeleteCommunity(int CommunityNo)
+        public bool DeleteCommunity(int CommunityId)
         {
-            string strSql = "DELETE FROM Community WHERE Community_No=" + CommunityNo;
+            string strSql = "DELETE FROM Community WHERE COM_DIST_ID=" + CommunityId;
             int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
             if (value > 0)
                 return true;

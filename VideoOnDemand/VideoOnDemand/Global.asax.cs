@@ -10,13 +10,13 @@ namespace VideoOnDemand
 {
     public class Global : HttpApplication
     {
+        public static String ApplicationPath = "";
         void Application_Start(object sender, EventArgs e)
         {
             // Code that runs on application startup
             AuthConfig.RegisterOpenAuth();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-
+            ApplicationPath = Server.MapPath("~");
         }
 
         void Application_End(object sender, EventArgs e)
@@ -34,8 +34,8 @@ namespace VideoOnDemand
         void Session_Start(object sender, EventArgs e)
         {
             //set english as default startup language
-            //Session["CurrentCulture"] = "en-GB";
-            Session["CurrentCulture"] = "ar";
+            Session["CurrentCulture"] = "en-GB";
+            //Session["CurrentCulture"] = "ar";
         }
 
 

@@ -9,18 +9,22 @@ namespace VideoOnDemand.Model.BAL
 {
     public class clsDistrict
     {
-        public string Name_Eng { get; set; }
-        public string Name_Arb { get; set; }
-        public int DistrictNo { get; set; }      
+        public string DistrictName { get; set; }
+        public int DistrictNo { get; set; }
 
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
 
-        public bool AddDistrictDetails()
+        public bool AddDistrictDetails(char language)
         {
             string strSql = string.Empty;
-            strSql = string.Format("Insert into District (NAME_ENG,NAME_ARB,DATE_CREATED,DATE_UPDATED)VALUES('{0}','{1}','{2}','{3}')",
-                Name_Eng, Name_Arb, DateTime.Now, (DateTime?)null);
+            if (language == 'A')
+                strSql = string.Format("Insert into District (District_No,NAME_ARB,DATE_CREATED)VALUES({0},'N{1}','{2}')",
+                    DistrictNo, DistrictName, DateTime.Now);
+            else
+                strSql = string.Format("Insert into District (District_No,NAME_ENG,DATE_CREATED)VALUES({0},N'{1}','{2}')",
+                DistrictNo, DistrictName, DateTime.Now);
+
             int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
             if (returnVal > 0)
                 return true;
@@ -29,17 +33,17 @@ namespace VideoOnDemand.Model.BAL
 
         }
 
-        public bool UpdateDistrictDetails(int DistrictNo, string NameEng, string NameArb)
+        public bool UpdateDistrictDetails(int DistrictNo, string DistrictName, char language)
         {
             SqlParameter[] p = new SqlParameter[3];
             p[0] = new SqlParameter("@DistrictNo", SqlDbType.Int);
             p[0].Value = DistrictNo;
-            p[1] = new SqlParameter("@NameEng", SqlDbType.NVarChar);
-            p[1].Value = NameEng;
-            p[2] = new SqlParameter("@NameArb", SqlDbType.NVarChar);
-            p[2].Value = NameArb;
+            p[1] = new SqlParameter("@DistrictName", SqlDbType.NVarChar);
+            p[1].Value = DistrictName;
+            p[2] = new SqlParameter("@lang", SqlDbType.Char);
+            p[2].Value = language;
 
-            string strSql = "UPDATE District SET Name_Eng=@NameEng, Name_Arb=@NameArb, DATE_UPDATED=GETDATE() where District_No=@DistrictNo";
+            string strSql = "UPDATE District SET Name_Eng=CASE WHEN @lang='E' THEN @DistrictName END, Name_Arb=CASE WHEN @lang='A' THEN @DistrictName END, DATE_UPDATED=GETDATE() where District_No=@DistrictNo";
             int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
             if (value > 0)
                 return true;
@@ -47,11 +51,16 @@ namespace VideoOnDemand.Model.BAL
 
         }
 
-        public DataSet GetDistrictDetails()
+        public DataSet GetDistrictDetails(char language)
         {
             string strSql = string.Empty;
-            strSql = string.Format("SELECT District_No,Name_Eng,Name_Arb FROM District order by date_Created desc");
-            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+            SqlParameter[] p = new SqlParameter[1];
+            p[0] = new SqlParameter("@lang", SqlDbType.Char);
+            p[0].Value = language;
+
+            strSql = string.Format("SELECT [DISTRICT_NO],CASE WHEN @LANG='E' THEN [NAME_ENG] WHEN @LANG='A' THEN [NAME_ARB] END AS DISTRICTNAME, " +
+                                " [DATE_CREATED] FROM [DISTRICT] order by DISTRICTNAME");
+            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
             return ds;
         }
 
@@ -64,5 +73,6 @@ namespace VideoOnDemand.Model.BAL
             else return false;
 
         }
+
     }
 }

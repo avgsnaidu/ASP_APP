@@ -121,6 +121,15 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtSourceFolder;
         
         /// <summary>
+        /// custSourceVald control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator custSourceVald;
+        
+        /// <summary>
         /// Literal10 control.
         /// </summary>
         /// <remarks>
@@ -146,6 +155,15 @@ namespace VideoOnDemand.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtDestFolder;
+        
+        /// <summary>
+        /// custDestValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator custDestValidator;
         
         /// <summary>
         /// Literal11 control.
@@ -175,6 +193,15 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtArchiveFolder;
         
         /// <summary>
+        /// custArchValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator custArchValidator;
+        
+        /// <summary>
         /// Literal12 control.
         /// </summary>
         /// <remarks>
@@ -200,6 +227,15 @@ namespace VideoOnDemand.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtBackUpFolder;
+        
+        /// <summary>
+        /// custBackValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator custBackValidator;
         
         /// <summary>
         /// Literal13 control.
@@ -236,6 +272,15 @@ namespace VideoOnDemand.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtScheduleInterval;
+        
+        /// <summary>
+        /// custIntervalValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator custIntervalValidator;
         
         /// <summary>
         /// Literal15 control.

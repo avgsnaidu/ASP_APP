@@ -35,6 +35,17 @@
                                     <ContentTemplate>
                                         <div class="modal-body">
                                             <div class="form-horizontal" role="form">
+
+                                                <div class="form-group">
+                                                    <label for="txtRoadNumber" class="col-sm-4 control-label">
+                                                        <asp:Literal runat="server" ID="Literal8" Text="<%$ Resources:Road, mdlCR_Road_Number_label %>"></asp:Literal>
+                                                        <span class="required">*</span></label>
+                                                    <div class="col-sm-6">
+                                                        <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtRoadNumber" placeholder="<%$ Resources:Road, mdlCR_Road_Number_placeHolder %>"
+                                                            data-placement="top" data-trigger="manual" data-content="Enter valid data" />
+                                                    </div>
+                                                </div>
+
                                                 <div class="form-group">
                                                     <label for="txtName" class="col-sm-4 control-label">
                                                         <asp:Literal runat="server" ID="Literal3" Text="<%$ Resources:Road, mdlCR_Road_Name_label %>"></asp:Literal>
@@ -81,12 +92,23 @@
                                         <div class="modal-body">
                                             <div class="form-horizontal" role="form">
                                                 <div class="form-group">
-                                                    <label for="txtEditNameEng" class="col-sm-4 control-label">
+                                                    <label for="lblRoadNumberValue" class="col-sm-4 control-label">
+                                                        <asp:Literal runat="server" ID="Literal9" Text="<%$ Resources:Road, mdlCR_Road_Number_label %>"></asp:Literal>
+
+                                                        <span class="required">*</span></label>
+                                                    <div class="col-sm-7">
+                                                        <asp:Label runat="server" ID="lblRoadNumberValue" />
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="txtEditRoadName" class="col-sm-4 control-label">
                                                         <asp:Literal runat="server" ID="Literal5" Text="<%$ Resources:Road, mdlUR_Road_Name_label %>"></asp:Literal>
 
                                                         <span class="required">*</span></label>
                                                     <div class="col-sm-7">
-                                                        <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtEditNameEng" placeholder="<%$ Resources:Road, mdlUR_Road_Name_Placeholder %>" data-placement="top" data-trigger="manual" data-content="Enter valid data" />
+                                                        <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtEditRoadName" placeholder="<%$ Resources:Road, mdlUR_Road_Name_Placeholder %>" data-placement="top" data-trigger="manual" data-content="Enter valid data" />
 
                                                     </div>
                                                 </div>
@@ -188,28 +210,32 @@
             </div>
 
             <div class="table-block clearfix col-md-12">
-                <asp:GridView ID="gvRoad" runat="server" AutoGenerateColumns="False" GridLines="None"
-                    DataKeyNames="ROAD_NO" AllowPaging="true" PagerSettings-Mode="Numeric" OnPageIndexChanging="gvRoad_PageIndexChanging"
-                    ShowHeaderWhenEmpty="true" OnRowCommand="gvRoad_RowCommand" OnRowEditing="gvRoad_RowEditing"
-                    EmptyDataText="<%$ Resources:Road, gvRoad_EmptyData_Text %>" EmptyDataRowStyle-HorizontalAlign="Center">
-                    <AlternatingRowStyle BackColor="#DEDEDE" />
-                    <HeaderStyle CssClass="gridheader" />
-                    <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
-                    <Columns>
-                        <asp:BoundField DataField="ROAD_NO" Visible="false" />
-                        <asp:BoundField DataField="NAME_ENG" HeaderText="<%$ Resources:Road, gvRoad_Head_RoadName %>"  />
-                        <asp:TemplateField HeaderText="<%$ Resources:Road, gvRoad_Hd_Actions %>" ItemStyle-Width="150px">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("ROAD_NO")%>' />
-                                <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("ROAD_NO")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                    <EditRowStyle BorderStyle="None" BorderWidth="0px" />
-                </asp:GridView>
+                <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                    <ContentTemplate>
+                        <asp:GridView ID="gvRoad" runat="server" AutoGenerateColumns="False" GridLines="None"
+                            DataKeyNames="ROAD_NO" AllowPaging="true" PagerSettings-Mode="Numeric" OnPageIndexChanging="gvRoad_PageIndexChanging"
+                            ShowHeaderWhenEmpty="true" OnRowCommand="gvRoad_RowCommand" OnRowEditing="gvRoad_RowEditing"
+                            EmptyDataText="<%$ Resources:Road, gvRoad_EmptyData_Text %>" EmptyDataRowStyle-HorizontalAlign="Center">
+                            <AlternatingRowStyle BackColor="#DEDEDE" />
+                            <HeaderStyle CssClass="gridheader" />
+                            <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
+                            <Columns>
+                                <asp:BoundField DataField="ROAD_NO" Visible="false" />
+                                <asp:BoundField DataField="RoadName" HeaderText="<%$ Resources:Road, gvRoad_Head_RoadName %>" />
+                                <asp:TemplateField HeaderText="<%$ Resources:Road, gvRoad_Hd_Actions %>" ItemStyle-Width="150px">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("ROAD_NO")%>' />
+                                        <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("ROAD_NO")%>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <EditRowStyle BorderStyle="None" BorderWidth="0px" />
+                        </asp:GridView>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
 
-             
+
         </div>
     </div>
 </asp:Content>

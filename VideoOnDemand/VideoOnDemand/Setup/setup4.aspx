@@ -104,11 +104,7 @@
                 <p class="pull-right">
                     <%--<asp:LinkButton runat="server" ID="btnNext" PostBackUrl="~/VODManage/UserManagement.aspx">Next<span class="sprite ic-arrow"></span></asp:LinkButton>--%>
                     <asp:Button runat="server" ID="btnNext" ClientIDMode="Static" Width="0" CausesValidation="true" ValidationGroup="ADInfo" Height="0" BackColor="Transparent" BorderWidth="0" OnClick="GoToVODDashBoard_Click" />
-                    <label runat="server" id="lblClickButton" for="btnNext" class="labelButton">
-                        <asp:Literal runat="server" ID="Literal13" Text="<%$ Resources:Setup, SAD_Fot_Nextbtn%>" />
-                        <span class="sprite ic-arrow"></span>
-                    </label>
-                </p>
+                    <label runat="server" id="lblClickButton" for="btnNext" class="labelButton"><asp:Literal runat="server" ID="Literal13" Text="<%$ Resources:Setup, SAD_Fot_Nextbtn%>" /><span class="sprite ic-arrow"></span></label></p>
             </div>
         </div>
 

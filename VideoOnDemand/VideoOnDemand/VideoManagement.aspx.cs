@@ -44,6 +44,8 @@ namespace VideoOnDemand.VODManage
             }
         }
 
+
+
         private void BindVideoStatus()
         {
             DataSet ds = repository.GetVideoStatus();
@@ -552,6 +554,7 @@ namespace VideoOnDemand.VODManage
 
                 string playerUrl = string.Format(ClsConnectionString.getVideosServerPath(), videoName);
 
+                //string playerUrl=@"/Player/VideoSample.mp4";
                 cstext1.Append("<script type='text/javascript'> ");
                 cstext1.Append(" jwplayer('player').setup({ ");
                 cstext1.Append(" flashplayer: 'jwplayer.flash.swf',");
@@ -578,7 +581,13 @@ namespace VideoOnDemand.VODManage
 
         }
 
-
+        public bool IsStatusCompleted(char Status)
+        {
+            if (Status == 'D')
+                return true;
+            else
+                return false;
+        }
 
 
     }

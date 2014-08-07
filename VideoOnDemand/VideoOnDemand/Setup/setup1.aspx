@@ -97,6 +97,8 @@
                 <asp:RegularExpressionValidator runat="server" ID="revPort" ValidationGroup="DbSetup" ValidationExpression="^(102[0-4]|10[0-1]\d|[1-9][0-9]{0,3}|0)$" ForeColor="Red"
                     ControlToValidate="txtPort" Display="Dynamic" ErrorMessage="<%$ Resources:Setup, DBS_Valid_Port%>" />
 
+               
+
             </div>
             <div class="column2">
                 <label>
@@ -108,6 +110,8 @@
                 </div>
                 <asp:RequiredFieldValidator runat="server" ID="rfvDatabaseName" ControlToValidate="txtDatabaseName" ValidationGroup="DbSetup"
                     ErrorMessage="<%$ Resources:Setup, DBS_REq_DBName%>" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                <%-- <asp:RegularExpressionValidator runat="server" ID="rgDataBaseExpressino" ValidationGroup="DbSetup" ValidationExpression=" ^[a-zA-Z0-9_]+$" ForeColor="Red"
+                    ControlToValidate="txtDatabaseName" Display="Dynamic" ErrorMessage="<%$ Resources:Setup, DBS_Valid_DatabaseName%>" />--%>
             </div>
 
             <div class="column2">
@@ -119,6 +123,7 @@
                 </div>
                 <asp:RequiredFieldValidator runat="server" ID="rfvUserId" ControlToValidate="txtUserId" ValidationGroup="DbSetup"
                     ErrorMessage="<%$ Resources:Setup, DBS_Req_UserId%> " ForeColor="#E2351D"></asp:RequiredFieldValidator>
+
             </div>
             <div class="column2">
                 <label>
@@ -143,9 +148,7 @@
 
                     <asp:Button runat="server" ID="btnNext" ClientIDMode="Static" Width="0" Height="0" CausesValidation="true" BackColor="Transparent"
                         ValidationGroup="DbSetup" BorderWidth="0" OnClick="btnNext_ServerClick" OnClientClick="myApp.showPleaseWait()" />
-                    <label runat="server" id="lblClickButton" for="btnNext" class="labelButton">
-                        <asp:Literal runat="server" ID="Literal16" Mode="PassThrough" Text="<%$ Resources:Setup, DBS_Fot_btnNext %>" ></asp:Literal>
-                        <span class="sprite ic-arrow"></span>
+                    <label runat="server" id="lblClickButton" for="btnNext" class="labelButton"><asp:Literal runat="server" ID="ltlButtonClick" Mode="PassThrough" Text="<%$ Resources:Setup, DBS_Fot_btnNext %>" /><span class="sprite ic-arrow"></span>
                     </label>
                 </p>
             </div>

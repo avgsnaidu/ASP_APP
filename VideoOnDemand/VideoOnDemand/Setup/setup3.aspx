@@ -52,8 +52,10 @@
                     <asp:TextBox runat="server" ID="txtSourceFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Please Enter Source Folder"></asp:TextBox>
                     <span class="sprite source"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvtxtSourceFolder" ControlToValidate="txtSourceFolder" ValidationGroup="ADInfo"
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtSourceFolder" ControlToValidate="txtSourceFolder" ValidationGroup="VODGroup"  Display="Dynamic"
                     ErrorMessage="<%$ Resources:Setup, VOD_REQu_SourceFold%>" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
+                <asp:CustomValidator runat="server" ID="custSourceVald" ControlToValidate="txtSourceFolder" ValidationGroup="VODGroup" OnServerValidate="custSourceVald_ServerValidate"
+                    ErrorMessage="<%$ Resources:Setup, VOD_SourceFold_Valid%>" Display="Dynamic" ForeColor="Red" />
             </div>
             <div class="column2">
                 <label>
@@ -62,8 +64,10 @@
                     <asp:TextBox runat="server" ID="txtDestFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Please Enter Destination Folder"></asp:TextBox>
                     <span class="sprite destination"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvtxtDestFolder" ControlToValidate="txtDestFolder" ValidationGroup="ADInfo"
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtDestFolder" ControlToValidate="txtDestFolder" ValidationGroup="VODGroup"  Display="Dynamic"
                     ErrorMessage="<%$ Resources:Setup, VOD_REq_DestinationFold%>" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
+                <asp:CustomValidator runat="server" ID="custDestValidator" ControlToValidate="txtDestFolder" ValidationGroup="VODGroup" OnServerValidate="custDestValidator_ServerValidate"
+                    ErrorMessage="<%$ Resources:Setup, VOD_DestinationFold_Valid%>" Display="Dynamic" ForeColor="Red" />
             </div>
             <div class="column2">
                 <label>
@@ -73,8 +77,10 @@
                     <asp:TextBox runat="server" ID="txtArchiveFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Please Enter Archive Folder"></asp:TextBox>
                     <span class="sprite archive"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvtxtArchiveFolder" ControlToValidate="txtArchiveFolder" ValidationGroup="ADInfo"
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtArchiveFolder" ControlToValidate="txtArchiveFolder" ValidationGroup="VODGroup"  Display="Dynamic"
                     ErrorMessage="<%$ Resources:Setup, VOD_REq_aRchiveFold%>" ForeColor="#E2351D"></asp:RequiredFieldValidator>
+                <asp:CustomValidator runat="server" ID="custArchValidator" ControlToValidate="txtArchiveFolder" ValidationGroup="VODGroup" OnServerValidate="custArchValidator_ServerValidate"
+                    ErrorMessage="<%$ Resources:Setup, VOD_aRchiveFold_Valid%>" Display="Dynamic" ForeColor="Red" />
             </div>
             <div class="column2">
                 <label>
@@ -84,8 +90,10 @@
                     <asp:TextBox runat="server" ID="txtBackUpFolder" CssClass="form-control required LettersMin3" MaxLength="100" data-placement="right" data-trigger="manual" data-content="Please Enter Backup Folder"></asp:TextBox>
                     <span class="sprite backup"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvtxtBackUpFolder" ControlToValidate="txtBackUpFolder" ValidationGroup="ADInfo"
+                <asp:RequiredFieldValidator runat="server" ID="rfvtxtBackUpFolder" ControlToValidate="txtBackUpFolder" ValidationGroup="VODGroup"  Display="Dynamic"
                     ErrorMessage="<%$ Resources:Setup, VOD_Req_BackupFolder%>" ForeColor="#E2351D"> </asp:RequiredFieldValidator>
+                <asp:CustomValidator runat="server" ID="custBackValidator" ControlToValidate="txtBackUpFolder" ValidationGroup="VODGroup" OnServerValidate="custBackValidator_ServerValidate"
+                    ErrorMessage="<%$ Resources:Setup, VOD_BackupFolder_Valid%>" Display="Dynamic" ForeColor="Red" />
             </div>
 
             <!--  <div class="column2">
@@ -118,7 +126,7 @@
                                 <asp:ListItem Value="12 " Text="12 Hrs" />
 
                             </asp:DropDownList>
-
+                           
                             <%-- <select id="selectInterval">
                                 <option selected>Select</option>
                                 <option>1 Hrs</option>
@@ -158,6 +166,10 @@
                         </div>
                     </div>
                 </div>
+                 <asp:CustomValidator runat="server" ID="custIntervalValidator" ControlToValidate="ddlInterval" ValidationGroup="VODGroup" OnServerValidate="custIntervalTimeValidator_ServerValidate"
+                                ErrorMessage="<%$ Resources:Setup, VOD_IntervalOrTime_Valid%>" Display="Dynamic" ForeColor="Red" />
+                <%-- <asp:CustomValidator runat="server" ID="custTimeValidator" ControlToValidate="txtScheduleInterval" ValidationGroup="VODGroup" OnServerValidate="custIntervalTimeValidator_ServerValidate"
+                                ErrorMessage="<%$ Resources:Setup, VOD_IntervalOrTime_Valid%>" Display="Dynamic" ForeColor="Red" />--%>
             </div>
 
             <div class="column2">
@@ -172,7 +184,7 @@
                         <asp:ListItem Text="4" Value="4" />
                         <asp:ListItem Text="5" Value="5" />
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator runat="server" ID="rfvddlSimultaneous" ControlToValidate="ddlSimultaneous" ValidationGroup="ADInfo"
+                    <asp:RequiredFieldValidator runat="server" ID="rfvddlSimultaneous" ControlToValidate="ddlSimultaneous" ValidationGroup="VODGroup"  Display="Dynamic"
                         ErrorMessage="<%$ Resources:Setup, VOD_Req_Simul_VideoConversion%> " ForeColor="#E2351D"></asp:RequiredFieldValidator>
 
                     <%--  <select id="selectSimultaneous">
@@ -195,11 +207,8 @@
                     <br />
                     <asp:Literal runat="server" ID="Literal17" Text="<%$ Resources:Setup, VOD_Fot_DbDetailsSureMessage%>" />
                     <p class="pull-right">
-                        <asp:Button runat="server" ID="btnNext" ClientIDMode="Static" ValidationGroup="ADInfo" CausesValidation="true" Width="0" Height="0" BackColor="Transparent" BorderWidth="0" OnClick="GoToSuperAdminInfo_Click" />
-                        <label runat="server" id="lblClickButton" for="btnNext" class="labelButton">
-                            <asp:Literal runat="server" ID="Literal18" Text="<%$ Resources:Setup, VOD_Fot_NExtBtn%>" />
-                            <span class="sprite ic-arrow"></span>
-                        </label>
+                        <asp:Button runat="server" ID="btnNext" ClientIDMode="Static" ValidationGroup="VODGroup" CausesValidation="true" Width="0" Height="0" BackColor="Transparent" BorderWidth="0" OnClick="GoToSuperAdminInfo_Click" />
+                        <label runat="server" id="lblClickButton" for="btnNext" class="labelButton"><asp:Literal runat="server" ID="Literal18" Text="<%$ Resources:Setup, VOD_Fot_NExtBtn%>" /><span class="sprite ic-arrow"></span></label>
                         <%--    <asp:LinkButton runat="server" ID="btnNext" PostBackUrl="~/Setup/SuperAdminInfo.aspx">Next<span class="sprite ic-arrow"></span></asp:LinkButton>--%>
                     </p>
                 </p>

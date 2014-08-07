@@ -94,14 +94,13 @@
                         <asp:Label runat="server" ID="lblFilterBy" Text="<%$ Resources:VideoManagement, lblFilterBy %>  "></asp:Label><%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
                             <ContentTemplate>--%><asp:DropDownList ID="ddlStatus" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
                                 OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
-                                
                             </asp:DropDownList>
 
                         <asp:DropDownList ID="ddlGroupsFilter" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
                             OnSelectedIndexChanged="ddlGroups_SelectedIndexChanged">
                         </asp:DropDownList>
- 
- 
+
+
                     </li>
                 </ul>
 
@@ -139,7 +138,7 @@
                                                 <asp:Label runat="server" ID="lblDirstrictTag" for="txtDistrictTag" class="col-sm-4 control-label" Text="<%$ Resources:VideoManagement, ETM_txtDistrictTagText %>">
                                                 </asp:Label>
                                                 <div class="col-sm-7">
-                                                    <asp:DropDownList runat="server" ID="ddlDistrictTag" CssClass="selectpicker minHeightControl" AutoPostBack="true" Width="100%"/>
+                                                    <asp:DropDownList runat="server" ID="ddlDistrictTag" CssClass="selectpicker minHeightControl" AutoPostBack="true" Width="100%" />
 
                                                     <%--                                                    <asp:TextBox type="text" ID="txtDistrictTag" runat="server" class="form-control textboxFormat "
                                                         placeholder="Enter District Tag" data-placement="bottom" data-trigger="manual" />--%>
@@ -149,7 +148,7 @@
                                                 <asp:Label runat="server" ID="lblRoadTags" for="txtRoadTag" class="col-sm-4 control-label" Text="<%$ Resources:VideoManagement, ETM_txtRoadTagText %>">
                                                 </asp:Label>
                                                 <div class="col-sm-7">
-                                                    <asp:DropDownList runat="server" ID="ddlRoadTag" CssClass="selectpicker minHeightControl" AutoPostBack="true" Width="100%"/>
+                                                    <asp:DropDownList runat="server" ID="ddlRoadTag" CssClass="selectpicker minHeightControl" AutoPostBack="true" Width="100%" />
 
                                                     <%--                                                    <asp:TextBox type="text" runat="server" ID="txtRoadTag" class="form-control textboxFormat"
                                                         name="" placeholder="Enter Road Tags" data-placement="bottom" data-trigger="manual"></asp:TextBox>--%>
@@ -288,7 +287,7 @@
 
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="gvVideoManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="VIDEOID,FILENAME"
+                    <asp:GridView ID="gvVideoManagement" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="VIDEOID,FILENAME,STATUSCODE"
                         ShowHeaderWhenEmpty="true" AllowPaging="true" OnRowDataBound="gvVideoManagement_RowDataBound"
                         OnRowCommand="gvVideoManagement_RowCommand" OnPageIndexChanging="gvVideoManagement_PageIndexChanging"
                         EmptyDataText="No videos to display." EmptyDataRowStyle-HorizontalAlign="Center">
@@ -314,17 +313,16 @@
                             <%--<asp:BoundField DataField="GroupName" HeaderText="Group Name" />--%>
                             <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Edit %>" ItemStyle-Width="60px">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("VIDEOID") %>' />
+                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete"
+                                        CommandArgument='<%#Eval("VIDEOID") %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
                             <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Play %>" ItemStyle-Width="60px">
                                 <ItemTemplate>
                                     <%--<asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="glyphicon glyphicon-play-circle" CommandArgument='<%#Eval("VIDEOID")%>' />--%>
-                                    <asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="spritePlay playicon" CommandArgument='<%#Eval("VIDEOID")+ ";"+ Eval("FILENAME")%>' />
-
-
-
+                                    <asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="spritePlay playicon"
+                                        CommandArgument='<%#Eval("VIDEOID")+ ";"+ Eval("FILENAME")%>' Visible='<%#IsStatusCompleted(Convert.ToChar(Eval("STATUSCODE"))) %>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

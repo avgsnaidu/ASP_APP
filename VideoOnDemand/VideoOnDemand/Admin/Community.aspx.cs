@@ -37,53 +37,60 @@ namespace VideoOnDemand
 
         private void BindDistrict()
         {
-            System.Data.DataSet ds = district.GetDistrictDetails();
+            System.Data.DataSet ds = district.GetDistrictDetails(BasePage.CurrentLanguage);
 
             if (ds != null && ds.Tables[0].Rows.Count > 0)
             {
                 DataRow dr = ds.Tables[0].NewRow();
 
-                ddlDistrict.DataTextField = "NAME_ENG";
+                ddlDistrict.DataTextField = "DISTRICTNAME";
                 ddlDistrict.DataValueField = "District_No";
 
                 ddlDistrict.DataSource = ds;
                 ddlDistrict.DataBind();
 
-                ddlDistrictEdit.DataTextField = "NAME_ENG";
-                ddlDistrictEdit.DataTextField = "District_No";
+                ddlDistrict.Items.Insert(0, new ListItem(Resources.Community.mdlUC_District_EmptySelect, "0"));
 
-                ddlDistrictEdit.DataSource = ds;
-                ddlDistrictEdit.DataBind();
+                //ddlDistrictEdit.DataTextField = "DISTRICTNAME";
+                //ddlDistrictEdit.DataTextField = "District_No";
+
+                //ddlDistrictEdit.DataSource = ds;
+                //ddlDistrictEdit.DataBind();
             }
         }
 
-        protected void gvCommunity_RowEditing(object sender, GridViewEditEventArgs e)
-        {
 
-        }
         protected void gvCommunity_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            BindDistrict();
-            int index = Convert.ToInt32(e.CommandArgument);
-            Session["COMMUNITY_NO"] = index;
+
+
+
             if (e.CommandName.Equals("Editing"))
             {
+
+                string commandNames = e.CommandArgument.ToString();
+                string[] commandArguments = commandNames.Split(';');
+
+                Session["COMMUNITY_NO"] = commandArguments[0];
+
+                BindDistrict();
+
                 GridViewRow row = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
-
-                txtEditNameEng.Text = row.Cells[1].Text;
-                System.Data.DataSet ds = district.GetDistrictDetails();
+                lblCommunityNumberValue.Text = commandArguments[1];
+                txtEditCommunity.Text = row.Cells[1].Text.Trim();
+                System.Data.DataSet ds = district.GetDistrictDetails(BasePage.CurrentLanguage);
 
                 if (ds != null && ds.Tables[0].Rows.Count > 0)
                 {
-                    DataRow dr = ds.Tables[0].NewRow();
-                    ddlDistrictEdit.DataTextField = "NAME_ENG";
+                    ddlDistrictEdit.DataTextField = "DISTRICTNAME";
                     ddlDistrictEdit.DataValueField = "District_No";
 
                     ddlDistrictEdit.DataSource = ds;
                     ddlDistrictEdit.DataBind();
+                    ddlDistrictEdit.Items.Insert(0, new ListItem(Resources.Community.mdlUC_District_EmptySelect, "0"));
                 }
-                ddlDistrictEdit.SelectedItem.Value = row.Cells[2].Text;
+                ddlDistrictEdit.Items.FindByValue(commandArguments[2]).Selected = true;
 
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#myModalUpdate').modal('show');");
@@ -94,6 +101,8 @@ namespace VideoOnDemand
             }
             else if (e.CommandName.Equals("Deleting"))
             {
+                int index = Convert.ToInt32(e.CommandArgument);
+                Session["COMMUNITY_NO"] = index;
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
                 sb.Append(@"<script type='text/javascript'>");
@@ -104,23 +113,62 @@ namespace VideoOnDemand
             }
         }
 
-        protected void ddlDistrictEdit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            BindDistrict();
-        }
-
 
         protected void btnSaveEdit_Click(object sender, EventArgs e)
         {
-            if (txtEditNameEng.Text.Trim() != string.Empty && ddlDistrictEdit.SelectedItem.Value.ToString() != string.Empty && Session["COMMUNITY_NO"] != null)
+            if (txtEditCommunity.Text.Trim() != string.Empty && ddlDistrictEdit.SelectedItem.Value.ToString() != string.Empty && Session["COMMUNITY_NO"] != null)
             {
-                repository.CommunityName = txtEditNameEng.Text.Trim();
-                repository.DistrictNo = Convert.ToInt32(ddlDistrictEdit.SelectedItem.Value.ToString());
-
-                bool returnValue = repository.UpdateCommunityDetails(Convert.ToInt32(Session["COMMUNITY_NO"]), txtEditNameEng.Text.Trim(), txtEditNameEng.Text.Trim(), Convert.ToInt32(ddlDistrictEdit.SelectedItem.Value.ToString()), BasePage.CurrentLanguage);
-                if (returnValue)
+                try
                 {
-                    lblMessage.Text = Resources.Community.MSG_Community_Update_Sucess;
+                    repository.CommunityNo = Convert.ToInt32(lblCommunityNumberValue.Text.Trim());
+                    repository.CommunityName = txtEditCommunity.Text.Trim();
+                    repository.DistrictNo = Convert.ToInt32(ddlDistrictEdit.SelectedItem.Value.ToString());
+
+                    bool returnValue = repository.UpdateCommunityDetails(Convert.ToInt32(Session["COMMUNITY_NO"]), txtEditCommunity.Text.Trim(), Convert.ToInt32(ddlDistrictEdit.SelectedItem.Value.ToString()), BasePage.CurrentLanguage);
+                    if (returnValue)
+                    {
+                        lblMessage.Text = Resources.Community.MSG_Community_Update_Sucess;
+                        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                        sb.Append(@"<script type='text/javascript'>");
+                        sb.Append("$('#alertMessageModal').modal('show');");
+                        sb.Append("$('#myModalUpdate').modal('hide');");
+                        sb.Append(@"</script>");
+
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "UpdateHideModalScript", sb.ToString(), false);
+
+                    }
+                }
+                catch (SqlException sqlEx)
+                {
+                    if (sqlEx.Number == 2601)
+                    {
+                        lblMessage.Text = Resources.Community.MSG_District_Community_Duplication_Error;
+                        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                        sb.Append(@"<script type='text/javascript'>");
+                        sb.Append("$('#alertMessageModal').modal('show');");
+                        sb.Append("$('#myModalUpdate').modal('hide');");
+                        sb.Append(@"</script>");
+
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "UpdateHideModalScript", sb.ToString(), false);
+
+                    }
+                    else
+                    {
+                        lblMessage.Text = Resources.Community.MSG_UPdation_Failed;
+                        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                        sb.Append(@"<script type='text/javascript'>");
+                        sb.Append("$('#alertMessageModal').modal('show');");
+                        sb.Append("$('#myModalUpdate').modal('hide');");
+                        sb.Append(@"</script>");
+
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "UpdateHideModalScript", sb.ToString(), false);
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Text = Resources.Community.MSG_UPdation_Failed;
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
@@ -128,7 +176,6 @@ namespace VideoOnDemand
                     sb.Append(@"</script>");
 
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "UpdateHideModalScript", sb.ToString(), false);
-
                 }
             }
         }
@@ -137,24 +184,35 @@ namespace VideoOnDemand
         {
             if (txtCommunity.Text.Trim() != string.Empty && ddlDistrict.SelectedItem.Value.ToString() != string.Empty)
             {
-                repository.CommunityName = txtCommunity.Text.Trim();
-                repository.DistrictNo = Convert.ToInt32(ddlDistrict.SelectedItem.Value.ToString());
-                repository.CreatedDate = DateTime.Now;
-                repository.ModifiedDate = DateTime.Now;
-
-                bool returnValue = repository.AddCommunityDetails(BasePage.CurrentLanguage);
-
-                if (returnValue)
+                try
                 {
-                    BindCommunityDetails();
-                    lblMessage.Text = Resources.Community.MSG_Community_Save_Sucess;
+                    repository.CommunityNo = Convert.ToInt32(txtCommunityNumber.Text.Trim());
+                    repository.CommunityName = HttpUtility.HtmlEncode(txtCommunity.Text.Trim());
+                    repository.DistrictNo = Convert.ToInt32(ddlDistrict.SelectedItem.Value.ToString());
+                    repository.CreatedDate = DateTime.Now;
+                    bool returnValue = repository.AddCommunityDetails(BasePage.CurrentLanguage);
+                    if (returnValue)
+                    {
+                        BindCommunityDetails();
+                        lblMessage.Text = Resources.Community.MSG_Community_Save_Sucess;
+                        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                        sb.Append(@"<script type='text/javascript'>");
+                        sb.Append("$('#alertMessageModal').modal('show');");
+                        sb.Append("$('#myModal2').modal('hide');");
+                        sb.Append(@"</script>");
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Text = Resources.Community.mdlCC_Commnity_Save_Failed_WithSameIDExists;
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
                     sb.Append("$('#myModal2').modal('hide');");
                     sb.Append(@"</script>");
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
-
                 }
             }
 

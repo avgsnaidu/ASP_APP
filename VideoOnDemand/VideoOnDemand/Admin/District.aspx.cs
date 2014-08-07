@@ -27,7 +27,7 @@ namespace VideoOnDemand
 
         private void BindDistrict()
         {
-            DataSet ds = district.GetDistrictDetails();
+            DataSet ds = district.GetDistrictDetails(BasePage.CurrentLanguage);
             gvDistrict.DataSource = ds;
             gvDistrict.DataBind();
         }
@@ -45,8 +45,8 @@ namespace VideoOnDemand
             {
                 GridViewRow row = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
-
-                txtEditNameEng.Text = row.Cells[1].Text;
+                lblDistrictNumberValue.Text = index.ToString();
+                txtEditCommunityName.Text = HttpUtility.HtmlDecode(row.Cells[1].Text);
 
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#myModalUpdate').modal('show');");
@@ -69,11 +69,10 @@ namespace VideoOnDemand
 
         protected void btnSaveEdit_Click(object sender, EventArgs e)
         {
-            if (txtEditNameEng.Text.Trim() != string.Empty && Session["DISTRICT_NO"] != null)
+            if (txtEditCommunityName.Text.Trim() != string.Empty && Session["DISTRICT_NO"] != null)
             {
-                district.Name_Eng = txtEditNameEng.Text.Trim();
-
-                bool returnValue = district.UpdateDistrictDetails(Convert.ToInt32(Session["DISTRICT_NO"]), txtEditNameEng.Text.Trim(), txtEditNameEng.Text.Trim());
+                district.DistrictName = txtEditCommunityName.Text.Trim();
+                bool returnValue = district.UpdateDistrictDetails(Convert.ToInt32(Session["DISTRICT_NO"]), txtEditCommunityName.Text.Trim(), BasePage.CurrentLanguage);
                 if (returnValue)
                 {
                     lblMessage.Text = Resources.District.MSG_Distrct_Update_Sucess;
@@ -93,21 +92,58 @@ namespace VideoOnDemand
         {
             if (txtName.Text.Trim() != string.Empty)
             {
-                district.Name_Eng = txtName.Text.Trim();
-
-                bool returnValue = district.AddDistrictDetails();
-
-                if (returnValue)
+                try
                 {
-                    BindDistrict();
-                    lblMessage.Text = Resources.District.MSG_District_Save_Sucess;
+                    district.DistrictName = HttpUtility.HtmlEncode(txtName.Text.Trim());
+                    district.DistrictNo = Convert.ToInt32(txtDistrictNumber.Text.Trim());
+                    bool returnValue = district.AddDistrictDetails(BasePage.CurrentLanguage);
+
+                    if (returnValue)
+                    {
+                        BindDistrict();
+                        lblMessage.Text = Resources.District.MSG_District_Save_Sucess;
+                        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                        sb.Append(@"<script type='text/javascript'>");
+                        sb.Append("$('#alertMessageModal').modal('show');");
+                        sb.Append("$('#myModal2').modal('hide');");
+                        sb.Append(@"</script>");
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
+
+                    }
+                }
+                catch (SqlException sqlex)
+                {
+                    if (sqlex.Number == 2627)
+                    {
+                        lblMessage.Text = Resources.District.MSG_Save_Failed_DistrictNo_Exists;
+                        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                        sb.Append(@"<script type='text/javascript'>");
+                        sb.Append("$('#alertMessageModal').modal('show');");
+                        sb.Append("$('#myModal2').modal('hide');");
+                        sb.Append(@"</script>");
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
+                    }
+                    else
+                    {
+                        lblMessage.Text = Resources.District.MSG_Save_Failed;
+                        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                        sb.Append(@"<script type='text/javascript'>");
+                        sb.Append("$('#alertMessageModal').modal('show');");
+                        sb.Append("$('#myModal2').modal('hide');");
+                        sb.Append(@"</script>");
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Text = Resources.District.MSG_Save_Failed;
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
                     sb.Append("$('#myModal2').modal('hide');");
                     sb.Append(@"</script>");
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
-
                 }
             }
 

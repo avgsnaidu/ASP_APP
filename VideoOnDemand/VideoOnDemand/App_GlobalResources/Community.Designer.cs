@@ -142,6 +142,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Community No :.
+        /// </summary>
+        internal static string mdlCC_CommnityNo_Label {
+            get {
+                return ResourceManager.GetString("mdlCC_CommnityNo_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter unique community number here.
+        /// </summary>
+        internal static string mdlCC_CommnityNO_PlaceHolder {
+            get {
+                return ResourceManager.GetString("mdlCC_CommnityNO_PlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Community.
         /// </summary>
         internal static string mdlCC_Commnity_Label {
@@ -156,6 +174,15 @@ namespace Resources {
         internal static string mdlCC_Commnity_PlaceHolder {
             get {
                 return ResourceManager.GetString("mdlCC_Commnity_PlaceHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entered community number already existed with district.
+        /// </summary>
+        internal static string mdlCC_Commnity_Save_Failed_WithSameIDExists {
+            get {
+                return ResourceManager.GetString("mdlCC_Commnity_Save_Failed_WithSameIDExists", resourceCulture);
             }
         }
         
@@ -250,6 +277,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select.
+        /// </summary>
+        internal static string mdlUC_District_EmptySelect {
+            get {
+                return ResourceManager.GetString("mdlUC_District_EmptySelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to District.
         /// </summary>
         internal static string mdlUC_District_Label {
@@ -318,6 +354,24 @@ namespace Resources {
         internal static string MSG_Community_Update_Sucess {
             get {
                 return ResourceManager.GetString("MSG_Community_Update_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For selected Community number, district alredy assigned.
+        /// </summary>
+        internal static string MSG_District_Community_Duplication_Error {
+            get {
+                return ResourceManager.GetString("MSG_District_Community_Duplication_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Community not saved.
+        /// </summary>
+        internal static string MSG_UPdation_Failed {
+            get {
+                return ResourceManager.GetString("MSG_UPdation_Failed", resourceCulture);
             }
         }
     }

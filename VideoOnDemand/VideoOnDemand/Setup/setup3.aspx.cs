@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,6 +16,7 @@ namespace VideoOnDemand.Setup
         clsVODConfiguration repository = new clsVODConfiguration();
         protected void Page_Load(object sender, EventArgs e)
         {
+
             //if (!IsPostBack)
             //{
             //    string StyleSheetPath = string.Empty;
@@ -40,61 +43,14 @@ namespace VideoOnDemand.Setup
             }
             bool intResult = true;
 
-
-
-            //clsVODConfiguration vod = new clsVODConfiguration();
-
-            ////vod.ConfigId = Convert.ToInt32(hdVODConfig.Value);
-            //int configId = Convert.ToInt32(hdVODConfig.Value);
-            //string source = txtSrcFold.Text.Trim();
-            //string archive = txtArchiveFold.Text.Trim();
-            //string target = txtDestFolder.Text.Trim();
-            //string backUp = txtBackupFold.Text.Trim();
-            //double interval = 0.00;
-
-            //char schedularFlag;
-            //if (ddlInterval.SelectedItem.Value != "0")
-            //{
-            //    schedularFlag = 'R';
-            //    interval = Convert.ToDouble(ddlInterval.SelectedItem.Value);
-            //}
-            //else
-            //{
-            //    schedularFlag = 'F';
-            //    interval = Convert.ToDateTime(txtScheduleInterval.Text.Trim()).ToOADate() / 10000.0;
-            //    //var span = DateTime.ParseExact(.ToString(),"yyyy.MM.dd HH:mm:ss.fff",
-            //    //           CultureInfo.InvariantCulture).ToOADate(); 
-
-            //}
-
-            //int simultaneousConvertions = Convert.ToInt32(ddlSimultaneous.SelectedItem.Value);
-
-            //try
-            //{
-            //    intResult = vod.UpdateVODDetails(configId, source, target, archive, backUp, schedularFlag, interval, simultaneousConvertions);
-
-            //}
-            //catch (Exception ee)
-            //{
-            //    ee.Message.ToString();
-            //}
-
-
-
             clsVODConfiguration repository = new clsVODConfiguration();
 
             repository.SourceFolder = HttpUtility.HtmlEncode(txtSourceFolder.Text.Trim());
             repository.TargetFolder = HttpUtility.HtmlEncode(txtDestFolder.Text.Trim());
             repository.ArchiveFolder = HttpUtility.HtmlEncode(txtArchiveFolder.Text.Trim());
             repository.BackupFolder = HttpUtility.HtmlEncode(txtBackUpFolder.Text.Trim());
-
-
-
             try
             {
-
-
-
                 char schedularFlag;
                 double interval = 0.00;
                 if (ddlInterval.SelectedItem.Value != "0")
@@ -111,11 +67,8 @@ namespace VideoOnDemand.Setup
 
                 }
 
-
                 repository.SchedulerFlag = schedularFlag;
                 repository.SchedulerHours = interval;
-                 
-
 
                 if (!string.IsNullOrEmpty(ddlSimultaneous.SelectedValue))
                     repository.SimultaneousConversions = Convert.ToInt16(ddlSimultaneous.SelectedValue);
@@ -123,9 +76,7 @@ namespace VideoOnDemand.Setup
                     repository.SimultaneousConversions = default(int) + 1;
 
                 repository.CreatedDate = DateTime.Now;
-                //repository.ModifiedDate = DateTime.Now;
-
-
+                //repository.ModifiedDate = DateTime.Now; 
 
                 intResult = repository.AddVODConfigurationDetails();
 
@@ -140,5 +91,110 @@ namespace VideoOnDemand.Setup
             }
             Response.Redirect("~/Setup/setup4.aspx");
         }
+
+        private bool IsSourceFolderExists(string path)
+        {
+            if (false == Directory.Exists(path))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool IsDestinationFolderExists(string path)
+        {
+            if (false == Directory.Exists(path))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool IsBackUpFolderExists(string path)
+        {
+            if (false == Directory.Exists(path))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool IsArchiveFolderExists(string path)
+        {
+            if (false == Directory.Exists(path))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        protected void custSourceVald_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = false;
+            if (IsSourceFolderExists(txtSourceFolder.Text.Trim()))
+                args.IsValid = true;
+
+        }
+
+        protected void custDestValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = false;
+            if (IsDestinationFolderExists(txtDestFolder.Text.Trim()))
+                args.IsValid = true;
+        }
+
+
+        protected void custArchValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = false;
+            if (IsArchiveFolderExists(txtArchiveFolder.Text.Trim()))
+                args.IsValid = true;
+        }
+
+        protected void custBackValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = false;
+            if (IsBackUpFolderExists(txtBackUpFolder.Text.Trim()))
+                args.IsValid = true;
+
+        }
+
+        protected void custIntervalTimeValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            args.IsValid = false;
+            if (ddlInterval.SelectedValue != "0" || !string.IsNullOrEmpty(txtScheduleInterval.Text.Trim()))
+            {
+
+                //string pattern = "\\d{1,2}:\\d{2}\\s*(AM|PM)";
+                string pattern = "\\d{1,2}:\\d{2}";
+
+                if (!string.IsNullOrEmpty(txtScheduleInterval.Text.Trim()) && ddlInterval.SelectedValue == "0")
+                {
+                    if (!Regex.IsMatch(txtScheduleInterval.Text, pattern, RegexOptions.CultureInvariant))
+                    {
+                        //MessageBox.Show("Not a valid time format ('hh:mm AM|PM').");
+                        //e.Cancel = true;
+                        //box.Select(0, box.Text.Length);
+                        custIntervalValidator.ErrorMessage = Resources.Setup.VOD_Time_Valid;
+                        return;
+                    }
+                }
+                args.IsValid = true;
+            }
+        }
+
+
     }
 }

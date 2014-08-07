@@ -42,6 +42,17 @@
                                             <div class="form-horizontal" role="form">
                                                 <div class="form-group">
                                                     <label for="txtName" class="col-sm-4 control-label">
+                                                        <asp:Literal ID="Literal9" runat="server" Text="<%$ Resources:District, mdlUD_DistNumber_label %>" />
+                                                        <span class="required">*</span></label>
+                                                    <div class="col-sm-6">
+                                                        <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtDistrictNumber" 
+                                                            placeholder="<%$ Resources:District, mdlCD_Dist_Number_Placeholder %> " data-placement="top" data-trigger="manual" data-content="Enter valid data" />
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="txtName" class="col-sm-4 control-label">
                                                         <asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:District, mdlCD_Dist_Name_Label %>" />
 
                                                         <span class="required">*</span></label>
@@ -50,6 +61,7 @@
                                                             placeholder="<%$ Resources:District, mdlCD_Dist_Name_Placeholder %> " data-placement="top" data-trigger="manual" data-content="Enter valid data" />
                                                     </div>
                                                 </div>
+
                                                 <%--  <div class="form-group">
                                                 <label for="ddlDistrict" class="col-sm-4 control-label">District Name<span class="required"> *</span></label>
                                                 <div class="col-sm-7">
@@ -87,13 +99,25 @@
                                     <ContentTemplate>
                                         <div class="modal-body">
                                             <div class="form-horizontal" role="form">
+
                                                 <div class="form-group">
-                                                    <label for="txtEditNameEng" class="col-sm-4 control-label">
+                                                    <label for="lblDistrictNumberValue" class="col-sm-4 control-label">
+                                                        <asp:Literal ID="Literal8" runat="server" Text="<%$ Resources:District, mdlUD_DistNumber_label %>" />
+
+                                                        <span class="required">*</span></label>
+                                                    <div class="col-sm-7">
+                                                        <asp:Label runat="server" ID="lblDistrictNumberValue" />
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="txtEditCommunityName" class="col-sm-4 control-label">
                                                         <asp:Literal ID="Literal5" runat="server" Text="<%$ Resources:District, mdlUD_DistName_label %>" />
 
                                                         <span class="required">*</span></label>
                                                     <div class="col-sm-7">
-                                                        <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtEditNameEng"
+                                                        <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtEditCommunityName"
                                                             placeholder="<%$ Resources:District, mdlUD_DistName_placeHolder %>" data-placement="top" data-trigger="manual" data-content="Enter valid data" />
 
                                                     </div>
@@ -196,25 +220,30 @@
             </div>
 
             <div class="table-block clearfix col-md-12">
-                <asp:GridView ID="gvDistrict" runat="server" AutoGenerateColumns="False" GridLines="None"
-                    DataKeyNames="DISTRICT_NO" AllowPaging="true" PagerSettings-Mode="Numeric" OnPageIndexChanging="gvDistrict_PageIndexChanging"
-                    ShowHeaderWhenEmpty="true" OnRowCommand="gvDistrict_RowCommand" OnRowEditing="gvDistrict_RowEditing"
-                    EmptyDataText="<%$ Resources:District, gvDist_EmtpyDataText %>" EmptyDataRowStyle-HorizontalAlign="Center">
-                    <AlternatingRowStyle BackColor="#DEDEDE" />
-                    <HeaderStyle CssClass="gridheader" />
-                    <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
-                    <Columns>
-                        <asp:BoundField DataField="DISTRICT_NO" Visible="false" />
-                        <asp:BoundField DataField="NAME_ENG" HeaderText="<%$ Resources:District, gvDist_Hd_DistName %> " />
-                        <asp:TemplateField HeaderText=" <%$ Resources:District, gvDist_Hd_Actions %> " ItemStyle-Width="150px">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("DISTRICT_NO")%>' />
-                                <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("DISTRICT_NO")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                    <EditRowStyle BorderStyle="None" BorderWidth="0px" />
-                </asp:GridView>
+
+                <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                    <ContentTemplate>
+                        <asp:GridView ID="gvDistrict" runat="server" AutoGenerateColumns="False" GridLines="None"
+                            DataKeyNames="DISTRICT_NO" AllowPaging="true" PagerSettings-Mode="Numeric" OnPageIndexChanging="gvDistrict_PageIndexChanging"
+                            ShowHeaderWhenEmpty="true" OnRowCommand="gvDistrict_RowCommand" OnRowEditing="gvDistrict_RowEditing"
+                            EmptyDataText="<%$ Resources:District, gvDist_EmtpyDataText %>" EmptyDataRowStyle-HorizontalAlign="Center">
+                            <AlternatingRowStyle BackColor="#DEDEDE" />
+                            <HeaderStyle CssClass="gridheader" />
+                            <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
+                            <Columns>
+                                <asp:BoundField DataField="DISTRICT_NO" Visible="false" />
+                                <asp:BoundField DataField="DISTRICTNAME" HeaderText="<%$ Resources:District, gvDist_Hd_DistName %> " />
+                                <asp:TemplateField HeaderText=" <%$ Resources:District, gvDist_Hd_Actions %> " ItemStyle-Width="150px">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("DISTRICT_NO")%>' />
+                                        <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("DISTRICT_NO")%>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <EditRowStyle BorderStyle="None" BorderWidth="0px" />
+                        </asp:GridView>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
 
 

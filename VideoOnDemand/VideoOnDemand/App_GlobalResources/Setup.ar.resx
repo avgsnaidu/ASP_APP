@@ -339,10 +339,4 @@
   <data name="VOD_SourceFold_Valid" xml:space="preserve">
     <value>* Enter Valid Source Folder Path</value>
   </data>
-  <data name="VOD_Time_Valid" xml:space="preserve">
-    <value>*Enter Valid Time (HH:MM) format</value>
-  </data>
-  <data name="DBS_Valid_DatabaseName" xml:space="preserve">
-    <value>Enter Valid Database Name</value>
-  </data>
 </root>

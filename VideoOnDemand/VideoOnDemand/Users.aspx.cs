@@ -48,9 +48,7 @@ namespace VideoOnDemand.VODManage
         protected void gvUserManagement_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             string commandNames = e.CommandArgument.ToString();
-            string[] commandArguments = commandNames.Split(';');
-
-
+            string[] commandArguments = commandNames.Split(';'); 
             Session["UserID"] = "";
 
             if (e.CommandName.Equals("Editing"))
@@ -73,8 +71,7 @@ namespace VideoOnDemand.VODManage
 
                     sb.Append(@"</script>");
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ShowEditModal", sb.ToString(), false);
-                }
-
+                } 
             }
             else if (e.CommandName.Equals("Deleting"))
             {

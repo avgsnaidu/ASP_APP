@@ -27,7 +27,7 @@ namespace VideoOnDemand
 
         private void BindRoad()
         {
-            DataSet ds = road.GetRoadDetails();
+            DataSet ds = road.GetRoadDetails(BasePage.CurrentLanguage);
             gvRoad.DataSource = ds;
             gvRoad.DataBind();
         }
@@ -45,8 +45,8 @@ namespace VideoOnDemand
             {
                 GridViewRow row = (GridViewRow)(((LinkButton)e.CommandSource).NamingContainer);
                 System.Text.StringBuilder sb = new System.Text.StringBuilder();
-
-                txtEditNameEng.Text = row.Cells[1].Text;
+                lblRoadNumberValue.Text = index.ToString();
+                txtEditRoadName.Text = HttpUtility.UrlDecode(row.Cells[1].Text.Trim());
 
                 sb.Append(@"<script type='text/javascript'>");
                 sb.Append("$('#myModalUpdate').modal('show');");
@@ -69,11 +69,11 @@ namespace VideoOnDemand
 
         protected void btnSaveEdit_Click(object sender, EventArgs e)
         {
-            if (txtEditNameEng.Text.Trim() != string.Empty && Session["Road_NO"] != null)
+            if (txtEditRoadName.Text.Trim() != string.Empty && Session["Road_NO"] != null)
             {
-                road.Name_Eng = txtEditNameEng.Text.Trim();
+                road.RoadName = txtEditRoadName.Text.Trim();
 
-                bool returnValue = road.UpdateRoadDetails(Convert.ToInt32(Session["ROAD_NO"]), txtEditNameEng.Text.Trim(), txtEditNameEng.Text.Trim());
+                bool returnValue = road.UpdateRoadDetails(Convert.ToInt32(Session["ROAD_NO"]), HttpUtility.HtmlEncode(txtEditRoadName.Text.Trim()),BasePage.CurrentLanguage);
                 if (returnValue)
                 {
                     lblMessage.Text = Resources.Road.MSG_Road_Upadate_Sucess;
@@ -93,21 +93,48 @@ namespace VideoOnDemand
         {
             if (txtName.Text.Trim() != string.Empty)
             {
-                road.Name_Eng = txtName.Text.Trim();
-
-                bool returnValue = road.AddRoadDetails();
-
-                if (returnValue)
+                try
                 {
-                    BindRoad();
-                    lblMessage.Text = Resources.Road.MSG_ROAD_SAVE_Sucess;
+                    road.RoadNo = Convert.ToInt32(HttpUtility.HtmlEncode(txtRoadNumber.Text.Trim()));
+                    road.RoadName = HttpUtility.HtmlEncode(txtName.Text.Trim());
+
+                    bool returnValue = road.AddRoadDetails(BasePage.CurrentLanguage);
+
+                    if (returnValue)
+                    {
+                        BindRoad();
+                        lblMessage.Text = Resources.Road.MSG_ROAD_SAVE_Sucess;
+                        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                        sb.Append(@"<script type='text/javascript'>");
+                        sb.Append("$('#alertMessageModal').modal('show');");
+                        sb.Append("$('#myModal2').modal('hide');");
+                        sb.Append(@"</script>");
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
+
+                    }
+                }
+                catch (SqlException sqlex)
+                {
+                    if (sqlex.Number == 2627)
+                    {
+                        lblMessage.Text = Resources.Road.MSG_Road_Save_Failed_RoadNo_Exists;
+                        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                        sb.Append(@"<script type='text/javascript'>");
+                        sb.Append("$('#alertMessageModal').modal('show');");
+                        sb.Append("$('#myModal2').modal('hide');");
+                        sb.Append(@"</script>");
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Text = Resources.Road.MSG_Road_Save_Failed;
                     System.Text.StringBuilder sb = new System.Text.StringBuilder();
                     sb.Append(@"<script type='text/javascript'>");
                     sb.Append("$('#alertMessageModal').modal('show');");
                     sb.Append("$('#myModal2').modal('hide');");
                     sb.Append(@"</script>");
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
-
                 }
             }
 

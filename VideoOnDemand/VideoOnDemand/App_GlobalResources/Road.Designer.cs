@@ -160,6 +160,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Road Number.
+        /// </summary>
+        internal static string mdlCR_Road_Number_label {
+            get {
+                return ResourceManager.GetString("mdlCR_Road_Number_label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter road number here.
+        /// </summary>
+        internal static string mdlCR_Road_Number_placeHolder {
+            get {
+                return ResourceManager.GetString("mdlCR_Road_Number_placeHolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save.
         /// </summary>
         internal static string mdlCR_Save {
@@ -264,6 +282,24 @@ namespace Resources {
         internal static string MSG_ROAD_DELETE_SUCESS {
             get {
                 return ResourceManager.GetString("MSG_ROAD_DELETE_SUCESS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Road not saved sucessfully.
+        /// </summary>
+        internal static string MSG_Road_Save_Failed {
+            get {
+                return ResourceManager.GetString("MSG_Road_Save_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Already with the same road no exists.
+        /// </summary>
+        internal static string MSG_Road_Save_Failed_RoadNo_Exists {
+            get {
+                return ResourceManager.GetString("MSG_Road_Save_Failed_RoadNo_Exists", resourceCulture);
             }
         }
         

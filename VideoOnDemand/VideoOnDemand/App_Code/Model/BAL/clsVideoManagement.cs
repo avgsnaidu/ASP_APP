@@ -17,13 +17,13 @@ namespace VideoOnDemand.Model.BAL
             string strSql = string.Empty;
 
             if (lanugage == 'A')
-                strSql = "SELECT VIDEOID ,VIDEONAME AS FILENAME,VD.STATUS AS STATUS, Case " +
+                strSql = "SELECT VIDEOID ,VIDEONAME AS FILENAME,VD.STATUS AS STATUS,STATUSCODE, Case " +
                         "WHEN (ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) " +
                         "LIKE '%,'  THEN LEFT((ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) , LEN((ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')))-1) " +
                          "ELSE  (ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) END AS TAG  " +
                           "FROM VW_VIDEOS_WITH_TAGS_ARB VD";
             else
-                strSql = "SELECT VIDEOID ,VIDEONAME AS FILENAME,VD.STATUS AS STATUS, Case " +
+                strSql = "SELECT VIDEOID ,VIDEONAME AS FILENAME,VD.STATUS AS STATUS,STATUSCODE, Case " +
                         "WHEN (ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) " +
                         "LIKE '%,'  THEN LEFT((ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) , LEN((ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')))-1) " +
                          "ELSE  (ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) END AS TAG  " +

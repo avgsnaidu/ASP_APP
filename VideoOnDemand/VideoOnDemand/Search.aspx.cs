@@ -39,10 +39,10 @@ namespace VideoOnDemand.VODManage
         private void BindSearchFilterTags()
         {
             DataSet ds = repository.GetSearchFilterTagsList();
-            
+
             ddlSearchOn.DataTextField = "SEARCHTAG";
             ddlSearchOn.DataValueField = "SearchTagCode";
-            
+
             ddlSearchOn.DataSource = ds;
             ddlSearchOn.DataBind();
 
@@ -81,28 +81,28 @@ namespace VideoOnDemand.VODManage
 
         private void BindSearchGrid()
         {
-            string search = ddlSearchOn.SelectedValue.ToString();
+            int search = Convert.ToInt32(ddlSearchOn.SelectedValue.ToString());
             string searchKeyword = txtSearchKey.Text.Trim();
-            string searchOn = string.Empty;
+            //string searchOn = string.Empty;
 
-            if (search == "4")
-            {
-                searchOn = "Road";
-            }
-            else if (search == "3")
-            {
-                searchOn = "District";
-            }
-            else if (search == "2")
-            {
-                searchOn = "Community";
-            }
-            else
-            {
-                searchOn = "All";
-            }
+            //if (search == "4")
+            //{
+            //    searchOn = "Road";
+            //}
+            //else if (search == "3")
+            //{
+            //    searchOn = "District";
+            //}
+            //else if (search == "2")
+            //{
+            //    searchOn = "Community";
+            //}
+            //else
+            //{
+            //    searchOn = "All";
+            //}
 
-            DataSet ds = repository.fnSearch(searchKeyword, searchOn, false);
+            DataSet ds = repository.fnSearch(searchKeyword, search, false);
             gvSearch.DataSource = ds;
             gvSearch.DataBind();
         }

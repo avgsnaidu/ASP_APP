@@ -58,6 +58,24 @@ namespace VideoOnDemand {
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
         
         /// <summary>
+        /// Literal10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal10;
+        
+        /// <summary>
+        /// txtCommunityNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCommunityNumber;
+        
+        /// <summary>
         /// Literal3 control.
         /// </summary>
         /// <remarks>
@@ -130,6 +148,24 @@ namespace VideoOnDemand {
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         /// <summary>
+        /// Literal11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal11;
+        
+        /// <summary>
+        /// lblCommunityNumberValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCommunityNumberValue;
+        
+        /// <summary>
         /// Literal6 control.
         /// </summary>
         /// <remarks>
@@ -139,13 +175,13 @@ namespace VideoOnDemand {
         protected global::System.Web.UI.WebControls.Literal Literal6;
         
         /// <summary>
-        /// txtEditNameEng control.
+        /// txtEditCommunity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEditNameEng;
+        protected global::System.Web.UI.WebControls.TextBox txtEditCommunity;
         
         /// <summary>
         /// Literal7 control.
@@ -254,6 +290,15 @@ namespace VideoOnDemand {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnOk;
+        
+        /// <summary>
+        /// UpdatePanel5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel5;
         
         /// <summary>
         /// gvCommunity control.

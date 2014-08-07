@@ -151,6 +151,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter district number here.
+        /// </summary>
+        internal static string mdlCD_Dist_Number_Placeholder {
+            get {
+                return ResourceManager.GetString("mdlCD_Dist_Number_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Create District.
         /// </summary>
         internal static string mdlCD_Hd_CreateDist {
@@ -232,6 +241,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to District Number.
+        /// </summary>
+        internal static string mdlUD_DistNumber_label {
+            get {
+                return ResourceManager.GetString("mdlUD_DistNumber_label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Edit District.
         /// </summary>
         internal static string mdlUD_Head_EditDist {
@@ -291,6 +309,24 @@ namespace Resources {
         internal static string MSG_District_Save_Sucess {
             get {
                 return ResourceManager.GetString("MSG_District_Save_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to District not saved.
+        /// </summary>
+        internal static string MSG_Save_Failed {
+            get {
+                return ResourceManager.GetString("MSG_Save_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entered district number already exists.
+        /// </summary>
+        internal static string MSG_Save_Failed_DistrictNo_Exists {
+            get {
+                return ResourceManager.GetString("MSG_Save_Failed_DistrictNo_Exists", resourceCulture);
             }
         }
     }

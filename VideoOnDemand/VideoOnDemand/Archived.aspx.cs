@@ -35,7 +35,7 @@ namespace VideoOnDemand.VODManage
         }
         private void BindArchiveList()
         {
-            DataSet ds = repository.GetArchiveList();
+            DataSet ds = repository.GetArchiveList(BasePage.CurrentLanguage);
             gvArchiveListing.DataSource = ds;
             gvArchiveListing.DataBind();
         }
@@ -48,9 +48,14 @@ namespace VideoOnDemand.VODManage
         private void BindSearchedList()
         {
             string searchKeyword = txtSearchKey.Text.Trim();
-            DataSet ds = repository.GetSearchedArchiveList(searchKeyword);
-            gvArchiveListing.DataSource = ds;
-            gvArchiveListing.DataBind();
+            if (string.IsNullOrEmpty(searchKeyword))
+                BindArchiveList();
+            else
+            {
+                DataSet ds = repository.GetSearchedArchiveList(searchKeyword, BasePage.CurrentLanguage);
+                gvArchiveListing.DataSource = ds;
+                gvArchiveListing.DataBind();
+            }
         }
 
 
@@ -58,7 +63,7 @@ namespace VideoOnDemand.VODManage
         protected void gvArchiveListing_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             gvArchiveListing.PageIndex = e.NewPageIndex;
-            BindArchiveList();
+            BindSearchedList();
         }
 
         protected override void OnPreRender(EventArgs e)

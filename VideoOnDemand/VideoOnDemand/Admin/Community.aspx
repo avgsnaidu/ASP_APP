@@ -41,6 +41,16 @@
                                     <div class="modal-body">
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
+                                                <label for="txtCommunityNO" class="col-sm-4 control-label">
+                                                    <asp:Literal runat="server" ID="Literal10" Text="<%$Resources:Community,mdlCC_CommnityNo_Label %>"></asp:Literal>
+
+                                                    <span class="required">*</span></label>
+                                                <div class="col-sm-6">
+                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtCommunityNumber" placeholder="<%$Resources:Community,mdlCC_CommnityNO_PlaceHolder %> " data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
                                                 <label for="txtCommunity" class="col-sm-4 control-label">
                                                     <asp:Literal runat="server" ID="Literal3" Text="<%$Resources:Community,mdlCC_Commnity_Label %>"></asp:Literal>
 
@@ -90,11 +100,20 @@
                                         <div class="form-horizontal" role="form">
                                             <div class="form-group">
                                                 <label for="txtEditNameEng" class="col-sm-4 control-label">
+                                                    <asp:Literal runat="server" ID="Literal11" Text="<%$Resources:Community,mdlUC_Community_Label %>"></asp:Literal>
+                                                    <span class="required">*</span></label>
+                                                <div class="col-sm-7">
+                                                    <%--<asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="TextBox1" placeholder="<%$Resources:Community,mdlUC_Community_placeHolder %>" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />--%>
+                                                    <asp:Label runat="server" ID="lblCommunityNumberValue" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="txtEditCommunity" class="col-sm-4 control-label">
                                                     <asp:Literal runat="server" ID="Literal6" Text="<%$Resources:Community,mdlUC_Community_Label %>"></asp:Literal>
 
                                                     <span class="required">*</span></label>
                                                 <div class="col-sm-7">
-                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtEditNameEng" placeholder="<%$Resources:Community,mdlUC_Community_placeHolder %>" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />
+                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat required " ID="txtEditCommunity" placeholder="<%$Resources:Community,mdlUC_Community_placeHolder %>" data-placement="top" data-trigger="manual" data-content="Must be at least 3 characters long, and must only contain letters." />
 
                                                 </div>
                                             </div>
@@ -104,7 +123,7 @@
 
                                                     <span class="required">*</span></label>
                                                 <div class="col-sm-7">
-                                                    <asp:DropDownList ID="ddlDistrictEdit" OnSelectedIndexChanged="ddlDistrictEdit_SelectedIndexChanged" AutoPostBack="true" runat="server">
+                                                    <asp:DropDownList ID="ddlDistrictEdit" AutoPostBack="true" runat="server">
                                                     </asp:DropDownList>
                                                 </div>
                                             </div>
@@ -198,29 +217,33 @@
             </div>
 
             <div class="table-block clearfix col-md-12">
-                <asp:GridView ID="gvCommunity" runat="server" AutoGenerateColumns="False" GridLines="None"
-                    AllowPaging="true" PagerSettings-Mode="Numeric" OnPageIndexChanging="gvCommunity_PageIndexChanging"
-                    ShowHeaderWhenEmpty="true" OnRowCommand="gvCommunity_RowCommand" OnRowEditing="gvCommunity_RowEditing"
-                    EmptyDataText="<%$Resources:Community,gvComm_EmptyData_Text %> " EmptyDataRowStyle-HorizontalAlign="Center">
-                    <AlternatingRowStyle BackColor="#DEDEDE" />
-                    <HeaderStyle CssClass="gridheader" />
-                    <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
-                    <Columns>
-                        <asp:BoundField DataField="COMMUNITY_NO" Visible="false" />
-                        <asp:BoundField DataField="NAME_ENG" HeaderText="<%$Resources:Community,gvComm_Hd_CommnName %> " />
-                        <asp:BoundField DataField="DISTRICT_NO" HeaderText="<%$Resources:Community,gvComm_Hd_District %>" ItemStyle-Width="35%"  />
-                        <asp:TemplateField HeaderText="<%$Resources:Community,gvComm_Hd_Actions %> " ItemStyle-Width="150px">
-                            <ItemTemplate>
-                                <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("COMMUNITY_NO")%>' />
-                                <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("COMMUNITY_NO")%>' />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                    </Columns>
-                    <EditRowStyle BorderStyle="None" BorderWidth="0px" />
-                </asp:GridView>
+                <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                    <ContentTemplate>
+                        <asp:GridView ID="gvCommunity" runat="server" AutoGenerateColumns="False" GridLines="None" DataKeyNames="CommunityUniqID,COMMUNITY_NO,DISTRICT_NO"
+                            AllowPaging="true" PagerSettings-Mode="Numeric" OnPageIndexChanging="gvCommunity_PageIndexChanging"
+                            ShowHeaderWhenEmpty="true" OnRowCommand="gvCommunity_RowCommand"
+                            EmptyDataText="<%$Resources:Community,gvComm_EmptyData_Text %> " EmptyDataRowStyle-HorizontalAlign="Center">
+                            <AlternatingRowStyle BackColor="#DEDEDE" />
+                            <HeaderStyle CssClass="gridheader" />
+                            <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
+                            <Columns>
+                                <asp:BoundField DataField="CommunityUniqID" Visible="false" />
+                                <asp:BoundField DataField="COMMUNITYNAME" HeaderText="<%$Resources:Community,gvComm_Hd_CommnName %> " />
+                                <asp:BoundField DataField="DISTRICTNAME" HeaderText="<%$Resources:Community,gvComm_Hd_District %>" ItemStyle-Width="35%" />
+                                <asp:TemplateField HeaderText="<%$Resources:Community,gvComm_Hd_Actions %> " ItemStyle-Width="150px">
+                                    <ItemTemplate>
+                                        <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("CommunityUniqID")+";"+Eval("COMMUNITY_NO")+";"+Eval("DISTRICT_NO")%>' />
+                                        <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("CommunityUniqID")%>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                            </Columns>
+                            <EditRowStyle BorderStyle="None" BorderWidth="0px" />
+                        </asp:GridView>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
             </div>
 
-       
+
         </div>
     </div>
 </asp:Content>

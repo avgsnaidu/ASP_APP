@@ -195,4 +195,16 @@
   <data name="MSG_District_Save_Sucess" xml:space="preserve">
     <value>District saved sucessfully</value>
   </data>
+  <data name="mdlUD_DistNumber_label" xml:space="preserve">
+    <value>District Number</value>
+  </data>
+  <data name="mdlCD_Dist_Number_Placeholder" xml:space="preserve">
+    <value>Enter district number here</value>
+  </data>
+  <data name="MSG_Save_Failed" xml:space="preserve">
+    <value>District not saved</value>
+  </data>
+  <data name="MSG_Save_Failed_DistrictNo_Exists" xml:space="preserve">
+    <value>Entered district number already exists</value>
+  </data>
 </root>
