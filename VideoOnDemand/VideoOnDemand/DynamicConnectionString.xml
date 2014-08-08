@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <appSettings>
-  <InitialCatalog>VODTESTD</InitialCatalog>
-  <DataSource>172.16.0.101</DataSource>
-  <Port>1433</Port>
-  <UserID>uservod</UserID>
-  <Password>welcome</Password>
+  <InitialCatalog></InitialCatalog>
+  <DataSource></DataSource>
+  <Port>
+  </Port>
+  <UserID></UserID>
+  <Password></Password>
 </appSettings>

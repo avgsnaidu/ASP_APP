@@ -26,9 +26,23 @@ namespace VideoOnDemand.Model.BAL
         public bool AddDBDetails()
         {
             string strSql = string.Empty;
-            strSql = string.Format("INSERT INTO DB_DETAILS (IP,PORT,NAME,USERID,PASSWORD,DATE_CREATED,DATE_UPDATED)VALUES('{0}',{1},'{2}','{3}','{4}','{5}','{6}')",
-                 IPAddress, Port, DatabaseName, UserID, Password, DateTime.Now, (DateTime?)null);
-            int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
+
+            SqlParameter[] p = new SqlParameter[5];
+            p[0] = new SqlParameter("@Ip", SqlDbType.NVarChar);
+            p[0].Value = IPAddress;
+            p[1] = new SqlParameter("@Port", SqlDbType.NVarChar);
+            p[1].Value = Port;
+            p[2] = new SqlParameter("@Name", SqlDbType.NVarChar);
+            p[2].Value = DatabaseName;
+            p[3] = new SqlParameter("@Userid", SqlDbType.NVarChar);
+            p[3].Value = UserID;
+            p[4] = new SqlParameter("@pwd", SqlDbType.NVarChar);
+            p[4].Value = Password;
+
+
+            strSql = string.Format("INSERT INTO DB_DETAILS (IP,PORT,NAME,USERID,PASSWORD,DATE_CREATED,DATE_UPDATED)VALUES(@Ip,@Port,@Name,@Userid,@pwd,GetDate(),GETDATE())");
+                 //IPAddress, Port, DatabaseName, UserID, Password, DateTime.Now, (DateTime?)null);
+            int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql,p);
             if (returnVal > 0)
                 return true;
             else
@@ -61,10 +75,17 @@ namespace VideoOnDemand.Model.BAL
 
         public DataSet GetDBDetails()
         {
-            string strSql = string.Empty;
-            strSql = string.Format("SELECT top 1 CONFIG_ID,IP,PORT,NAME,USERID,PASSWORD FROM DB_DETAILS order by date_Created desc ");
-            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
-            return ds;
+            try
+            {
+                string strSql = string.Empty;
+                strSql = string.Format("SELECT top 1 CONFIG_ID,IP,PORT,NAME,USERID,PASSWORD FROM DB_DETAILS order by date_Created desc ");
+                DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public string GetValidConnectionString(string serverName, string Database, string port, string userId, string password)
@@ -85,7 +106,7 @@ namespace VideoOnDemand.Model.BAL
 
 
         public string GetValidConnectionString(string connectionString)
-        { 
+        {
             if (SqlHelper.IsValidConnectionSting(connectionString))
                 return connectionString;
             else return string.Empty;

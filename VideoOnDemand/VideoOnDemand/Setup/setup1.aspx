@@ -82,8 +82,8 @@
                     <span class="sprite ip"></span>
                 </div>
                 <asp:RequiredFieldValidator runat="server" ID="rfvTxtIPAddress" ControlToValidate="txtIPAddress" ValidationGroup="DbSetup" ErrorMessage="<%$ Resources:Setup, DBS_Req_IPAddress%>" ForeColor="Red" Display="Dynamic" />
-                <asp:RegularExpressionValidator runat="server" ID="revTxtIPAddress" ValidationGroup="DbSetup" ValidationExpression="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
-                    ForeColor="Red" ControlToValidate="txtIPAddress" ErrorMessage="<%$ Resources:Setup, DBS_Valid_IPAddress%>" Display="Dynamic" />
+              <%--  <asp:RegularExpressionValidator runat="server" ID="revTxtIPAddress" ValidationGroup="DbSetup" ValidationExpression="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"
+                    ForeColor="Red" ControlToValidate="txtIPAddress" ErrorMessage="<%$ Resources:Setup, DBS_Valid_IPAddress%>" Display="Dynamic" />--%>
             </div>
             <div class="column2">
                 <label>
@@ -93,8 +93,8 @@
                     <asp:TextBox runat="server" ID="txtPort" ClientIDMode="Static" CssClass="form-control required NoEmpty portnumber" data-placement="right" data-trigger="manual" MaxLength="6" data-content="Enter valid port number"></asp:TextBox>
                     <span class="sprite port"></span>
                 </div>
-                <asp:RequiredFieldValidator runat="server" ID="rfvport" ControlToValidate="txtPort" ValidationGroup="DbSetup" ErrorMessage="<%$ Resources:Setup, DBS_Req_PORT%>" ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator runat="server" ID="revPort" ValidationGroup="DbSetup" ValidationExpression="^(102[0-4]|10[0-1]\d|[1-9][0-9]{0,3}|0)$" ForeColor="Red"
+             <%--   <asp:RequiredFieldValidator runat="server" ID="rfvport" ControlToValidate="txtPort" ValidationGroup="DbSetup" ErrorMessage="<%$ Resources:Setup, DBS_Req_PORT%>" ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
+             --%>   <asp:RegularExpressionValidator runat="server" ID="revPort" ValidationGroup="DbSetup" ValidationExpression="^(102[0-4]|10[0-1]\d|[1-9][0-9]{0,3}|0)$" ForeColor="Red"
                     ControlToValidate="txtPort" Display="Dynamic" ErrorMessage="<%$ Resources:Setup, DBS_Valid_Port%>" />
 
                

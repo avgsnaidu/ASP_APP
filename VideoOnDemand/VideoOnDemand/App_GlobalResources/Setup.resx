@@ -345,4 +345,10 @@
   <data name="DBS_Valid_DatabaseName" xml:space="preserve">
     <value>Enter Valid Database Name</value>
   </data>
+  <data name="DBS_MSG_DBExists" xml:space="preserve">
+    <value>Database already exists</value>
+  </data>
+  <data name="DBS_MSG_LoginAlreadyExists" xml:space="preserve">
+    <value>Login already exists</value>
+  </data>
 </root>

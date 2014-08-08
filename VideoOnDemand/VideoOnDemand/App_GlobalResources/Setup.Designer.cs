@@ -277,6 +277,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Database already exists.
+        /// </summary>
+        internal static string DBS_MSG_DBExists {
+            get {
+                return ResourceManager.GetString("DBS_MSG_DBExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Login already exists.
+        /// </summary>
+        internal static string DBS_MSG_LoginAlreadyExists {
+            get {
+                return ResourceManager.GetString("DBS_MSG_LoginAlreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to * Please Enter Database.
         /// </summary>
         internal static string DBS_REq_DBName {
