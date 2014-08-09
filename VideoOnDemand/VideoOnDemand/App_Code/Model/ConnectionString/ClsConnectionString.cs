@@ -56,30 +56,30 @@ namespace VideoOnDemand.Model
                     {
                         if (n.Name == "DataSource")
                         {
-                            myBuilder.DataSource = DecryptIt(n.InnerText);
+                            myBuilder.DataSource = n.InnerText;
 
                         }
                         else if (n.Name == "InitialCatalog")
                         {
-                            myBuilder.InitialCatalog = DecryptIt(n.InnerText);
+                            myBuilder.InitialCatalog = n.InnerText;
 
                         }
                         else if (n.Name == "Port")
                         {
                             if (n.InnerText != string.Empty)
                             {
-                                if (!string.IsNullOrEmpty(DecryptIt(n.InnerText)))
-                                    myBuilder.DataSource = myBuilder.DataSource + "," + DecryptIt(n.InnerText);
+                                if (!string.IsNullOrEmpty(n.InnerText))
+                                    myBuilder.DataSource = myBuilder.DataSource + "," + n.InnerText;
 
                             }
                         }
                         else if (n.Name == "UserID")
                         {
-                            myBuilder.UserID = DecryptIt(n.InnerText);
+                            myBuilder.UserID = n.InnerText;
                         }
                         else if (n.Name == "Password")
                         {
-                            myBuilder.Password = DecryptIt(n.InnerText);
+                            myBuilder.Password = n.InnerText;
                         }
                         //str[i] = n.InnerText;
                         //i++;
@@ -158,20 +158,20 @@ namespace VideoOnDemand.Model
                     //adding child node to root.
 
                     root.AppendChild(intCatalog);
-                    intCatalog.InnerText = EncryptIt(initialCatalog);
+                    intCatalog.InnerText = (initialCatalog);
                     //assigning innertext of childnode to text of combobox.
 
                     root.AppendChild(dataSource);
-                    dataSource.InnerText = EncryptIt(DataSource);
+                    dataSource.InnerText = (DataSource);
 
                     root.AppendChild(port);
-                    port.InnerText = EncryptIt(Port);
+                    port.InnerText = (Port);
 
                     root.AppendChild(userID);
-                    userID.InnerText = EncryptIt(UserId);
+                    userID.InnerText = (UserId);
 
                     root.AppendChild(password);
-                    password.InnerText = EncryptIt(Password);
+                    password.InnerText = (Password);
 
                     xmlDoc.Save(filename);
                     //saving xml file
@@ -190,61 +190,6 @@ namespace VideoOnDemand.Model
         }
 
 
-
-        public static string EncryptIt(string encryptData)
-        {
-            try
-            {
-                byte[] data = ASCIIEncoding.ASCII.GetBytes(encryptData);
-                byte[] rgbKey = ASCIIEncoding.ASCII.GetBytes("12345678");
-                byte[] rgbIV = ASCIIEncoding.ASCII.GetBytes("87654321");
-                //1024-bit encryption
-                MemoryStream memoryStream = new MemoryStream(1024);
-                DESCryptoServiceProvider desCryptoServiceProvider = new DESCryptoServiceProvider();
-                CryptoStream cryptoStream = new CryptoStream(memoryStream, desCryptoServiceProvider.CreateEncryptor(rgbKey, rgbIV), CryptoStreamMode.Write);
-                cryptoStream.Write(data, 0, data.Length);
-                cryptoStream.FlushFinalBlock();
-                byte[] result = new byte[(int)memoryStream.Position];
-                memoryStream.Position = 0;
-                memoryStream.Read(result, 0, result.Length);
-                cryptoStream.Close();
-                memoryStream.Dispose();
-                return Convert.ToBase64String(result);
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-        }
-
-        public static string DecryptIt(string toDecrypt)
-        {
-            string decrypted = string.Empty;
-            try
-            {
-
-                var data = System.Convert.FromBase64String(toDecrypt);
-
-                byte[] rgbKey = System.Text.ASCIIEncoding.ASCII.GetBytes("12345678");
-                byte[] rgbIV = System.Text.ASCIIEncoding.ASCII.GetBytes("87654321");
-                //1024-bit decryption
-                MemoryStream memoryStream = new MemoryStream(data.Length);
-                DESCryptoServiceProvider desCryptoServiceProvider = new DESCryptoServiceProvider();
-                ICryptoTransform x = desCryptoServiceProvider.CreateDecryptor(rgbKey, rgbIV);
-                CryptoStream cryptoStream = new CryptoStream(memoryStream, x, CryptoStreamMode.Read);
-                memoryStream.Write(data, 0, data.Length);
-                memoryStream.Position = 0;
-                decrypted = new StreamReader(cryptoStream).ReadToEnd();
-                cryptoStream.Close();
-                memoryStream.Dispose();
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            return decrypted;
-        }
 
 
 
