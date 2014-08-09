@@ -570,4 +570,7 @@
   <data name="MSG_Provide_Valid_Connection" xml:space="preserve">
     <value>Provide valid connection string</value>
   </data>
+  <data name="DB_Connection_Entered_NotValid" xml:space="preserve">
+    <value>Enter Valid Conneciton String</value>
+  </data>
 </root>

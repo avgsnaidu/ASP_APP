@@ -30,11 +30,12 @@ namespace VideoOnDemand.VODManage
                     }
                 }
                 else
-                    Response.Redirect("WindowsUser.aspx");
+                    Response.Redirect("~/Admin/login.aspx");
             }
             else
             {
-                Response.Redirect("WindowsUser.aspx");
+                 
+                Response.Redirect("~/Admin/login.aspx");
             }
         }
 

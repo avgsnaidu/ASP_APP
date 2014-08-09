@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <appSettings>
-  <InitialCatalog>mQ2OmI5fU0s=</InitialCatalog>
-  <DataSource>FQBtqwXmVGiYXfid0GDnDA==</DataSource>
-  <Port>zazGg9qwr7w=</Port>
-  <UserID>d3g6DD8nF/w=</UserID>
-  <Password>zazGg9qwr7w=</Password>
+  <InitialCatalog>VODWEB</InitialCatalog>
+  <DataSource>ETG101</DataSource>
+  <Port>
+  </Port>
+  <UserID>sa</UserID>
+  <Password>welcome</Password>
 </appSettings>

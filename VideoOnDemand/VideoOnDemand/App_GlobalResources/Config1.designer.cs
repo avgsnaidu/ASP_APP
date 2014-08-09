@@ -124,6 +124,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter Valid Conneciton String.
+        /// </summary>
+        internal static string DB_Connection_Entered_NotValid {
+            get {
+                return ResourceManager.GetString("DB_Connection_Entered_NotValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Database  :.
         /// </summary>
         internal static string DB_Database {

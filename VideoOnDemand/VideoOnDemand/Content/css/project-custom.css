@@ -330,7 +330,7 @@ a#lnkDropDownMenu.btn {
 /*========== For reducting the select-dropdown margin===========*/
 .bootstrap-select.btn-group:not(.input-group-btn), .bootstrap-select.btn-group[class*="span"] {
     margin-bottom: 1px !important;
-    text-align:left;
+    text-align: left;
 }
 
 
@@ -433,23 +433,30 @@ a#lnkDropDownMenu.btn {
     opacity: 0.8 !important;
 }
 
- .ic-arrow {
-margin: 12px 0 0 13px !important;
+.ic-arrow {
+    margin: 12px 0 0 13px !important;
+}
 
-}
 .configDataTable .leftField {
-    float:left;
-    font-weight:bold;
-    width:55%;
+    float: left;
+    font-weight: bold;
+    width: 55%;
 }
+
 .configDataTable .rightField {
-    float:right;
-    width:40%;
+    float: right;
+    width: 40%;
 }
+
 .configDataTable tr td:first-child {
-    border-right:1px solid #cdcdcd;
+    border-right: 1px solid #cdcdcd;
 }
+
 .timeInterSpan {
-float: left;
-margin-left: 12px;
+    float: left;
+    margin-left: 12px;
+}
+
+.connectionErrorDiv {
+    padding-left:180px;
 }

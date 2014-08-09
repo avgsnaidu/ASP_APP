@@ -70,20 +70,21 @@
                                                     ID="txtIpAddress" placeholder="Ip Address" data-placement="top" data-trigger="manual"
                                                     data-content="Enter Valid IpAddress" />
                                                 <asp:RequiredFieldValidator runat="server" ID="rfvTxtIPAddress" ControlToValidate="txtIPAddress" ValidationGroup="DbSetup" ErrorMessage="<%$Resources:Config,mdlDB_IPAddress_Need %> " ForeColor="Red" Display="Dynamic" />
-                                                <asp:RegularExpressionValidator runat="server" ID="revTxtIPAddress" ValidationGroup="DbSetup" ValidationExpression="^([1-9]|[1-9][0-9]|1[0-9][0-9]|3[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|3[0-4][0-9]|25[0-5])){3}$" ForeColor="Red"
-                                                    ControlToValidate="txtIPAddress" ErrorMessage="<%$Resources:Config,mdlDB_IPAddress_Valid %> " Display="Dynamic" />
+                                                <%--  <asp:RegularExpressionValidator runat="server" ID="revTxtIPAddress" ValidationGroup="DbSetup" ValidationExpression="^([1-9]|[1-9][0-9]|1[0-9][0-9]|3[0-4][0-9]|25[0-5])(\.([0-9]|[1-9][0-9]|1[0-9][0-9]|3[0-4][0-9]|25[0-5])){3}$" ForeColor="Red"
+                                                    ControlToValidate="txtIPAddress" ErrorMessage="<%$Resources:Config,mdlDB_IPAddress_Valid %> " Display="Dynamic" />--%>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="txtPort" class="col-sm-4 control-label">
                                                 <asp:Literal ID="Literal4" runat="server" Text="<%$Resources:Config,mdlDB_Port %>" />
-                                                <span class="required">*</span></label>
+                                                <span class="required"></span>
+                                            </label>
                                             <div class="col-sm-7">
                                                 <asp:TextBox type="text" ID="txtPort" runat="server" class="form-control textboxFormat required"
                                                     placeholder="Port" data-placement="bottom" data-trigger="manual" data-content="Enter Valid Port" />
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvport" ControlToValidate="txtPort" ValidationGroup="DbSetup"
+                                                <%-- <asp:RequiredFieldValidator runat="server" ID="rfvport" ControlToValidate="txtPort" ValidationGroup="DbSetup"
                                                     ErrorMessage="<%$Resources:Config,mdlDB_Port_Need %> "
-                                                    ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
+                                                    ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>--%>
                                                 <asp:RegularExpressionValidator runat="server" ID="revPort" ValidationGroup="DbSetup" ValidationExpression="^(102[0-4]|10[0-1]\d|[1-9][0-9]{0,3}|0)$"
                                                     ForeColor="Red" ControlToValidate="txtPort" Display="Dynamic" ErrorMessage="<%$Resources:Config,mdlDB_Port_Valid %>" />
 
@@ -119,23 +120,29 @@
                                                 <asp:Literal ID="Literal7" runat="server" Text="<%$Resources:Config,mdlDB_password %>" />
                                                 <span class="required">*</span></label>
                                             <div class="col-sm-7">
-                                                <asp:TextBox type="text" TextMode="Password" ID="txtADPassword" runat="server" class="form-control textboxFormat required NoEmpty"
-                                                    name="" placeholder="Password" data-placement="bottom" data-trigger="manual"
+                                                <asp:TextBox type="text" TextMode="Password" ID="txtDbPassword" runat="server" class="form-control textboxFormat required NoEmpty"
+                                                    placeholder="Password" data-placement="bottom" data-trigger="manual"
                                                     data-content="Enter Valid Password"></asp:TextBox>
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtADPassword" ValidationGroup="DbSetup"
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvPassword" ControlToValidate="txtDbPassword" ValidationGroup="DbSetup"
                                                     ErrorMessage="<%$Resources:Config,mdlDB_Pwd_Need %>" ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
 
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="connectionErrorDiv">
+                                                <asp:CustomValidator ID="validConnectionString" ControlToValidate="txtDbPassword" OnServerValidate="validConnectionString_ServerValidate" runat="server" 
+                                                    ErrorMessage='<%Resources:Config,DB_Connection_Entered_NotValid %>' ValidationGroup="DbSetup" ForeColor="#E2351D" Display="Dynamic" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </ContentTemplate>
                             <Triggers>
-                                <asp:AsyncPostBackTrigger ControlID="btnSave" EventName="Click" />
+                                <asp:AsyncPostBackTrigger ControlID="btnSaveDb" EventName="Click" />
                             </Triggers>
                         </asp:UpdatePanel>
                         <div class="modal-footer">
-                            <asp:Button ID="btnSave" runat="server" class="btn btn-primary" OnClick="btnSaveDB_Click" ValidationGroup="DbSetup"
+                            <asp:Button ID="btnSaveDb" runat="server" class="btn btn-primary" OnClick="btnSaveDB_Click" ValidationGroup="DbSetup"
                                 Text="<%$Resources:Config,mdlDB_Save %> " />
                             <asp:Button ID="btnCancel" runat="server" class="btn btn-primary" data-dismiss="modal"
                                 Text="<%$Resources:Config,mdlDB_Cancel %>" />
@@ -240,10 +247,10 @@
                         <td width="50%">
                             <div class="table-block clearfix col-md-8">
                                 <div class="leftField">
-                                    <asp:Label ID="lblServerId" runat="server" Text="<%$Resources:Config,AD_ServerId%> " Width="170"></asp:Label>
+                                    <asp:Label ID="lblADServerId" runat="server" Text="<%$Resources:Config,AD_ServerId%> " Width="170"></asp:Label>
                                 </div>
                                 <div class="rightField">
-                                    <asp:Label ID="txtServer" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblADServerIdValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -253,7 +260,7 @@
                                     <asp:Label ID="lblADUserName" runat="server" Text="<%$Resources:Config,AD_username%>" Width="170"></asp:Label>
                                 </div>
                                 <div class="rightField">
-                                    <asp:Label ID="txtADUser" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblADUserNameValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -265,7 +272,7 @@
                                     <asp:Label ID="lblADPassword" runat="server" Text="<%$Resources:Config,AD_Password%>" Width="170"></asp:Label>
                                 </div>
                                 <div class="rightField">
-                                    <asp:Label ID="txtPassword" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblADPasswordValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -275,7 +282,7 @@
                                     <asp:Label ID="lblDomain" runat="server" Text="<%$Resources:Config,AD_Domain%>  " Width="170"></asp:Label>
                                 </div>
                                 <div class="rightField">
-                                    <asp:Label ID="lblDataDomain" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblDomainValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -300,18 +307,18 @@
                                     <div class="form-horizontal" role="form">
                                         <div class="form-group">
                                             <asp:HiddenField ID="hdAdConfigId" runat="server" />
-                                            <label for="txtServerId" class="col-sm-4 control-label">
+                                            <label for="txtADServerId" class="col-sm-4 control-label">
                                                 <asp:Literal ID="Literal11" runat="server" Text="<%$Resources:Config,mdlAD_ServerId %>" />
                                                 <span class="required">*</span></label>
                                             <div class="col-sm-7">
                                                 <asp:TextBox type="text" runat="server" class="form-control textboxFormat required NoEmpty"
-                                                    ID="txtServerId" placeholder="Server Id" data-placement="top" data-trigger="manual"
+                                                    ID="txtADServerId" placeholder="Server Id" data-placement="top" data-trigger="manual"
                                                     data-content="Enter Valid ServerId" />
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtADServerId" ControlToValidate="txtServerId" ValidationGroup="ADInfo"
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtADServerId" ControlToValidate="txtADServerId" ValidationGroup="ADInfo"
                                                     ErrorMessage="<%$Resources:Config,mdlAD_ServerId_need %> " ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
                                                 <asp:RegularExpressionValidator runat="server" ID="rfvServerId" ValidationGroup="ADInfo"
                                                     ValidationExpression="^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$" ForeColor="Red"
-                                                    ControlToValidate="txtServerId" ErrorMessage="<%$Resources:Config,mdlAD_ServerId_Valid %>" Display="Dynamic" />
+                                                    ControlToValidate="txtADServerId" ErrorMessage="<%$Resources:Config,mdlAD_ServerId_Valid %>" Display="Dynamic" />
 
                                             </div>
                                         </div>
@@ -328,14 +335,14 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="txtDBPassword" class="col-sm-4 control-label">
+                                            <label for="txtADPassword" class="col-sm-4 control-label">
                                                 <asp:Literal ID="Literal13" runat="server" Text="<%$Resources:Config,mdlAD_Password%>" />
                                                 <span class="required">*</span></label>
                                             <div class="col-sm-7">
-                                                <asp:TextBox type="text" TextMode="Password" runat="server" ID="txtDBPassword" class="form-control textboxFormat required NoEmpty"
+                                                <asp:TextBox type="text" TextMode="Password" runat="server" ID="txtADPassword" class="form-control textboxFormat required NoEmpty"
                                                     name="" placeholder="Password" data-placement="bottom" data-trigger="manual"
                                                     data-content="Enter Valid Password"></asp:TextBox>
-                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtADPassword" ControlToValidate="txtDBPassword" ValidationGroup="ADInfo"
+                                                <asp:RequiredFieldValidator runat="server" ID="rfvtxtADPassword" ControlToValidate="txtADPassword" ValidationGroup="ADInfo"
                                                     ErrorMessage="<%$Resources:Config,mdlAD_Password_need %> " ForeColor="#E2351D" Display="Dynamic"> </asp:RequiredFieldValidator>
 
                                             </div>
@@ -576,7 +583,7 @@
                                                         <span class="sprite interval"></span>
                                                     </div>
                                                 </div>
-                                                <asp:CustomValidator runat="server" ID="custIntervalValidator" CssClass="timeInterSpan"  ControlToValidate="ddlInterval" ValidationGroup="VODInfo" OnServerValidate="custIntervalTimeValidator_ServerValidate"
+                                                <asp:CustomValidator runat="server" ID="custIntervalValidator" CssClass="timeInterSpan" ControlToValidate="ddlInterval" ValidationGroup="VODInfo" OnServerValidate="custIntervalTimeValidator_ServerValidate"
                                                     ErrorMessage="<%$ Resources:Setup, VOD_IntervalOrTime_Valid%>" Display="Dynamic" ForeColor="Red" />
                                             </div>
                                         </div>

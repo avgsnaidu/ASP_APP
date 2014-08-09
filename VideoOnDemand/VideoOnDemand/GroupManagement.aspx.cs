@@ -26,11 +26,11 @@ namespace VideoOnDemand.VODManage
                     BindGroupsDetails();
                 }
                 else
-                    Response.Redirect("WindowsUser.aspx");
+                    Response.Redirect("~/Admin/login.aspx");
             }
             else
-            {
-                Response.Redirect("WindowsUser.aspx");
+            { 
+                Response.Redirect("~/Admin/login.aspx");
             }
             //}
         }

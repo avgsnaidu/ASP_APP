@@ -9,6 +9,16 @@
     </script>
     <div class="container">
         <div id="management-bottom" class="col-md-12">
+
+         <%--    <div style="float: right; padding-right: 30px;">
+                <br />
+                <asp:LinkButton runat="server" ID="btnBackToHome" CssClass="btn-type1" ForeColor="White" PostBackUrl="~/Archived.aspx"
+                    Text="<%$Resources:Config,btnTopBack_Text %>">
+                </asp:LinkButton>
+                <br />
+                &nbsp;
+            </div>--%>
+
             <div class="block1 clearfix">
                 <h2 class="col-md-3">
                     <asp:Literal runat="server" ID="ltlCommnuityHeader" Text="<%$Resources:Community,Hd_Community_Text %>"></asp:Literal></h2>

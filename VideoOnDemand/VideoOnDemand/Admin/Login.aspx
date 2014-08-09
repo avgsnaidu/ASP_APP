@@ -42,7 +42,7 @@
                 <asp:RequiredFieldValidator runat="server" ID="rfvPassword" Display="Dynamic" ControlToValidate="txtPassword" ValidationGroup="login"
                      ErrorMessage="<%$ Resources:MasterData, Login_txtPwd_Req_Error %> " ForeColor="#E2351D"></asp:RequiredFieldValidator>
             </div>
-
+             
             <div class="remember">
                 <asp:CheckBox runat="server" ID="chkRemember" Text="<%$ Resources:MasterData, Login_RememeberMe %> " CssClass="labelNoBold checkNoPad" TabIndex="3"  />
             </div>

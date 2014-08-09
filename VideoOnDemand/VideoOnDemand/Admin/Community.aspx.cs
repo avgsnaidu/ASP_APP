@@ -26,7 +26,7 @@ namespace VideoOnDemand
                 }
             }
             else
-                Response.Redirect("~/WindowsUser.aspx");
+                Response.Redirect("~/Admin/login.aspx");
         }
         private void BindCommunityDetails()
         {
