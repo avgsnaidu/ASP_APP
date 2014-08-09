@@ -81,6 +81,7 @@
                     ErrorMessage="<%$ Resources:Setup, VOD_REq_aRchiveFold%>" ForeColor="#E2351D"></asp:RequiredFieldValidator>
                 <asp:CustomValidator runat="server" ID="custArchValidator" ControlToValidate="txtArchiveFolder" ValidationGroup="VODGroup" OnServerValidate="custArchValidator_ServerValidate"
                     ErrorMessage="<%$ Resources:Setup, VOD_aRchiveFold_Valid%>" Display="Dynamic" ForeColor="Red" />
+
             </div>
             <div class="column2">
                 <label>

@@ -661,13 +661,13 @@ namespace VideoOnDemand.Admin {
         protected global::System.Web.UI.WebControls.Label lblSrcFolder;
         
         /// <summary>
-        /// txtSrcFolder control.
+        /// lblSrcFolderValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtSrcFolder;
+        protected global::System.Web.UI.WebControls.Label lblSrcFolderValue;
         
         /// <summary>
         /// lblDestFolder control.
@@ -679,13 +679,13 @@ namespace VideoOnDemand.Admin {
         protected global::System.Web.UI.WebControls.Label lblDestFolder;
         
         /// <summary>
-        /// txtDestFolder control.
+        /// lblDestFolderValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtDestFolder;
+        protected global::System.Web.UI.WebControls.Label lblDestFolderValue;
         
         /// <summary>
         /// lblArchiveFolder control.
@@ -697,13 +697,13 @@ namespace VideoOnDemand.Admin {
         protected global::System.Web.UI.WebControls.Label lblArchiveFolder;
         
         /// <summary>
-        /// txtArchive control.
+        /// lblArchiveFolderValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtArchive;
+        protected global::System.Web.UI.WebControls.Label lblArchiveFolderValue;
         
         /// <summary>
         /// lblBackUp control.
@@ -733,13 +733,13 @@ namespace VideoOnDemand.Admin {
         protected global::System.Web.UI.WebControls.Label lblSchedule;
         
         /// <summary>
-        /// txtSchedule control.
+        /// lblScheduleValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label txtSchedule;
+        protected global::System.Web.UI.WebControls.Label lblScheduleValue;
         
         /// <summary>
         /// lblVideoConversion control.
@@ -814,6 +814,15 @@ namespace VideoOnDemand.Admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtSourceFolder;
         
         /// <summary>
+        /// custSourceVald control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator custSourceVald;
+        
+        /// <summary>
         /// Literal19 control.
         /// </summary>
         /// <remarks>
@@ -839,6 +848,15 @@ namespace VideoOnDemand.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtDestFolder;
+        
+        /// <summary>
+        /// custDestValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator custDestValidator;
         
         /// <summary>
         /// Literal20 control.
@@ -868,6 +886,15 @@ namespace VideoOnDemand.Admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtArchiveFolder;
         
         /// <summary>
+        /// custArchValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator custArchValidator;
+        
+        /// <summary>
         /// Literal21 control.
         /// </summary>
         /// <remarks>
@@ -893,6 +920,15 @@ namespace VideoOnDemand.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvtxtBackUpFolder;
+        
+        /// <summary>
+        /// custBackValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator custBackValidator;
         
         /// <summary>
         /// Literal22 control.
@@ -929,6 +965,15 @@ namespace VideoOnDemand.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtScheduleInterval;
+        
+        /// <summary>
+        /// custIntervalValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator custIntervalValidator;
         
         /// <summary>
         /// Literal24 control.

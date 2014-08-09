@@ -294,7 +294,7 @@
 
                     <li>
                         <asp:LinkButton runat="server" ID="lnkAssignUserGroup" OnClick="lnkAssignUserGroup_Click" OnClientClick="return CheckCheckBoxSelection();">
-                            <span class="sprite ic-assignvideo"></span>
+                            <span class="sprite ic-assigngroup"></span>
                             <asp:Literal ID="ltlAssingusersGroup" runat="server" Text="<%$ Resources:Users, lnkAssignUserstoGroup %>" />
                             
                         </asp:LinkButton></li>

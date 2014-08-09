@@ -567,4 +567,7 @@
   <data name="MSG_StreamingServer_Save_Failed" xml:space="preserve">
     <value>Streaming Server Details Not Saved</value>
   </data>
+  <data name="MSG_Provide_Valid_Connection" xml:space="preserve">
+    <value>Provide valid connection string</value>
+  </data>
 </root>

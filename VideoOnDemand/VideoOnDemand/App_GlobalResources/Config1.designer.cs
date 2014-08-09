@@ -1258,6 +1258,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Provide valid connection string.
+        /// </summary>
+        internal static string MSG_Provide_Valid_Connection {
+            get {
+                return ResourceManager.GetString("MSG_Provide_Valid_Connection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Successfully Streaming Server Details Saved.
         /// </summary>
         internal static string MSG_SteramingServer_Saved_Sucess {

@@ -181,7 +181,8 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <!-- <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
-                                <h3 class="modal-title" id="myModalLabel22"> <asp:Literal ID="Literal6" runat="server" Text="<%$ Resources:GroupManage, AltMdl_Head %>" /></h3>
+                                <h3 class="modal-title" id="myModalLabel22">
+                                    <asp:Literal ID="Literal6" runat="server" Text="<%$ Resources:GroupManage, AltMdl_Head %>" /></h3>
                             </div>
                             <asp:UpdatePanel ID="UpdatePanel3" runat="server">
                                 <ContentTemplate>
@@ -215,7 +216,7 @@
 
 
 
-      <%--  <div id="editModal" class="modal  fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+        <%--  <div id="editModal" class="modal  fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                 <h3 id="editModalLabel">Edit Record</h3>
@@ -261,36 +262,37 @@
         </div>--%>
 
         <div class="table-block clearfix col-md-12">
-            <%-- <asp:UpdatePanel ID="UpdatePanelGroupMang" runat="server">
-                <ContentTemplate>--%>
-            <asp:GridView ID="gvGroupManagement" runat="server" AutoGenerateColumns="False" GridLines="None"
-                DataKeyNames="GroupId" AllowPaging="true" PagerSettings-Mode="Numeric" OnPageIndexChanging="gvGroupManagement_PageIndexChanging"
-                OnRowEditing="gvGroupManagement_RowEditing" ShowHeaderWhenEmpty="true"
-                OnRowCommand="gvGroupManagement_RowCommand" EmptyDataText="No groups found" EmptyDataRowStyle-HorizontalAlign="Center">
-                <AlternatingRowStyle BackColor="#DEDEDE" />
-                <HeaderStyle CssClass="gridheader" />
-                <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
-                <Columns>
-                    <asp:BoundField DataField="GroupId" Visible="false" />
-                    <asp:BoundField DataField="GroupName" HeaderText="<%$ Resources:GroupManage, gv_Hd_txtGroupName %>" ItemStyle-Width="35%" />
-                    <asp:BoundField DataField="Description" HeaderText="<%$ Resources:GroupManage, gv_Hd_Desct %>" />
-                    <asp:TemplateField HeaderText="<%$ Resources:GroupManage, gv_HD_Actions %>" ItemStyle-Width="150px">
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("GroupId")%>' />
-                            <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("GroupId")%>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-                <EditRowStyle BorderStyle="None" BorderWidth="0px" />
-            </asp:GridView>
-            <%-- </ContentTemplate>
-            </asp:UpdatePanel>--%>
+            <asp:UpdatePanel ID="UpdatePanelGroupMang" runat="server">
+                <ContentTemplate>
+                    <asp:GridView ID="gvGroupManagement" runat="server" AutoGenerateColumns="False" GridLines="None"
+                        DataKeyNames="GroupId" AllowPaging="true" PagerSettings-Mode="Numeric" OnPageIndexChanging="gvGroupManagement_PageIndexChanging"
+                        OnRowEditing="gvGroupManagement_RowEditing" ShowHeaderWhenEmpty="true"
+                        OnRowCommand="gvGroupManagement_RowCommand" EmptyDataText="No groups found" EmptyDataRowStyle-HorizontalAlign="Center">
+                        <AlternatingRowStyle BackColor="#DEDEDE" />
+                        <HeaderStyle CssClass="gridheader" />
+                        <PagerStyle CssClass="gridpager" HorizontalAlign="Right" />
+                        <Columns>
+                            <asp:BoundField DataField="GroupId" Visible="false" />
+                            <asp:BoundField DataField="GroupName" HeaderText="<%$ Resources:GroupManage, gv_Hd_txtGroupName %>" ItemStyle-Width="35%" />
+                            <asp:BoundField DataField="Description" HeaderText="<%$ Resources:GroupManage, gv_Hd_Desct %>" />
+                            <asp:TemplateField HeaderText="<%$ Resources:GroupManage, gv_HD_Actions %>" ItemStyle-Width="150px">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkEdit" runat="server" CommandName="Editing" CssClass="sprite delete" CommandArgument='<%#Eval("GroupId")%>' />
+                                    <asp:LinkButton ID="lnkDelete" runat="server" CommandName="Deleting" CssClass="sprite edit" CommandArgument='<%#Eval("GroupId")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                        <EditRowStyle BorderStyle="None" BorderWidth="0px" />
+                    </asp:GridView>
+                </ContentTemplate>
+            </asp:UpdatePanel>
         </div>
 
         <div id="deleteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="delModalLabel" aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="delModalLabel">  <asp:Literal ID="Literal7" runat="server" Text="<%$ Resources:GroupManage, delModalLabel_h3 %>" /></h3>
+                <h3 id="delModalLabel">
+                    <asp:Literal ID="Literal7" runat="server" Text="<%$ Resources:GroupManage, delModalLabel_h3 %>" /></h3>
             </div>
             <%-- <asp:UpdatePanel ID="upDel" runat="server">
                 <ContentTemplate>--%>

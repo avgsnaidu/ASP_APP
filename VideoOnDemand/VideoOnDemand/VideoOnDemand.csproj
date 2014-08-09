@@ -108,6 +108,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Code\Model\ConnectionString\ClsConnectionString.cs" />
     <Compile Include="App_Code\Model\TimeConverters.cs" />
     <Compile Include="App_GlobalResources\Setup.ar.designer.cs">
       <DependentUpon>Setup.ar.resx</DependentUpon>
@@ -399,7 +400,6 @@
     <Compile Include="App_Code\Model\BAL\clsSearch.cs" />
     <Compile Include="App_Code\Model\BAL\clsUserManagement.cs" />
     <Compile Include="App_Code\Model\BAL\clsVideoManagement.cs" />
-    <Compile Include="App_Code\Model\ConnectionString\ClsConnectionString.cs" />
     <Compile Include="App_Code\Model\DAL\SqlHelper.cs" />
     <Compile Include="App_Code\Model\DAL\clsDbConnector.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />

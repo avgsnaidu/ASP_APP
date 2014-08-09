@@ -63,8 +63,7 @@ namespace VideoOnDemand.Setup
                     schedularFlag = 'F';
                     interval = (double)DecimalToTimeConverters.ToDecimal(Convert.ToDateTime(txtScheduleInterval.Text.Trim()));
                     //var span = DateTime.ParseExact(.ToString(),"yyyy.MM.dd HH:mm:ss.fff",
-                    //           CultureInfo.InvariantCulture).ToOADate(); 
-
+                    //           CultureInfo.InvariantCulture).ToOADate();  
                 }
 
                 repository.SchedulerFlag = schedularFlag;
@@ -92,58 +91,58 @@ namespace VideoOnDemand.Setup
             Response.Redirect("~/Setup/setup4.aspx");
         }
 
-        private bool IsSourceFolderExists(string path)
-        {
-            if (false == Directory.Exists(path))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        //private bool IsSourceFolderExists(string path)
+        //{
+        //    if (false == Directory.Exists(path))
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
 
-        private bool IsDestinationFolderExists(string path)
-        {
-            if (false == Directory.Exists(path))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        //private bool IsDestinationFolderExists(string path)
+        //{
+        //    if (false == Directory.Exists(path))
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
 
-        private bool IsBackUpFolderExists(string path)
-        {
-            if (false == Directory.Exists(path))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        //private bool IsBackUpFolderExists(string path)
+        //{
+        //    if (false == Directory.Exists(path))
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
 
-        private bool IsArchiveFolderExists(string path)
-        {
-            if (false == Directory.Exists(path))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
+        //private bool IsArchiveFolderExists(string path)
+        //{
+        //    if (false == Directory.Exists(path))
+        //    {
+        //        return false;
+        //    }
+        //    else
+        //    {
+        //        return true;
+        //    }
+        //}
 
         protected void custSourceVald_ServerValidate(object source, ServerValidateEventArgs args)
         {
             args.IsValid = false;
-            if (IsSourceFolderExists(txtSourceFolder.Text.Trim()))
+            if (repository.IsFolderExists(txtSourceFolder.Text.Trim()))
                 args.IsValid = true;
 
         }
@@ -151,7 +150,7 @@ namespace VideoOnDemand.Setup
         protected void custDestValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             args.IsValid = false;
-            if (IsDestinationFolderExists(txtDestFolder.Text.Trim()))
+            if (repository.IsFolderExists(txtDestFolder.Text.Trim()))
                 args.IsValid = true;
         }
 
@@ -159,14 +158,14 @@ namespace VideoOnDemand.Setup
         protected void custArchValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             args.IsValid = false;
-            if (IsArchiveFolderExists(txtArchiveFolder.Text.Trim()))
+            if (repository.IsFolderExists(txtArchiveFolder.Text.Trim()))
                 args.IsValid = true;
         }
 
         protected void custBackValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
             args.IsValid = false;
-            if (IsBackUpFolderExists(txtBackUpFolder.Text.Trim()))
+            if (repository.IsFolderExists(txtBackUpFolder.Text.Trim()))
                 args.IsValid = true;
 
         }

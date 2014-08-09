@@ -162,3 +162,8 @@
     float: left !important;
 }
 
+.timeInterSpan {
+float: right;
+margin-right: 17px;
+}
+

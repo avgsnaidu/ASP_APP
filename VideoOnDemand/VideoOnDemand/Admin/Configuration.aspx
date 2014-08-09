@@ -402,7 +402,7 @@
                                     <asp:Label ID="lblSrcFolder" runat="server" Text="<%$Resources:Config,VOD_Source%> "></asp:Label>
                                 </div>
                                 <div class="col-md-9 pull-right" style="word-wrap: break-word;">
-                                    <asp:Label ID="txtSrcFolder" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblSrcFolderValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -414,7 +414,7 @@
                                     <asp:Label ID="lblDestFolder" runat="server" Text="<%$Resources:Config,VOD_Dest%>"></asp:Label>
                                 </div>
                                 <div class="col-md-9 pull-right" style="word-wrap: break-word;">
-                                    <asp:Label ID="txtDestFolder" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblDestFolderValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -426,7 +426,7 @@
                                     <asp:Label ID="lblArchiveFolder" runat="server" Text="<%$Resources:Config,VOD_Archive%>"></asp:Label>
                                 </div>
                                 <div class="col-md-9 pull-right" style="word-wrap: break-word;">
-                                    <asp:Label ID="txtArchive" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblArchiveFolderValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -450,7 +450,7 @@
                                     <asp:Label ID="lblSchedule" runat="server" Text="<%$Resources:Config,VOD_Interval%> "></asp:Label>
                                 </div>
                                 <div class="col-md-9 pull-right">
-                                    <asp:Label ID="txtSchedule" runat="server" Text=""></asp:Label>
+                                    <asp:Label ID="lblScheduleValue" runat="server" Text=""></asp:Label>
                                 </div>
                             </div>
                         </td>
@@ -495,7 +495,8 @@
                                                     data-content="Enter Valid Source Folder" />
                                                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtSourceFolder" ControlToValidate="txtSrcFold"
                                                     ValidationGroup="VODInfo" ErrorMessage="<%$Resources:Config,mdlVOD_SourceFolder_need %>" ForeColor="#E2351D" Display="Dynamic"> </asp:RequiredFieldValidator>
-
+                                                <asp:CustomValidator runat="server" ID="custSourceVald" ControlToValidate="txtSrcFold" ValidationGroup="VODInfo" OnServerValidate="custSourceVald_ServerValidate"
+                                                    ErrorMessage="<%$ Resources:Setup, VOD_SourceFold_Valid%>" Display="Dynamic" ForeColor="Red" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -508,7 +509,8 @@
                                                     data-content="Enter Valid Destination Folder" />
                                                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtDestFolder" ControlToValidate="txtDstFold" ValidationGroup="VODInfo"
                                                     ErrorMessage="<%$Resources:Config,mdlVOD_Dest_need %>" ForeColor="#E2351D" Display="Dynamic"> </asp:RequiredFieldValidator>
-
+                                                <asp:CustomValidator runat="server" ID="custDestValidator" ControlToValidate="txtDstFold" ValidationGroup="VODInfo" OnServerValidate="custDestValidator_ServerValidate"
+                                                    ErrorMessage="<%$ Resources:Setup, VOD_DestinationFold_Valid%>" Display="Dynamic" ForeColor="Red" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -521,7 +523,8 @@
                                                     data-content="Enter Valid Archive Folder"></asp:TextBox>
                                                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtArchiveFolder" ControlToValidate="txtArchiveFold" ValidationGroup="VODInfo"
                                                     ErrorMessage="<%$Resources:Config,mdlVOD_need %> " ForeColor="#E2351D" Display="Dynamic"></asp:RequiredFieldValidator>
-
+                                                <asp:CustomValidator runat="server" ID="custArchValidator" ControlToValidate="txtArchiveFold" ValidationGroup="VODInfo" OnServerValidate="custArchValidator_ServerValidate"
+                                                    ErrorMessage="<%$ Resources:Setup, VOD_aRchiveFold_Valid%>" Display="Dynamic" ForeColor="Red" />
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -534,44 +537,51 @@
                                                     data-content="Enter Valid Backup Folder"></asp:TextBox>
                                                 <asp:RequiredFieldValidator runat="server" ID="rfvtxtBackUpFolder" ControlToValidate="txtBackupFold" ValidationGroup="VODInfo"
                                                     ErrorMessage="<%$Resources:Config,mdlVOD_BackUp_need %>" ForeColor="#E2351D" Display="Dynamic"> </asp:RequiredFieldValidator>
-
+                                                <asp:CustomValidator runat="server" ID="custBackValidator" ControlToValidate="txtBackupFold" ValidationGroup="VODInfo" OnServerValidate="custBackValidator_ServerValidate"
+                                                    ErrorMessage="<%$ Resources:Setup, VOD_BackupFolder_Valid%>" Display="Dynamic" ForeColor="Red" />
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="ddlInterval" class="col-sm-4 control-label">
                                                 <asp:Literal ID="Literal22" runat="server" Text="<%$Resources:Config,mdlVOD_SchdInterval %>" />
                                                 <span class="required">*</span></label>
-                                            <div class="col-sm-3">
-                                                <div class="input1">
-                                                    <div class="select-holder">
-                                                        <asp:DropDownList ID="ddlInterval" runat="server" CssClass="span12">
-                                                            <asp:ListItem Value="0" Text="Select" />
-                                                            <asp:ListItem Value="1" Text="1 Hrs" />
-                                                            <asp:ListItem Value="2" Text="2 Hrs" />
-                                                            <asp:ListItem Value="3" Text="3 Hrs" />
-                                                            <asp:ListItem Value="4" Text="4 Hrs" />
-                                                            <asp:ListItem Value="5" Text="5 Hrs" />
-                                                            <asp:ListItem Value="6" Text="6 Hrs" />
-                                                            <asp:ListItem Value="7" Text="7 Hrs" />
-                                                            <asp:ListItem Value="8" Text="8 Hrs" />
-                                                            <asp:ListItem Value="9" Text="9 Hrs" />
-                                                            <asp:ListItem Value="10" Text="10 Hrs" />
-                                                            <asp:ListItem Value="11" Text="11 Hrs" />
-                                                            <asp:ListItem Value="12 " Text="12 Hrs" />
-                                                        </asp:DropDownList>
+                                            <div class="timeintevalCont">
+                                                <div class="col-sm-3">
+                                                    <div class="input1">
+                                                        <div class="select-holder">
+                                                            <asp:DropDownList ID="ddlInterval" runat="server" CssClass="span12">
+                                                                <asp:ListItem Value="0" Text="Select" />
+                                                                <asp:ListItem Value="1" Text="1 Hrs" />
+                                                                <asp:ListItem Value="2" Text="2 Hrs" />
+                                                                <asp:ListItem Value="3" Text="3 Hrs" />
+                                                                <asp:ListItem Value="4" Text="4 Hrs" />
+                                                                <asp:ListItem Value="5" Text="5 Hrs" />
+                                                                <asp:ListItem Value="6" Text="6 Hrs" />
+                                                                <asp:ListItem Value="7" Text="7 Hrs" />
+                                                                <asp:ListItem Value="8" Text="8 Hrs" />
+                                                                <asp:ListItem Value="9" Text="9 Hrs" />
+                                                                <asp:ListItem Value="10" Text="10 Hrs" />
+                                                                <asp:ListItem Value="11" Text="11 Hrs" />
+                                                                <asp:ListItem Value="12 " Text="12 Hrs" />
+                                                            </asp:DropDownList>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <span class="label1 float-l">
-                                                <asp:Literal ID="Literal23" runat="server" Text="<%$Resources:Config,mdlVOD_SchdInterval_OrTime %>" />
-                                            </span>
-                                            <div class="float-l input2 timeIntr">
-                                                <div class="input-holder">
-                                                    <asp:TextBox runat="server" type="time" ID="txtScheduleInterval"></asp:TextBox>
-                                                    <span class="sprite interval"></span>
+                                                <span class="label1 float-l">
+                                                    <asp:Literal ID="Literal23" runat="server" Text="<%$Resources:Config,mdlVOD_SchdInterval_OrTime %>" />
+                                                </span>
+                                                <div class="float-l input2 timeIntr">
+                                                    <div class="input-holder">
+                                                        <asp:TextBox runat="server" type="time" ID="txtScheduleInterval"></asp:TextBox>
+                                                        <span class="sprite interval"></span>
+                                                    </div>
                                                 </div>
+                                                <asp:CustomValidator runat="server" ID="custIntervalValidator" CssClass="timeInterSpan"  ControlToValidate="ddlInterval" ValidationGroup="VODInfo" OnServerValidate="custIntervalTimeValidator_ServerValidate"
+                                                    ErrorMessage="<%$ Resources:Setup, VOD_IntervalOrTime_Valid%>" Display="Dynamic" ForeColor="Red" />
                                             </div>
                                         </div>
+
+
                                         <div class="form-group">
                                             <label for="ddlSimultaneous" class="col-sm-4 control-label">
                                                 <asp:Literal ID="Literal24" runat="server" Text="<%$Resources:Config,mdlVOD_Simul_Convertions %>" />
@@ -925,7 +935,7 @@
                     </div>
                 </div>
             </div>
-             
+
 
             <%--Email Server Details--%>
 
@@ -1021,7 +1031,7 @@
                         <td width="50%">
 
                             <div class="table-block clearfix col-md-8">
-                                <div  class="leftField">
+                                <div class="leftField">
                                     <asp:Label ID="lblESDTlsEnabled" runat="server" Text="<%$Resources:Config,ESD_TlsEnabled%> " Width="170"></asp:Label>
                                 </div>
                                 <div class="rightField">
@@ -1030,12 +1040,12 @@
                             </div>
                         </td>
                     </tr>
-                     
+
                     <tr>
                         <td width="50%">
 
                             <div class="table-block clearfix col-md-8">
-                                <div   class="leftField">
+                                <div class="leftField">
                                     <asp:Label ID="lblESDReplyEmail" runat="server" Text="<%$Resources:Config,ESD_ReplyEmail%> " Width="170"></asp:Label>
                                 </div>
                                 <div class="rightField">
@@ -1047,7 +1057,7 @@
                         <td width="50%">
 
                             <div class="table-block clearfix col-md-8">
-                                <div  class="leftField">
+                                <div class="leftField">
                                     <asp:Label ID="lblESDSenderName" runat="server" Text="<%$Resources:Config,ESD_SenderName%> " Width="170"></asp:Label>
                                 </div>
                                 <div class="rightField">
@@ -1061,7 +1071,7 @@
 
                 </table>
             </div>
-             
+
 
             <div class="modal fade" id="mdlEmailServer" tabindex="-1" role="dialog" aria-labelledby="myESDModalLabel"
                 aria-hidden="true">
@@ -1241,7 +1251,7 @@
                     </div>
                 </div>
             </div>
-             
+
 
             <div style="float: right; padding-right: 30px;">
                 <br />

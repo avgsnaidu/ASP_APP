@@ -5,6 +5,7 @@ using System.Web;
 using VideoOnDemand.Model;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace VideoOnDemand.Model.BAL
 {
@@ -69,6 +70,18 @@ namespace VideoOnDemand.Model.BAL
             strSql = string.Format("SELECT top 1 [CONFIG_ID] ,[SOURCE_FOLDER],[TARGET_FOLDER],[ARCHIVE_FOLDER],[BACKUP_FOLDER],[SCHEDULER_FLAG],[SCHEDULER_HOURS_INTERVAL] ,[SIMULT_CONVERSIONS]  FROM [VOD_CONFIG]order by date_Created desc ");
             DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
             return ds;
+        }
+
+        public bool IsFolderExists(string path)
+        {
+            if (false == Directory.Exists(path))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
     }
