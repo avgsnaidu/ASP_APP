@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 using VideoOnDemand.Model;
 using VideoOnDemand.Model.BAL;
 
-namespace VideoOnDemand.VODManage
+namespace VideoOnDemand.Admin
 {
     public partial class VideoManagement : ChildBasePage
     {

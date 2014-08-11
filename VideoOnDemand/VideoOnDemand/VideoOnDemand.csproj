@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Model\ConnectionString\ClsConnectionString.cs" />
+    <Compile Include="App_Code\Model\LoginRedirectByRoles.cs" />
     <Compile Include="App_Code\Model\TimeConverters.cs" />
     <Compile Include="App_GlobalResources\Setup.ar.designer.cs">
       <DependentUpon>Setup.ar.resx</DependentUpon>
@@ -140,6 +141,27 @@
     </Compile>
     <Compile Include="Setup\setup4.aspx.designer.cs">
       <DependentUpon>setup4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\SearchVideos.aspx.cs">
+      <DependentUpon>SearchVideos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\SearchVideos.aspx.designer.cs">
+      <DependentUpon>SearchVideos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\Videos.aspx.cs">
+      <DependentUpon>Videos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\Videos.aspx.designer.cs">
+      <DependentUpon>Videos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Users\VODUserManagement.master.cs">
+      <DependentUpon>VODUserManagement.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Users\VODUserManagement.master.designer.cs">
+      <DependentUpon>VODUserManagement.master</DependentUpon>
     </Compile>
     <Compile Include="WindowsUser.aspx.cs">
       <DependentUpon>WindowsUser.aspx</DependentUpon>
@@ -288,13 +310,6 @@
     <Compile Include="Player\VideoPlayer.aspx.designer.cs">
       <DependentUpon>VideoPlayer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VODUserManagement.master.cs">
-      <DependentUpon>VODUserManagement.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="VODUserManagement.master.designer.cs">
-      <DependentUpon>VODUserManagement.master</DependentUpon>
-    </Compile>
     <Content Include="Admin\Login.aspx" />
     <Compile Include="Admin\Configuration.aspx.cs">
       <DependentUpon>Configuration.aspx</DependentUpon>
@@ -343,6 +358,8 @@
     <Content Include="Setup\setup3.aspx" />
     <Content Include="Setup\setup4.aspx" />
     <Content Include="Setup\VODScript.sql" />
+    <Content Include="Users\SearchVideos.aspx" />
+    <Content Include="Users\Videos.aspx" />
     <Content Include="WindowsUser.aspx" />
     <None Include="Properties\PublishProfiles\VODWeb.pubxml" />
     <None Include="Properties\PublishProfiles\VODWebTwo.pubxml" />
@@ -363,18 +380,18 @@
     <Content Include="Index.aspx" />
     <Content Include="Setup\setup1.aspx" />
     <Content Include="ViewSwitcher.ascx" />
-    <Content Include="Archived.aspx" />
-    <Content Include="GroupManagement.aspx" />
-    <Content Include="Search.aspx" />
-    <Content Include="Users.aspx" />
-    <Content Include="VideoManagement.aspx" />
+    <Content Include="Admin\Archived.aspx" />
+    <Content Include="Admin\GroupManagement.aspx" />
+    <Content Include="Admin\Search.aspx" />
+    <Content Include="Admin\Users.aspx" />
+    <Content Include="Admin\VideoManagement.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Mobile.Master" />
-    <Content Include="VODManagement.master" />
+    <Content Include="Admin\VODManagement.master" />
     <Content Include="VODMain.Master" />
-    <Content Include="VODUserManagement.master" />
+    <Content Include="Users\VODUserManagement.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -460,53 +477,52 @@
     <Compile Include="VODMain.Master.designer.cs">
       <DependentUpon>VODMain.Master</DependentUpon>
     </Compile>
-    <Compile Include="Archived.aspx.cs">
+    <Compile Include="Admin\Archived.aspx.cs">
       <DependentUpon>Archived.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Archived.aspx.designer.cs">
+    <Compile Include="Admin\Archived.aspx.designer.cs">
       <DependentUpon>Archived.aspx</DependentUpon>
     </Compile>
-    <Compile Include="GroupManagement.aspx.cs">
+    <Compile Include="Admin\GroupManagement.aspx.cs">
       <DependentUpon>GroupManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="GroupManagement.aspx.designer.cs">
+    <Compile Include="Admin\GroupManagement.aspx.designer.cs">
       <DependentUpon>GroupManagement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Search.aspx.cs">
+    <Compile Include="Admin\Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Search.aspx.designer.cs">
+    <Compile Include="Admin\Search.aspx.designer.cs">
       <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Users.aspx.cs">
+    <Compile Include="Admin\Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Users.aspx.designer.cs">
+    <Compile Include="Admin\Users.aspx.designer.cs">
       <DependentUpon>Users.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VideoManagement.aspx.cs">
+    <Compile Include="Admin\VideoManagement.aspx.cs">
       <DependentUpon>VideoManagement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VideoManagement.aspx.designer.cs">
+    <Compile Include="Admin\VideoManagement.aspx.designer.cs">
       <DependentUpon>VideoManagement.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VODManagement.master.cs">
+    <Compile Include="Admin\VODManagement.master.cs">
       <DependentUpon>VODManagement.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="VODManagement.master.designer.cs">
+    <Compile Include="Admin\VODManagement.master.designer.cs">
       <DependentUpon>VODManagement.master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Account\" />
     <Folder Include="App_Data\" />
-    <Folder Include="VODManage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\VideoManagement.ar.resx">

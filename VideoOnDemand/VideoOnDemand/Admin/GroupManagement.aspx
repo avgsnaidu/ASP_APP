@@ -1,4 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODManagement.master" AutoEventWireup="true" CodeBehind="GroupManagement.aspx.cs" Inherits="VideoOnDemand.VODManage.GroupManagement" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/VODManagement.master" AutoEventWireup="true" CodeBehind="~/Admin/GroupManagement.aspx.cs" 
+    Inherits="VideoOnDemand.Admin.GroupManagement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="VODMangContentPlaceHolder" runat="server">
     <script type="text/javascript">

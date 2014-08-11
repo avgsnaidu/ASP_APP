@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VideoOnDemand.VODManage {
+namespace VideoOnDemand.Admin {
     
     
     public partial class VODManagement {

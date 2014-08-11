@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="VODManagement.master.cs" Inherits="VideoOnDemand.VODManage.VODManagement" %>
+﻿<%@ Master Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="~/Admin/VODManagement.master.cs" Inherits="VideoOnDemand.Admin.VODManagement" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainHeadContent" runat="server">
 </asp:Content>

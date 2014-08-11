@@ -8,7 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using VideoOnDemand.Model.BAL;
 
-namespace VideoOnDemand.VODManage
+namespace VideoOnDemand.Admin
 {
     public partial class GroupManagement : ChildBasePage
     {

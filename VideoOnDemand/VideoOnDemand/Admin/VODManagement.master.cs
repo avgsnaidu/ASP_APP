@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
-namespace VideoOnDemand.VODManage
+namespace VideoOnDemand.Admin
 {
     public partial class VODManagement : System.Web.UI.MasterPage
     {
