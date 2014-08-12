@@ -1,0 +1,173 @@
+﻿body {
+    direction: rtl;
+}
+
+.table-block table tr th, .bootstrap-select.btn-group .btn .filter-option {
+    direction: rtl;
+    text-align: right !important;
+}
+
+.block1 ul li a span {
+    float: left;
+    margin: 4px 10px 0 0;
+}
+
+.block1 h2 {
+    float: right;
+}
+
+.block1 .col-md-9, .block1 ul {
+    float: left;
+}
+
+.form-search .input-append .btn {
+    border-radius: 14px 0 0 14px;
+}
+
+.form-search .input-append .search-query {
+    border-radius: 0 14px 14px 0;
+}
+
+.radiusNone button {
+    border-radius: 0 !important;
+}
+
+.pull-right {
+    float: left !important;
+}
+
+#mdlPlayVideo .modal-content {
+    height: 400px !important;
+    padding-right: 15px !important;
+    width: 580px !important;
+}
+
+#mdlPlayVideo .closeX {
+    right: -25px !important;
+}
+
+#language {
+    padding: 0 0 0 5%;
+}
+
+#management-top ul li {
+    padding: 0 5px;
+}
+
+.bootstrap-select.btn-group .dropdown-menu li a span.text {
+    float: right;
+}
+
+.modal-body .form-horizontal .control-label {
+    float: right;
+}
+
+.modal-body .col-sm-7 {
+    float: left;
+}
+
+.modal-footer {
+    text-align: left;
+}
+
+.table-block .middle-rightchild span {
+    direction: rtl !important;
+    float: right;
+}
+
+.btn-type1, .bottom-container .pull-right label {
+    float: left;
+}
+
+.column2 label {
+    float: right;
+    text-align: left;
+    padding: 9px 0 9px 5%;
+}
+
+.input-holder {
+    float: right;
+    padding: 0 0 0 34px;
+}
+
+    .input-holder span {
+        left: 0;
+        border-left: 0;
+        border-right: 1px solid #c5c5c5;
+        right: auto;
+    }
+
+.pull-left {
+    float: right !important;
+}
+
+#SimultaniousSelect.select-holder {
+    float: right;
+}
+
+.navigation li.last-child span {
+    left: 0  !important; right: auto  !important;
+}
+.navigation li.last-child {
+    float: left  !important;
+    text-align: left  !important;
+}
+.navigation li {
+    float: right !important;
+}
+.middle-rightchild {
+    padding-right: 50px !important;
+    padding-left:0 !important;
+}
+.navigation li.first-child {
+    text-align: right !important;
+}
+.navigation li.first-child span {
+    right:0 !important;
+}
+.middle-leftchild {
+    padding-left: 70px  !important;
+    padding-right:0  !important;
+}
+.modal-body .col-sm-3 {
+    width: 20% !important;
+}
+.configDataTable .leftField {
+    float:right;
+    font-weight:bold;
+    width:55%;
+}
+.configDataTable .rightField {
+    float:left;
+    width:40%;
+}
+.configDataTable tr td:first-child {
+    border-left:1px solid #cdcdcd !important;
+    border-right:0 !important;
+}
+.labelNoBold label {
+    margin-left: 0 !important;
+    margin-right: 10px !important;
+}
+.btn-group > .btn:first-child {
+    text-align:right;
+}
+.table-block table tr td, .table-block table tr th {
+    border-left: 0 solid #cdcdcd !important;
+    border-right: 1px solid #cdcdcd !important;
+}
+
+.last span {
+    margin-right: 5px;
+    float: left !important;
+}
+
+.timeInterSpan {
+float: right;
+margin-right: 17px;
+}
+
+
+.connectionErrorDiv {
+    padding-right:180px;
+}

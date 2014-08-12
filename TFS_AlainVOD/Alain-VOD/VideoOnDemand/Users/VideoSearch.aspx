@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Users/VODUserManagement.master" AutoEventWireup="true" CodeBehind="~/Users/VODUserManagement.master.cs" Inherits="VideoOnDemand.Users.SearchVideos" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Users/VODUserManagement.master" AutoEventWireup="true" CodeBehind="VideoSearch.aspx.cs" Inherits="VideoOnDemand.Users.SearchVideos" %>
 
 <%--<%@ MasterType VirtualPath="~/VODManagement.master" %>--%>
 

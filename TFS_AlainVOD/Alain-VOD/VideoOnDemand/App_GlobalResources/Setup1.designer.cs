@@ -169,6 +169,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Database already exists.
+        /// </summary>
+        internal static string DBS_Connection_Already_Exists {
+            get {
+                return ResourceManager.GetString("DBS_Connection_Already_Exists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Database not created sucessfully.
+        /// </summary>
+        internal static string DBS_Database_CreationFailed {
+            get {
+                return ResourceManager.GetString("DBS_Database_CreationFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to With provided details the connection not established. Please provide valid details..
         /// </summary>
         internal static string DBS_DBConnection_NotEstbl_Message {

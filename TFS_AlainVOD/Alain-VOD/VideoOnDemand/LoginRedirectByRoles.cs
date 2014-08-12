@@ -6,7 +6,7 @@ using System.Web;
 
 namespace VideoOnDemand.Model
 {
-    public class VODLoginRedirectByRoles : ConfigurationSection
+    public class VODLoginRedirectByRoleSection : ConfigurationSection
     {
         [ConfigurationProperty("roleRedirects")]
         public RoleRedirectCollection RoleRedirects

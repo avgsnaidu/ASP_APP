@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<appSettings>
+  <InitialCatalog>VODWeeb</InitialCatalog>
+  <DataSource>172.16.0.102</DataSource>
+  <Port>1433</Port>
+  <UserID>Vodduser</UserID>
+  <Password>welcome</Password>
+</appSettings>
