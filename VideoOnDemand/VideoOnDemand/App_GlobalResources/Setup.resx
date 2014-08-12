@@ -351,4 +351,10 @@
   <data name="DBS_MSG_LoginAlreadyExists" xml:space="preserve">
     <value>Login already exists</value>
   </data>
+  <data name="DBS_Connection_Already_Exists" xml:space="preserve">
+    <value>Database already exists</value>
+  </data>
+  <data name="DBS_Database_CreationFailed" xml:space="preserve">
+    <value>Database not created sucessfully</value>
+  </data>
 </root>

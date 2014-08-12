@@ -169,6 +169,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You are not authorized to acces this portal, Please contact your administrator.
+        /// </summary>
+        internal static string Error_Message_Autherization {
+            get {
+                return ResourceManager.GetString("Error_Message_Autherization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Arabic.
         /// </summary>
         internal static string hd_Arb_lnk_Text {

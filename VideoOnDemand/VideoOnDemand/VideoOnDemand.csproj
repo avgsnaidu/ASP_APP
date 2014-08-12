@@ -109,17 +109,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Model\ConnectionString\ClsConnectionString.cs" />
-    <Compile Include="App_Code\Model\LoginRedirectByRoles.cs" />
+    <Compile Include="App_GlobalResources\Setup1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Setup.resx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginRedirectByRoles.cs" />
     <Compile Include="App_Code\Model\TimeConverters.cs" />
+    <Compile Include="App_Code\Model\WebHelper.cs" />
     <Compile Include="App_GlobalResources\Setup.ar.designer.cs">
       <DependentUpon>Setup.ar.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="App_GlobalResources\Setup.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Setup.resx</DependentUpon>
     </Compile>
     <Compile Include="Setup\setup2.aspx.cs">
       <DependentUpon>setup2.aspx</DependentUpon>
@@ -142,12 +143,12 @@
     <Compile Include="Setup\setup4.aspx.designer.cs">
       <DependentUpon>setup4.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Users\SearchVideos.aspx.cs">
-      <DependentUpon>SearchVideos.aspx</DependentUpon>
+    <Compile Include="Users\VideoSearch.aspx.cs">
+      <DependentUpon>VideoSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Users\SearchVideos.aspx.designer.cs">
-      <DependentUpon>SearchVideos.aspx</DependentUpon>
+    <Compile Include="Users\VideoSearch.aspx.designer.cs">
+      <DependentUpon>VideoSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users\Videos.aspx.cs">
       <DependentUpon>Videos.aspx</DependentUpon>
@@ -172,6 +173,9 @@
     </Compile>
     <Content Include="Admin\Community.aspx" />
     <Content Include="Admin\District.aspx" />
+    <Content Include="Admin\jwplayer.flash.swf" />
+    <Content Include="Admin\jwplayer.html5.js" />
+    <Content Include="Admin\jwplayer.js" />
     <Content Include="Admin\Road.aspx" />
     <Compile Include="App_Code\Model\BAL\clsCommunity.cs" />
     <Compile Include="App_Code\Model\BAL\clsConfiguration.cs" />
@@ -339,7 +343,7 @@
     <Content Include="Content\Images\step3.gif" />
     <Content Include="Content\Images\vplay.png" />
     <Content Include="Default.aspx" />
-    <Content Include="DynamicConnectionString.xml" />
+    <Content Include="App_Data\DynamicConnectionString.xml" />
     <Content Include="Error.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -347,9 +351,9 @@
     <Content Include="Content\Images\login.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\step2_o.gif" />
-    <Content Include="jwplayer.flash.swf" />
-    <Content Include="jwplayer.html5.js" />
-    <Content Include="jwplayer.js" />
+    <Content Include="Users\jwplayer.flash.swf" />
+    <Content Include="Users\jwplayer.html5.js" />
+    <Content Include="Users\jwplayer.js" />
     <Content Include="packages.config" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -358,7 +362,7 @@
     <Content Include="Setup\setup3.aspx" />
     <Content Include="Setup\setup4.aspx" />
     <Content Include="Setup\VODScript.sql" />
-    <Content Include="Users\SearchVideos.aspx" />
+    <Content Include="Users\VideoSearch.aspx" />
     <Content Include="Users\Videos.aspx" />
     <Content Include="WindowsUser.aspx" />
     <None Include="Properties\PublishProfiles\VODWeb.pubxml" />
@@ -522,7 +526,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Account\" />
-    <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\VideoManagement.ar.resx">
@@ -635,7 +638,7 @@
   <ItemGroup>
     <Content Include="App_GlobalResources\Setup.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
-      <LastGenOutput>Setup.Designer.cs</LastGenOutput>
+      <LastGenOutput>Setup1.designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -655,7 +658,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>65467</DevelopmentServerPort>
           <DevelopmentServerVPath>/VODWEB/</DevelopmentServerVPath>

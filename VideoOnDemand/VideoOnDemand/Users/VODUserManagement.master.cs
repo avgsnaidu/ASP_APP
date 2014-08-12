@@ -21,11 +21,11 @@ namespace VideoOnDemand.Users
                 lnkVideoMang.CssClass = "";
                 lnkSearch.CssClass = "";
                 string linkButtonID = Request.RawUrl;
-                if (-1 < linkButtonID.IndexOf("VideoManagement"))
+                if (-1 < linkButtonID.IndexOf("Videos"))
                 {
                     ((HtmlGenericControl)lnkVideoMang.Parent).Attributes.Add("class", "active");
                 }
-                else if (-1 < linkButtonID.IndexOf("Search"))
+                else if (-1 < linkButtonID.IndexOf("VideoSearch"))
                 {
                     ((HtmlGenericControl)lnkSearch.Parent).Attributes.Add("class", "active");
                 }
@@ -40,11 +40,11 @@ namespace VideoOnDemand.Users
 
             if (selectedID == lnkSearch.ID)
             {
-                Response.Redirect("~/Search.aspx");
+                Response.Redirect("~/Users/VideoSearch.aspx");
             }
             else if (selectedID == lnkVideoMang.ID)
             {
-                Response.Redirect("~/VideoManagement.aspx");
+                Response.Redirect("~/Users/Videos.aspx");
             }
 
         }

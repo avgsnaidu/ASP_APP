@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -69,10 +70,12 @@ namespace VideoOnDemand.Setup
                 repository.SchedulerFlag = schedularFlag;
                 repository.SchedulerHours = interval;
 
-                if (!string.IsNullOrEmpty(ddlSimultaneous.SelectedValue))
-                    repository.SimultaneousConversions = Convert.ToInt16(ddlSimultaneous.SelectedValue);
-                else
-                    repository.SimultaneousConversions = default(int) + 1;
+                //if (!string.IsNullOrEmpty(ddlSimultaneous.SelectedValue))
+                //    repository.SimultaneousConversions = Convert.ToInt16(ddlSimultaneous.SelectedValue);
+                //else
+                //    repository.SimultaneousConversions = default(int) + 1;
+
+                repository.SimultaneousConversions = Convert.ToInt32(string.IsNullOrEmpty(ConfigurationManager.AppSettings["VODSimultaneousConversions"].ToString()) ? "5" : ConfigurationManager.AppSettings["VODSimultaneousConversions"].ToString());
 
                 repository.CreatedDate = DateTime.Now;
                 //repository.ModifiedDate = DateTime.Now; 

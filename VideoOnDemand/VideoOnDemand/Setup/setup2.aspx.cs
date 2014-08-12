@@ -43,15 +43,18 @@ namespace VideoOnDemand.Setup
 
             clsActiveDirectory repository = new clsActiveDirectory();
 
-            repository.IP = txtADServerId.Text;
-            repository.Userid = txtADUserName.Text;
-            repository.Password = txtADPassword.Text;
+            repository.IP = HttpUtility.HtmlEncode(txtADServerId.Text.Trim());
+            repository.Userid = HttpUtility.HtmlEncode(txtADUserName.Text.Trim());
+            repository.Password = HttpUtility.HtmlEncode(txtADPassword.Text.Trim());
+            repository.DomainName = HttpUtility.HtmlEncode(txtDomain.Text.Trim());
             repository.CreatedDate = DateTime.Now;
             repository.ModifiedDate = DateTime.Now;
 
             try
             {
                 intResult = repository.AddADDetails();
+
+                bool domainResult = repository.AddADDomainDetails();
 
             }
             catch (Exception ee)

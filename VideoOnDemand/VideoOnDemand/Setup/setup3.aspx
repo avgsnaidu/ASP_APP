@@ -173,7 +173,7 @@
                                 ErrorMessage="<%$ Resources:Setup, VOD_IntervalOrTime_Valid%>" Display="Dynamic" ForeColor="Red" />--%>
             </div>
 
-            <div class="column2">
+<%--            <div class="column2">
                 <label>
                     <asp:Literal runat="server" ID="Literal15" Text="<%$ Resources:Setup, VOD_lbl_Simul_VideoConversion%>" />
                     <span class="required">*</span></label>
@@ -187,17 +187,9 @@
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator runat="server" ID="rfvddlSimultaneous" ControlToValidate="ddlSimultaneous" ValidationGroup="VODGroup"  Display="Dynamic"
                         ErrorMessage="<%$ Resources:Setup, VOD_Req_Simul_VideoConversion%> " ForeColor="#E2351D"></asp:RequiredFieldValidator>
-
-                    <%--  <select id="selectSimultaneous">
-                                    <option selected>1 </option>
-                                    <option>2 </option>
-                                    <option>3 </option>
-                                    <option>4 </option>
-                                    <option>5 </option>
-                                </select>--%>
-                    <!--<input type="number" min="1" max="5" />-->
+ 
                 </div>
-            </div>
+            </div>--%>
 
 
 

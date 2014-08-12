@@ -106,7 +106,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to No Groups to select.
+        ///   Looks up a localized string similar to No Groups .
         /// </summary>
         internal static string ddlGroupsList_NoGroups_Text {
             get {

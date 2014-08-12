@@ -13,7 +13,7 @@
 
             <div style="float: right; padding-right: 30px;">
                 <br />
-                <asp:LinkButton runat="server" ID="btnSubmit" CssClass="btn-type1" ForeColor="White" PostBackUrl="~/Archived.aspx"
+                <asp:LinkButton runat="server" ID="btnUpBackSubmit" CssClass="btn-type1" ForeColor="White" OnClick="btnUpBackSubmit_Click"
                     Text="<%$Resources:Config,btnTopBack_Text %>">
                 </asp:LinkButton>
                 <br />
@@ -1262,7 +1262,8 @@
 
             <div style="float: right; padding-right: 30px;">
                 <br />
-                <asp:LinkButton ID="btnDownBackToHome" runat="server" CssClass="btn-type1" ForeColor="White" PostBackUrl="~/Search.aspx">Back</asp:LinkButton>
+                <asp:LinkButton ID="btnDownBackToHome" runat="server" CssClass="btn-type1" ForeColor="White" OnClick="btnUpBackSubmit_Click" Text=" <%$ Resources:Config, btnTopBack_Text %>" >
+</asp:LinkButton>
                 <br />
                 &nbsp;
             </div>

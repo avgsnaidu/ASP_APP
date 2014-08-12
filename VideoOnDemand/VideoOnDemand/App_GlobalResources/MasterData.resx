@@ -192,4 +192,7 @@
   <data name="Login_txtUser_Req_Error" xml:space="preserve">
     <value>* Please Enter UserId</value>
   </data>
+  <data name="Error_Message_Autherization" xml:space="preserve">
+    <value>You are not authorized to acces this portal, Please contact your administrator</value>
+  </data>
 </root>

@@ -204,8 +204,8 @@
                         <div id="user-info">
                             <div class="dropdown">
                                 <asp:LinkButton runat="server" ID="lnkDDMUserName" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                     
-                    <span class="caret"></span>
+                                   
+                                    <asp:Literal runat="server" ID="ltlUserName" /> <span class="caret"></span>
                                 </asp:LinkButton>
                                 <ul class="dropdown-menu" runat="server" id="ulDropDown" role="menu" aria-labelledby="lnkDDMUserName">
                                     <%-- <li role="presentation">

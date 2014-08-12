@@ -25,8 +25,8 @@
     <%--<script src="js/bootstrap.min.js"></script>--%>
     <!-- Bootstrap v3.1.1 -->
 
-    <script src="Scripts/bootstrap-select.js"></script>
-    <link href="Content/css/bootstrap-select.css" rel="stylesheet" />
+    <script src="../Scripts/bootstrap-select.js"></script>
+    <link href="../Content/css/bootstrap-select.css" rel="stylesheet" />
 
     <script type="text/javascript">
 

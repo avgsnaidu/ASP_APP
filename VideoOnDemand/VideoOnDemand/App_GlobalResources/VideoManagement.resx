@@ -205,7 +205,7 @@
     <value>Select Group</value>
   </data>
   <data name="ddlGroupsList_NoGroups_Text" xml:space="preserve">
-    <value>No Groups to select</value>
+    <value>No Groups </value>
   </data>
   <data name="MSG_Select_Atleast_One" xml:space="preserve">
     <value>Please select at least one video</value>

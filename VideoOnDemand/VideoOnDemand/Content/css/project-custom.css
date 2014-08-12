@@ -458,5 +458,12 @@ a#lnkDropDownMenu.btn {
 }
 
 .connectionErrorDiv {
-    padding-left:180px;
+    padding-left: 180px;
+}
+
+.error_Page {
+    vertical-align: central;
+    text-align: center;
+    color: #e44040;
+    margin: 100px;
 }

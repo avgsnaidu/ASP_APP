@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<appSettings>
-  <InitialCatalog>VODWEB</InitialCatalog>
-  <DataSource>ETG101</DataSource>
-  <Port>
-  </Port>
-  <UserID>sa</UserID>
-  <Password>welcome</Password>
-</appSettings>

@@ -62,7 +62,7 @@ namespace VideoOnDemand.Setup
             {
                 repository = null;
             }
-            Response.Redirect("~/Users.aspx");
+            Response.Redirect("~/Admin/Users.aspx");
         }
     }
 }

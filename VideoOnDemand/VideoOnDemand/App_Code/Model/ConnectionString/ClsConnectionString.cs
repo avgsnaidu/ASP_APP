@@ -44,7 +44,7 @@ namespace VideoOnDemand.Model
             SqlConnectionStringBuilder myBuilder = new SqlConnectionStringBuilder();
             try
             {
-                using (XmlTextReader reader = new XmlTextReader(Global.ApplicationPath + "DynamicConnectionString.xml"))
+                using (XmlTextReader reader = new XmlTextReader(Global.ApplicationPath + "/App_Data/DynamicConnectionString.xml"))
                 {
 
                     XmlDocument xmlDoc = new XmlDocument();
@@ -109,7 +109,7 @@ namespace VideoOnDemand.Model
             XmlDocument xmlDoc;
             try
             {
-                string filename = Global.ApplicationPath + "DynamicConnectionString.xml";
+                string filename = Global.ApplicationPath + "App_Data/DynamicConnectionString.xml";
                 //assigning file name of desired file we want to create.
 
                 xmlDoc = new XmlDocument();
