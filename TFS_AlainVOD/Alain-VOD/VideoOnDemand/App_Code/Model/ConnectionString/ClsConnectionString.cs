@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.IO;
 using System.Security.Cryptography;
@@ -37,10 +38,18 @@ namespace VideoOnDemand.Model
             return ConfigurationManager.AppSettings["DefaultServerDetails"];
 
         }
+
+        public static string GetProvider()
+        {
+            return ConfigurationManager.AppSettings["VODConn.Provider"];
+
+        }
+
+
         public static string BuildConnectionString()
         {
-
-
+            OleDbConnectionStringBuilder myOledbBuilder = new OleDbConnectionStringBuilder();
+            string provider = string.Empty;
             SqlConnectionStringBuilder myBuilder = new SqlConnectionStringBuilder();
             try
             {
@@ -81,6 +90,13 @@ namespace VideoOnDemand.Model
                         {
                             myBuilder.Password = n.InnerText;
                         }
+                        else if (n.Name == "Provider")
+                        {
+                            provider = n.InnerText;
+                        }
+
+
+
                         //str[i] = n.InnerText;
                         //i++;
                     }
@@ -90,9 +106,10 @@ namespace VideoOnDemand.Model
                         myBuilder.DataSource.Substring(0, myBuilder.DataSource.Length - 1);
 
 
-
-
-                    return myBuilder.ConnectionString;
+                    myOledbBuilder.ConnectionString = myBuilder.ConnectionString;
+                    if (!string.IsNullOrEmpty(provider))
+                        myOledbBuilder.Provider = provider;
+                    return myOledbBuilder.ConnectionString;
 
                 }
             }
@@ -104,7 +121,7 @@ namespace VideoOnDemand.Model
 
 
 
-        public static bool WriteConnectionStringToFile(string initialCatalog, string DataSource, string Port, string UserId, string Password)
+        public static bool WriteConnectionStringToFile(string initialCatalog, string DataSource, string Port, string UserId, string Password, string Provider)
         {
             XmlDocument xmlDoc;
             try
@@ -153,6 +170,8 @@ namespace VideoOnDemand.Model
                     XmlElement port = xmlDoc.CreateElement("Port");
                     XmlElement userID = xmlDoc.CreateElement("UserID");
                     XmlElement password = xmlDoc.CreateElement("Password");
+                    XmlElement provider = xmlDoc.CreateElement("Provider");
+
 
 
                     //adding child node to root.
@@ -172,6 +191,10 @@ namespace VideoOnDemand.Model
 
                     root.AppendChild(password);
                     password.InnerText = (Password);
+
+                    root.AppendChild(provider);
+                    provider.InnerText = (Provider);
+
 
                     xmlDoc.Save(filename);
                     //saving xml file

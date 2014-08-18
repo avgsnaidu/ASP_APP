@@ -118,90 +118,108 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="gvComm_EmptyData_Text" xml:space="preserve">
-    <value>No Communities found_AR</value>
+    <value>لم المجتمعات وجدت</value>
   </data>
   <data name="gvComm_Hd_Actions" xml:space="preserve">
-    <value>Actions_AR</value>
+    <value>الإجراءات</value>
   </data>
   <data name="gvComm_Hd_CommnName" xml:space="preserve">
-    <value>Community_AR</value>
+    <value>المجتمع</value>
   </data>
   <data name="gvComm_Hd_District" xml:space="preserve">
-    <value>District_AR</value>
+    <value>منطقة</value>
   </data>
   <data name="Hd_Community_Text" xml:space="preserve">
-    <value>Community_AR</value>
+    <value>المجتمع</value>
   </data>
   <data name="lnkCreatedCommnity_Text" xml:space="preserve">
-    <value>Create Community_AR</value>
+    <value>خلق المجتمع</value>
   </data>
   <data name="mdlAlrt_Head_Alert" xml:space="preserve">
-    <value>Alert_AR !</value>
+    <value>تنبيه!</value>
   </data>
   <data name="mdlAlrt_Ok_btnText" xml:space="preserve">
-    <value>OK_AR</value>
+    <value>طيب</value>
   </data>
   <data name="mdlCC_Cancel" xml:space="preserve">
-    <value>Cancel_AR</value>
+    <value>إلغاء</value>
+  </data>
+  <data name="mdlCC_CommnityNo_Label" xml:space="preserve">
+    <value>المجتمع لا:</value>
+  </data>
+  <data name="mdlCC_CommnityNO_PlaceHolder" xml:space="preserve">
+    <value>أدخل رقم المجتمع الفريد هنا</value>
   </data>
   <data name="mdlCC_Commnity_Label" xml:space="preserve">
-    <value>Community_AR</value>
+    <value>المجتمع</value>
   </data>
   <data name="mdlCC_Commnity_PlaceHolder" xml:space="preserve">
-    <value>Enter Community here_AR</value>
+    <value>دخول المجتمع هنا</value>
+  </data>
+  <data name="mdlCC_Commnity_Save_Failed_WithSameIDExists" xml:space="preserve">
+    <value>دخلت رقم المجتمع موجودة بالفعل مع منطقة</value>
   </data>
   <data name="mdlCC_District_Label" xml:space="preserve">
-    <value>District Name_AR</value>
+    <value>اسم المنطقة</value>
   </data>
   <data name="mdlCC_Head_CreateCommu" xml:space="preserve">
-    <value>Create Community_AR</value>
+    <value>خلق المجتمع</value>
   </data>
   <data name="mdlCC_Save" xml:space="preserve">
-    <value>Save_AR</value>
+    <value>حفظ</value>
   </data>
   <data name="mdlDel_Calcel_btnText" xml:space="preserve">
-    <value>Cancel_AR</value>
+    <value>إلغاء</value>
   </data>
   <data name="mdlDel_Delete_btntext" xml:space="preserve">
-    <value>Delete_AR</value>
+    <value>حذف</value>
   </data>
   <data name="mdlDel_Delete_Confirm_Text" xml:space="preserve">
-    <value>Are&amp;nbsp;you&amp;nbsp;sure&amp;nbsp;to&amp;nbsp;delete&amp;nbsp;community&amp;nbsp_AR?</value>
+    <value>هل أنت متأكد من حذف المجتمع؟</value>
   </data>
   <data name="mdlDel_Head_DeleteWarning" xml:space="preserve">
-    <value>Delete Warning_AR</value>
+    <value>حذف تحذير</value>
   </data>
   <data name="mdlUC_Cancel" xml:space="preserve">
-    <value>Cancel_AR</value>
+    <value>إلغاء</value>
   </data>
   <data name="mdlUC_Community_Label" xml:space="preserve">
-    <value>Community_AR</value>
+    <value>المجتمع</value>
   </data>
   <data name="mdlUC_Community_placeHolder" xml:space="preserve">
-    <value>Enter Community here_AR</value>
+    <value>دخول المجتمع هنا</value>
+  </data>
+  <data name="mdlUC_District_EmptySelect" xml:space="preserve">
+    <value>حدد</value>
   </data>
   <data name="mdlUC_District_Label" xml:space="preserve">
-    <value>District_AR</value>
+    <value>منطقة</value>
   </data>
   <data name="mdlUC_Head_UpdateCommu" xml:space="preserve">
-    <value>Edit Community_AR</value>
+    <value>تحرير المجتمع</value>
   </data>
   <data name="mdlUC_Save" xml:space="preserve">
-    <value>Save_AR</value>
+    <value>حفظ</value>
   </data>
   <data name="MSG_Community_Delete_failed" xml:space="preserve">
-    <value>Community not deleted,as it is assigned to another user_AR</value>
+    <value>المجتمع لا يتم حذف، كما يتم تعيينه إلى مستخدم آخر</value>
   </data>
   <data name="MSG_Community_Delete_failed_UserbyAnother" xml:space="preserve">
-    <value>Another object is depends on this Community_AR</value>
+    <value>كائن آخر هو يعتمد على هذا المجتمع</value>
   </data>
   <data name="MSG_Community_Delete_Sucess" xml:space="preserve">
-    <value>Community deleted successfully_AR</value>
+    <value>حذف المجتمع بنجاح</value>
   </data>
   <data name="MSG_Community_Save_Sucess" xml:space="preserve">
-    <value>Community saved successfully_AR</value>
+    <value>حفظ المجتمع بنجاح</value>
   </data>
   <data name="MSG_Community_Update_Sucess" xml:space="preserve">
-    <value>Community updated successfully_AR</value>
+    <value>تحديث المجتمع بنجاح</value>
+  </data>
+  <data name="MSG_District_Community_Duplication_Error" xml:space="preserve">
+    <value>لاختيار رقم المجتمع، حي تعيين دينا بالفعل</value>
+  </data>
+  <data name="MSG_UPdation_Failed" xml:space="preserve">
+    <value>المجتمع لا يتم حفظ</value>
   </data>
 </root>

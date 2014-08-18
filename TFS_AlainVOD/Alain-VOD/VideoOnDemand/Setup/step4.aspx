@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="setup3.aspx.cs" Inherits="VideoOnDemand.Setup.VODConfiguration" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="step4.aspx.cs" Inherits="VideoOnDemand.Setup.VODConfiguration" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainHeadContent" runat="server">
 </asp:Content>
@@ -13,32 +13,36 @@
 
         <div class="col-md-12 full-width">
             <div class="navigation">
-                <ul class="step3">
+                <ul class="step4">
                     <li class="first-child completed edit-s"><a href="setup1.aspx">
-
-                        <span>
+                                                <span>
                             <asp:Literal runat="server" ID="ltlVidMang" Text="<%$ Resources:Setup, HD_Step1_Number%>" /></span>
                         <asp:Literal runat="server" ID="Literal1" Text="<%$ Resources:Setup, HD_Step1_DatabaseSetup%>" />
                     </a></li>
-
-                    <li class="completed edit-s middle-leftchild"><a href="setup2.aspx">
-
+                       <li class="child-2 completed"><a href="#">
                         <span>
-                            <asp:Literal runat="server" ID="Literal2" Text="<%$ Resources:Setup, HD_Step2_Number%>" /></span>
-                        <asp:Literal runat="server" ID="Literal3" Text="<%$ Resources:Setup, HD_Step2_Active_Directory_Details%>" />
+                            <asp:Literal runat="server" ID="Literal15" Text="<%$ Resources:Setup, HD_Step2_Number%>" /></span>
+                        <asp:Literal runat="server" ID="Literal19" Text="<%$ Resources:Setup, HD_Step2_SMTP_Details%>" />
                     </a></li>
 
-                    <li class="completed middle-rightchild"><a href="#">
+                    <li class="completed edit-s child-3"><a href="setup2.aspx">
+
                         <span>
-                            <asp:Literal runat="server" ID="Literal4" Text="<%$ Resources:Setup, HD_Step3_Number%>" /></span>
-                        <asp:Literal runat="server" ID="Literal5" Text="<%$ Resources:Setup, HD_Step3_VOD_Configuration_Details%>" />
+                            <asp:Literal runat="server" ID="Literal2" Text="<%$ Resources:Setup, HD_Step3_Number%>" /></span>
+                        <asp:Literal runat="server" ID="Literal3" Text="<%$ Resources:Setup, HD_Step3_Active_Directory_Details%>" />
+                    </a></li>
+
+                    <li class="completed child-4"><a href="#">
+                        <span>
+                            <asp:Literal runat="server" ID="Literal4" Text="<%$ Resources:Setup, HD_Step4_Number%>" /></span>
+                        <asp:Literal runat="server" ID="Literal5" Text="<%$ Resources:Setup, HD_Step4_VOD_Configuration_Details%>" />
 
                     </a></li>
 
                     <li class="last-child"><a href="#">
                         <span>
-                            <asp:Literal runat="server" ID="Literal6" Text="<%$ Resources:Setup, HD_Step4_Number%>" /></span>
-                        <asp:Literal runat="server" ID="Literal7" Text="<%$ Resources:Setup, HD_Step4_Super_Admin_Info%>" />
+                            <asp:Literal runat="server" ID="Literal6" Text="<%$ Resources:Setup, HD_Step5_Number%>" /></span>
+                        <asp:Literal runat="server" ID="Literal7" Text="<%$ Resources:Setup, HD_Step5_Super_Admin_Info%>" />
                     </a></li>
                 </ul>
             </div>
@@ -97,13 +101,7 @@
                     ErrorMessage="<%$ Resources:Setup, VOD_BackupFolder_Valid%>" Display="Dynamic" ForeColor="Red" />
             </div>
 
-            <!--  <div class="column2">
-                	<label>Schedule Configuration</label>
-                    <div class="input-holder">
-                    	<input name="" type="text">
-                        <span class="sprite configuration"></span>
-                    </div>
-                </div> -->
+          
             <div class="column2">
                 <label>
                     <asp:Literal runat="server" ID="Literal13" Text="<%$ Resources:Setup, VOD_lbl_ScheduleInterval%>" />
@@ -128,32 +126,7 @@
 
                             </asp:DropDownList>
                            
-                            <%-- <select id="selectInterval">
-                                <option selected>Select</option>
-                                <option>1 Hrs</option>
-                                <option>2 Hrs</option>
-                                <option>3 Hrs</option>
-                                <option>4 Hrs</option>
-                                <option>5 Hrs</option>
-                                <option>6 Hrs</option>
-                                <option>7 Hrs</option>
-                                <option>8 Hrs</option>
-                                <option>9 Hrs</option>
-                                <option>10 Hrs</option>
-                                <option>11 Hrs</option>
-                                <option>12 Hrs</option>
-                            </select>--%>
-                            <!--<div class="btn-group">
-                                        <button class="btn dropdown-toggle" style="text-align:left;" data-toggle="dropdown">Search On..<span class="caret"></span></button>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="#">All</a></li>
-                                            <li><a href="#">Done</a></li>
-                                            <li><a href="#">Pending</a></li>
-                                            <li><a href="#">Processing</a></li>
-                                        </ul>
-                                    </div>-->
-                            <!--<input name="" type="text">-->
-                            <!--<span class="sprite interval"></span>-->
+                          
                         </div>
                     </div>
                     <div class="input2">

@@ -10,7 +10,7 @@
                 <div class="form-search pull-right">
                     <div class="input-append">
                         <asp:TextBox runat="server" ID="txtSearchKey" type="text" class="span2 search-query searchBorder searchTextPadingExist" Style="height: inherit; min-width: 350px;" 
-                            placeholder="<%$Resources:Archived,hd_ArchiveListing %>"/>
+                            placeholder="<%$Resources:Archived,txtSearch_PlaceHolder %>"/>
                         <%--<button type="submit" class="btn btn-danger searchBorder">Search <i class="icon-search"></i></button>--%>
                         <asp:LinkButton ID="btnSearch" runat="server" class="btn btn-danger searchBorder" OnClick="btnSearch_Click">
                         <asp:Literal ID="ltlSearchbtn" runat="server" Text="<%$Resources:Archived,btnSearch_text %>"/>                             

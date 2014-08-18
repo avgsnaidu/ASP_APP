@@ -250,6 +250,42 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email Sent to provided mail.
+        /// </summary>
+        internal static string Login_Msg_Email_Sent {
+            get {
+                return ResourceManager.GetString("Login_Msg_Email_Sent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter User Name not exists.
+        /// </summary>
+        internal static string Login_Msg_Enter_UserName_NotExists {
+            get {
+                return ResourceManager.GetString("Login_Msg_Enter_UserName_NotExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed while sending the mail.
+        /// </summary>
+        internal static string Login_Msg_SendMail_failed {
+            get {
+                return ResourceManager.GetString("Login_Msg_SendMail_failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SMTP details connection failed.
+        /// </summary>
+        internal static string Login_Msg_SMTP_Connection_Failed {
+            get {
+                return ResourceManager.GetString("Login_Msg_SMTP_Connection_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Remember Me.
         /// </summary>
         internal static string Login_RememeberMe {
@@ -291,6 +327,42 @@ namespace Resources {
         internal static string Login_txtUser_Req_Error {
             get {
                 return ResourceManager.GetString("Login_txtUser_Req_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        internal static string mdlLogin_Submit {
+            get {
+                return ResourceManager.GetString("mdlLogin_Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forgot Password.
+        /// </summary>
+        internal static string mdlLog_Hd_forgotPassword {
+            get {
+                return ResourceManager.GetString("mdlLog_Hd_forgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Name.
+        /// </summary>
+        internal static string mdlLoG_UserName {
+            get {
+                return ResourceManager.GetString("mdlLoG_UserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter User Name here.
+        /// </summary>
+        internal static string mdlLog_userName_Placeholder {
+            get {
+                return ResourceManager.GetString("mdlLog_userName_Placeholder", resourceCulture);
             }
         }
     }

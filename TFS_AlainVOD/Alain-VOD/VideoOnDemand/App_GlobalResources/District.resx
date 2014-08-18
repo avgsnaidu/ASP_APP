@@ -193,7 +193,7 @@
     <value>District deleted successfully</value>
   </data>
   <data name="MSG_District_Save_Sucess" xml:space="preserve">
-    <value>District saved sucessfully</value>
+    <value>District saved successfully</value>
   </data>
   <data name="mdlUD_DistNumber_label" xml:space="preserve">
     <value>District Number</value>

@@ -223,7 +223,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter database connecton details..
+        ///   Looks up a localized string similar to Enter database connection details.
         /// </summary>
         internal static string DBS_Hd_enterDBDetails {
             get {
@@ -403,20 +403,29 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Active Directory Details.
-        /// </summary>
-        internal static string HD_Step2_Active_Directory_Details {
-            get {
-                return ResourceManager.GetString("HD_Step2_Active_Directory_Details", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 2.
         /// </summary>
         internal static string HD_Step2_Number {
             get {
                 return ResourceManager.GetString("HD_Step2_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SMTP Details.
+        /// </summary>
+        internal static string HD_Step2_SMTP_Details {
+            get {
+                return ResourceManager.GetString("HD_Step2_SMTP_Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active Directory Details.
+        /// </summary>
+        internal static string HD_Step3_Active_Directory_Details {
+            get {
+                return ResourceManager.GetString("HD_Step3_Active_Directory_Details", resourceCulture);
             }
         }
         
@@ -430,15 +439,6 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to VOD Configuration Details.
-        /// </summary>
-        internal static string HD_Step3_VOD_Configuration_Details {
-            get {
-                return ResourceManager.GetString("HD_Step3_VOD_Configuration_Details", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to 4.
         /// </summary>
         internal static string HD_Step4_Number {
@@ -448,11 +448,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to VOD Configuration Details.
+        /// </summary>
+        internal static string HD_Step4_VOD_Configuration_Details {
+            get {
+                return ResourceManager.GetString("HD_Step4_VOD_Configuration_Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5.
+        /// </summary>
+        internal static string HD_Step5_Number {
+            get {
+                return ResourceManager.GetString("HD_Step5_Number", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Super Admin Info.
         /// </summary>
-        internal static string HD_Step4_Super_Admin_Info {
+        internal static string HD_Step5_Super_Admin_Info {
             get {
-                return ResourceManager.GetString("HD_Step4_Super_Admin_Info", resourceCulture);
+                return ResourceManager.GetString("HD_Step5_Super_Admin_Info", resourceCulture);
             }
         }
         
@@ -579,6 +597,294 @@ namespace Resources {
         internal static string SAD_Valid_REtypePWD {
             get {
                 return ResourceManager.GetString("SAD_Valid_REtypePWD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Next.
+        /// </summary>
+        internal static string SMTP_btnNext {
+            get {
+                return ResourceManager.GetString("SMTP_btnNext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test Connection.
+        /// </summary>
+        internal static string SMTP_btnTest {
+            get {
+                return ResourceManager.GetString("SMTP_btnTest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Please Enter Email Type.
+        /// </summary>
+        internal static string SMTP_EmailType_Need {
+            get {
+                return ResourceManager.GetString("SMTP_EmailType_Need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Please Enter  Encrypted Connection.
+        /// </summary>
+        internal static string SMTP_EncryptedConnection_Need {
+            get {
+                return ResourceManager.GetString("SMTP_EncryptedConnection_Need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Indicates mandatory fields.
+        /// </summary>
+        internal static string SMTP_lblMandatoryFields {
+            get {
+                return ResourceManager.GetString("SMTP_lblMandatoryFields", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you are not sure about database details, please contact your host..
+        /// </summary>
+        internal static string SMTP_lblMessage {
+            get {
+                return ResourceManager.GetString("SMTP_lblMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email Type.
+        /// </summary>
+        internal static string SMTP_lbl_EmailType {
+            get {
+                return ResourceManager.GetString("SMTP_lbl_EmailType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type of Encrypted Connection.
+        /// </summary>
+        internal static string SMTP_lbl_EncryptedConnection {
+            get {
+                return ResourceManager.GetString("SMTP_lbl_EncryptedConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string SMTP_lbl_Password {
+            get {
+                return ResourceManager.GetString("SMTP_lbl_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Port.
+        /// </summary>
+        internal static string SMTP_lbl_Port {
+            get {
+                return ResourceManager.GetString("SMTP_lbl_Port", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reply To Email.
+        /// </summary>
+        internal static string SMTP_lbl_ReplyToEmail {
+            get {
+                return ResourceManager.GetString("SMTP_lbl_ReplyToEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sender Name.
+        /// </summary>
+        internal static string SMTP_lbl_SenderName {
+            get {
+                return ResourceManager.GetString("SMTP_lbl_SenderName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mail Server.
+        /// </summary>
+        internal static string SMTP_lbl_ServerId {
+            get {
+                return ResourceManager.GetString("SMTP_lbl_ServerId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter SMTP Details.
+        /// </summary>
+        internal static string SMTP_lbl_SMTPDetails {
+            get {
+                return ResourceManager.GetString("SMTP_lbl_SMTPDetails", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type Of Encrypted Connection.
+        /// </summary>
+        internal static string SMTP_lbl_TypeofEncrypt {
+            get {
+                return ResourceManager.GetString("SMTP_lbl_TypeofEncrypt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User Name.
+        /// </summary>
+        internal static string SMTP_lbl_Username {
+            get {
+                return ResourceManager.GetString("SMTP_lbl_Username", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to establish a connection.
+        /// </summary>
+        internal static string SMTP_MSG_Connection_Failed {
+            get {
+                return ResourceManager.GetString("SMTP_MSG_Connection_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Connection established successfully.
+        /// </summary>
+        internal static string SMTP_MSG_Connection_Sucess {
+            get {
+                return ResourceManager.GetString("SMTP_MSG_Connection_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SMTP details saving failed.
+        /// </summary>
+        internal static string SMTP_MSG_Details_Save_Failed {
+            get {
+                return ResourceManager.GetString("SMTP_MSG_Details_Save_Failed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SMTP details saved successfully.
+        /// </summary>
+        internal static string SMTP_MSG_Details_Save_Sucess {
+            get {
+                return ResourceManager.GetString("SMTP_MSG_Details_Save_Sucess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        internal static string SMTP_None_Text {
+            get {
+                return ResourceManager.GetString("SMTP_None_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        internal static string SMTP_None_Value {
+            get {
+                return ResourceManager.GetString("SMTP_None_Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Please Enter Password.
+        /// </summary>
+        internal static string SMTP_Password_Need {
+            get {
+                return ResourceManager.GetString("SMTP_Password_Need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Please Enter Port.
+        /// </summary>
+        internal static string SMTP_Port_Need {
+            get {
+                return ResourceManager.GetString("SMTP_Port_Need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Please Enter Reply To Email.
+        /// </summary>
+        internal static string SMTP_ReplyToEmail_Need {
+            get {
+                return ResourceManager.GetString("SMTP_ReplyToEmail_Need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Please Enter Sender Name.
+        /// </summary>
+        internal static string SMTP_SenderName_Need {
+            get {
+                return ResourceManager.GetString("SMTP_SenderName_Need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Please Enter Server Id.
+        /// </summary>
+        internal static string SMTP_ServerId_Need {
+            get {
+                return ResourceManager.GetString("SMTP_ServerId_Need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Invalid Server Id.
+        /// </summary>
+        internal static string SMTP_ServerId_Valid {
+            get {
+                return ResourceManager.GetString("SMTP_ServerId_Valid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SSL.
+        /// </summary>
+        internal static string SMTP_SSLEnabled_Text {
+            get {
+                return ResourceManager.GetString("SMTP_SSLEnabled_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TLS.
+        /// </summary>
+        internal static string SMTP_TLSEnabled_Text {
+            get {
+                return ResourceManager.GetString("SMTP_TLSEnabled_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Please Select Encrypted Connection.
+        /// </summary>
+        internal static string SMTP_TypeofEncrypt_Need {
+            get {
+                return ResourceManager.GetString("SMTP_TypeofEncrypt_Need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to * Please Enter Username.
+        /// </summary>
+        internal static string SMTP_Username_Need {
+            get {
+                return ResourceManager.GetString("SMTP_Username_Need", resourceCulture);
             }
         }
         

@@ -118,225 +118,345 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ADD_Fot_btnNext" xml:space="preserve">
-    <value>Next</value>
+    <value>التالي</value>
   </data>
   <data name="ADD_Fot_DbDetailsSureMessage" xml:space="preserve">
-    <value>If you are not sure about database details, please contact your host.</value>
+    <value>إذا لم تكن متأكدا من حول تفاصيل قاعدة البيانات، يرجى الاتصال المضيف.</value>
   </data>
   <data name="ADD_Fot_IndicatesMadatory" xml:space="preserve">
-    <value>Indicates mandatory fields</value>
+    <value>يشير إلى الحقول الإجبارية</value>
   </data>
   <data name="ADD_Hd_enter_AD_Details" xml:space="preserve">
-    <value>Enter active directory access details.</value>
+    <value>أدخل النشطة تفاصيل الوصول إلى الدليل.</value>
   </data>
   <data name="ADD_lbl_DomainName" xml:space="preserve">
-    <value>Domain Name</value>
+    <value>اسم نطاق</value>
   </data>
   <data name="ADD_lbl_Password" xml:space="preserve">
-    <value>Password</value>
+    <value>كلمة المرور</value>
   </data>
   <data name="ADD_lbl_ServerAddress" xml:space="preserve">
-    <value>Server ID</value>
+    <value>الهوية خادم</value>
   </data>
   <data name="ADD_lbl_UserName" xml:space="preserve">
-    <value>User Name</value>
+    <value>اسم المستخدم</value>
   </data>
   <data name="ADD_REqu_Password" xml:space="preserve">
-    <value>* Please Enter Password</value>
+    <value>* الرجاء إدخال كلمة المرور</value>
   </data>
   <data name="ADD_REQu_UserName" xml:space="preserve">
-    <value>* Please Enter Username</value>
+    <value>* الرجاء إدخال اسم المستخدم</value>
   </data>
   <data name="ADD_Req_DomainName" xml:space="preserve">
-    <value>* Please Enter Domain Name</value>
+    <value>* الرجاء إدخال اسم النطاق</value>
   </data>
   <data name="ADD_Req_ServerId" xml:space="preserve">
-    <value>* Please Enter ServerID</value>
+    <value>* الرجاء إدخال ServerID</value>
+  </data>
+  <data name="DBS_Connection_Already_Exists" xml:space="preserve">
+    <value>قاعدة بيانات موجودة مسبقا</value>
+  </data>
+  <data name="DBS_Database_CreationFailed" xml:space="preserve">
+    <value>لم يخلق قاعدة بيانات بنجاح</value>
   </data>
   <data name="DBS_DBConnection_NotEstbl_Message" xml:space="preserve">
-    <value>With provided details the connection not established. Please provide valid details.</value>
+    <value>مع التفاصيل الواردة الاتصال لا تأسيس. يرجى تقديم تفاصيل صالحة.</value>
   </data>
   <data name="DBS_Fot_btnNext" xml:space="preserve">
-    <value>Next</value>
+    <value>التالي</value>
   </data>
   <data name="DBS_Fot_DbDetailsSureMessage" xml:space="preserve">
-    <value>If you are not sure about database details, please contact your host.</value>
+    <value>إذا لم تكن متأكدا من حول تفاصيل قاعدة البيانات، يرجى الاتصال المضيف.</value>
   </data>
   <data name="DBS_Fot_IndicatesMadatory" xml:space="preserve">
-    <value>Indicates mandatory fields</value>
+    <value>يشير إلى الحقول الإجبارية</value>
   </data>
   <data name="DBS_Hd_enterDBDetails" xml:space="preserve">
-    <value>Enter database connecton details.</value>
+    <value>إدخال قاعدة بيانات تفاصيل الاتصال.</value>
   </data>
   <data name="DBS_lbl_DBName" xml:space="preserve">
-    <value>Database Name</value>
+    <value>اسم قاعدة البيانات</value>
   </data>
   <data name="DBS_lbl_IPAddress" xml:space="preserve">
-    <value>IP Address</value>
+    <value>IP عنوان</value>
   </data>
   <data name="DBS_lbl_Password" xml:space="preserve">
-    <value>Password</value>
+    <value>كلمة المرور</value>
   </data>
   <data name="DBS_lbl_Port" xml:space="preserve">
-    <value>Port</value>
+    <value>ميناء</value>
   </data>
   <data name="DBS_lbl_UserID" xml:space="preserve">
-    <value>User ID</value>
+    <value>هوية المستخدم</value>
   </data>
   <data name="DBS_mdlAlt_HdText" xml:space="preserve">
-    <value>Alert !</value>
+    <value>تنبيه!</value>
   </data>
   <data name="DBS_mdlAlt_Ok" xml:space="preserve">
-    <value>OK</value>
+    <value>طيب</value>
+  </data>
+  <data name="DBS_MSG_DBExists" xml:space="preserve">
+    <value>قاعدة بيانات موجودة مسبقا</value>
+  </data>
+  <data name="DBS_MSG_LoginAlreadyExists" xml:space="preserve">
+    <value>تسجيل الدخول موجود بالفعل</value>
   </data>
   <data name="DBS_REq_DBName" xml:space="preserve">
-    <value>* Please Enter Database</value>
+    <value>* الرجاء إدخال قاعدة البيانات</value>
   </data>
   <data name="DBS_Req_IPAddress" xml:space="preserve">
-    <value>* Please Enter IP Address</value>
+    <value>* الرجاء إدخال عنوان IP</value>
   </data>
   <data name="DBS_Req_PORT" xml:space="preserve">
-    <value>* Please Enter Port</value>
+    <value>* الرجاء إدخال ميناء</value>
   </data>
   <data name="DBS_Req_PWD" xml:space="preserve">
-    <value>* Please Enter Password</value>
+    <value>* الرجاء إدخال كلمة المرور</value>
   </data>
   <data name="DBS_Req_UserId" xml:space="preserve">
-    <value>* Please Enter UserId</value>
+    <value>* الرجاء إدخال معرف المستخدم</value>
+  </data>
+  <data name="DBS_Valid_DatabaseName" xml:space="preserve">
+    <value>إدخال صالح اسم قاعدة البيانات</value>
   </data>
   <data name="DBS_Valid_IPAddress" xml:space="preserve">
-    <value>* Invalid Ip Address</value>
+    <value>* عنوان IP غير صالح</value>
   </data>
   <data name="DBS_Valid_Port" xml:space="preserve">
-    <value>* Invalid Port</value>
+    <value>* ميناء غير صالح</value>
   </data>
   <data name="HD_Step1_DatabaseSetup" xml:space="preserve">
-    <value>Database Setup</value>
+    <value>إعداد قاعدة بيانات</value>
   </data>
   <data name="HD_Step1_Number" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="HD_Step2_Active_Directory_Details" xml:space="preserve">
-    <value>Active Directory Details</value>
-  </data>
   <data name="HD_Step2_Number" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="HD_Step2_SMTP_Details" xml:space="preserve">
+    <value>تفاصيل SMTP</value>
+  </data>
+  <data name="HD_Step3_Active_Directory_Details" xml:space="preserve">
+    <value>تفاصيل النشطة دليل</value>
   </data>
   <data name="HD_Step3_Number" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="HD_Step3_VOD_Configuration_Details" xml:space="preserve">
-    <value>VOD Configuration Details</value>
-  </data>
   <data name="HD_Step4_Number" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="HD_Step4_Super_Admin_Info" xml:space="preserve">
-    <value>Super Admin Info</value>
+  <data name="HD_Step4_VOD_Configuration_Details" xml:space="preserve">
+    <value>VOD تفاصيل التكوين</value>
+  </data>
+  <data name="HD_Step5_Number" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="HD_Step5_Super_Admin_Info" xml:space="preserve">
+    <value>سوبر الادارية معلومات</value>
   </data>
   <data name="SAD_Fot_DbDetailsSureMessage" xml:space="preserve">
-    <value>If you are not sure about database details, please contact your host.</value>
+    <value>إذا لم تكن متأكدا من حول تفاصيل قاعدة البيانات، يرجى الاتصال المضيف.</value>
   </data>
   <data name="SAD_Fot_IndicatesMadatory" xml:space="preserve">
-    <value>Indicates mandatory fields</value>
+    <value>يشير إلى الحقول الإجبارية</value>
   </data>
   <data name="SAD_Fot_Nextbtn" xml:space="preserve">
-    <value>Next</value>
+    <value>التالي</value>
   </data>
   <data name="SAD_Hd_AdminDetails" xml:space="preserve">
-    <value>Super Admin Details</value>
+    <value>سوبر الادارية التفاصيل</value>
   </data>
   <data name="SAD_lbl_Eamil" xml:space="preserve">
-    <value>Email</value>
+    <value>البريد الإلكتروني</value>
   </data>
   <data name="SAD_lbl_PWD" xml:space="preserve">
-    <value>Password</value>
+    <value>كلمة المرور</value>
   </data>
   <data name="SAD_lbl_REtypePWD" xml:space="preserve">
-    <value>Re-type Password</value>
+    <value>أعد كتابة كلمة المرور</value>
   </data>
   <data name="SAD_lbl_UserName" xml:space="preserve">
-    <value>User Name</value>
+    <value>اسم المستخدم</value>
   </data>
   <data name="SAD_Requ_Eamil" xml:space="preserve">
-    <value>* Please Enter Email</value>
+    <value>* من فضلك أدخل بريدك</value>
   </data>
   <data name="SAD_REqu_PWD" xml:space="preserve">
-    <value>* Please Enter Password</value>
+    <value>* الرجاء إدخال كلمة المرور</value>
   </data>
   <data name="SAD_REq_REtypePWD" xml:space="preserve">
-    <value>* Please Enter Password</value>
+    <value>* الرجاء إدخال كلمة المرور</value>
   </data>
   <data name="SAD_Req_Username" xml:space="preserve">
-    <value>* Please Enter Username</value>
+    <value>* الرجاء إدخال اسم المستخدم</value>
   </data>
   <data name="SAD_Valid_Eamil" xml:space="preserve">
-    <value>* Invalid Email Address</value>
+    <value>* البريد الإلكتروني غير صالح</value>
   </data>
   <data name="SAD_Valid_REtypePWD" xml:space="preserve">
-    <value>* Password Doesn't Match</value>
+    <value>* كلمة المرور لا تطابق</value>
   </data>
-  <data name="VOD_Fot_DbDetailsSureMessage" xml:space="preserve">
-    <value>If you are not sure about database details, please contact your host.</value>
+  <data name="SMTP_btnNext" xml:space="preserve">
+    <value>التالي</value>
   </data>
-  <data name="VOD_Fot_IndicatesMadatory" xml:space="preserve">
-    <value>Indicates mandatory fields</value>
+  <data name="SMTP_btnTest" xml:space="preserve">
+    <value>اختبار الاتصال</value>
   </data>
-  <data name="VOD_Fot_NExtBtn" xml:space="preserve">
-    <value>Next</value>
+  <data name="SMTP_EmailType_Need" xml:space="preserve">
+    <value>* الرجاء إدخال نوع البريد الإلكتروني</value>
   </data>
-  <data name="VOD_Hd_VODDetails" xml:space="preserve">
-    <value>VOD Configuration Details</value>
+  <data name="SMTP_EncryptedConnection_Need" xml:space="preserve">
+    <value>* الرجاء إدخال اتصال مشفر</value>
   </data>
-  <data name="VOD_lbl_ArchiveFold" xml:space="preserve">
-    <value>Archive Folder</value>
+  <data name="SMTP_lblMandatoryFields" xml:space="preserve">
+    <value>يشير إلى الحقول الإجبارية</value>
   </data>
-  <data name="VOD_lbl_BackupFolder" xml:space="preserve">
-    <value>Backup Folder</value>
+  <data name="SMTP_lblMessage" xml:space="preserve">
+    <value>إذا لم تكن متأكدا من حول تفاصيل قاعدة البيانات، يرجى الاتصال المضيف.</value>
   </data>
-  <data name="VOD_lbl_DestinationFold" xml:space="preserve">
-    <value>Destination Folder</value>
+  <data name="SMTP_lbl_EmailType" xml:space="preserve">
+    <value>نوع البريد الإلكتروني</value>
   </data>
-  <data name="VOD_lbl_ScheduleInterval" xml:space="preserve">
-    <value>Schedule Interval / Time</value>
+  <data name="SMTP_lbl_EncryptedConnection" xml:space="preserve">
+    <value>نوع من اتصال مشفر</value>
   </data>
-  <data name="VOD_lbl_ScheduleTime" xml:space="preserve">
-    <value>(Or) Time</value>
+  <data name="SMTP_lbl_Password" xml:space="preserve">
+    <value>كلمة المرور</value>
   </data>
-  <data name="VOD_lbl_Simul_VideoConversion" xml:space="preserve">
-    <value>Simultaneous Video Conversions</value>
+  <data name="SMTP_lbl_Port" xml:space="preserve">
+    <value>ميناء</value>
   </data>
-  <data name="VOD_lbl_SourceFold" xml:space="preserve">
-    <value>Source Folder</value>
+  <data name="SMTP_lbl_ReplyToEmail" xml:space="preserve">
+    <value>الرد على البريد الإلكتروني</value>
   </data>
-  <data name="VOD_REQu_SourceFold" xml:space="preserve">
-    <value>* Please Enter Source Folder</value>
+  <data name="SMTP_lbl_SenderName" xml:space="preserve">
+    <value>اسم المرسل</value>
   </data>
-  <data name="VOD_REq_aRchiveFold" xml:space="preserve">
-    <value>* Please Enter Archive Folder</value>
+  <data name="SMTP_lbl_ServerId" xml:space="preserve">
+    <value>خادم البريد</value>
   </data>
-  <data name="VOD_Req_BackupFolder" xml:space="preserve">
-    <value>* Please Enter Backup Folder</value>
+  <data name="SMTP_lbl_SMTPDetails" xml:space="preserve">
+    <value>أدخل تفاصيل SMTP</value>
   </data>
-  <data name="VOD_REq_DestinationFold" xml:space="preserve">
-    <value>* Please Enter Destination Folder</value>
+  <data name="SMTP_lbl_TypeofEncrypt" xml:space="preserve">
+    <value>نوع من اتصال مشفر</value>
   </data>
-  <data name="VOD_Req_Simul_VideoConversion" xml:space="preserve">
-    <value>* Please Select Video Conversion</value>
+  <data name="SMTP_lbl_Username" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="SMTP_MSG_Connection_Failed" xml:space="preserve">
+    <value>فشل تأسيس اتصال</value>
+  </data>
+  <data name="SMTP_MSG_Connection_Sucess" xml:space="preserve">
+    <value>اتصال أنشئت بنجاح</value>
+  </data>
+  <data name="SMTP_MSG_Details_Save_Failed" xml:space="preserve">
+    <value>التفاصيل SMTP فشل الادخار</value>
+  </data>
+  <data name="SMTP_MSG_Details_Save_Sucess" xml:space="preserve">
+    <value>التفاصيل SMTP حفظ بنجاح</value>
+  </data>
+  <data name="SMTP_None_Text" xml:space="preserve">
+    <value>لا شيء</value>
+  </data>
+  <data name="SMTP_None_Value" xml:space="preserve">
+    <value>لا شيء</value>
+  </data>
+  <data name="SMTP_Password_Need" xml:space="preserve">
+    <value>* الرجاء إدخال كلمة المرور</value>
+  </data>
+  <data name="SMTP_Port_Need" xml:space="preserve">
+    <value>* الرجاء إدخال ميناء</value>
+  </data>
+  <data name="SMTP_ReplyToEmail_Need" xml:space="preserve">
+    <value>* الرجاء إدخال الرد على البريد الإلكتروني</value>
+  </data>
+  <data name="SMTP_SenderName_Need" xml:space="preserve">
+    <value>* الرجاء إدخال اسم المرسل</value>
+  </data>
+  <data name="SMTP_ServerId_Need" xml:space="preserve">
+    <value>* الرجاء إدخال الهوية خادم</value>
+  </data>
+  <data name="SMTP_ServerId_Valid" xml:space="preserve">
+    <value>* الهوية خادم غير صالح</value>
+  </data>
+  <data name="SMTP_SSLEnabled_Text" xml:space="preserve">
+    <value>SSL</value>
+  </data>
+  <data name="SMTP_TLSEnabled_Text" xml:space="preserve">
+    <value>TLS</value>
+  </data>
+  <data name="SMTP_TypeofEncrypt_Need" xml:space="preserve">
+    <value>* الرجاء الإختيار اتصال مشفر</value>
+  </data>
+  <data name="SMTP_Username_Need" xml:space="preserve">
+    <value>* الرجاء إدخال اسم المستخدم</value>
   </data>
   <data name="VOD_aRchiveFold_Valid" xml:space="preserve">
-    <value>* Enter Valid Archive Folder Path</value>
+    <value>* أدخل صالح الأرشيف مسار المجلد</value>
   </data>
   <data name="VOD_BackupFolder_Valid" xml:space="preserve">
-    <value>* Enter Valid Backup Folder Path</value>
+    <value>* أدخل صالح مسار مجلد النسخ الاحتياطي</value>
   </data>
   <data name="VOD_DestinationFold_Valid" xml:space="preserve">
-    <value>* Enter Valid Destinatio Folder Path</value>
+    <value>* أدخل صالح مسار المجلد المقصد</value>
+  </data>
+  <data name="VOD_Fot_DbDetailsSureMessage" xml:space="preserve">
+    <value>إذا لم تكن متأكدا من حول تفاصيل قاعدة البيانات، يرجى الاتصال المضيف.</value>
+  </data>
+  <data name="VOD_Fot_IndicatesMadatory" xml:space="preserve">
+    <value>يشير إلى الحقول الإجبارية</value>
+  </data>
+  <data name="VOD_Fot_NExtBtn" xml:space="preserve">
+    <value>التالي</value>
+  </data>
+  <data name="VOD_Hd_VODDetails" xml:space="preserve">
+    <value>VOD تفاصيل التكوين</value>
   </data>
   <data name="VOD_IntervalOrTime_Valid" xml:space="preserve">
-    <value>* Enter Either Interval or Time</value>
+    <value>* أدخل إما الفاصل الزمني أو التوقيت</value>
+  </data>
+  <data name="VOD_lbl_ArchiveFold" xml:space="preserve">
+    <value>الأرشيف المجلد</value>
+  </data>
+  <data name="VOD_lbl_BackupFolder" xml:space="preserve">
+    <value>مجلد النسخ الاحتياطي</value>
+  </data>
+  <data name="VOD_lbl_DestinationFold" xml:space="preserve">
+    <value>المجلد الوجهة</value>
+  </data>
+  <data name="VOD_lbl_ScheduleInterval" xml:space="preserve">
+    <value>الجدول الزمني الفاصل / وقت</value>
+  </data>
+  <data name="VOD_lbl_ScheduleTime" xml:space="preserve">
+    <value>(أو) التوقيت</value>
+  </data>
+  <data name="VOD_lbl_Simul_VideoConversion" xml:space="preserve">
+    <value>التحويلات الفيديو في وقت واحد</value>
+  </data>
+  <data name="VOD_lbl_SourceFold" xml:space="preserve">
+    <value>المجلد المصدر</value>
+  </data>
+  <data name="VOD_REQu_SourceFold" xml:space="preserve">
+    <value>* من فضلك أدخل المجلد المصدر</value>
+  </data>
+  <data name="VOD_REq_aRchiveFold" xml:space="preserve">
+    <value>* من فضلك أدخل الأرشيف المجلد</value>
+  </data>
+  <data name="VOD_Req_BackupFolder" xml:space="preserve">
+    <value>* الرجاء إدخال مجلد النسخ الاحتياطي</value>
+  </data>
+  <data name="VOD_REq_DestinationFold" xml:space="preserve">
+    <value>* من فضلك أدخل المجلد الوجهة</value>
+  </data>
+  <data name="VOD_Req_Simul_VideoConversion" xml:space="preserve">
+    <value>* من فضلك اختر تحويل الفيديو</value>
   </data>
   <data name="VOD_SourceFold_Valid" xml:space="preserve">
-    <value>* Enter Valid Source Folder Path</value>
+    <value>* أدخل صالح مسار المجلد المصدر</value>
+  </data>
+  <data name="VOD_Time_Valid" xml:space="preserve">
+    <value>* أدخل صالح كامل (HH: MM) شكل</value>
   </data>
 </root>

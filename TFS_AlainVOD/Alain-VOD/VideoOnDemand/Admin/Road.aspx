@@ -3,6 +3,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="VODContentPlaceHolder" runat="server">
     <div class="container">
         <div id="management-bottom" class="col-md-12">
+             <div style="float: right; background-color: White;" class="col-md-12">
+                <br />
+                <asp:LinkButton runat="server" ID="btnBackToHome" CssClass="btn-type1" ForeColor="White" OnClick="btnBackToHome_Click"
+                    Text="<%$Resources:Config,btnTopBack_Text %>" />
+                <br />
+                &nbsp;
+            </div>
+            <div class="block1 clearfix"></div>
+
+
             <div class="block1 clearfix">
                 <h2 class="col-md-3">
                     <asp:Literal runat="server" ID="ltlRoadHead" Text="<%$ Resources:Road, Head_Road %>"></asp:Literal></h2>

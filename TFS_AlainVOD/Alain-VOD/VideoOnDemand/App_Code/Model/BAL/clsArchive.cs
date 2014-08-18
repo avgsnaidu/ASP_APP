@@ -26,7 +26,7 @@ namespace VideoOnDemand.Model.BAL
                         "LIKE '%,'  THEN LEFT((ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) , LEN((ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')))-1) " +
                          "ELSE  (ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) END AS TAG  " +
                           ",DATE_CREATED AS ARCHIVEDDATE  FROM VW_ARCHIVES_WITH_TAGS VD ";
-            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+            DataSet ds = OledbHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
 
             return ds;
         }
@@ -54,7 +54,7 @@ namespace VideoOnDemand.Model.BAL
                         " OR District like'%" + searchKeyword + "%'" +
                         " OR ROAD like'%" + searchKeyword + "%'";
 
-            ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+            ds = OledbHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
             return ds;
 
         }

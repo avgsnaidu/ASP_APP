@@ -118,132 +118,129 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AltMdl_Head" xml:space="preserve">
-    <value>Alert_AR !</value>
+    <value>تنبيه!</value>
   </data>
   <data name="AltMdl_Ok" xml:space="preserve">
-    <value>Ok_AR</value>
+    <value>طيب</value>
   </data>
   <data name="btnCancel_button" xml:space="preserve">
-    <value>Cancel_AR</value>
+    <value>إلغاء</value>
   </data>
   <data name="btnCancel_Text" xml:space="preserve">
-    <value>Cancel_Ar</value>
+    <value>إلغاء</value>
   </data>
   <data name="btnClose_button" xml:space="preserve">
-    <value>Close_AR</value>
+    <value>إغلاق</value>
   </data>
   <data name="btnDelete_button" xml:space="preserve">
-    <value>Delete_AR</value>
+    <value>حذف</value>
   </data>
   <data name="btnSave_button" xml:space="preserve">
-    <value>Save_AR</value>
+    <value>حفظ</value>
   </data>
   <data name="delModalLabel_h3" xml:space="preserve">
-    <value>Delete Record_AR</value>
+    <value>حذف سجل</value>
   </data>
   <data name="DMdl_btnDeleteCancel_text" xml:space="preserve">
-    <value>Cancel_AR</value>
+    <value>إلغاء</value>
   </data>
   <data name="DMdl_btnDeleteConform_button" xml:space="preserve">
-    <value>Delete_AR</value>
+    <value>حذف</value>
   </data>
   <data name="DMdl_DeleteWarning" xml:space="preserve">
-    <value>Delete Warning_AR</value>
+    <value>حذف تحذير</value>
   </data>
   <data name="DMdl_lblDeleteWrang_Text" xml:space="preserve">
-    <value>Are&amp;nbsp;you&amp;nbsp;sure&amp;nbsp;to&amp;nbsp;delete&amp;nbsp;group&amp;nbsp_AR?</value>
+    <value>هل أنت متأكد من حذف المجموعة؟</value>
   </data>
   <data name="DM_Cancel_button" xml:space="preserve">
-    <value>Cancel_AR</value>
+    <value>إلغاء</value>
   </data>
   <data name="editModalLabel_h3" xml:space="preserve">
-    <value>Edit Record_AR</value>
+    <value>تحرير سجل</value>
   </data>
   <data name="gvGroupManagement_gridview" xml:space="preserve">
-    <value>Group Management_AR</value>
+    <value>إدارة المجموعة</value>
   </data>
   <data name="gv_HD_Actions" xml:space="preserve">
-    <value>Actions_AR</value>
+    <value>الإجراءات</value>
   </data>
   <data name="gv_Hd_Desct" xml:space="preserve">
-    <value>Description_AR</value>
+    <value>وصف</value>
   </data>
   <data name="gv_Hd_txtGroupName" xml:space="preserve">
-    <value>Group Name_AR</value>
+    <value>اسم المجموعة</value>
   </data>
   <data name="hdrGroupManagement" xml:space="preserve">
-    <value>Group Management_AR</value>
+    <value>إدارة المجموعة</value>
   </data>
   <data name="lblAlertMessage_Text" xml:space="preserve">
     <value />
   </data>
-  <data name="lblContinent_label" xml:space="preserve">
-    <value>Continent_AR</value>
-  </data>
   <data name="lblDeleteGroup_label" xml:space="preserve">
-    <value>Are you sure to delete group_AR?</value>
+    <value>هل أنت متأكد من حذف المجموعة؟</value>
   </data>
   <data name="lblDescription_label" xml:space="preserve">
-    <value>Description_AR</value>
+    <value>وصف</value>
   </data>
   <data name="lblGroupName_label" xml:space="preserve">
-    <value>Group Name_AR</value>
+    <value>اسم المجموعة</value>
   </data>
   <data name="lnkCreateGroup_link" xml:space="preserve">
-    <value>Create Group_AR</value>
+    <value>إنشاء مجموعة</value>
   </data>
   <data name="mdl2_Description" xml:space="preserve">
-    <value>Description_AR</value>
+    <value>وصف</value>
   </data>
   <data name="mdl2_Desc_PlaceHolder" xml:space="preserve">
-    <value>Enter Description here_AR</value>
+    <value>أدخل الوصف هنا</value>
   </data>
   <data name="mdl2_gn_PlaceHolder" xml:space="preserve">
-    <value>Enter Group Name here_AR</value>
+    <value>أدخل اسم المجموعة هنا</value>
   </data>
   <data name="MLCG_GroupName" xml:space="preserve">
-    <value>Group Name_AR</value>
+    <value>اسم المجموعة</value>
   </data>
   <data name="MLCG_ltlCreateGroup" xml:space="preserve">
-    <value>Create Group_AR</value>
-  </data>
-  <data name="txtEditGroupName_text" xml:space="preserve">
-    <value>Group Name_AR</value>
-  </data>
-  <data name="UPMDL_btnCanelEdit_button" xml:space="preserve">
-    <value>Cancel_AR</value>
-  </data>
-  <data name="UPMDL_btnSaveEdit_button" xml:space="preserve">
-    <value>Save_AR</value>
-  </data>
-  <data name="UPMDL_EditGroup" xml:space="preserve">
-    <value>Edit Group_AR</value>
-  </data>
-  <data name="UPMDL_GroupName_placeHolder" xml:space="preserve">
-    <value>Enter Group Name_AR</value>
-  </data>
-  <data name="UPMDL_GroupName_Text" xml:space="preserve">
-    <value>Group&amp;nbsp;Name_AR</value>
-  </data>
-  <data name="UPMDL_txtEditDescription_PHold" xml:space="preserve">
-    <value>Enter Description Here_AR</value>
-  </data>
-  <data name="UPMDL_txtEditDescription_text" xml:space="preserve">
-    <value>Description_AR</value>
+    <value>إنشاء مجموعة</value>
   </data>
   <data name="MSG_Group_Delete_Failed" xml:space="preserve">
-    <value>Group not deleted,as it is assigned to another user/video_ar</value>
+    <value>لا يتم حذف المجموعة، ويتم تعيينه ل/ الفيديو مستخدم آخر</value>
   </data>
   <data name="MSG_Group_Delete_Failed_Depends" xml:space="preserve">
-    <value>Another object is depends on this group_ar</value>
+    <value>كائن آخر هو يعتمد على هذه المجموعة</value>
   </data>
   <data name="MSG_Group_Delete_Sucess" xml:space="preserve">
-    <value>Group deleted successfully_ar</value>
+    <value>حذف المجموعة بنجاح</value>
   </data>
   <data name="MSG_Group_Save_Sucess" xml:space="preserve">
-    <value>Group saved sucessfully_Ar</value>
+    <value>أنقذت مجموعة بنجاح</value>
   </data>
   <data name="MSG_Group_Update_Sucess" xml:space="preserve">
-    <value>Group updated successfully_ar</value>
+    <value>تحديث المجموعة بنجاح</value>
+  </data>
+  <data name="txtEditGroupName_text" xml:space="preserve">
+    <value>اسم المجموعة</value>
+  </data>
+  <data name="UPMDL_btnCanelEdit_button" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="UPMDL_btnSaveEdit_button" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="UPMDL_EditGroup" xml:space="preserve">
+    <value>تحرير مجموعة</value>
+  </data>
+  <data name="UPMDL_GroupName_placeHolder" xml:space="preserve">
+    <value>أدخل اسم المجموعة</value>
+  </data>
+  <data name="UPMDL_GroupName_Text" xml:space="preserve">
+    <value>اسم المجموعة</value>
+  </data>
+  <data name="UPMDL_txtEditDescription_PHold" xml:space="preserve">
+    <value>أدخل الوصف هنا</value>
+  </data>
+  <data name="UPMDL_txtEditDescription_text" xml:space="preserve">
+    <value>وصف</value>
   </data>
 </root>

@@ -358,7 +358,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to For selected Community number, district alredy assigned.
+        ///   Looks up a localized string similar to For selected Community number, district already assigned.
         /// </summary>
         internal static string MSG_District_Community_Duplication_Error {
             get {

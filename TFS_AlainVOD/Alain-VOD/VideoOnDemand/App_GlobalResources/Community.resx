@@ -217,7 +217,7 @@
     <value>Select</value>
   </data>
   <data name="MSG_District_Community_Duplication_Error" xml:space="preserve">
-    <value>For selected Community number, district alredy assigned</value>
+    <value>For selected Community number, district already assigned</value>
   </data>
   <data name="MSG_UPdation_Failed" xml:space="preserve">
     <value>Community not saved</value>

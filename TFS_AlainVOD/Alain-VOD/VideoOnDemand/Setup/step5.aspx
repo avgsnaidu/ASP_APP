@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="setup4.aspx.cs" Inherits="VideoOnDemand.Setup.SuperAdminInfo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="step5.aspx.cs" Inherits="VideoOnDemand.Setup.SuperAdminInfo" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainHeadContent" runat="server">
 </asp:Content>
@@ -12,31 +12,34 @@
 
         <div class="col-md-12 full-width">
             <div class="navigation">
-                <ul class="step4">
+                <ul class="step5">
                     <li class="first-child completed edit-s"><a href="setup1.aspx">
 
                         <span>
                             <asp:Literal runat="server" ID="ltlVidMang" Text="<%$ Resources:Setup, HD_Step1_Number%>" /></span>
                         <asp:Literal runat="server" ID="Literal1" Text="<%$ Resources:Setup, HD_Step1_DatabaseSetup%>" />
                     </a></li>
-                    <li class="completed edit-s middle-leftchild"><a href="setup2.aspx">
-
+                    <li class="completed child-2"><a href="#">
                         <span>
-                            <asp:Literal runat="server" ID="Literal2" Text="<%$ Resources:Setup, HD_Step2_Number%>" /></span>
-                        <asp:Literal runat="server" ID="Literal3" Text="<%$ Resources:Setup, HD_Step2_Active_Directory_Details%>" />
+                            <asp:Literal runat="server" ID="Literal16" Text="<%$ Resources:Setup, HD_Step2_Number%>" /></span>
+                        <asp:Literal runat="server" ID="Literal17" Text="<%$ Resources:Setup, HD_Step2_SMTP_Details%>" />
                     </a></li>
-                    <li class="completed edit-s middle-rightchild"><a href="setup3.aspx">
 
+                    <li class="completed edit-s child-3"><a href="setup2.aspx">
                         <span>
-                            <asp:Literal runat="server" ID="Literal4" Text="<%$ Resources:Setup, HD_Step3_Number%>" /></span>
-                        <asp:Literal runat="server" ID="Literal5" Text="<%$ Resources:Setup, HD_Step3_VOD_Configuration_Details%>" />
+                            <asp:Literal runat="server" ID="Literal2" Text="<%$ Resources:Setup, HD_Step3_Number%>" /></span>
+                        <asp:Literal runat="server" ID="Literal3" Text="<%$ Resources:Setup, HD_Step3_Active_Directory_Details%>" />
+                    </a></li>
+                    <li class="completed edit-s child-4"><a href="setup3.aspx">
+                        <span>
+                            <asp:Literal runat="server" ID="Literal4" Text="<%$ Resources:Setup, HD_Step4_Number%>" /></span>
+                        <asp:Literal runat="server" ID="Literal5" Text="<%$ Resources:Setup, HD_Step4_VOD_Configuration_Details%>" />
 
                     </a></li>
                     <li class="last-child completed"><a href="#">
-
                         <span>
-                            <asp:Literal runat="server" ID="Literal6" Text="<%$ Resources:Setup, HD_Step4_Number%>" /></span>
-                        <asp:Literal runat="server" ID="Literal7" Text="<%$ Resources:Setup, HD_Step4_Super_Admin_Info%>" />
+                            <asp:Literal runat="server" ID="Literal6" Text="<%$ Resources:Setup, HD_Step5_Number%>" /></span>
+                        <asp:Literal runat="server" ID="Literal7" Text="<%$ Resources:Setup, HD_Step5_Super_Admin_Info%>" />
                     </a></li>
                 </ul>
             </div>
@@ -104,7 +107,9 @@
                 <p class="pull-right">
                     <%--<asp:LinkButton runat="server" ID="btnNext" PostBackUrl="~/VODManage/UserManagement.aspx">Next<span class="sprite ic-arrow"></span></asp:LinkButton>--%>
                     <asp:Button runat="server" ID="btnNext" ClientIDMode="Static" Width="0" CausesValidation="true" ValidationGroup="ADInfo" Height="0" BackColor="Transparent" BorderWidth="0" OnClick="GoToVODDashBoard_Click" />
-                    <label runat="server" id="lblClickButton" for="btnNext" class="labelButton"><asp:Literal runat="server" ID="Literal13" Text="<%$ Resources:Setup, SAD_Fot_Nextbtn%>" /><span class="sprite ic-arrow"></span></label></p>
+                    <label runat="server" id="lblClickButton" for="btnNext" class="labelButton">
+                        <asp:Literal runat="server" ID="Literal13" Text="<%$ Resources:Setup, SAD_Fot_Nextbtn%>" /><span class="sprite ic-arrow"></span></label>
+                </p>
             </div>
         </div>
 

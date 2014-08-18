@@ -56,9 +56,10 @@ namespace VideoOnDemand
                     //else
                     //    lnkDDMUserName.Visible = false;
 
-                    if (-1 < linkButtonID.ToLower().IndexOf("setup1") || -1 < linkButtonID.ToLower().IndexOf("setup2")
-                       || -1 < linkButtonID.ToLower().IndexOf("setup3")
-                       || -1 < linkButtonID.ToLower().IndexOf("setup4")
+                    if (-1 < linkButtonID.ToLower().IndexOf("step1") || -1 < linkButtonID.ToLower().IndexOf("step2")
+                       || -1 < linkButtonID.ToLower().IndexOf("step3")
+                       || -1 < linkButtonID.ToLower().IndexOf("step4")
+                       || -1 < linkButtonID.ToLower().IndexOf("step5")
                        || -1 < linkButtonID.ToLower().IndexOf("login"))
                     {
                         lnkDDMUserName.Visible = false;
@@ -84,7 +85,7 @@ namespace VideoOnDemand
             if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
             {
                 ltlUserName.Text = Resources.MasterData.logedUserWelcome_Text + ", " + Session["LoginUserName"];
-            
+
             }
             else
                 lnkDDMUserName.Text = Resources.MasterData.logedUserWelcome_Text + ", " + Session["LoginUserName"];
@@ -125,7 +126,6 @@ namespace VideoOnDemand
             Session["CurrentCulture"] = senderLink.CommandArgument;
 
             //reload last requested page with new culture
-            //Server.Transfer(Request.Path);
             Response.Redirect(Request.Path);
 
 
@@ -136,8 +136,8 @@ namespace VideoOnDemand
 
 
 
-            //if (Session["CurrentCulture"].ToString() == "ar-QA")
-            SetArabicStyleSheet();
+            if (Session["CurrentCulture"].ToString() == "ar-QA")
+                SetArabicStyleSheet();
             //"Content/css/style_arabic.css"
 
             LinkButton senderLink = sender as LinkButton;
@@ -147,7 +147,6 @@ namespace VideoOnDemand
 
             //reload last requested page with new culture
             Response.Redirect(Request.Path);
-            //Server.Transfer(Request.Path);
 
 
         }
@@ -178,7 +177,8 @@ namespace VideoOnDemand
             get
             {
                 // pull the stylesheet name from a database or xml file...
-                return ApplicationPath + ArabicStyleSheet;
+
+                return string.IsNullOrEmpty(ArabicStyleSheet) ? "." : (ApplicationPath + ArabicStyleSheet);
             }
         }
 

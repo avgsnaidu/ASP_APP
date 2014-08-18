@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data;
+using System.Data.OleDb;
 
 namespace VideoOnDemand.Model.BAL
 {
@@ -25,7 +26,7 @@ namespace VideoOnDemand.Model.BAL
                 strSql = string.Format("Insert into District (District_No,NAME_ENG,DATE_CREATED)VALUES({0},N'{1}','{2}')",
                 DistrictNo, DistrictName, DateTime.Now);
 
-            int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
+            int returnVal = OledbHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
             if (returnVal > 0)
                 return true;
             else
@@ -35,16 +36,21 @@ namespace VideoOnDemand.Model.BAL
 
         public bool UpdateDistrictDetails(int DistrictNo, string DistrictName, char language)
         {
-            SqlParameter[] p = new SqlParameter[3];
-            p[0] = new SqlParameter("@DistrictNo", SqlDbType.Int);
-            p[0].Value = DistrictNo;
-            p[1] = new SqlParameter("@DistrictName", SqlDbType.NVarChar);
+            OleDbParameter[] p = new OleDbParameter[5];
+            p[0] = new OleDbParameter("@lang", OleDbType.Char);
+            p[0].Value = language;
+            p[1] = new OleDbParameter("@DistrictName", OleDbType.VarWChar);
             p[1].Value = DistrictName;
-            p[2] = new SqlParameter("@lang", SqlDbType.Char);
+            p[2] = new OleDbParameter("@lang2", OleDbType.Char);
             p[2].Value = language;
+            p[3] = new OleDbParameter("@DistrictName2", OleDbType.VarWChar);
+            p[3].Value = DistrictName;
+            p[4] = new OleDbParameter("@DistrictNo", OleDbType.Integer);
+            p[4].Value = DistrictNo;
 
-            string strSql = "UPDATE District SET Name_Eng=CASE WHEN @lang='E' THEN @DistrictName END, Name_Arb=CASE WHEN @lang='A' THEN @DistrictName END, DATE_UPDATED=GETDATE() where District_No=@DistrictNo";
-            int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
+            string strSql = "UPDATE District SET Name_Eng=CASE WHEN ?='E' THEN ? END, Name_Arb=CASE WHEN ?='A' " +
+                " THEN ? END, DATE_UPDATED=GETDATE() where District_No=?";
+            int value = OledbHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
             if (value > 0)
                 return true;
             else return false;
@@ -54,20 +60,22 @@ namespace VideoOnDemand.Model.BAL
         public DataSet GetDistrictDetails(char language)
         {
             string strSql = string.Empty;
-            SqlParameter[] p = new SqlParameter[1];
-            p[0] = new SqlParameter("@lang", SqlDbType.Char);
+            OleDbParameter[] p = new OleDbParameter[2];
+            p[0] = new OleDbParameter("@lang", OleDbType.Char);
             p[0].Value = language;
+            p[1] = new OleDbParameter("@lang2", OleDbType.Char);
+            p[1].Value = language;
 
-            strSql = string.Format("SELECT [DISTRICT_NO],CASE WHEN @LANG='E' THEN [NAME_ENG] WHEN @LANG='A' THEN [NAME_ARB] END AS DISTRICTNAME, " +
+            strSql = string.Format("SELECT [DISTRICT_NO],CASE WHEN ?='E' THEN [NAME_ENG] WHEN ?='A' THEN [NAME_ARB] END AS DISTRICTNAME, " +
                                 " [DATE_CREATED] FROM [DISTRICT] order by DISTRICTNAME");
-            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
+            DataSet ds = OledbHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
             return ds;
         }
 
         public bool DeleteDistrict(int DistrictNo)
         {
             string strSql = "DELETE FROM District WHERE District_No=" + DistrictNo;
-            int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+            int value = OledbHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
             if (value > 0)
                 return true;
             else return false;

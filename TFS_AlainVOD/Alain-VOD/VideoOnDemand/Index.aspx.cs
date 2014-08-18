@@ -19,7 +19,7 @@ namespace VideoOnDemand.Setup
         //bool setup2_Exists = false;
         //bool setup3_Exists = false;
         //bool setup4_Exists = false;
-
+        clsIndex repository = new clsIndex();
         protected void Page_Load(object sender, EventArgs e)
         {
             //setup1_Exists = IsAlreadyDBSetupExists()
@@ -28,140 +28,77 @@ namespace VideoOnDemand.Setup
 
             if (!IsPostBack)
             {
-
-                if (CheckConnectionStringExists())
+                if (Application["SetupCompleted"] == null || Convert.ToBoolean(Application["SetupCompleted"].ToString()) == false)
                 {
-
-                    if (IsAlreadyDBSetupExists())
+                    if (repository.CheckConnectionStringExists())
                     {
-                        if (IsAlreadyActiveDirectorySettingsExists())
+                        if (repository.IsAlreadyDBSetupExists())
                         {
-                            if (IsAlreadyVODConfigurationSettingsExists())
+                            if (repository.IsSMTPDetailsExist())
                             {
-                                if (IsAlreadySuperAdminDetailsExists())
+                                if (repository.IsAlreadyActiveDirectorySettingsExists())
                                 {
-                                    if (!(Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString())))
+                                    if (repository.IsAlreadyVODConfigurationSettingsExists())
                                     {
-                                        Response.Redirect(@"~/WindowsUser.aspx");
+                                        if (repository.IsAlreadySuperAdminDetailsExists())
+                                        {
+                                            Application["SetupCompleted"] = true;
+                                            if (!(Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString())))
+                                            {
+                                                Response.Redirect(@"~/WindowsUser.aspx");
+                                            }
+                                            else if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
+                                            {
+                                                Response.Redirect(@"~/Admin/Users.aspx");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Response.Redirect(@"~/Setup/step5.aspx");
+                                        }
                                     }
-                                    else if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
+                                    else
                                     {
-                                        Response.Redirect(@"~/Users.aspx");
+                                        Response.Redirect(@"~/Setup/step4.aspx");
                                     }
                                 }
                                 else
                                 {
-                                    Response.Redirect(@"~/Setup/setup4.aspx");
+                                    Response.Redirect(@"~/Setup/step3.aspx");
                                 }
                             }
                             else
                             {
-                                Response.Redirect(@"~/Setup/setup3.aspx");
+                                Response.Redirect(@"~/Setup/step2.aspx");
                             }
                         }
                         else
                         {
-                            Response.Redirect(@"~/Setup/setup2.aspx");
+                            Response.Redirect(@"~/Setup/step1.aspx");
                         }
                     }
                     else
                     {
-                        Response.Redirect(@"~/Setup/setup1.aspx");
+                        Response.Redirect(@"~/Setup/step1.aspx");
                     }
                 }
                 else
                 {
-                    Response.Redirect(@"~/Setup/setup1.aspx");
+                    if (!(Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString())))
+                    {
+                        Response.Redirect(@"~/WindowsUser.aspx");
+                        //Response.Redirect(Request.Path);
+                    }
+                    else if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
+                    {
+                        Response.Redirect(@"~/Admin/Users.aspx");
+                        //Response.Redirect(Request.Path);
+
+                    }
                 }
-
             }
         }
 
-
-        private bool CheckConnectionStringExists()
-        {
-            string connString = ClsConnectionString.getConnectionString();
-            clsDBSetup obj = new clsDBSetup();
-            if (connString != null && connString != string.Empty)
-            {
-                if (obj.GetValidConnectionString(connString) != string.Empty)
-                    return true;
-                else
-                    return false;
-            }
-            else
-                return false;
-
-            //clsDBSetup obj = new clsDBSetup();
-            //System.Configuration.Configuration rootWebConfig =
-            //     System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
-            //System.Configuration.ConnectionStringSettings connString;
-            //if (rootWebConfig.ConnectionStrings.ConnectionStrings.Count > 0)
-            //{
-            //    connString =
-            //        rootWebConfig.ConnectionStrings.ConnectionStrings["VODConnection"];
-            //    if (connString != null && connString.ConnectionString != string.Empty)
-            //    {
-            //        if (obj.GetValidConnectionString(connString.ConnectionString) != string.Empty)
-            //            return true;
-            //        else
-            //            return false;
-            //    }
-            //    else
-            //        return false;
-
-            //}
-            //else
-            //    return false;
-        }
-
-
-
-        private bool IsAlreadySuperAdminDetailsExists()
-        {
-            clsSuperAdmin repository = new clsSuperAdmin();
-            var ds = repository.GetSuperAdminDetails();
-            if (ds != null && ds.Tables[0].Rows.Count > 0)
-                return true;
-            else
-                return false;
-        }
-
-
-
-        private bool IsAlreadyVODConfigurationSettingsExists()
-        {
-            clsVODConfiguration repository = new clsVODConfiguration();
-            var ds = repository.GetVODConfigurationDetails();
-            if (ds != null && ds.Tables[0].Rows.Count > 0)
-                return true;
-            else
-                return false;
-        }
-
-
-
-        private bool IsAlreadyActiveDirectorySettingsExists()
-        {
-            clsActiveDirectory repository = new clsActiveDirectory();
-            var ds = repository.GetADDetails();
-            if (ds != null && ds.Tables[0].Rows.Count > 0)
-                return true;
-            else
-                return false;
-        }
-
-
-
-        private bool IsAlreadyDBSetupExists()
-        {
-            clsDBSetup repository = new clsDBSetup();
-            var ds = repository.GetDBDetails();
-            if (ds != null && ds.Tables[0].Rows.Count > 0)
-                return true;
-            else
-                return false;
-        }
 
     }
 }

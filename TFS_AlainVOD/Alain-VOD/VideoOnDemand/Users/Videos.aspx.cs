@@ -27,6 +27,7 @@ namespace VideoOnDemand.Users
                     if (!IsPostBack)
                     {
                         BindVideoStatus();
+
                         BindGroups(false, true);
                         char status = (ddlStatus.SelectedItem != null && ddlStatus.SelectedValue.ToString() != string.Empty) ? Convert.ToChar(ddlStatus.SelectedItem.Value) : '0';
                         int groupSelected = (ddlGroupsFilter.SelectedItem != null && ddlGroupsFilter.SelectedValue.ToString() != string.Empty) ? Convert.ToInt32(ddlGroupsFilter.SelectedItem.Value) : 0;
@@ -36,11 +37,11 @@ namespace VideoOnDemand.Users
 
                 }
                 else
-                    Response.Redirect("WindowsUser.aspx");
+                    Response.Redirect("~/WindowsUser.aspx");
             }
             else
             {
-                Response.Redirect("WindowsUser.aspx");
+                Response.Redirect("~/WindowsUser.aspx");
             }
         }
 
@@ -101,7 +102,9 @@ namespace VideoOnDemand.Users
 
         private void BindVideos(char status = '0', int selectedGroup = 0)
         {
-            DataSet ds = repository.GetVideosList(Convert.ToChar(status), selectedGroup, BasePage.CurrentLanguage);
+            //DataSet ds = repository.GetVideosList(Convert.ToChar(status), selectedGroup, BasePage.CurrentLanguage);
+            DataSet ds = repository.GetVideosListBasedOnGroup(selectedGroup, BasePage.CurrentLanguage, Session["LoginUserName"].ToString());
+
             gvVideoManagement.DataSource = ds;
             gvVideoManagement.DataBind();
 
@@ -117,7 +120,10 @@ namespace VideoOnDemand.Users
                 if (checkBox != null)
                 {
                     if (checkBox.Checked)
+                    {
                         atLeastOneSelected = true;
+                        break;
+                    }
                 }
             }
             if (!atLeastOneSelected)
@@ -143,7 +149,17 @@ namespace VideoOnDemand.Users
                 //ClientScript.RegisterStartupScript(this.GetType(), "SelectGroup", sb.ToString()); //(0r)
                 ScriptManager.RegisterStartupScript(this, this.GetType(), "AddModalScript", sb.ToString(), false);
             }
+            else
+            {
+                StringBuilder sb = new System.Text.StringBuilder();
+                lblMessage.Text = Resources.VideoManagement.MSG_NoGroups_Avalable_To_assign;
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$('#alertMessageModal').modal('show');");
+                sb.Append(@"</script>");
+                ClientScript.RegisterStartupScript(GetType(), "SelectOneVideo", sb.ToString());
+                return;
 
+            }
 
         }
 
@@ -208,7 +224,7 @@ namespace VideoOnDemand.Users
         private void BindRoadDistrict()
         {
             DataSet ds = null;
-            ds = repositoryVdTag.GetRoadsList('E');
+            ds = repositoryVdTag.GetRoadsList(BasePage.CurrentLanguage);
             if (ds != null)
             {
 
@@ -224,7 +240,7 @@ namespace VideoOnDemand.Users
         private void BindDistrictList()
         {
             DataSet ds = null;
-            ds = repositoryVdTag.GetDistrictList('E');
+            ds = repositoryVdTag.GetDistrictList(BasePage.CurrentLanguage);
             if (ds != null)
             {
                 ddlDistrictTag.DataValueField = "DISTNO";
@@ -238,7 +254,7 @@ namespace VideoOnDemand.Users
         private void BindCommunitiesList()
         {
             DataSet ds = null;
-            ds = repositoryVdTag.GetCommunityList('E');
+            ds = repositoryVdTag.GetCommunityList(BasePage.CurrentLanguage);
             if (ds != null)
             {
                 ddlCommunityTag.DataValueField = "COMMUNITYNO";
@@ -264,8 +280,6 @@ namespace VideoOnDemand.Users
             return repository.GetVideoTagDetails(vidoeId, BasePage.CurrentLanguage);
         }
 
-
-
         private bool BindGroups(bool bindPopUp = true, bool fromLoad = false)
         {
             bool groupBinded = false;
@@ -278,7 +292,7 @@ namespace VideoOnDemand.Users
                     //drow["GroupId"] = 0;
                     //drow["GroupName"] = Resources.VideoManagement.ddlFilterGroup_EmptySelect_Text;
                     //ds.Tables[0].Rows.InsertAt(drow, 0);
-
+                    ddlGroupsFilter.Items.Clear();
                     ddlGroupsFilter.DataTextField = "GroupName";
                     ddlGroupsFilter.DataValueField = "GroupId";
                     ddlGroupsFilter.DataSource = ds;
@@ -288,6 +302,7 @@ namespace VideoOnDemand.Users
                 }
                 if (bindPopUp)
                 {
+                    ddlGroupList.Items.Clear();
                     DataRow dr = ds.Tables[0].NewRow();
                     dr["GroupId"] = 0;
                     dr["GroupName"] = Resources.VideoManagement.ddlGroupsList_EmtpySelect_Text;
@@ -314,12 +329,13 @@ namespace VideoOnDemand.Users
                 groupBinded = false;
             }
 
-
-            if (groupBinded)
-                ddlGroupsFilter.Items.Insert(0, new ListItem(Resources.VideoManagement.ddlGroupsList_EmtpySelect_Text, "0"));
-            else
-                ddlGroupsFilter.Items.Insert(0, new ListItem(Resources.VideoManagement.ddlGroupsList_NoGroups_Text, "0"));
-
+            if (fromLoad)
+            {
+                if (groupBinded)
+                    ddlGroupsFilter.Items.Insert(0, new ListItem(Resources.VideoManagement.ddlGroupsList_EmtpySelect_Text, "0"));
+                else
+                    ddlGroupsFilter.Items.Insert(0, new ListItem(Resources.VideoManagement.ddlGroupsList_NoGroups_Text, "0"));
+            }
 
             return groupBinded;
         }
@@ -474,6 +490,7 @@ namespace VideoOnDemand.Users
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "AddHideModalScript", sb.ToString(), false);
 
             }
+            BindGroups(false, true);
         }
 
         protected void gvVideoManagement_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -552,7 +569,7 @@ namespace VideoOnDemand.Users
             {
                 StringBuilder cstext1 = new StringBuilder();
 
-                string playerUrl = string.Format(ClsConnectionString.getVideosServerPath(), videoName);
+                string playerUrl = string.Format(Application["videoServerUrl"].ToString(), videoName);
 
                 //string playerUrl=@"/Player/VideoSample.mp4";
                 cstext1.Append("<script type='text/javascript'> ");

@@ -118,78 +118,90 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="gvRoad_EmptyData_Text" xml:space="preserve">
-    <value>No Road details found_AR</value>
+    <value>أي تفاصيل الطريق وجدت</value>
   </data>
   <data name="gvRoad_Hd_Actions" xml:space="preserve">
-    <value>ACTIONS_AR</value>
+    <value>الإجراءات</value>
   </data>
   <data name="gvRoad_Head_RoadName" xml:space="preserve">
-    <value>ROAD NAME_AR</value>
+    <value>اسم الطريق</value>
   </data>
   <data name="Head_Road" xml:space="preserve">
-    <value>Road_AR</value>
+    <value>الطريق</value>
   </data>
   <data name="lnk_Create_Road_text" xml:space="preserve">
-    <value>Create Road_AR</value>
+    <value>إنشاء الطريق</value>
   </data>
   <data name="mdlAlrt_Head" xml:space="preserve">
-    <value>Alert_AR !</value>
+    <value>تنبيه!</value>
   </data>
   <data name="mdlAlrt_Ok" xml:space="preserve">
-    <value>OK_AR</value>
+    <value>طيب</value>
   </data>
   <data name="mdlCR_Cancel" xml:space="preserve">
-    <value>Cancel_AR</value>
+    <value>إلغاء</value>
   </data>
   <data name="mdlCR_Head_CretRoad" xml:space="preserve">
-    <value>Create Road_AR</value>
+    <value>إنشاء الطريق</value>
   </data>
   <data name="mdlCR_Road_Name_label" xml:space="preserve">
-    <value>Road Name_AR :</value>
+    <value>اسم الطريق:</value>
   </data>
   <data name="mdlCR_Road_Name_placeHolder" xml:space="preserve">
-    <value>Enter road name here_AR..</value>
+    <value>أدخل اسم الطريق هنا ..</value>
+  </data>
+  <data name="mdlCR_Road_Number_label" xml:space="preserve">
+    <value>عدد الطرق</value>
+  </data>
+  <data name="mdlCR_Road_Number_placeHolder" xml:space="preserve">
+    <value>أدخل رقم الطريق هنا</value>
   </data>
   <data name="mdlCR_Save" xml:space="preserve">
-    <value>Save_AR</value>
+    <value>حفظ</value>
   </data>
   <data name="mdlDel_Cancel" xml:space="preserve">
-    <value>Cancel_AR</value>
+    <value>إلغاء</value>
   </data>
   <data name="mdlDel_DelConfim_Text" xml:space="preserve">
-    <value>Are&amp;nbsp;you&amp;nbsp;sure&amp;nbsp;to&amp;nbsp;delete&amp;nbsp;road&amp;nbsp_AR?</value>
+    <value>هل أنت متأكد من حذف الطريق؟</value>
   </data>
   <data name="mdlDel_Delete" xml:space="preserve">
-    <value>Delete_AR</value>
+    <value>حذف</value>
   </data>
   <data name="mdlDel_DelWarning" xml:space="preserve">
-    <value>Delete Warning_AR</value>
+    <value>حذف تحذير</value>
   </data>
   <data name="mdlUR_Cancel" xml:space="preserve">
-    <value>Cancel_AR</value>
+    <value>إلغاء</value>
   </data>
   <data name="mdlUR_Head_Road" xml:space="preserve">
-    <value>Edit Road_AR</value>
+    <value>تحرير الطريق</value>
   </data>
   <data name="mdlUR_Road_Name_label" xml:space="preserve">
-    <value>Road Name _AR:</value>
+    <value>اسم الطريق:</value>
   </data>
   <data name="mdlUR_Road_Name_Placeholder" xml:space="preserve">
-    <value>Enter road name here_AR..</value>
+    <value>أدخل اسم الطريق هنا ..</value>
   </data>
   <data name="mdlUR_Save" xml:space="preserve">
-    <value>Save_AR</value>
+    <value>حفظ</value>
   </data>
   <data name="MSG_ROAD_Delete_Failed" xml:space="preserve">
-    <value>Road not deleted,as it is assigned to another_AR</value>
+    <value>الطريق ليس حذف، ويتم تعيينه لآخر</value>
   </data>
   <data name="MSG_ROAD_DELETE_SUCESS" xml:space="preserve">
-    <value>Road deleted successfully_AR</value>
+    <value>حذف الطريق بنجاح</value>
+  </data>
+  <data name="MSG_Road_Save_Failed" xml:space="preserve">
+    <value>الطريق لا يتم حفظ بنجاح</value>
+  </data>
+  <data name="MSG_Road_Save_Failed_RoadNo_Exists" xml:space="preserve">
+    <value>بالفعل مع نفس الطريق لا يوجد</value>
   </data>
   <data name="MSG_ROAD_SAVE_Sucess" xml:space="preserve">
-    <value>Road saved sucessfully_AR</value>
+    <value>حفظ الطريق بنجاح</value>
   </data>
   <data name="MSG_Road_Upadate_Sucess" xml:space="preserve">
-    <value>Road updated successfully_AR</value>
+    <value>تحديث الطريق بنجاح</value>
   </data>
 </root>

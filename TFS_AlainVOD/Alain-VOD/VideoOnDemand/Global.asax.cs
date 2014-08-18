@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.Principal;
 using System.Threading;
@@ -9,11 +10,13 @@ using System.Web.Routing;
 using System.Web.Security;
 using VideoOnDemand;
 using VideoOnDemand.Model;
+using VideoOnDemand.Model.BAL;
 
 namespace VideoOnDemand
 {
     public class Global : HttpApplication
     {
+
         public static String ApplicationPath = "";
         void Application_Start(object sender, EventArgs e)
         {
@@ -22,7 +25,20 @@ namespace VideoOnDemand
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             ApplicationPath = Server.MapPath("~");
             WebHelper.VirtualPath = WebConfigurationManager.AppSettings["VOD.VirtualPath"] ?? "~/";
+            clsConfiguration repository = new clsConfiguration();
+            Application["videoServerUrl"] = repository.GetVideoServerPath();
+            Application["SetupCompleted"] = false;
         }
+
+
+        //protected void Application_BeginRequest(object sender, EventArgs e)
+        //{
+        //    this.Response.Write("hi@ " + this.Request.Path + "?" + this.Request.QueryString);
+        //    this.Response.StatusCode = 200;
+        //    this.Response.ContentType = "text/plain";
+
+        //    this.Response.End();
+        //}
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
         {

@@ -189,12 +189,16 @@ a#lnkDropDownMenu.btn {
     margin-top: 0 !important;
 }
 
-.middle-leftchild {
-    padding-right: 70px;
+.navigation li.first-child {
+    width: 15%;
 }
 
-.middle-rightchild {
-    padding-left: 50px;
+.navigation li.last-child {
+    width: 15%;
+}
+
+.navigation li.child-3 {
+    width: 30%;
 }
 
 .textboxFormat {
@@ -466,4 +470,54 @@ a#lnkDropDownMenu.btn {
     text-align: center;
     color: #e44040;
     margin: 100px;
+}
+
+.testbutton-holder {
+    position: relative;
+    float: left;
+    width: 40%;
+    height: 35px;
+    padding: 0;
+}
+
+    .testbutton-holder input {
+        float: right;
+        border-radius: 10px;
+        background: #ec3140;
+        color: #fff;
+        padding: 5px 15px;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 30px;
+        border: 0px;
+    }
+
+
+.col-sm-7.selctBox {
+    padding-left: 0;
+}
+
+.selctBocLabel {
+    width: 46.5% !important;
+}
+
+.testBtn input {
+    border-radius: 10px;
+    background: #ec3140;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 30px;
+    border: 0px;
+}
+
+.req_align {
+    display:block;
+    float:left;
+    margin-left:180px;
+}
+
+.table-border-margin {
+    margin:10px 0;
 }

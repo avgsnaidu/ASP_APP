@@ -6,6 +6,8 @@
 
     <%--    <script src="../Scripts/bootstrap-select.js"></script>
     <link href="../Content/css/bootstrap-select.css" rel="stylesheet" />--%>
+    
+    <script src="jwplayer.js"></script>
 
     <script type="text/javascript">
 
@@ -52,7 +54,8 @@
 
                         <button type="submit" id="btnSearch" runat="server" onserverclick="SearchVideos_Click" class="btn searchBorder buttonColor">
                             <asp:Literal ID="Literal1" runat="server" Text="<%$Resources:Search,btnsearch_text %>" />
-                            <i class="icon-search"></i></button>
+                            <i class="icon-search"></i>
+                        </button>
 
                     </div>
                 </div>
@@ -65,7 +68,7 @@
 
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                 <ContentTemplate>
-                    <asp:GridView ID="gvSearch" runat="server" AutoGenerateColumns="False" GridLines="None" ShowHeaderWhenEmpty="true" AllowPaging="true"
+                    <asp:GridView ID="gvSearch" runat="server" AutoGenerateColumns="False" GridLines="None" ShowHeaderWhenEmpty="true" AllowPaging="true" DataKeyNames="VIDEOID,VideoName"
                         PageSize="5" OnPageIndexChanging="gvSearch_PageIndexChanging" AlternatingRowStyle-ForeColor="Black" AlternatingRowStyle-BackColor="#DEDEDE"
                         OnRowCommand="gvSearch_RowCommand" EmptyDataText="<%$Resources:Search,gv_EmtpyData %>" EmptyDataRowStyle-HorizontalAlign="Center"
                         PagerSettings-Mode="Numeric" OnDataBound="gvSearch_DataBound">
@@ -78,6 +81,14 @@
                             <asp:BoundField DataField="VIDEOID" Visible="false" />
                             <asp:BoundField DataField="VideoName" HeaderText="<%$Resources:Search,gv_Hd_VideoName %>" ItemStyle-Width="30%" />
                             <asp:BoundField DataField="TAG" HeaderText="<%$Resources:Search,GV_TAG_headertext %>" />
+
+                            <asp:TemplateField HeaderText="<%$ Resources:VideoManagement, grd_Hd_Play %>" ItemStyle-Width="60px">
+                                <ItemTemplate>
+                                    <%--<asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="glyphicon glyphicon-play-circle" CommandArgument='<%#Eval("VIDEOID")%>' />--%>
+                                    <asp:LinkButton ID="lnkPlay" runat="server" CommandName="Play" CssClass="spritePlay playicon"
+                                        CommandArgument='<%#Eval("VIDEOID")+ ";"+ Eval("VideoName")%>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
 
                             <%--   <asp:TemplateField HeaderText="Play">
                                 <ItemTemplate>
@@ -93,6 +104,31 @@
                 </ContentTemplate>
             </asp:UpdatePanel>
 
+        </div>
+
+
+        <div class="modal fade" id="mdlPlayVideo" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static" aria-labelledby="modalVideoLabel" aria-hidden="true" data-dismiss="modal">
+            <div class="modal-dialog modal-dlg-top">
+                <a href="#" class="closeX close" data-dismiss="modal">X</a>
+                <div class="modal-content">
+
+                    <asp:UpdatePanel ID="UpdatePanel5" runat="server">
+                        <ContentTemplate>
+                            <div class="modal-body">
+                                <div class="form-horizontal" role="form">
+                                    <div class="form-group">
+
+                                        <div id='player' class="player_wrapper_Custom"></div>
+
+                                        <br />
+                                    </div>
+                                </div>
+                            </div>
+                        </ContentTemplate>
+
+                    </asp:UpdatePanel>
+                </div>
+            </div>
         </div>
 
     </div>

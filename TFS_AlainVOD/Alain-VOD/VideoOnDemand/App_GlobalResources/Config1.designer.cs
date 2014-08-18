@@ -115,7 +115,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Back.
+        ///   Looks up a localized string similar to Go To Dashboard.
         /// </summary>
         internal static string btnTopBack_Text {
             get {
@@ -124,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter Valid Conneciton String.
+        ///   Looks up a localized string similar to Enter Valid Connection String.
         /// </summary>
         internal static string DB_Connection_Entered_NotValid {
             get {
@@ -228,6 +228,15 @@ namespace Resources {
         internal static string ESD_ServerName {
             get {
                 return ResourceManager.GetString("ESD_ServerName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SSL Enabled :.
+        /// </summary>
+        internal static string ESD_SSLEnabled {
+            get {
+                return ResourceManager.GetString("ESD_SSLEnabled", resourceCulture);
             }
         }
         
@@ -430,7 +439,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to * Please Enter ServerId.
+        ///   Looks up a localized string similar to * Please Enter Server ID.
         /// </summary>
         internal static string mdlAD_ServerId_need {
             get {
@@ -655,7 +664,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter reply to eamil.
+        ///   Looks up a localized string similar to Enter reply to email.
         /// </summary>
         internal static string mdlESD_Email_placeholder {
             get {
@@ -979,7 +988,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Stereaming Server Details.
+        ///   Looks up a localized string similar to Streaming Server Details.
         /// </summary>
         internal static string mdlSSD_Header {
             get {
@@ -1213,7 +1222,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Simultanious&amp;nbsp;Video&amp;nbsp;&lt;br /&gt; Conversions.
+        ///   Looks up a localized string similar to Simultaneous&amp;nbsp;Video&amp;nbsp;&lt;br /&gt; Conversions.
         /// </summary>
         internal static string mdlVOD_Simul_Convertions {
             get {
@@ -1231,7 +1240,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sourcer&amp;nbsp;Folder.
+        ///   Looks up a localized string similar to Source&amp;nbsp;Folder.
         /// </summary>
         internal static string mdlVOD_SourceFolder {
             get {
@@ -1245,6 +1254,15 @@ namespace Resources {
         internal static string mdlVOD_SourceFolder_need {
             get {
                 return ResourceManager.GetString("mdlVOD_SourceFolder_need", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active Directory connection failed.
+        /// </summary>
+        internal static string MSG_AD_Domain_ConnectionFailed {
+            get {
+                return ResourceManager.GetString("MSG_AD_Domain_ConnectionFailed", resourceCulture);
             }
         }
         

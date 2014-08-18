@@ -127,13 +127,13 @@
     <value>Domain</value>
   </data>
   <data name="gv_hd_fullname" xml:space="preserve">
-    <value>FullName</value>
+    <value>Full Name</value>
   </data>
   <data name="gv_hd_groupName" xml:space="preserve">
-    <value>GroupName</value>
+    <value>Group Name</value>
   </data>
   <data name="gv_hd_Username" xml:space="preserve">
-    <value>UserName</value>
+    <value>User Name</value>
   </data>
   <data name="hd_UserManagement" xml:space="preserve">
     <value>User Management</value>

@@ -187,7 +187,7 @@
     <value>Road deleted successfully</value>
   </data>
   <data name="MSG_ROAD_SAVE_Sucess" xml:space="preserve">
-    <value>Road saved sucessfully</value>
+    <value>Road saved successfully</value>
   </data>
   <data name="MSG_Road_Upadate_Sucess" xml:space="preserve">
     <value>Road updated successfully</value>

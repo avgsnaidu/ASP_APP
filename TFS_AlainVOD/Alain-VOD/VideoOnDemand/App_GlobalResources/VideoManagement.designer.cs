@@ -331,6 +331,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No groups available to assign.
+        /// </summary>
+        internal static string MSG_NoGroups_Avalable_To_assign {
+            get {
+                return ResourceManager.GetString("MSG_NoGroups_Avalable_To_assign", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select at least one video.
         /// </summary>
         internal static string MSG_Select_Atleast_One {

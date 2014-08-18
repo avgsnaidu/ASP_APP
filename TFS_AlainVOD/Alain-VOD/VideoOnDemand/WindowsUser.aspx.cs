@@ -39,7 +39,7 @@ namespace VideoOnDemand
                     }
                 }
                 else
-                    Response.Redirect(@"~/Error.aspx", true);
+                    Response.Redirect(@"~/Error.aspx", false);
 
             }
         }

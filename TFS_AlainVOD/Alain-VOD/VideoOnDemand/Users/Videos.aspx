@@ -92,7 +92,7 @@
                         </asp:LinkButton></li>
                     <li class="last">
                         <asp:Label runat="server" ID="lblFilterBy" Text="<%$ Resources:VideoManagement, lblFilterBy %>  "></asp:Label><%-- <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                            <ContentTemplate>--%><asp:DropDownList ID="ddlStatus" runat="server" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
+                            <ContentTemplate>--%><asp:DropDownList ID="ddlStatus" runat="server" Visible="false" CssClass="selectpicker dropdownList searchBorder" AutoPostBack="true"
                                 OnSelectedIndexChanged="ddlStatus_SelectedIndexChanged">
                             </asp:DropDownList>
 
@@ -128,7 +128,7 @@
 
                                             <div class="form-group">
                                                 <asp:Label for="txtCommunityTag" ID="lblCommunityTag" runat="server" class="col-sm-4 control-label" Text="<%$ Resources:VideoManagement, ETM_txtCommunityTagText %>"></asp:Label><div class="col-sm-7">
-                                                    <asp:DropDownList runat="server" ID="ddlCommunityTag" CssClass="selectpicker minHeightControl" AutoPostBack="true" Width="100%" />
+                                                    <asp:DropDownList runat="server" ID="ddlCommunityTag" CssClass="selectpicker minHeightControl" Width="100%" />
 
                                                     <%--                                                    <asp:TextBox type="text" runat="server" class="form-control textboxFormat"
                                                         ID="txtCommunityTag" placeholder="Enter Community Tag" data-placement="top" data-trigger="manual" />--%>
@@ -138,7 +138,7 @@
                                                 <asp:Label runat="server" ID="lblDirstrictTag" for="txtDistrictTag" class="col-sm-4 control-label" Text="<%$ Resources:VideoManagement, ETM_txtDistrictTagText %>">
                                                 </asp:Label>
                                                 <div class="col-sm-7">
-                                                    <asp:DropDownList runat="server" ID="ddlDistrictTag" CssClass="selectpicker minHeightControl" AutoPostBack="true" Width="100%" />
+                                                    <asp:DropDownList runat="server" ID="ddlDistrictTag" CssClass="selectpicker minHeightControl" Width="100%" />
 
                                                     <%--                                                    <asp:TextBox type="text" ID="txtDistrictTag" runat="server" class="form-control textboxFormat "
                                                         placeholder="Enter District Tag" data-placement="bottom" data-trigger="manual" />--%>
@@ -148,7 +148,7 @@
                                                 <asp:Label runat="server" ID="lblRoadTags" for="txtRoadTag" class="col-sm-4 control-label" Text="<%$ Resources:VideoManagement, ETM_txtRoadTagText %>">
                                                 </asp:Label>
                                                 <div class="col-sm-7">
-                                                    <asp:DropDownList runat="server" ID="ddlRoadTag" CssClass="selectpicker minHeightControl" AutoPostBack="true" Width="100%" />
+                                                    <asp:DropDownList runat="server" ID="ddlRoadTag" CssClass="selectpicker minHeightControl" Width="100%" />
 
                                                     <%--                                                    <asp:TextBox type="text" runat="server" ID="txtRoadTag" class="form-control textboxFormat"
                                                         name="" placeholder="Enter Road Tags" data-placement="bottom" data-trigger="manual"></asp:TextBox>--%>

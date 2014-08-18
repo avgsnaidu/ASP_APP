@@ -13,6 +13,96 @@ namespace VideoOnDemand.Setup {
     public partial class DatabaseSetup {
         
         /// <summary>
+        /// ltlVidMang control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlVidMang;
+        
+        /// <summary>
+        /// Literal1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal1;
+        
+        /// <summary>
+        /// Literal2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal2;
+        
+        /// <summary>
+        /// Literal3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal3;
+        
+        /// <summary>
+        /// Literal4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal4;
+        
+        /// <summary>
+        /// Literal5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal5;
+        
+        /// <summary>
+        /// Literal6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal6;
+        
+        /// <summary>
+        /// Literal7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal7;
+        
+        /// <summary>
+        /// Literal8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal8;
+        
+        /// <summary>
+        /// Literal9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal9;
+        
+        /// <summary>
         /// txtIPAddress control.
         /// </summary>
         /// <remarks>
@@ -31,13 +121,13 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvTxtIPAddress;
         
         /// <summary>
-        /// revTxtIPAddress control.
+        /// Literal10 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator revTxtIPAddress;
+        protected global::System.Web.UI.WebControls.Literal Literal10;
         
         /// <summary>
         /// txtPort control.
@@ -49,15 +139,6 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.TextBox txtPort;
         
         /// <summary>
-        /// rfvport control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvport;
-        
-        /// <summary>
         /// revPort control.
         /// </summary>
         /// <remarks>
@@ -65,6 +146,15 @@ namespace VideoOnDemand.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator revPort;
+        
+        /// <summary>
+        /// Literal11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal11;
         
         /// <summary>
         /// txtDatabaseName control.
@@ -85,6 +175,15 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvDatabaseName;
         
         /// <summary>
+        /// Literal12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal12;
+        
+        /// <summary>
         /// txtUserId control.
         /// </summary>
         /// <remarks>
@@ -101,6 +200,15 @@ namespace VideoOnDemand.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvUserId;
+        
+        /// <summary>
+        /// Literal13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal13;
         
         /// <summary>
         /// txtPassword control.
@@ -121,6 +229,24 @@ namespace VideoOnDemand.Setup {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPassword;
         
         /// <summary>
+        /// Literal14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal14;
+        
+        /// <summary>
+        /// Literal15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal15;
+        
+        /// <summary>
         /// btnNext control.
         /// </summary>
         /// <remarks>
@@ -137,6 +263,24 @@ namespace VideoOnDemand.Setup {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblClickButton;
+        
+        /// <summary>
+        /// ltlButtonClick control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal ltlButtonClick;
+        
+        /// <summary>
+        /// Literal17 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal Literal17;
         
         /// <summary>
         /// UpdatePanel5 control.

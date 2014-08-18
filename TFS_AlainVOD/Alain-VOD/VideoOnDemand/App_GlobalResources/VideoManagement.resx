@@ -219,4 +219,7 @@
   <data name="MSG_Video_Tags_Updated" xml:space="preserve">
     <value>Successfully video tags updated</value>
   </data>
+  <data name="MSG_NoGroups_Avalable_To_assign" xml:space="preserve">
+    <value>No groups available to assign</value>
+  </data>
 </root>

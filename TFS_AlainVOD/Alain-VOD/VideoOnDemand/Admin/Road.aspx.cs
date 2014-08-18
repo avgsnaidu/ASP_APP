@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data;
 using VideoOnDemand.Model.BAL;
 using System.Data.SqlClient;
+using VideoOnDemand.Model;
+using System.Configuration;
 
 namespace VideoOnDemand
 {
@@ -207,5 +209,20 @@ namespace VideoOnDemand
                 pagerRow.Cells[0].Attributes.Add("align", "right");
             }
         }
+
+
+        protected void btnBackToHome_Click(object sender, EventArgs e)
+        {
+            VODLoginRedirectByRoleSection roleRedirectSection = (VODLoginRedirectByRoleSection)ConfigurationManager.GetSection("loginRedirectByRole");
+            foreach (RoleRedirect roleRedirect in roleRedirectSection.RoleRedirects)
+            {
+                if (roleRedirect.Role.ToLower() == "administrator")
+                {
+                    Response.Redirect(WebHelper.RelativeWebRoot + roleRedirect.Url);
+                }
+            }
+        }
+
+
     }
 }

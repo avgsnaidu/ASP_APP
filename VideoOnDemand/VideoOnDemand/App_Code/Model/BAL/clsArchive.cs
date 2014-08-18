@@ -9,11 +9,23 @@ namespace VideoOnDemand.Model.BAL
 {
     public class clsArchive
     {
-        public DataSet GetArchiveList()
+        public DataSet GetArchiveList(char lanugage)
         {
             string strSql = string.Empty;
 
-            strSql = "Select FILE_NAME AS [FILENAME],Community_TAG_ENG+' , '+District_TAG_ENG+' , '+ROAD_TAG_ENG AS TAG ,DATE_CREATED AS ARCHIVEDDATE FROM ARCHIVE";
+
+            if (lanugage == 'A')
+                strSql = "SELECT ARCHIVEID ,VIDEONAME AS FILENAME, Case " +
+                        "WHEN (ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) " +
+                        "LIKE '%,'  THEN LEFT((ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) , LEN((ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')))-1) " +
+                         "ELSE  (ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) END AS TAG  " +
+                          ",DATE_CREATED AS ARCHIVEDDATE  FROM VW_ARCHIVES_WITH_TAGS_ARB VD";
+            else
+                strSql = "SELECT ARCHIVEID ,VIDEONAME AS FILENAME, Case " +
+                        "WHEN (ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) " +
+                        "LIKE '%,'  THEN LEFT((ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) , LEN((ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')))-1) " +
+                         "ELSE  (ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) END AS TAG  " +
+                          ",DATE_CREATED AS ARCHIVEDDATE  FROM VW_ARCHIVES_WITH_TAGS VD ";
             DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
 
             return ds;
@@ -21,23 +33,28 @@ namespace VideoOnDemand.Model.BAL
 
 
 
-        public DataSet GetSearchedArchiveList(string searchKeyword, bool IsArabic = false)
+        public DataSet GetSearchedArchiveList(string searchKeyword, char language)
         {
 
             DataSet ds;
 
-            SqlParameter[] p = new SqlParameter[2];
-            p[0] = new SqlParameter("@SearchKey", SqlDbType.NVarChar);
-            p[0].Value = searchKeyword;
-            p[1] = new SqlParameter("@IsArabic", SqlDbType.Bit);
-            p[1].Value = IsArabic;
-
             string strSql = string.Empty;
-            strSql = "Select FILE_NAME AS [FILENAME],Community_TAG_ENG+' , '+District_TAG_ENG+' , '+ROAD_TAG_ENG AS TAG ,DATE_CREATED AS ARCHIVEDDATE  from ARCHIVE  where " +
-                "COMMUNITY_TAG_ENG like'%" + searchKeyword + "%'" +
-            " OR District_TAG_ENG like'%" + searchKeyword + "%'" +
-            " OR ROAD_TAG_ENG like'%" + searchKeyword + "%'";
-            ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
+            string table = string.Empty;
+
+            if (language == 'A')
+                table = "VW_ARCHIVES_WITH_TAGS_ARB";
+            else
+                table = "VW_ARCHIVES_WITH_TAGS";
+
+            strSql = " Select VIDEONAME AS [FILENAME], Case  WHEN (ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,''))  " +
+                                    " LIKE '%,'  THEN LEFT((ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) , LEN((ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')))-1) " +
+                                    " ELSE  (ISNULL(COMMUNITY+' , ','')+ISNULL(DISTRICT+',','')+ISNULL(ROAD,'')) END AS TAG " +
+                                     " ,DATE_CREATED AS ARCHIVEDDATE  from " + table + " WHERE " +
+                                      "COMMUNITY like'%" + searchKeyword + "%'" +
+                        " OR District like'%" + searchKeyword + "%'" +
+                        " OR ROAD like'%" + searchKeyword + "%'";
+
+            ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
             return ds;
 
         }

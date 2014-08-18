@@ -1,11 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/VODMain.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="VideoOnDemand.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="VideoOnDemand.Default" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainHeadContent" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="VODContentPlaceHolder" runat="server">
+<!DOCTYPE html>
 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
     <div>
-        <label> There is no Content to display Please go back to visit more.</label>
+    
     </div>
-
-</asp:Content>
+    </form>
+</body>
+</html>

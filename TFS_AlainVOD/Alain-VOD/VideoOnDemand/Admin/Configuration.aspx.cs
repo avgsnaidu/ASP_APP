@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System.DirectoryServices;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -68,7 +69,8 @@ namespace VideoOnDemand.Admin
                     //txtDbPassword.Text = ds.Tables[0].Rows[i]["Password"].ToString();
                     ViewState["DBPassword"] = ds.Tables[0].Rows[i]["Password"].ToString();
 
-                    lblDataPassword.Text = ds.Tables[0].Rows[i]["Password"].ToString();
+                    //lblDataPassword.Text = ds.Tables[0].Rows[i]["Password"].ToString();
+                    lblDataPassword.Text = InputPWDFormatString(ds.Tables[0].Rows[i]["Password"].ToString().Length);
                 }
                 ds = activeDirectory.GetADDetails();
                 DataSet dsDomain = activeDirectory.GetADDomainDetails();
@@ -89,7 +91,7 @@ namespace VideoOnDemand.Admin
                     lblADUserNameValue.Text = ds.Tables[0].Rows[i]["Userid"].ToString();
 
                     ViewState["ADPassword"] = ds.Tables[0].Rows[i]["Password"].ToString();
-                    lblADPasswordValue.Text = ds.Tables[0].Rows[i]["Password"].ToString();
+                    lblADPasswordValue.Text = InputPWDFormatString(ds.Tables[0].Rows[i]["Password"].ToString().Length);
                 }
                 ds = vodConfiguration.GetVODConfigurationDetails();
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -122,20 +124,15 @@ namespace VideoOnDemand.Admin
                         txtScheduleInterval.Text = DecimalToTimeConverters.ToDateTime(Convert.ToDecimal(ds.Tables[0].Rows[i]["SCHEDULER_HOURS_INTERVAL"])).ToLongTimeString();
 
                         //txtSchedule.Text = ds.Tables[0].Rows[i]["SCHEDULER_FLAG"].ToString();
-                        //ddlInterval.Text = ds.Tables[0].Rows[i]["SCHEDULER_FLAG"].ToString();
-
+                        //ddlInterval.Text = ds.Tables[0].Rows[i]["SCHEDULER_FLAG"].ToString(); 
                     }
 
                     lblVideoConversionValue.Text = ds.Tables[0].Rows[i]["SIMULT_CONVERSIONS"].ToString();
 
                     ddlSimultaneous.Items.FindByValue(ds.Tables[0].Rows[i]["SIMULT_CONVERSIONS"].ToString()).Selected = true;
 
-
-
-
-
                 }
-                ds = superAdmin.GetSuperAdminDetails();
+                ds = superAdmin.GetSuperAdminDetails(Session["LoginUserName"].ToString());
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
                     hdSuperAdmin.Value = ds.Tables[0].Rows[i]["CONFIG_ID"].ToString();
@@ -143,8 +140,8 @@ namespace VideoOnDemand.Admin
                     txtSuperUser.Text = ds.Tables[0].Rows[i]["USERID"].ToString();
                     txtSuperUsername.Text = ds.Tables[0].Rows[i]["USERID"].ToString();
 
-                    txtAdminPassword.Text = ds.Tables[0].Rows[i]["PASSWORD"].ToString();
-                    txtSupPassword.Text = ds.Tables[0].Rows[i]["PASSWORD"].ToString();
+                    txtAdminPassword.Text = InputPWDFormatString(Crypto.Decrypt(ds.Tables[0].Rows[i]["PASSWORD"].ToString()).Length);
+                    txtSupPassword.Text = Crypto.Decrypt(ds.Tables[0].Rows[i]["PASSWORD"].ToString());
 
                     txtEmail.Text = ds.Tables[0].Rows[i]["EMAIL"].ToString();
                     txtSuperEmail.Text = ds.Tables[0].Rows[i]["EMAIL"].ToString();
@@ -161,6 +158,16 @@ namespace VideoOnDemand.Admin
             }
         }
 
+        private string InputPWDFormatString(int Length)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (Length > 8)
+                Length = 8;
+            for (int i = 1; i <= Length; i++)
+                sb.Append('*');
+            return sb.ToString();
+        }
+
         private string Get12HoursFormat(string time)
         {
             DateTime date = new DateTime(1900, 1, 1);
@@ -171,7 +178,10 @@ namespace VideoOnDemand.Admin
 
         private void BindEmailServerDetails()
         {
-            DataSet ds = repositoryConfig.GetEmailServerDetails();
+            DataSet ds;
+
+            ds = repositoryConfig.GetEmailServerDetails();
+
             if (ds.Tables[0].Rows.Count > 0)
             {
                 lblEsdServernameValue.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["SERVERNAME"].ToString());
@@ -182,9 +192,7 @@ namespace VideoOnDemand.Admin
 
                 lblESDTlsEnabledValue.Text = (Convert.ToBoolean(ds.Tables[0].Rows[0]["TLS_Enabled"].ToString()) == true) ? "Yes" : "No";
                 lblESDUserNameValue.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["USERNAME"].ToString());
-                lblESDPwdValue.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["PASSWORD"].ToString());
-
-
+                lblESDPwdValue.Text = InputPWDFormatString(ds.Tables[0].Rows[0]["PASSWORD"].ToString().Length);
                 Session["EmailServerID"] = ds.Tables[0].Rows[0]["EmailServerId"].ToString();
             }
             else
@@ -192,9 +200,6 @@ namespace VideoOnDemand.Admin
                 Session["EmailServerID"] = 0;
             }
         }
-
-
-
 
 
         private void BindStreamingServer()
@@ -205,7 +210,7 @@ namespace VideoOnDemand.Admin
                 lblSSDServerNameValue.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["SERVERNAME"].ToString());
                 lblSSDPortValue.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["PORT"].ToString());
                 lblSSDUserIdValue.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["USERID"].ToString());
-                lblSSDPasswordValue.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["PASSWORD"].ToString());
+                lblSSDPasswordValue.Text = InputPWDFormatString(ds.Tables[0].Rows[0]["PASSWORD"].ToString().Length);
                 Session["StrmServerID"] = ds.Tables[0].Rows[0]["StreamingServerId"].ToString();
             }
             else
@@ -240,9 +245,20 @@ namespace VideoOnDemand.Admin
                 txtEmailSerPort.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["PORT"].ToString());
                 txtEmailServReplyToEmail.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["REPLY_TO_EMAIL"].ToString());
                 txtEmailSenderName.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["SENDER_NAME"].ToString());
-                ddlESDMailType.Items.FindByValue(HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["EMAIL_TYPE"].ToString())).Selected = true;
+                ddlESDMailType.ClearSelection();
 
-                chkTlsEnabled.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["TLS_Enabled"].ToString());
+                ddlESDMailType.Items.FindByValue(HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["EMAIL_TYPE"].ToString())).Selected = true;
+                //chkTlsEnabled.Checked = Convert.ToBoolean(ds.Tables[0].Rows[0]["TLS_Enabled"].ToString());
+
+                ddlEncryptType.ClearSelection();
+                if (Convert.ToBoolean(ds.Tables[0].Rows[0]["TLS_Enabled"].ToString()))
+                    ddlEncryptType.Items.FindByValue("2").Selected = true;
+                else if (Convert.ToBoolean(ds.Tables[0].Rows[0]["SSL_Enabled"].ToString()))
+                    ddlEncryptType.Items.FindByValue("1").Selected = true;
+                else
+                    ddlEncryptType.Items.FindByValue("0").Selected = true;
+
+
                 txtEmailSerUsername.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["USERNAME"].ToString());
                 txtEmailPassword.Text = HttpUtility.HtmlDecode(ds.Tables[0].Rows[0]["PASSWORD"].ToString());
 
@@ -254,8 +270,6 @@ namespace VideoOnDemand.Admin
                 Session["EmailServerID"] = 0;
             }
         }
-
-
 
 
         protected void btnSaveDB_Click(object sender, EventArgs e)
@@ -278,7 +292,7 @@ namespace VideoOnDemand.Admin
                      txtUserId.Text.Trim(), string.IsNullOrEmpty(txtDbPassword.Text.Trim()) ? ViewState["DBPassword"].ToString() : txtDbPassword.Text.Trim());
                 if (!string.IsNullOrEmpty(validString))
                 {
-                    if (ClsConnectionString.WriteConnectionStringToFile(txtDatabase.Text.Trim(), txtIpAddress.Text.Trim(), txtPort.Text.Trim(), txtUserId.Text.Trim(), txtDbPassword.Text.Trim()))
+                    if (ClsConnectionString.WriteConnectionStringToFile(txtDatabase.Text.Trim(), txtIpAddress.Text.Trim(), txtPort.Text.Trim(), txtUserId.Text.Trim(), txtDbPassword.Text.Trim(),ClsConnectionString.GetProvider()))
                     {
                         intResult = repository.UpdateDBDetails(Convert.ToInt32(hdConfigId.Value), txtIpAddress.Text.Trim(),
                             string.IsNullOrEmpty(txtPort.Text.Trim()) ? 0 : Convert.ToInt16(txtPort.Text.Trim()), txtDatabase.Text.Trim(), txtUserId.Text.Trim(), string.IsNullOrEmpty(txtDbPassword.Text.Trim()) ? ViewState["DBPassword"].ToString() : txtDbPassword.Text.Trim());
@@ -334,8 +348,26 @@ namespace VideoOnDemand.Admin
 
             try
             {
-                intResult = activedirectory.UpdateADDetails(Convert.ToInt32(hdAdConfigId.Value), txtADServerId.Text.Trim(),
-                    txtUsername.Text.Trim(), txtADPassword.Text.Trim(), (Session["DomainID"] != null) ? Convert.ToInt32(Session["DomainID"].ToString()) : 0, txtDomain.Text.Trim());
+                bool AdResult = TestActiveDirectoryDetails(txtDomain.Text.Trim(), txtUsername.Text.Trim(), txtADPassword.Text.Trim());
+
+                if (AdResult)
+                {
+                    intResult = activedirectory.UpdateADDetails(Convert.ToInt32(hdAdConfigId.Value), txtADServerId.Text.Trim(),
+                   txtUsername.Text.Trim(), txtADPassword.Text.Trim(), (Session["DomainID"] != null) ? Convert.ToInt32(Session["DomainID"].ToString()) : 0, txtDomain.Text.Trim());
+                }
+                else
+                {
+                    StringBuilder sb = new System.Text.StringBuilder();
+                    lblMessage.Text = Resources.Config.MSG_AD_Domain_ConnectionFailed;
+                    //lblMessage.Text = Resources.Setup.DBS_MSG_LoginAlreadyExists;
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("$('#alertMessageModal').modal('show');");
+                    sb.Append(@"</script>");
+                    //ClientScript.RegisterStartupScript(GetType(), "connectionNotValid", sb.ToString(), false);
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ShowConnectionresultModal", sb.ToString(), false);
+
+                }
+
 
             }
             catch (Exception ee)
@@ -420,7 +452,7 @@ namespace VideoOnDemand.Admin
 
             try
             {
-                intResult = superAdmin.UpdateSuperDetails(Convert.ToInt32(hdSuperAdmin.Value), txtSuperUsername.Text.Trim(), txtSupPassword.Text.Trim(), txtSuperEmail.Text.Trim());
+                intResult = superAdmin.UpdateSuperDetails(Convert.ToInt32(hdSuperAdmin.Value), txtSuperUsername.Text.Trim(), Crypto.Encrypt(txtSupPassword.Text.Trim()), txtSuperEmail.Text.Trim());
 
             }
             catch (Exception ee)
@@ -458,6 +490,7 @@ namespace VideoOnDemand.Admin
             if (IsSucess)
             {
                 BindStreamingServer();
+                Application["videoServerUrl"] = repositoryConfig.GetVideoServerPath();
                 lblMessage.Text = Resources.Config.MSG_SteramingServer_Saved_Sucess;
                 StringBuilder sb = new System.Text.StringBuilder();
                 sb.Append(@"<script type='text/javascript'>");
@@ -487,40 +520,59 @@ namespace VideoOnDemand.Admin
             }
 
             bool IsSucess = default(bool);
+            bool IsEnableSsl = (ddlEncryptType.SelectedItem != null && ddlEncryptType.SelectedItem.Value == "1") ? true : false;
+            bool IsEnableTLS = (ddlEncryptType.SelectedItem != null && ddlEncryptType.SelectedItem.Value == "2") ? true : false;
 
-            if (!string.IsNullOrEmpty(Session["EmailServerID"].ToString()) && Convert.ToInt16(Session["EmailServerID"].ToString()) > 0)
+            var result = repositoryConfig.SendTestMail(txtEmailServerId.Text.Trim(), Convert.ToInt32(txtEmailSerPort.Text.Trim()), txtEmailServReplyToEmail.Text.Trim(),
+                    ConfigurationManager.AppSettings["TestEmailId"].ToString(), txtEmailSerUsername.Text.Trim(), txtEmailPassword.Text.Trim(), IsEnableSsl, txtEmailSenderName.Text.Trim());
+            if (result)
             {
-                IsSucess = repositoryConfig.UpdateEmailServerDetails(Convert.ToInt16(Session["EmailServerID"].ToString()), txtEmailServerId.Text.Trim(),
-                 Convert.ToInt32(txtEmailSerPort.Text.Trim()), txtEmailServReplyToEmail.Text.Trim(), txtEmailSenderName.Text.Trim(),
-                 ddlESDMailType.SelectedValue, chkTlsEnabled.Checked, txtEmailSerUsername.Text.Trim(), txtEmailPassword.Text.Trim());
+                if (!string.IsNullOrEmpty(Session["EmailServerID"].ToString()) && Convert.ToInt16(Session["EmailServerID"].ToString()) > 0)
+                {
+                    IsSucess = repositoryConfig.UpdateEmailServerDetails(Convert.ToInt16(Session["EmailServerID"].ToString()), txtEmailServerId.Text.Trim(),
+                     Convert.ToInt32(txtEmailSerPort.Text.Trim()), txtEmailServReplyToEmail.Text.Trim(), txtEmailSenderName.Text.Trim(),
+                     ddlESDMailType.SelectedValue, IsEnableTLS, IsEnableSsl, txtEmailSerUsername.Text.Trim(), txtEmailPassword.Text.Trim());
+                }
+                else
+                {
+                    IsSucess = repositoryConfig.InsertEamilServerDetails(txtEmailServerId.Text.Trim(),
+                     Convert.ToInt32(txtEmailSerPort.Text.Trim()), txtEmailServReplyToEmail.Text.Trim(), txtEmailSenderName.Text.Trim(),
+                     ddlESDMailType.SelectedValue, IsEnableTLS, IsEnableSsl, txtEmailSerUsername.Text.Trim(), txtEmailPassword.Text.Trim());
+                }
+
+                if (IsSucess)
+                {
+                    BindEmailServerDetails();
+                    lblMessage.Text = Resources.Config.MSG_EmailServer_Save_Sucess;
+                    StringBuilder sb = new System.Text.StringBuilder();
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("$('#alertMessageModal').modal('show');");
+                    sb.Append("$('#mdlEmailServer').modal('hide');");
+                    sb.Append(@"</script>");
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "StrmHideModalScript", sb.ToString(), false);
+                }
+                else
+                {
+                    lblMessage.Text = Resources.Config.MSG_EmailServer_Save_Failed;
+                    StringBuilder sb = new System.Text.StringBuilder();
+                    sb.Append(@"<script type='text/javascript'>");
+                    sb.Append("$('#alertMessageModal').modal('show');");
+                    sb.Append("$('#mdlEmailServer').modal('hide');");
+                    sb.Append(@"</script>");
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "StrmHideModalScript", sb.ToString(), false);
+                }
             }
             else
             {
-                IsSucess = repositoryConfig.InsertEamilServerDetails(txtEmailServerId.Text.Trim(),
-                 Convert.ToInt32(txtEmailSerPort.Text.Trim()), txtEmailServReplyToEmail.Text.Trim(), txtEmailSenderName.Text.Trim(),
-                 ddlESDMailType.SelectedValue, chkTlsEnabled.Checked, txtEmailSerUsername.Text.Trim(), txtEmailPassword.Text.Trim());
-            }
+                StringBuilder sb = new System.Text.StringBuilder();
+                lblMessage.Text = Resources.Setup.SMTP_MSG_Connection_Failed;
+                //lblMessage.Text = Resources.Setup.DBS_MSG_LoginAlreadyExists;
+                sb.Append(@"<script type='text/javascript'>");
+                sb.Append("$('#alertMessageModal').modal('show');");
+                sb.Append(@"</script>");
+                //ClientScript.RegisterStartupScript(GetType(), "connectionNotValid", sb.ToString(), false);
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "ShowConnectionresultModal", sb.ToString(), false);
 
-            if (IsSucess)
-            {
-                BindEmailServerDetails();
-                lblMessage.Text = Resources.Config.MSG_EmailServer_Save_Sucess;
-                StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$('#alertMessageModal').modal('show');");
-                sb.Append("$('#mdlEmailServer').modal('hide');");
-                sb.Append(@"</script>");
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "StrmHideModalScript", sb.ToString(), false);
-            }
-            else
-            {
-                lblMessage.Text = Resources.Config.MSG_EmailServer_Save_Failed;
-                StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append(@"<script type='text/javascript'>");
-                sb.Append("$('#alertMessageModal').modal('show');");
-                sb.Append("$('#mdlEmailServer').modal('hide');");
-                sb.Append(@"</script>");
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "StrmHideModalScript", sb.ToString(), false);
             }
 
         }
@@ -605,6 +657,8 @@ namespace VideoOnDemand.Admin
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "EditStreaminServer", sb.ToString(), false);
 
 
+
+
         }
 
 
@@ -685,8 +739,31 @@ namespace VideoOnDemand.Admin
             }
         }
 
+        private bool TestActiveDirectoryDetails(string SearchOnDomain, string userName, string password)
+        {
 
+            try
+            {
+                DirectoryEntry myLdapConnection = new DirectoryEntry("LDAP://" + SearchOnDomain, userName, password);
+                DirectorySearcher search = new DirectorySearcher(myLdapConnection) { Filter = ("(&(objectClass=user)(objectCategory=person))") };
+                search.CacheResults = true;
+                //search.SearchScope = SearchScope.Subtree;
+                SearchResultCollection allResults = search.FindAll();
 
+                var allres = allResults;
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        private void ValidateStreaminServerIPAddress()
+        {
+
+        }
 
 
     }

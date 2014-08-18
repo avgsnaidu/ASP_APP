@@ -11,7 +11,10 @@ namespace VideoOnDemand
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect(@"~/Index.aspx");
+            if (!IsPostBack)
+            {
+                Response.Redirect("~/Index.aspx");
+            }
         }
     }
 }

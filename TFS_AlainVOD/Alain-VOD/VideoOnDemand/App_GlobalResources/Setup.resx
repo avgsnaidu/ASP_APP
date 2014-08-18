@@ -166,7 +166,7 @@
     <value>Indicates mandatory fields</value>
   </data>
   <data name="DBS_Hd_enterDBDetails" xml:space="preserve">
-    <value>Enter database connecton details.</value>
+    <value>Enter database connection details</value>
   </data>
   <data name="DBS_lbl_DBName" xml:space="preserve">
     <value>Database Name</value>
@@ -216,7 +216,7 @@
   <data name="HD_Step1_Number" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="HD_Step2_Active_Directory_Details" xml:space="preserve">
+  <data name="HD_Step3_Active_Directory_Details" xml:space="preserve">
     <value>Active Directory Details</value>
   </data>
   <data name="HD_Step2_Number" xml:space="preserve">
@@ -225,13 +225,13 @@
   <data name="HD_Step3_Number" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="HD_Step3_VOD_Configuration_Details" xml:space="preserve">
+  <data name="HD_Step4_VOD_Configuration_Details" xml:space="preserve">
     <value>VOD Configuration Details</value>
   </data>
   <data name="HD_Step4_Number" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="HD_Step4_Super_Admin_Info" xml:space="preserve">
+  <data name="HD_Step5_Super_Admin_Info" xml:space="preserve">
     <value>Super Admin Info</value>
   </data>
   <data name="SAD_Fot_DbDetailsSureMessage" xml:space="preserve">
@@ -356,5 +356,107 @@
   </data>
   <data name="DBS_Database_CreationFailed" xml:space="preserve">
     <value>Database not created sucessfully</value>
+  </data>
+  <data name="SMTP_btnNext" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="SMTP_btnTest" xml:space="preserve">
+    <value>Test Connection</value>
+  </data>
+  <data name="SMTP_EmailType_Need" xml:space="preserve">
+    <value>* Please Enter Email Type</value>
+  </data>
+  <data name="SMTP_EncryptedConnection_Need" xml:space="preserve">
+    <value>* Please Enter  Encrypted Connection</value>
+  </data>
+  <data name="SMTP_lblMandatoryFields" xml:space="preserve">
+    <value>Indicates mandatory fields</value>
+  </data>
+  <data name="SMTP_lblMessage" xml:space="preserve">
+    <value>If you are not sure about database details, please contact your host.</value>
+  </data>
+  <data name="SMTP_lbl_EmailType" xml:space="preserve">
+    <value>Email Type</value>
+  </data>
+  <data name="SMTP_lbl_EncryptedConnection" xml:space="preserve">
+    <value>Type of Encrypted Connection</value>
+  </data>
+  <data name="SMTP_lbl_Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SMTP_lbl_Port" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="SMTP_lbl_ReplyToEmail" xml:space="preserve">
+    <value>Reply To Email</value>
+  </data>
+  <data name="SMTP_lbl_SenderName" xml:space="preserve">
+    <value>Sender Name</value>
+  </data>
+  <data name="SMTP_lbl_ServerId" xml:space="preserve">
+    <value>Mail Server</value>
+  </data>
+  <data name="SMTP_lbl_SMTPDetails" xml:space="preserve">
+    <value>Enter SMTP Details</value>
+  </data>
+  <data name="SMTP_lbl_TypeofEncrypt" xml:space="preserve">
+    <value>Type Of Encrypted Connection</value>
+  </data>
+  <data name="SMTP_lbl_Username" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="SMTP_None_Text" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="SMTP_None_Value" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="SMTP_Password_Need" xml:space="preserve">
+    <value>* Please Enter Password</value>
+  </data>
+  <data name="SMTP_Port_Need" xml:space="preserve">
+    <value>* Please Enter Port</value>
+  </data>
+  <data name="SMTP_ReplyToEmail_Need" xml:space="preserve">
+    <value>* Please Enter Reply To Email</value>
+  </data>
+  <data name="SMTP_SenderName_Need" xml:space="preserve">
+    <value>* Please Enter Sender Name</value>
+  </data>
+  <data name="SMTP_ServerId_Need" xml:space="preserve">
+    <value>* Please Enter Server Id</value>
+  </data>
+  <data name="SMTP_ServerId_Valid" xml:space="preserve">
+    <value>* Invalid Server Id</value>
+  </data>
+  <data name="SMTP_SSLEnabled_Text" xml:space="preserve">
+    <value>SSL</value>
+  </data>
+  <data name="SMTP_TLSEnabled_Text" xml:space="preserve">
+    <value>TLS</value>
+  </data>
+  <data name="SMTP_TypeofEncrypt_Need" xml:space="preserve">
+    <value>* Please Select Encrypted Connection</value>
+  </data>
+  <data name="SMTP_Username_Need" xml:space="preserve">
+    <value>* Please Enter Username</value>
+  </data>
+  <data name="HD_Step5_Number" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="HD_Step2_SMTP_Details" xml:space="preserve">
+    <value>SMTP Details</value>
+  </data>
+  <data name="SMTP_MSG_Connection_Failed" xml:space="preserve">
+    <value>Failed to establish a connection</value>
+  </data>
+  <data name="SMTP_MSG_Connection_Sucess" xml:space="preserve">
+    <value>Connection established successfully</value>
+  </data>
+  <data name="SMTP_MSG_Details_Save_Failed" xml:space="preserve">
+    <value>SMTP details saving failed</value>
+  </data>
+  <data name="SMTP_MSG_Details_Save_Sucess" xml:space="preserve">
+    <value>SMTP details saved successfully</value>
   </data>
 </root>

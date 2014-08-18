@@ -117,100 +117,100 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="gv_EmtpyData" xml:space="preserve">
-    <value>No users to display in selected group_AR</value>
-  </data>
-  <data name="gv_hd_Actions" xml:space="preserve">
-    <value>Actions_AR</value>
-  </data>
-  <data name="gv_hd_Domain" xml:space="preserve">
-    <value>Domain_AR</value>
-  </data>
-  <data name="gv_hd_fullname" xml:space="preserve">
-    <value>FullName_AR</value>
-  </data>
-  <data name="gv_hd_groupName" xml:space="preserve">
-    <value>Group Name_AR</value>
-  </data>
-  <data name="gv_hd_Username" xml:space="preserve">
-    <value>UserName_AR</value>
-  </data>
-  <data name="hd_UserManagement" xml:space="preserve">
-    <value>User Management_AR</value>
-  </data>
-  <data name="hndRowBackColor_hiddenfield" xml:space="preserve">
-    <value>Back Color_AR</value>
-  </data>
-  <data name="lblFilterBy" xml:space="preserve">
-    <value>Filter By_AR</value>
-  </data>
-  <data name="lnkAssignUserstoGroup" xml:space="preserve">
-    <value>Assign Users to Group_AR</value>
-  </data>
-  <data name="mdlAG_Assign" xml:space="preserve">
-    <value>Assign_AR</value>
-  </data>
-  <data name="mdlAG_AssingUsers" xml:space="preserve">
-    <value>Assign Users to Group_AR</value>
-  </data>
-  <data name="mdlAG_Cancel" xml:space="preserve">
-    <value>Cancel_AR</value>
-  </data>
-  <data name="mdlAG_SelectGrp" xml:space="preserve">
-    <value>Select Group_AR</value>
-  </data>
-  <data name="mdlAlt_Head" xml:space="preserve">
-    <value>Alert_AR !</value>
-  </data>
-  <data name="mdlAlt_Ok" xml:space="preserve">
-    <value>OK_AR</value>
-  </data>
-  <data name="mdlDel_Delete" xml:space="preserve">
-    <value>Delete_AR</value>
-  </data>
-  <data name="mdlDel_Delete_Cancel" xml:space="preserve">
-    <value>Cancel_AR</value>
-  </data>
-  <data name="mdlDel_DelWarText" xml:space="preserve">
-    <value>Are&amp;nbsp;you&amp;nbsp;sure&amp;nbsp;to&amp;nbsp;delete&amp;nbsp;group&amp;nbsp;from&amp;nbsp;user_AR ?</value>
-  </data>
-  <data name="mdlDel_Header" xml:space="preserve">
-    <value>Delete Warning_AR</value>
-  </data>
-  <data name="mdlEUP_Assign" xml:space="preserve">
-    <value>Assign_AR</value>
-  </data>
-  <data name="mdlEUP_Cancel" xml:space="preserve">
-    <value>Cancel_AR</value>
-  </data>
-  <data name="mdlEUP_ModfyGroup" xml:space="preserve">
-    <value>Modify User Group_AR</value>
-  </data>
-  <data name="mdlEUP_SelectGroup" xml:space="preserve">
-    <value>Select Group_AR</value>
-  </data>
-  <data name="mdlEUP_UserName" xml:space="preserve">
-    <value>UserName_AR</value>
-  </data>
   <data name="ddlGroupsList_NoGroup_Text" xml:space="preserve">
-    <value>No Groups _AR</value>
+    <value>لا المجموعات</value>
   </data>
   <data name="ddlGroupsList_SelectGroup_Text" xml:space="preserve">
-    <value>Select Group_AR</value>
+    <value>اختر المجموعة</value>
+  </data>
+  <data name="gv_EmtpyData" xml:space="preserve">
+    <value>لا مستخدمين عرض في مجموعة مختارة</value>
+  </data>
+  <data name="gv_hd_Actions" xml:space="preserve">
+    <value>الإجراءات</value>
+  </data>
+  <data name="gv_hd_Domain" xml:space="preserve">
+    <value>نطاق</value>
+  </data>
+  <data name="gv_hd_fullname" xml:space="preserve">
+    <value>الاسم الكامل</value>
+  </data>
+  <data name="gv_hd_groupName" xml:space="preserve">
+    <value>اسم مجموعة</value>
+  </data>
+  <data name="gv_hd_Username" xml:space="preserve">
+    <value>اسم المستخدم</value>
+  </data>
+  <data name="hd_UserManagement" xml:space="preserve">
+    <value>إدارة المستخدم</value>
+  </data>
+  <data name="hndRowBackColor_hiddenfield" xml:space="preserve">
+    <value>يعود اللون</value>
+  </data>
+  <data name="lblFilterBy" xml:space="preserve">
+    <value>تصفية حسب</value>
+  </data>
+  <data name="lnkAssignUserstoGroup" xml:space="preserve">
+    <value>تعيين المستخدمين إلى المجموعة</value>
+  </data>
+  <data name="mdlAG_Assign" xml:space="preserve">
+    <value>تعيين</value>
+  </data>
+  <data name="mdlAG_AssingUsers" xml:space="preserve">
+    <value>تعيين المستخدمين إلى المجموعة</value>
+  </data>
+  <data name="mdlAG_Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="mdlAG_SelectGrp" xml:space="preserve">
+    <value>اختر المجموعة</value>
+  </data>
+  <data name="mdlAlt_Head" xml:space="preserve">
+    <value>تنبيه!</value>
+  </data>
+  <data name="mdlAlt_Ok" xml:space="preserve">
+    <value>طيب</value>
+  </data>
+  <data name="mdlDel_Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="mdlDel_Delete_Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="mdlDel_DelWarText" xml:space="preserve">
+    <value>هل أنت متأكد من حذف مجموعة من مستخدم؟</value>
+  </data>
+  <data name="mdlDel_Header" xml:space="preserve">
+    <value>حذف تحذير</value>
+  </data>
+  <data name="mdlEUP_Assign" xml:space="preserve">
+    <value>تعيين</value>
+  </data>
+  <data name="mdlEUP_Cancel" xml:space="preserve">
+    <value>إلغاء</value>
+  </data>
+  <data name="mdlEUP_ModfyGroup" xml:space="preserve">
+    <value>تعديل مجموعة المستخدم</value>
+  </data>
+  <data name="mdlEUP_SelectGroup" xml:space="preserve">
+    <value>اختر المجموعة</value>
+  </data>
+  <data name="mdlEUP_UserName" xml:space="preserve">
+    <value>اسم المستخدم</value>
   </data>
   <data name="MSG_Group_Delete_Sucess" xml:space="preserve">
-    <value>Group deleted successfully_ar</value>
+    <value>حذف المجموعة بنجاح</value>
   </data>
   <data name="MSG_Group_Updated_Sucess" xml:space="preserve">
-    <value>Group Updated Successfully_ar</value>
+    <value>مجموعة تحديثها بنجاح</value>
   </data>
   <data name="MSG_SelectAtleastOne" xml:space="preserve">
-    <value>Please select at least one user_ar</value>
+    <value>يرجى تحديد مستخدم واحد على الأقل</value>
   </data>
   <data name="MSG_Select_ValidGroupName" xml:space="preserve">
-    <value>Please select valid group name_ar</value>
+    <value>يرجى تحديد اسم المجموعة صالحة</value>
   </data>
   <data name="MSG_UserAssined_ToGroup_Sucess" xml:space="preserve">
-    <value>Successfully users assigned to group_ar</value>
+    <value>بنجاح تعيين المستخدمين إلى مجموعة</value>
   </data>
 </root>

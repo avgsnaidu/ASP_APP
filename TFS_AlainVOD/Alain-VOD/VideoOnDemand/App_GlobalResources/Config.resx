@@ -130,7 +130,7 @@
     <value>User Name :</value>
   </data>
   <data name="btnTopBack_Text" xml:space="preserve">
-    <value>Back</value>
+    <value>Go To Dashboard</value>
   </data>
   <data name="DB_Database" xml:space="preserve">
     <value>Database  :</value>
@@ -202,7 +202,7 @@
     <value>Server&amp;nbsp;Id</value>
   </data>
   <data name="mdlAD_ServerId_need" xml:space="preserve">
-    <value>* Please Enter ServerId</value>
+    <value>* Please Enter Server ID</value>
   </data>
   <data name="mdlAD_ServerId_Valid" xml:space="preserve">
     <value>* Invalid Ip Address</value>
@@ -331,13 +331,13 @@
     <value>(Or) Time</value>
   </data>
   <data name="mdlVOD_Simul_Convertions" xml:space="preserve">
-    <value>Simultanious&amp;nbsp;Video&amp;nbsp;&lt;br /&gt; Conversions</value>
+    <value>Simultaneous&amp;nbsp;Video&amp;nbsp;&lt;br /&gt; Conversions</value>
   </data>
   <data name="mdlVOD_Simul_Convertions_Need" xml:space="preserve">
     <value>* Please Select Video Conversion</value>
   </data>
   <data name="mdlVOD_SourceFolder" xml:space="preserve">
-    <value>Sourcer&amp;nbsp;Folder</value>
+    <value>Source&amp;nbsp;Folder</value>
   </data>
   <data name="mdlVOD_SourceFolder_need" xml:space="preserve">
     <value>* Please Enter Source Folder</value>
@@ -427,7 +427,7 @@
     <value>email required</value>
   </data>
   <data name="mdlESD_Email_placeholder" xml:space="preserve">
-    <value>Enter reply to eamil</value>
+    <value>Enter reply to email</value>
   </data>
   <data name="mdlESD_Email_valid" xml:space="preserve">
     <value>enter valid email</value>
@@ -496,7 +496,7 @@
     <value>email</value>
   </data>
   <data name="mdlSSD_Header" xml:space="preserve">
-    <value>Stereaming Server Details</value>
+    <value>Streaming Server Details</value>
   </data>
   <data name="mdlSsD_IPAddress" xml:space="preserve">
     <value>Server Name :</value>
@@ -571,6 +571,12 @@
     <value>Provide valid connection string</value>
   </data>
   <data name="DB_Connection_Entered_NotValid" xml:space="preserve">
-    <value>Enter Valid Conneciton String</value>
+    <value>Enter Valid Connection String</value>
+  </data>
+  <data name="ESD_SSLEnabled" xml:space="preserve">
+    <value>SSL Enabled :</value>
+  </data>
+  <data name="MSG_AD_Domain_ConnectionFailed" xml:space="preserve">
+    <value>Active Directory connection failed</value>
   </data>
 </root>

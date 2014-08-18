@@ -109,6 +109,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\Model\ConnectionString\ClsConnectionString.cs" />
+    <Content Include="App_Code\Model\OleDBHelper.cs" />
     <Compile Include="App_GlobalResources\Setup1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

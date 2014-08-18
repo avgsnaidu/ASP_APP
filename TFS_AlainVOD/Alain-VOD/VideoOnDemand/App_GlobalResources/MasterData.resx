@@ -195,4 +195,28 @@
   <data name="Error_Message_Autherization" xml:space="preserve">
     <value>You are not authorized to acces this portal, Please contact your administrator</value>
   </data>
+  <data name="mdlLog_Hd_forgotPassword" xml:space="preserve">
+    <value>Forgot Password</value>
+  </data>
+  <data name="mdlLoG_UserName" xml:space="preserve">
+    <value>User Name</value>
+  </data>
+  <data name="mdlLog_userName_Placeholder" xml:space="preserve">
+    <value>Enter User Name here</value>
+  </data>
+  <data name="mdlLogin_Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Login_Msg_Email_Sent" xml:space="preserve">
+    <value>Email Sent to provided mail</value>
+  </data>
+  <data name="Login_Msg_Enter_UserName_NotExists" xml:space="preserve">
+    <value>Enter User Name not exists</value>
+  </data>
+  <data name="Login_Msg_SendMail_failed" xml:space="preserve">
+    <value>Failed while sending the mail</value>
+  </data>
+  <data name="Login_Msg_SMTP_Connection_Failed" xml:space="preserve">
+    <value>SMTP details connection failed</value>
+  </data>
 </root>

@@ -304,7 +304,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to District saved sucessfully.
+        ///   Looks up a localized string similar to District saved successfully.
         /// </summary>
         internal static string MSG_District_Save_Sucess {
             get {

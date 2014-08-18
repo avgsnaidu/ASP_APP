@@ -106,7 +106,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FullName.
+        ///   Looks up a localized string similar to Full Name.
         /// </summary>
         internal static string gv_hd_fullname {
             get {
@@ -115,7 +115,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GroupName.
+        ///   Looks up a localized string similar to Group Name.
         /// </summary>
         internal static string gv_hd_groupName {
             get {
@@ -124,7 +124,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to UserName.
+        ///   Looks up a localized string similar to User Name.
         /// </summary>
         internal static string gv_hd_Username {
             get {

@@ -19,6 +19,10 @@
     <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
     <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -108,11 +112,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\emailSent.aspx.cs">
+      <DependentUpon>emailSent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\emailSent.aspx.designer.cs">
+      <DependentUpon>emailSent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\Model\BAL\clsIndex.cs" />
     <Compile Include="App_Code\Model\ConnectionString\ClsConnectionString.cs" />
+    <Compile Include="App_Code\Model\Crypto.cs" />
+    <Compile Include="App_Code\Model\DAL\OledbHelper.cs" />
     <Compile Include="App_GlobalResources\Setup1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Setup.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="LoginRedirectByRoles.cs" />
     <Compile Include="App_Code\Model\TimeConverters.cs" />
@@ -122,26 +143,33 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Setup\setup2.aspx.cs">
-      <DependentUpon>setup2.aspx</DependentUpon>
+    <Compile Include="Setup\step2.aspx.cs">
+      <DependentUpon>step2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Setup\setup2.aspx.designer.cs">
-      <DependentUpon>setup2.aspx</DependentUpon>
+    <Compile Include="Setup\step2.aspx.designer.cs">
+      <DependentUpon>step2.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Setup\setup3.aspx.cs">
-      <DependentUpon>setup3.aspx</DependentUpon>
+    <Compile Include="Setup\step3.aspx.cs">
+      <DependentUpon>step3.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Setup\setup3.aspx.designer.cs">
-      <DependentUpon>setup3.aspx</DependentUpon>
+    <Compile Include="Setup\step3.aspx.designer.cs">
+      <DependentUpon>step3.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Setup\setup4.aspx.cs">
-      <DependentUpon>setup4.aspx</DependentUpon>
+    <Compile Include="Setup\step4.aspx.cs">
+      <DependentUpon>step4.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Setup\setup4.aspx.designer.cs">
-      <DependentUpon>setup4.aspx</DependentUpon>
+    <Compile Include="Setup\step4.aspx.designer.cs">
+      <DependentUpon>step4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Setup\step5.aspx.cs">
+      <DependentUpon>step5.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Setup\step5.aspx.designer.cs">
+      <DependentUpon>step5.aspx</DependentUpon>
     </Compile>
     <Compile Include="Users\VideoSearch.aspx.cs">
       <DependentUpon>VideoSearch.aspx</DependentUpon>
@@ -173,6 +201,7 @@
     </Compile>
     <Content Include="Admin\Community.aspx" />
     <Content Include="Admin\District.aspx" />
+    <Content Include="Admin\emailSent.aspx" />
     <Content Include="Admin\jwplayer.flash.swf" />
     <Content Include="Admin\jwplayer.html5.js" />
     <Content Include="Admin\jwplayer.js" />
@@ -338,12 +367,16 @@
     <Content Include="Content\css\project-custom.css" />
     <Content Include="Content\css\style_arabic.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\Images\ara-step2.gif" />
+    <Content Include="Content\Images\ara-step3.gif" />
+    <Content Include="Content\Images\ara-step4.gif" />
+    <Content Include="Content\Images\ara-step5.gif" />
     <Content Include="Content\Images\sprite.png" />
     <Content Include="Content\Images\step2.gif" />
     <Content Include="Content\Images\step3.gif" />
     <Content Include="Content\Images\vplay.png" />
-    <Content Include="Default.aspx" />
     <Content Include="App_Data\DynamicConnectionString.xml" />
+    <Content Include="Default.aspx" />
     <Content Include="Error.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -351,6 +384,7 @@
     <Content Include="Content\Images\login.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\Images\step2_o.gif" />
+    <Content Include="Setup\step2.aspx" />
     <Content Include="Users\jwplayer.flash.swf" />
     <Content Include="Users\jwplayer.html5.js" />
     <Content Include="Users\jwplayer.js" />
@@ -358,10 +392,10 @@
     <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Setup\setup2.aspx" />
-    <Content Include="Setup\setup3.aspx" />
-    <Content Include="Setup\setup4.aspx" />
-    <Content Include="Setup\VODScript.sql" />
+    <Content Include="Setup\step3.aspx" />
+    <Content Include="Setup\step4.aspx" />
+    <Content Include="Setup\step5.aspx" />
+    <Content Include="App_Data\VODScript.sql" />
     <Content Include="Users\VideoSearch.aspx" />
     <Content Include="Users\Videos.aspx" />
     <Content Include="WindowsUser.aspx" />
@@ -382,7 +416,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Index.aspx" />
-    <Content Include="Setup\setup1.aspx" />
+    <Content Include="Setup\step1.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Admin\Archived.aspx" />
     <Content Include="Admin\GroupManagement.aspx" />
@@ -428,13 +462,6 @@
     <Compile Include="App_Code\Model\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -453,12 +480,12 @@
     <Compile Include="Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Setup\setup1.aspx.cs">
-      <DependentUpon>setup1.aspx</DependentUpon>
+    <Compile Include="Setup\step1.aspx.cs">
+      <DependentUpon>step1.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Setup\setup1.aspx.designer.cs">
-      <DependentUpon>setup1.aspx</DependentUpon>
+    <Compile Include="Setup\step1.aspx.designer.cs">
+      <DependentUpon>step1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Mobile.Master.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>

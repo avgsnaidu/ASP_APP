@@ -207,4 +207,7 @@
   <data name="mdlTagEdit_RoadSelect_Text" xml:space="preserve">
     <value>حدد الطريق</value>
   </data>
+  <data name="MSG_NoGroups_Avalable_To_assign" xml:space="preserve">
+    <value>لا المجموعات المتوفرة لتعيين</value>
+  </data>
 </root>

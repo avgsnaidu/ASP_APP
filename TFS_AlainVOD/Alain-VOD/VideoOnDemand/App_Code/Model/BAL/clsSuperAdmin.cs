@@ -5,6 +5,7 @@ using System.Web;
 using VideoOnDemand.Model;
 using System.Data;
 using System.Data.SqlClient;
+using System.Data.OleDb;
 
 namespace VideoOnDemand.Model.BAL
 {
@@ -23,7 +24,7 @@ namespace VideoOnDemand.Model.BAL
             string strSql = string.Empty;
             strSql = string.Format("INSERT INTO SUPER_ADMIN (USERID,PASSWORD,EMAIL,DATE_CREATED,DATE_UPDATED)VALUES('{0}','{1}','{2}','{3}','{4}')",
                 Userid, Password, Email, DateTime.Now, (DateTime?)null);
-            int returnVal = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
+            int returnVal = OledbHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), System.Data.CommandType.Text, strSql);
             if (returnVal > 0)
                 return true;
             else
@@ -33,18 +34,18 @@ namespace VideoOnDemand.Model.BAL
 
         public bool UpdateSuperDetails(int configid, string Userid, string Password, string Email)
         {
-            SqlParameter[] p = new SqlParameter[4];
-            p[0] = new SqlParameter("@Userid", SqlDbType.NVarChar);
+            OleDbParameter[] p = new OleDbParameter[4];
+            p[0] = new OleDbParameter("@Userid", OleDbType.VarWChar);
             p[0].Value = Userid;
-            p[1] = new SqlParameter("@Password", SqlDbType.NVarChar);
+            p[1] = new OleDbParameter("@Password", OleDbType.VarWChar);
             p[1].Value = Password;
-            p[2] = new SqlParameter("@Email", SqlDbType.NVarChar);
+            p[2] = new OleDbParameter("@Email", OleDbType.VarWChar);
             p[2].Value = Email;
-            p[3] = new SqlParameter("@configid", SqlDbType.Int);
+            p[3] = new OleDbParameter("@configid", OleDbType.Integer);
             p[3].Value = configid;
 
-            string strSql = "UPDATE SUPER_ADMIN SET Email=@Email ,USERID=@Userid, PASSWORD=@Password, DATE_UPDATED=GETDATE() where CONFIG_ID=@configid";
-            int value = SqlHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
+            string strSql = "UPDATE SUPER_ADMIN SET USERID=?, PASSWORD=?, Email=? , DATE_UPDATED=GETDATE() where CONFIG_ID=?";
+            int value = OledbHelper.ExecuteNonQuery(ClsConnectionString.getConnectionString(), CommandType.Text, strSql, p);
             if (value > 0)
                 return true;
             else return false;
@@ -55,7 +56,19 @@ namespace VideoOnDemand.Model.BAL
         {
             string strSql = string.Empty;
             strSql = string.Format("SELECT top 1 CONFIG_ID,USERID,PASSWORD,EMAIL FROM SUPER_ADMIN order by date_Created desc");
-            DataSet ds = SqlHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+            DataSet ds = OledbHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql);
+            return ds;
+        }
+
+        public DataSet GetSuperAdminDetails(string USERNAME)
+        {
+            OleDbParameter[] p = new OleDbParameter[1];
+            p[0] = new OleDbParameter("@Userid", OleDbType.VarWChar);
+            p[0].Value = USERNAME;
+
+            string strSql = string.Empty;
+            strSql = string.Format("SELECT top 1 CONFIG_ID,USERID,PASSWORD,EMAIL FROM SUPER_ADMIN WHERE USERID=? order by date_Created desc ");
+            DataSet ds = OledbHelper.ExecuteDataset(ClsConnectionString.getConnectionString(), CommandType.Text, strSql,p);
             return ds;
         }
     }

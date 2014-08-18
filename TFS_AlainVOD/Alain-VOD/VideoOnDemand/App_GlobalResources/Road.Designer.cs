@@ -304,7 +304,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Road saved sucessfully.
+        ///   Looks up a localized string similar to Road saved successfully.
         /// </summary>
         internal static string MSG_ROAD_SAVE_Sucess {
             get {

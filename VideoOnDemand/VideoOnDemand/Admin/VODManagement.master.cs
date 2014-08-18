@@ -16,29 +16,7 @@ namespace VideoOnDemand.Admin
             {
                 if (Convert.ToBoolean(Session["IsAdmin"].ToString()))
                 {
-                    //string linkButtonID = Request.RawUrl;
-
-                    //if (-1 < linkButtonID.IndexOf("Users"))
-                    //{
-                    //    ((HtmlGenericControl)lnkUserMang.Parent).Style.Add("disyplay", "none !important");
-                    //}
-                    //if (-1 < linkButtonID.IndexOf("GroupManagement"))
-                    //{
-                    //    ((HtmlGenericControl)lnkGroupMang.Parent).Attributes.Add("class", "active");
-                    //}
-                    //else if (-1 < linkButtonID.IndexOf("VideoManagement"))
-                    //{
-                    //    ((HtmlGenericControl)lnkVideoMang.Parent).Attributes.Add("class", "active");
-                    //}
-                    //else if (-1 < linkButtonID.IndexOf("Search"))
-                    //{
-                    //    ((HtmlGenericControl)lnkSearch.Parent).Attributes.Add("class", "active");
-                    //}
-                    //else if (-1 < linkButtonID.IndexOf("Archived"))
-                    //{
-                    //    ((HtmlGenericControl)lnkArchiveListen.Parent).Attributes.Add("class", "active");
-
-                    //}
+                  
 
                 }
             }
@@ -89,47 +67,26 @@ namespace VideoOnDemand.Admin
         protected void SelectedTheCurrentItem(object sender, EventArgs e)
         {
             var selectedID = ((LinkButton)sender).ID;
-            //foreach (Control ctrl in ulManageTop.Controls)
-            //{
-            //    if (ctrl is LinkButton)
-            //    {
-
-            //        if (selectedID == ((LinkButton)ctrl).ID)
-            //        {
-            //            ((LinkButton)ctrl).CssClass = "active";
-            //        }
-            //        else
-            //        {
-            //            ((LinkButton)ctrl).CssClass = "";
-
-            //        }
-
-            //        //string url = ((LinkButton)ctrl).Href;
-            //        //if (url == GetCurrentPage())  // <-- you'd need to write that
-            //        //    ctrl.Parent.Attributes.Add("class", "active");
-            //    }
-
-            //}
 
             if (selectedID == lnkArchiveListen.ID)
             {
-                Response.Redirect("~/Archived.aspx");
+                Response.Redirect("~/Admin/Archived.aspx");
             }
             else if (selectedID == lnkSearch.ID)
             {
-                Response.Redirect("~/Search.aspx");
+                Response.Redirect("~/Admin/Search.aspx");
             }
             else if (selectedID == lnkUserMang.ID)
             {
-                Response.Redirect("~/Users.aspx");
+                Response.Redirect("~/Admin/Users.aspx");
             }
             else if (selectedID == lnkVideoMang.ID)
             {
-                Response.Redirect("~/VideoManagement.aspx");
+                Response.Redirect("~/Admin/VideoManagement.aspx");
             }
             else if (selectedID == lnkGroupMang.ID)
             {
-                Response.Redirect("~/GroupManagement.aspx");
+                Response.Redirect("~/Admin/GroupManagement.aspx");
             }
         }
     }

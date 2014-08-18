@@ -196,7 +196,7 @@
                                     </div>
                                 </ContentTemplate>
                                 <Triggers>
-                                    <asp:AsyncPostBackTrigger ControlID="gvVideoManagement" EventName="RowCommand" />
+                                    <%--<asp:AsyncPostBackTrigger ControlID="gvVideoManagement" EventName="RowCommand" />--%>
                                     <asp:AsyncPostBackTrigger ControlID="btnAssign" EventName="Click" />
                                 </Triggers>
                             </asp:UpdatePanel>
@@ -303,7 +303,7 @@
                                 </HeaderTemplate>
                                 <ItemTemplate>
                                     <%--<asp:CheckBox onclick="javascript:HighlightRow(this);" ID="chkSelectUser" runat="server" EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />--%>
-                                    <asp:CheckBox ID="chkSelectUser" runat="server" EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />
+                                    <asp:CheckBox ID="chkSelectUser" runat="server" ClientIDMode="Static"  EnableViewState="true" AutoPostBack="true" OnCheckedChanged="chkSelectUser_CheckedChanged" />
                                 </ItemTemplate>
                             </asp:TemplateField>
 

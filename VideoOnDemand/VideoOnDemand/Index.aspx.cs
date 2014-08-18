@@ -8,11 +8,12 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using VideoOnDemand.Model;
 using VideoOnDemand.Model.BAL;
 
 namespace VideoOnDemand.Setup
 {
-    public partial class Index : System.Web.UI.Page
+    public partial class Index : BasePage
     {
         //bool setup1_Exists = false;
         //bool setup2_Exists = false;
@@ -22,9 +23,9 @@ namespace VideoOnDemand.Setup
         protected void Page_Load(object sender, EventArgs e)
         {
             //setup1_Exists = IsAlreadyDBSetupExists()
-            //setup2_Exists = IsAlreadyActiveDirectorySettingsExists();
             //setup3_Exists = IsAlreadyVODConfigurationSettingsExists();
             //setup4_Exists = IsAlreadySuperAdminDetailsExists();
+
             if (!IsPostBack)
             {
 
@@ -41,27 +42,11 @@ namespace VideoOnDemand.Setup
                                 {
                                     if (!(Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString())))
                                     {
-                                        if (ValidateActiveDirectoryCredetials())
-                                        {
-                                            if (Request.IsAuthenticated)
-                                            {
-                                                if (Response.IsClientConnected)
-                                                {
-
-                                                    if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
-                                                        Response.Redirect(@"~/Users.aspx", true);
-                                                    else
-                                                        Response.Redirect(@"~/VideoManagement.aspx", true);
-                                                }
-                                                else
-                                                {
-                                                    // If the browser is not connected
-                                                    // stop all response processing.
-                                                    Response.End();
-                                                }
-
-                                            }
-                                        }
+                                        Response.Redirect(@"~/WindowsUser.aspx");
+                                    }
+                                    else if (Session["LoginUserName"] != null && Session["IsAdmin"] != null && Convert.ToBoolean(Session["IsAdmin"].ToString()))
+                                    {
+                                        Response.Redirect(@"~/Users.aspx");
                                     }
                                 }
                                 else
@@ -83,7 +68,6 @@ namespace VideoOnDemand.Setup
                     {
                         Response.Redirect(@"~/Setup/setup1.aspx");
                     }
-
                 }
                 else
                 {
@@ -92,106 +76,43 @@ namespace VideoOnDemand.Setup
 
             }
         }
-        private bool ValidateActiveDirectoryCredetials()
-        {
-            //PrincipalContext ctx = new PrincipalContext(ContextType.Domain);
-
-            //UserPrincipal qbeUser = new UserPrincipal(ctx);           
-            //UserPrincipal qbeUser = UserPrincipal.FindByIdentity(ctx, IdentityType.SamAccountName, HttpContext.Current.User.Identity.Name);
-
-            //// find current user
-            //System.DirectoryServices.AccountManagement.UserPrincipal user = System.DirectoryServices.AccountManagement.UserPrincipal.Current;
-            ////UserPrincipal user = HttpContext.Current.User;
-            //string userName = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
-            string DomainName = Environment.UserDomainName;
-            ////string usersss = HttpContext.Current.User;
-            ////string UName = Environment.UserName;
-
-            //string loginName = GetLogin(HttpContext.Current.User.Identity);
-            string loginName = GetLogin(User.Identity);
-            //string loginName = GetLoginSplit(System.Security.Principal.WindowsIdentity.GetCurrent().Name);
 
 
-
-            if (!string.IsNullOrEmpty(loginName))
-            {
-                //string loginName = qbeUser.SamAccountName; // or whatever you mean by "login name"
-
-
-                if (loginName != null && loginName != string.Empty)
-                {
-                    DataSet ds = AuthenticateWidowsUserWithDB(loginName, DomainName);
-                    if (ds != null && ds.Tables[0].Rows.Count > 0)
-                    {
-                        //SELECT USER_ID AS USERID,NAME AS LOGINNAME,DOMAIN,FULL_NAME AS FULLNAME,GROUP_ID AS LOGINGroupID
-
-                        Session["LoginUserName"] = ds.Tables[0].Rows[0]["LOGINNAME"].ToString();
-                        Session["UserFullName"] = ds.Tables[0].Rows[0]["FULLNAME"].ToString();
-                        Session["LOGINGroupId"] = ds.Tables[0].Rows[0]["LOGINGroupID"].ToString();
-                        Session["IsAdmin"] = false;
-                        Session["IsUser"] = true;
-
-                        FormsAuthentication.RedirectFromLoginPage(Session["LoginUserName"].ToString(), true);
-
-                        return true;
-                    }
-                    else
-                        return false;
-                }
-                else
-                    return false;
-            }
-            else
-                return false;
-
-            //ctx.Dispose();
-            //if (qbeUser != null)
-            //    qbeUser.Dispose();
-        }
-
-        private string GetLoginSplit(string s)
-        {
-            int stop = s.IndexOf("\\");
-            return (stop > -1) ? s.Substring(stop + 1, s.Length - stop - 1) : string.Empty;
-        }
-
-        private DataSet AuthenticateWidowsUserWithDB(string loginName, string domain)
-        {
-            clsUserManagement repository = new clsUserManagement();
-            DataSet userData = null;
-            repository.IsAuthenticateLoginUser(loginName, domain, ref userData);
-            return userData;
-        }
-
-        public string GetLogin(IIdentity identity)
-        {
-            string s = identity.Name;
-            int stop = s.IndexOf("\\");
-            return (stop > -1) ? s.Substring(stop + 1, s.Length - stop - 1) : string.Empty;
-        }
         private bool CheckConnectionStringExists()
         {
+            string connString = ClsConnectionString.getConnectionString();
             clsDBSetup obj = new clsDBSetup();
-            System.Configuration.Configuration rootWebConfig =
-                 System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
-            System.Configuration.ConnectionStringSettings connString;
-            if (rootWebConfig.ConnectionStrings.ConnectionStrings.Count > 0)
+            if (connString != null && connString != string.Empty)
             {
-                connString =
-                    rootWebConfig.ConnectionStrings.ConnectionStrings["VODConnection"];
-                if (connString != null && connString.ConnectionString != string.Empty)
-                {
-                    if (obj.GetValidConnectionString(connString.ConnectionString) != string.Empty)
-                        return true;
-                    else
-                        return false;
-                }
+                if (obj.GetValidConnectionString(connString) != string.Empty)
+                    return true;
                 else
                     return false;
-
             }
             else
                 return false;
+
+            //clsDBSetup obj = new clsDBSetup();
+            //System.Configuration.Configuration rootWebConfig =
+            //     System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
+            //System.Configuration.ConnectionStringSettings connString;
+            //if (rootWebConfig.ConnectionStrings.ConnectionStrings.Count > 0)
+            //{
+            //    connString =
+            //        rootWebConfig.ConnectionStrings.ConnectionStrings["VODConnection"];
+            //    if (connString != null && connString.ConnectionString != string.Empty)
+            //    {
+            //        if (obj.GetValidConnectionString(connString.ConnectionString) != string.Empty)
+            //            return true;
+            //        else
+            //            return false;
+            //    }
+            //    else
+            //        return false;
+
+            //}
+            //else
+            //    return false;
         }
 
 

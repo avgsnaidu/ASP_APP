@@ -118,27 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="btnSearch_text" xml:space="preserve">
-    <value>Search_AR</value>
+    <value>البحث</value>
   </data>
   <data name="gv_DataEmtpy" xml:space="preserve">
-    <value>No archive records found_AR</value>
+    <value>لا توجد سجلات أرشيف وجدت</value>
   </data>
   <data name="gv_Hd_ArchDate" xml:space="preserve">
-    <value>ARCHIVED DATE_AR</value>
+    <value>تاريخ أرشفة</value>
   </data>
   <data name="gv_Hd_FILENAME" xml:space="preserve">
-    <value>FILE NAME_AR</value>
+    <value>اسم الملف</value>
   </data>
   <data name="gv_hd_TAGS" xml:space="preserve">
-    <value>TAGS_AR</value>
+    <value>علامات</value>
   </data>
   <data name="hd_ArchiveListing" xml:space="preserve">
-    <value>Archive Listing_AR</value>
+    <value>قائمة الأرشيف</value>
   </data>
   <data name="txtSearchKey_text" xml:space="preserve">
-    <value>Search_AR</value>
+    <value>البحث</value>
   </data>
   <data name="txtSearch_PlaceHolder" xml:space="preserve">
-    <value>Enter search keywords_AR..</value>
+    <value>أدخل كلمات البحث.</value>
   </data>
 </root>
