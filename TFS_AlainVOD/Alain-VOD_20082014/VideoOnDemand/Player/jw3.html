@@ -1,0 +1,62 @@
+<html>
+<head> 
+    <script type="text/javascript" src="jwplayer.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body style="padding-left:350px;padding-top:170px;"> 
+   
+<div id='player'></div><br/>
+ <p><sub>Note: Parameter values should be in seconds<br/>Ex: http://website.com/jw.html?starttime=21&endtime=30</sub></p>
+<script type='text/javascript'>
+   jwplayer('player').setup({
+        flashplayer: "jwplayer.flash.swf",
+            width: '60%',
+            height: '60%',
+            primary: "flash",
+            mute: "true",
+            stretching:"exactfit",
+            startparam: "ec_seek",
+            logo: {
+        file: 'tomcat.png',
+        link: 'http://google.com'
+    },
+            playlist: [{ sources: [{ file: "http://172.16.0.128:80/vod/smil:test.smil/jwplayer.smil" }] }
+            ]
+    });
+</script>
+
+<script type="text/javascript">
+    function getParams() {
+
+    var params = {},
+        pairs = document.URL.split('?')
+               .pop()
+               .split('&');
+
+    for (var i = 0, p; i < pairs.length; i++) {
+           p = pairs[i].split('=');
+           params[ p[0] ] =  p[1];
+    }     
+    return params;
+    }
+    params = getParams();
+    
+    starttime = unescape(params["starttime"]);
+    endtime = unescape(params["endtime"]);
+    document.write("Start time = " + starttime + " seconds<br>");
+    document.write("End time = " + endtime + " seconds<br>");
+    timeControl(starttime,endtime);
+
+    function timeControl(start_time, end_time) {
+        jwplayer('player').seek(start_time).onTime(function (event) {
+        if(event.position >= end_time ) {
+            this.stop();
+    }
+    //     if(start_time>=end_time) {
+    //     jwplayer('player').stop();
+    // }
+    }); }
+
+</script>
+</body>
+</html>

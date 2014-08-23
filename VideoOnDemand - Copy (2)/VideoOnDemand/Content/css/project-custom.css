@@ -1,0 +1,356 @@
+
+
+.navbar-brand {
+    background: url(../images/logo.png) no-repeat left top;
+    width: 274px;
+    height: 55px;
+}
+
+
+.modal-content {
+    background: #efefef;
+    border: 0;
+    width: 560px;
+}
+
+    .modal-content .modal-header .close {
+        background: #efefef;
+        outline: none;
+        position: absolute;
+        right: -15px;
+        top: -15px;
+        border-radius: 100%;
+        border: 2px solid #333;
+        padding: 5px 10px;
+        font-weight: bold;
+        opacity: 1 !important;
+    }
+
+    .modal-content .modal-title {
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .modal-content .btn {
+        border: 0;
+        color: #fff;
+    }
+
+    .modal-content .btn-default {
+        background: #5a5455;
+    }
+
+    .modal-content .btn-primary {
+        background: #ec3140;
+    }
+
+.modal-footer {
+    margin-top: 0;
+}
+
+.modal-header {
+    background: #2e2e2e;
+    border-radius: 5px 5px 0 0;
+}
+/* adjusting the model dialogue top  position */
+.modal-dlg-top {
+    margin: 170px auto;
+}
+
+body {
+    background-color: #dadada !important;
+}
+
+a#lnkDropDownMenu.btn {
+    padding: 6px 12px;
+    margin: 0px;
+}
+
+.dropbutton-align {
+    width: 105px;
+    background-color: #ee3241;
+    color: white;
+    text-align: left;
+}
+
+.required {
+    color: red;
+}
+
+.required-font {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/*========= 14/7/2014============*/
+.select-holder {
+    position: relative;
+    float: left;
+    border: 1px solid #c5c5c5;
+    background: #fff;
+    width: 100%;
+    height: 35px;
+    padding: 0px;
+}
+
+
+    .select-holder select {
+        width: 100%;
+        height: 33px;
+        display: block;
+        margin: 0px;
+        padding: 4px 1%;
+        border: 0;
+        outline: none;
+        background: none;
+    }
+
+
+    .select-holder span {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 33px;
+        height: 33px;
+        border-left: 1px solid #c5c5c5;
+        background-color: #f4f1f1;
+    }
+
+
+.input-holder input[type=time] {
+    width: 100%;
+    height: 33px;
+    display: block;
+    margin: 0;
+    padding: 0 5%;
+    border: 0;
+    outline: none;
+    background: none;
+}
+
+
+#SimultaniousSelect.select-holder {
+    position: relative;
+    float: left;
+    border: 1px solid #c5c5c5;
+    background: #fff;
+    width: 40%;
+    height: 35px;
+    padding: 0px;
+}
+
+/*========= 14/7/2014============*/
+
+.searchBorder {
+    border-color: #ee3241 !important;
+}
+
+
+    .searchBorder button, .searchBorder open button, .searchBorder hover {
+        background-color: #ec3140;
+        color: white;
+    }
+
+
+    .searchborder .btn-default:hover, .searchborder .btn-default:focus, .searchborder .btn-default:active, .searchborder .btn-default.active,
+    .searchborder .open .dropdown-toggle.btn-default {
+        /*background-color: #ec3140 !important;
+        color: white !important;*/
+    }
+
+
+
+.dropdown-menu.showApparance {
+    background-color: red;
+}
+
+
+/*=========== Over riding Combined-bootstrap.css ===========*/
+.btn .caret {
+    margin-top: 1px;
+}
+
+.btn-group.open .btn.dropdown-toggle {
+    background-color: #ee3241;
+}
+
+.searchTextPadingExist {
+    /*padding: 5px 5px !important;*/
+    padding-left: 15px !important;
+    height: 34px !important;
+}
+
+.labelNoBold label {
+    font-weight: normal;
+    margin-left: 4px;
+}
+
+.checkNoPad input[type="checkbox"] {
+    margin-top: 0 !important;
+}
+
+.middle-leftchild {
+    padding-right: 70px;
+}
+
+.middle-rightchild {
+    padding-left: 50px;
+}
+
+.textboxFormat {
+    height: 30px !important;
+}
+/*=========16/7/14=======*/
+
+/*.bottom-container .pull-right button { float: left; border-radius: 10px; background: #ec3140; color: #fff; padding: 0 35px 0 50px; font-size: 20px; line-height: 50px; border:0px;}*/
+
+
+.bottom-container .pull-right label {
+    float: left;
+    border-radius: 10px;
+    background: #ec3140;
+    color: #fff;
+    padding: 0 35px 0 50px;
+    font-size: 20px;
+    line-height: 50px;
+    border: 0px;
+}
+
+.labelButton {
+    font-weight: normal;
+}
+
+/*.popover {
+    z-index: 9999;
+    position: fixed;
+}*/
+
+
+
+.popover {
+    z-index: 9999;
+}
+
+.popover-content {
+    white-space: nowrap;
+}
+
+
+
+.buttonColor {
+    background-color: #ec3140;
+    color: white;
+}
+
+
+/*======= 24-7-2014 =========*/
+
+.dropdownList {
+    width: 158px !IMPORTANT;
+}
+
+#alertMessageModal .modal-content {
+    width: 435px;
+    height: 230px;
+}
+
+#alertMessageModal .modal-header {
+    padding: 10px;
+}
+
+.modal-footer input[type="submit"].btn {
+    width: auto;
+}
+
+/*.modal-body{overflow-y:visible;}*/
+
+
+
+.modal-body .input-holder {
+    width: 100% !important;
+}
+
+.modal-body .col-sm-7 {
+    width: 68%;
+}
+
+.modal-body .form-horizontal .control-label {
+    width: 169px;
+}
+
+.label1.float-l {
+    text-align: left;
+    padding: 5px 10px 5px 0;
+}
+
+
+
+/*======= Grid paging css======*/
+
+.gridpager, .gridpager td {
+    text-align: right;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+    .gridpager Table {
+        width: 5%;
+        float: right;
+    }
+
+.timeIntr {
+    width: 27%;
+}
+
+.statusDropDown {
+    border-bottom: 1px solid #ec3240;
+    border-left: 0 none;
+    border-right: 0 none;
+    border-radius: 0 !important;
+    border-top: 1px solid #ec3240;
+}
+
+.spritePlay {
+    background-image: url(../images/vplay.png);
+    background-repeat: no-repeat;
+}
+
+
+.playicon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    margin: 0 3px;
+}
+
+.pdLeft0 span {
+    padding-left: 0px !important;
+}
+
+/*========== For reducting the select-dropdown margin===========*/
+.bootstrap-select.btn-group:not(.input-group-btn), .bootstrap-select.btn-group[class*="span"] {
+    margin-bottom: 1px !important;
+}
+
+ 
+
+.btn-default {
+    background-color: #ec3240 !important;
+    border-color: #e47e31 !important;
+    color: #fff !important;
+}
+
+    .btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open .dropdown-toggle.btn-default {
+        background-color: #ec3240 !important;
+        border-color: #e47e31 !important;
+        color: #dadada !important;
+        /*background-color: #ebebeb;
+    border-color: #adadad;
+    color: #333;*/
+    }
+
+
+ 
+.bootstrap-select.btn-group .dropdown-menu.inner li.selected a {
+    background-color: #fa611d !important;
+}

@@ -1,0 +1,284 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="VODMain.master.cs" Inherits="VideoOnDemand.VODMain" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>:: AL AIN CITY MUNCIPALITY :: </title>
+
+    <link href="Content/css/combined-bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap core CSS -->
+    <link href="Content/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--Bootstrap v3.1.1-->
+
+    <!--Boostrap Custom CSS -->
+    <link href="Content/css/boostrap-custom.css" rel="stylesheet" type="text/css" />
+
+    <!-- Custom styles for this template -->
+    <link href="Content/css/project-custom.css" rel="stylesheet" />
+
+    <asp:Literal ID="StyleSheet" runat="Server" />
+
+
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript">
+
+
+        //$(document).ready(function () {
+
+        //    $(".selectpicker").selectpicker();
+
+        //});
+
+
+        $(document).ready(function () {
+
+            /* form validation plugin */
+            $.fn.goValidate = function () {
+                var $form = this,
+                    $inputs = $form.find('input:text');
+
+                var $inputsArea = $form.find('textarea');
+
+                debugger;
+
+                var validators = {
+                    NoEmpty: {
+                        //regex: /^\s*$/
+                        //regex: /^[ \s\t\n]*$/
+                        regex: /^\S+$/
+                    },
+
+                    LettersMin3: {
+                        regex: /^[A-Za-z]{3,}$/
+                    },
+                    AnyLettersMin3: {
+                        regex: /^[A-Za-z0-9]{3,}$/
+                    },
+                    pass: {
+                        regex: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/
+                    },
+                    email: {
+                        regex: /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/
+                    },
+                    phone: {
+                        regex: /^[2-9]\d{2}-\d{3}-\d{4}$/,
+                    }
+                };
+                var validate = function (klass, value) {
+                    var isValid = true,
+                        error = '';
+
+                    if (!value && /required/.test(klass)) {
+                        error = 'This field is required';
+                        isValid = false;
+                    } else {
+                        klass = klass.split(/\s/);
+                        $.each(klass, function (i, k) {
+                            if (validators[k]) {
+                                if (value && !validators[k].regex.test(value)) {
+                                    isValid = false;
+                                    error = validators[k].error;
+                                }
+                            }
+                        });
+                    }
+                    return {
+                        isValid: isValid,
+                        error: error
+                    }
+                };
+                var showError = function ($input) {
+                    var klass = $input.attr('class'),
+                        value = $input.val(),
+                        test = validate(klass, value);
+
+                    $input.removeClass('invalid');
+                    $('#form-error').addClass('hide');
+
+                    if (!test.isValid) {
+                        $input.addClass('invalid');
+
+                        if (typeof $input.data("shown") == "undefined" || $input.data("shown") == false) {
+                            $input.popover('show');
+                        }
+
+                    }
+                    else {
+                        $input.popover('hide');
+                    }
+                };
+
+                $inputs.keyup(function () {
+                    showError($(this));
+                });
+
+                $inputs.on('shown.bs.popover', function () {
+                    $(this).data("shown", true);
+                });
+
+                $inputs.on('hidden.bs.popover', function () {
+                    $(this).data("shown", false);
+                });
+
+                $inputsArea.keyup(function () {
+                    showError($(this));
+                });
+
+                $inputsArea.on('shown.bs.popover', function () {
+                    $(this).data("shown", true);
+                });
+
+                $inputsArea.on('hidden.bs.popover', function () {
+                    $(this).data("shown", false);
+                });
+
+
+                $form.submit(function (e) {
+
+                    $inputs.each(function () { /* test each input */
+                        if ($(this).is('.required') || $(this).hasClass('invalid')) {
+                            showError($(this));
+                        }
+                    });
+                    $inputsArea.each(function () { /* test each input */
+                        if ($(this).is('.required') || $(this).hasClass('invalid')) {
+                            showError($(this));
+                        }
+                    });
+
+                    if ($form.find('input.invalid').length) { /* form is not valid */
+                        e.preventDefault();
+                        $('#form-error').toggleClass('hide');
+                    }
+                });
+                return this;
+            };
+            //$('form').goValidate();
+
+
+
+        });
+
+    </script>
+    <asp:ContentPlaceHolder ID="MainHeadContent" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManagerUserManage" runat="server" EnablePageMethods="true">
+            <Services>
+                <asp:ServiceReference Path="~/AutoComplete.asmx"/>
+            </Services>
+        </asp:ScriptManager>
+
+        <div id="wrapper">
+
+            <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <asp:LinkButton ID="lnkHome" CssClass="navbar-brand" runat="server" OnClick="lnkHome_Click" />
+                        <%--<a class="navbar-brand" href="../Users.aspx"></a>--%>
+                        <h1>
+                            <asp:Literal ID="ltlAssingVidGroup" runat="server" Text="<%$ Resources:MasterData, Hd_Title %>" /></h1>
+                        <div id="language">
+                            <asp:LinkButton runat="server" ID="lnkEnglish" CommandArgument="en-GB" OnClick="lnkEnglish_Click">
+
+                                <asp:Literal ID="Literal1" runat="server" Text="<%$ Resources:MasterData, hd_Eng_lnk_Text %>" />
+
+                            </asp:LinkButton>
+                            <asp:LinkButton runat="server" ID="lnkArabic" CommandArgument="ar" OnClick="lnkArabic_Click">
+
+                                <asp:Literal ID="Literal2" runat="server" Text="<%$ Resources:MasterData, hd_Arb_lnk_Text%>" />
+                            </asp:LinkButton>
+                        </div>
+                        <div id="user-info">
+                            <div class="dropdown">
+                                <asp:LinkButton runat="server" ID="lnkDDMUserName" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                   
+                                    <asp:Literal runat="server" ID="ltlUserName" /> <span class="caret"></span>
+                                </asp:LinkButton>
+                                <ul class="dropdown-menu" runat="server" id="ulDropDown" role="menu" aria-labelledby="lnkDDMUserName">
+                                    <%-- <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="btnMyAccount" role="menuitem" TabIndex="-1" PostBackUrl="#"><span class="sprite ic-myaccount"></span>My Account</asp:LinkButton>
+
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="btnMyVidoes" role="menuitem" TabIndex="-1" PostBackUrl="#"><span class="sprite ic-myvideos"></span>My Videos</asp:LinkButton>
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="btnSettings" role="menuitem" TabIndex="-1" PostBackUrl="#"><span class="sprite ic-settings"></span>Settings</asp:LinkButton>
+                                    </li>--%>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="lnkConfiguration" UseSubmitBehavior="true" role="menuitem" OnClick="btnConfiguration_Click" TabIndex="-1">
+                                            <span class="sprite ic-logout"></span>
+                                            <asp:Literal ID="Literal3" runat="server" Text="<%$ Resources:MasterData, drp_Configuration_text%>" />
+
+
+                                        </asp:LinkButton>
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
+
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="lnkCommunity" role="menuitem" TabIndex="-1" OnClick="lnkCommunity_Click">
+                                            <span class="sprite ic-myaccount"></span>
+                                            <asp:Literal ID="Literal5" runat="server" Text="<%$ Resources:MasterData, drp_Commnity_text%>" />
+                                        </asp:LinkButton>
+
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="lnkDistrict" role="menuitem" TabIndex="-1" OnClick="lnkDistrict_Click">
+                                            <span class="sprite ic-myvideos"></span>
+                                            <asp:Literal ID="Literal6" runat="server" Text="<%$ Resources:MasterData, drp_District_text%>" />
+                                        </asp:LinkButton>
+                                    </li>
+                                    <li role="presentation" class="divider"></li>
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="lnkRoads" role="menuitem" TabIndex="-1" OnClick="lnkRoads_Click">
+                                            <span class="sprite ic-settings"></span>
+                                            <asp:Literal ID="Literal7" runat="server" Text="<%$ Resources:MasterData, drp_Road_text%>" />
+                                        </asp:LinkButton>
+                                    </li>
+
+
+                                    <li role="presentation">
+                                        <asp:LinkButton runat="server" ID="btnLogout" UseSubmitBehavior="true" role="menuitem" TabIndex="-1" OnClick="btnLogout_Click">
+                                            <span class="sprite ic-logout"></span>
+                                            <asp:Literal ID="Literal4" runat="server" Text="<%$ Resources:MasterData, drp_LogOut_Text%>" />
+                                        </asp:LinkButton>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.nav-collapse -->
+                </div>
+            </div>
+
+            <div id="content">
+
+                <asp:ContentPlaceHolder ID="VODContentPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>
