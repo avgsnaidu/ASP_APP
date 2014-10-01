@@ -11,7 +11,7 @@ using System.Data;
 namespace VideoOnDemand
 {
     public partial class Community : BasePage
-    {
+    {    
         clsCommunity repository = new clsCommunity();
         clsDistrict district = new clsDistrict();
 

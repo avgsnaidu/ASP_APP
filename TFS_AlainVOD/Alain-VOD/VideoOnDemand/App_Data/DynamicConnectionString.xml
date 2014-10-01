@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<appSettings>
-  <InitialCatalog>vod_test_db</InitialCatalog>
-  <DataSource>172.16.0.225</DataSource>
-  <Port>2008</Port>
-  <UserID>voddbusr</UserID>
-  <Password>3tgVoddb</Password>
-  <Provider>sqloledb</Provider>
-</appSettings>
